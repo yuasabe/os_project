@@ -18,8 +18,8 @@ static UCHAR *setdec(UCHAR *s, UINT ui)
 int GO_vsprintf(char *s, const char *format, va_list arg)
 {
 	UCHAR c, *t = s, *p, flag_left, flag_zero /* , flag_sign, flag_space */;
-	UCHAR temp[32] /* �����p */, *q;
-	temp[31] = '\0';
+	UCHAR temp[32] /* 数字用 */, *q;
+	temp[31] = '¥0';
 	int field_min, field_max, i;
 	long l;
 	static char hextable_X[16] = "0123456789ABCDEF";
@@ -67,8 +67,8 @@ put1char:
 		}
 		if (c == 's') {
 			if (field_max != INT_MAX) {
-				fputs("GO_vsprintf:mikan-trap!\n", stderr);
-				fputs("string-field_max error!\n", stderr);
+				fputs("GO_vsprintf:mikan-trap!¥n", stderr);
+				fputs("string-field_max error!¥n", stderr);
 				goto sysabort;
 			}
 			p = va_arg(arg, char *);
@@ -113,8 +113,8 @@ printf_d:
 			}
 printf_u:
 			if (field_max != INT_MAX) {
-				fputs("GO_vsprintf:mikan-trap!\n", stderr);
-				fputs("int-field_max error!\n", stderr);
+				fputs("GO_vsprintf:mikan-trap!¥n", stderr);
+				fputs("int-field_max error!¥n", stderr);
 				goto sysabort;
 			}
 			if (field_min <= 0)
@@ -174,8 +174,8 @@ printf_x:
 			continue;
 		}
 mikan:
-		fputs("GO_vsprintf:mikan-trap!\n", stderr);
-		fprintf(stderr, "\"%s\"\n", format - 1);
+		fputs("GO_vsprintf:mikan-trap!¥n", stderr);
+		fprintf(stderr, "¥"%s¥"¥n", format - 1);
 sysabort:
 		GOL_sysabort(GO_TERM_BUGTRAP);
 	}

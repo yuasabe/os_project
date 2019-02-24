@@ -1,4 +1,4 @@
-/* "decode0":ÉLÅ[ÉRÅ[ÉhÅEÉfÉRÅ[É_Å[ for TOWNS ver.1.0 */
+/* "decode0":„Ç≠„Éº„Ç≥„Éº„Éâ„Éª„Éá„Ç≥„Éº„ÉÄ„Éº for TOWNS ver.1.0 */
 
 segment CODE(USE32, PARA);
 default(code == CODE);
@@ -31,15 +31,15 @@ nextcmd:
 	if (EAX == 0)
 		goto cmd0000;
 	if (EAX == 0x010c)
-		goto cmd010c; /* decodeÉãÅ[ÉãíËã` */
+		goto cmd010c; /* decode„É´„Éº„É´ÂÆöÁæ© */
 	if (EAX == 0x0104)
 		goto cmd0104; // Keydecode_setlock
 	if (EAX == 0x0110)
-		goto cmd0110; /* decodeÉãÅ[Éãèâä˙âª */
+		goto cmd0110; /* decode„É´„Éº„É´ÂàùÊúüÂåñ */
 	if (EAX == 0x0108)
-		goto cmd0108; // Keydecode_MainÇ÷ÇÃÉxÉNÉ^í ím
+		goto cmd0108; // Keydecode_Main„Å∏„ÅÆ„Éô„ÇØ„ÇøÈÄöÁü•
 	if (EAX == 0x0100)
-		goto cmd0100; // èâä˙âª
+		goto cmd0100; // ÂàùÊúüÂåñ
 	INT(0x03);
 
 cmd0000:
@@ -49,7 +49,7 @@ cmd0000:
 	return;
 
 cmd0100:
-	// èâä˙âª
+	// ÂàùÊúüÂåñ
 	PUSH((offset) cmd);
 	Keydecode_Init();
 	POP((offset) cmd);
@@ -70,59 +70,59 @@ cmd0104:
 	goto nextcmd;
 
 cmd0108:
-	// Keydecode_MainÇ÷ÇÃÉxÉNÉ^í ím
+	// Keydecode_Main„Å∏„ÅÆ„Éô„ÇØ„ÇøÈÄöÁü•
 	asmout("MOV DWORD PTR FS:[EBX+4],OFFSET Keydecode_Main");
 	(short) cmd[8] = CS;
 	(offset) cmd += 12;
 	goto nextcmd;
 
 cmd010c:
-	/* decodeÉãÅ[ÉãíËã`(CLIÇµÇΩÇŸÇ§Ç™Ç¢Ç¢Ç©Ç‡) */
-	/* cmd, opt(len), rawÉRÅ[Éh, shift-lock-bitmap(mask, equal), subcmd,... */
-	/* subcmdÇÃàÍóó */
+	/* decode„É´„Éº„É´ÂÆöÁæ©(CLI„Åó„Åü„Åª„ÅÜ„Åå„ÅÑ„ÅÑ„Åã„ÇÇ) */
+	/* cmd, opt(len), raw„Ç≥„Éº„Éâ, shift-lock-bitmap(mask, equal), subcmd,... */
+	/* subcmd„ÅÆ‰∏ÄË¶ß */
 	/*	01 : sendsignal(mode-1), call vector, cmd(01), len(max:1KB), signal,...
 		02 : sendsignal(mode-2), 
 		03 : sendsignal(mode-3),
 		04 : or shift-lock-bitmap, 0(dw), bitmap, cmd(04), 0(byte)
 		05 : and shift-lock-bitmap,
 		06 : xor shift-lock-bitmap,
-	//	07 : control LED, hardware-param, bitmap(andÇµÇƒÉmÉìÉ[ÉçÇ»ÇÁon), cmd(07), hardware-param
+	//	07 : control LED, hardware-param, bitmap(and„Åó„Å¶„Éé„É≥„Çº„É≠„Å™„Çâon), cmd(07), hardware-param
 	*/
-	/* shift-lock-bitmapÇÃäÑïtó· */
-	/*	bit0 : scroll...é©ìÆîΩâf
-		bit1 : numlock...é©ìÆîΩâf
-		bit2 : caps...é©ìÆîΩâf
-		bit3 : reserve...é©ìÆîΩâf
+	/* shift-lock-bitmap„ÅÆÂâ≤‰ªò‰æã */
+	/*	bit0 : scroll...Ëá™ÂãïÂèçÊò†
+		bit1 : numlock...Ëá™ÂãïÂèçÊò†
+		bit2 : caps...Ëá™ÂãïÂèçÊò†
+		bit3 : reserve...Ëá™ÂãïÂèçÊò†
 		bit4 : shift
 		bit5 : ctrl
 		bit6 : alt
 		bit7 : reserve
-		bit14, 15ÇÕÅAmake/break/remake/overbreak
+		bit14, 15„ÅØ„ÄÅmake/break/remake/overbreak
 	*/
 
 	/*
-		êîéöÇÃ"1":
-			no-shift & no-ctrl & no-altÇ≈ÉLÅ[ÇâüÇµÇΩéû
-			numlock & no-shift & no-ctrl & no-altÇ≈ÉeÉìÉLÅ[ÇâüÇµÇΩéû
-		âpåÍï∂éö"A":
-			capslock & no-shift & no-ctrl & no-altÇ≈ÉLÅ[ÇâüÇµÇΩéû
-			no-capslock & shift & no-ctrl & no-altÇ≈ÉLÅ[ÇâüÇµÇΩéû
-		âpåÍï∂éö"a":
-			no-capslock & no-shift & no-ctrl & no-altÇ≈ÉLÅ[ÇâüÇµÇΩéû
-			capslock & shift & no-ctrl & no-altÇ≈ÉLÅ[ÇâüÇµÇΩéû
+		Êï∞Â≠ó„ÅÆ"1":
+			no-shift & no-ctrl & no-alt„Åß„Ç≠„Éº„ÇíÊäº„Åó„ÅüÊôÇ
+			numlock & no-shift & no-ctrl & no-alt„Åß„ÉÜ„É≥„Ç≠„Éº„ÇíÊäº„Åó„ÅüÊôÇ
+		Ëã±Ë™ûÊñáÂ≠ó"A":
+			capslock & no-shift & no-ctrl & no-alt„Åß„Ç≠„Éº„ÇíÊäº„Åó„ÅüÊôÇ
+			no-capslock & shift & no-ctrl & no-alt„Åß„Ç≠„Éº„ÇíÊäº„Åó„ÅüÊôÇ
+		Ëã±Ë™ûÊñáÂ≠ó"a":
+			no-capslock & no-shift & no-ctrl & no-alt„Åß„Ç≠„Éº„ÇíÊäº„Åó„ÅüÊôÇ
+			capslock & shift & no-ctrl & no-alt„Åß„Ç≠„Éº„ÇíÊäº„Åó„ÅüÊôÇ
 
-		Ç∆Ç¢Ç§ÇÌÇØÇ≈ÅAAÇ∆aÇìoò^Ç∑ÇÈÇ∆ìsçá4ÉpÉ^Å[ÉìÇìoò^Ç∑ÇÈïKóvÇ™Ç†ÇÈ
-		ÉLÅ[ÇÃï°éGÇ»ëŒâûÇÕÅAwinman0Ç≈èàóùÇ≥ÇπÇÈÅB
+		„Å®„ÅÑ„ÅÜ„Çè„Åë„Åß„ÄÅA„Å®a„ÇíÁôªÈå≤„Åô„Çã„Å®ÈÉΩÂêà4„Éë„Çø„Éº„É≥„ÇíÁôªÈå≤„Åô„ÇãÂøÖË¶Å„Åå„ÅÇ„Çã
+		„Ç≠„Éº„ÅÆË§áÈõë„Å™ÂØæÂøú„ÅØ„ÄÅwinman0„ÅßÂá¶ÁêÜ„Åï„Åõ„Çã„ÄÇ
 
 
 	*/
 
 
 
-	/* ÉèÅ[ÉNÉGÉäÉAÇ©ÇÁìKìñÇ…êÿÇËéÊÇ¡Çƒì]ëóÇµÇƒÅAÉ|ÉCÉìÉ^ÇåqÇ¢Ç≈Ç®ÇÌÇËÅB */
+	/* „ÉØ„Éº„ÇØ„Ç®„É™„Ç¢„Åã„ÇâÈÅ©ÂΩì„Å´Âàá„ÇäÂèñ„Å£„Å¶Ëª¢ÈÄÅ„Åó„Å¶„ÄÅ„Éù„Ç§„É≥„Çø„ÇíÁπã„ÅÑ„Åß„Åä„Çè„Çä„ÄÇ */
 	ESI = work->last;
 	ECX = cmd[ 4]; /* len */
-	EDX = cmd[ 8]; /* rawÉRÅ[Éh */
+	EDX = cmd[ 8]; /* raw„Ç≥„Éº„Éâ */
 	EAX = cmd[12]; /* shiftmap */
 	(offset) cmd += 16;
 	[DS:ESI] = EAX;
@@ -151,7 +151,7 @@ cmd010c:
 	goto nextcmd;
 
 cmd0110:
-	/* decodeÉãÅ[Éãèâä˙âª */
+	/* decode„É´„Éº„É´ÂàùÊúüÂåñ */
 	work->last = 1036;
 	(offset) cmd += 8;
 	LEA(ESI, work->declist[0]);
@@ -166,7 +166,7 @@ cmd0110:
 }
 
 void far Keydecode_Main()
-/* CLIÇµÇΩÇŸÇ§Ç™Ç¢Ç¢Ç©Ç‡ */
+/* CLI„Åó„Åü„Åª„ÅÜ„Åå„ÅÑ„ÅÑ„Åã„ÇÇ */
 {
 	unsigned int keyint_sel   ==  8 * 8, keydata_sel   ==  9 * 8;
 	WORK *work == DS:0;
@@ -186,260 +186,5 @@ void far Keydecode_Main()
 	(unsigned int) ECX >>= 10;
 	EAX &= 0x00ffffff;
 	ECX &= 0xc000;
-	/* mode-1ÉoÉbÉtÉ@ÇåüçıÇ∑ÇÈ */
-	/* ÉRÅ[ÉhÇ™ë∂ç›ÇµÇΩÇÁÅAshiftmapÇ≈ÇÕÇ»Ç≠ÅAÉoÉbÉtÉ@ì‡ÇÃÉVÉtÉgÉRÅ[ÉhÇÉçÅ[ÉfÉBÉìÉO */
-//	if (EAX == work->mode1buf[ 0])
-//		CX |= work->mode1buf[ 4];
-//	else if (EAX == work->mode1buf[ 8])
-//		CX |= work->mode1buf[12];
-//	else if (EAX == work->mode1buf[16])
-//		CX |= work->mode1buf[20];
-//	else if (EAX == work->mode1buf[24])
-//		CX |= work->mode1buf[28];
-//	else
-		CX |= work->shiftmap;
-
-	/* breakÇæÇ¡ÇΩÇÁÅAmode1buf, mode2bufÇ©ÇÁñïè¡Ç∑ÇÈ */
-
-	EDI = work->declist[EAX * 4];
-	if (EDI != 0) {
-		do {
-			/* Ç±ÇÃÉãÅ[Évì‡Ç≈CXÇÕï€ë∂Ç∑ÇÈÇ±Ç∆ */
-			EAX = ECX;
-			AX &= [DS:EDI + 0];
-			CMP(AX, [DS:EDI + 2]);
-			if (==) {
-				AL = [DS:EDI + 8 + 6];
-				LEA(ESI, [EDI + 8 + 8]);
-				if (AL == 0x01) {
-					/* send signal mode-1 */
-					INT(0x03);
-				}
-				if (AL == 0x02) {
-					/* send signal mode-2 */
-					INT(0x03);
-				}
-				if (AL == 0x03) {
-					/* send signal mode-3 */
-					PUSH(EDI);
-					PUSH(ECX);
-					asmout("CALL FAR [DS:EDI + 8]");
-					POP(ECX);
-					POP(EDI);
-					goto next;
-				}
-			//	DL = (char) work->shiftmap;
-				if (AL == 0x04) {
-					/* or shift-lock-bitmap */
-					EAX = [DS:EDI + 8];
-					work->shiftmap |= AX;
-	checkled:
-			//		DL ^= (char) work->shiftmap;
-			//		DL &= 0x0f;
-			//		if (!= 0)
-			//			Keydecode_led();
-
-					/* mode-2ÉoÉbÉtÉ@ÇåüçıÇ∑ÇÈ */
-					/* ÉRÅ[ÉhÇ™ë∂ç›ÇµÅAÇ©Ç¬ÅAshiftèÛë‘ÇÃïœâªÇ…ÇÊÇËmakeèÛë‘Ç…Ç”Ç≥ÇÌÇµÇ≠Ç»Ç≠Ç»Ç¡ÇΩÇÁÅA
-						ÉuÉåÉCÉNÇµÇƒÇ©ÇÁÅAÇ†ÇÁÇΩÇ…makeÇ∑ÇÈ */
-
-					goto next;
-				}
-				if (AL == 0x05) {
-					/* and shift-lock-bitmap */
-					EAX = [DS:EDI + 8];
-					work->shiftmap &= AX;
-				//	goto checkled;
-					goto next;
-				}
-				if (AL == 0x06) {
-					/* xor shift-lock-bitmap */
-					EAX = [DS:EDI + 8];
-					work->shiftmap ^= AX;
-				//	goto checkled;
-					goto next;
-				}
-				if (AL == 0x38) {
-					/* DMAí‚é~ */
-					CLI();
-					AL = 0x0f;
-					OUT(0x00af, AL);
-					/* reset */
-					EAX = 0; /* AL = 0; */
-					OUT(0x0020, AL);
-					EAX++; /* AL = 1; */
-					OUT(0x0020, AL);
-					for (;;)
-						HLT();
-				}
-			}
-	next:
-			EDI = [DS:EDI + 4];
-		} while (EDI != 0);
-	}
-ignore:
-	POP(ESI);
-	POP(DS);
-	return;
-}
-
-void near Keydecode_Init()
-{
-	unsigned int Init_sel     ==  2 * 8, TAPI_sel   == 12 * 8;
-
-	ECX = 4096 * 6 / 4;
-	EAX = 0;
-	ESI = 0;
-	do {
-		(int) [DS:ESI] = EAX;
-		ESI += 4;
-		ECX--;
-	} while (!= 0);
-
-	return;
-}
-
-#if 0
-void far filter0()
-// F1Å`F6ÇµÇ©í Ç≥Ç»Ç¢ÉtÉBÉãÉ^Å[
-{
-	unsigned int keyint_sel   ==  8 * 8, keydata_sel   ==  9 * 8;
-
-	asmout("#work_keycode   EQU 0");
-	asmout("#work_keytype   EQU #work_keycode+256");
-	asmout("#work_msg       EQU #work_keytype+256");
-	asmout("#work_tenkey    EQU #work_msg+64");
-	asmout("#work_twocase   EQU #work_tenkey");
-	asmout("#work_signal    EQU #work_twocase+60H");
-	asmout("#work_jmptable  EQU #work_signal+8");
-	asmout("#work_shiftflag EQU #work_jmptable+20");
-	asmout("#work_pause     EQU #work_shiftflag+1");
-	asmout("#work_dummy0    EQU #work_pause+1");
-	asmout("#work_sigcall   EQU #work_dummy0+2");
-	asmout("#work_size      EQU #work_sigcall+8");
-
-	EAX = [DS:ESI + 8];
-	EAX &= 0x0fff;
-	if (EAX == 0x6a5 /* Ctrl + Alt + Delete */) {
-	//	PUSH(FS);
-		PUSH((int) 0);
-		PUSH(EAX);
-		PUSH(0x010c /* KeyResetCPU */);
-		AX = SS;
-		EBX = ESP;
-		FS = AX;
-		DB(0x9a); DD(0); DW((short) keyint_sel);
-		ESP += 12;
-	//	POP(FS);
-	//	asmout("fcall 8*8, KeyResetCPU");
-		for (;;)
-			HLT();
-	/*	// double-faultÇ≈ÉäÉZÉbÉgÇÇ©ÇØÇÈ
-		CLI();
-		// GDTÇ∆IDTÇÃÉäÉ~ÉbÉgÇ0Ç…Ç∑ÇÈÅB
-		EAX = 0;
-		PUSH(EAX);
-		PUSH(EAX);
-		asmout("LGDTE FWORD PTR SS:[ESP+2]");
-		asmout("LIDTE FWORD PTR SS:[ESP+2]");
-		ESP = 256;
-		INT(0x03);
-	*/
-
-	/*	PUSH([DS:ESI + 4]);
-		PUSH([DS:ESI + 0]);
-		(int) [DS:ESI + 0] = 0x00001241;
-		(int) [DS:ESI + 4] = 0xffffff00;
-		asmout("fcall 12*8,TAPI_SingnalMessageTimer");
-		POP([DS:ESI + 0]);
-		POP([DS:ESI + 4]);
-		return;
-*/	} else if (EAX == 0x6a4 /* Ctrl + Alt + Insert */) {
-		PUSH([DS:ESI + 4]);
-		PUSH([DS:ESI + 0]);
-		(int) [DS:ESI + 0] = 0x00001241;
-		(int) [DS:ESI + 4] = 0xffffff01;
-		asmout("CALL FWORD PTR DS:[#work_sigcall]");
-	//	asmout("fcall 12*8,TAPI_SingnalMessageTimer");
-		POP([DS:ESI + 0]);
-		POP([DS:ESI + 4]);
-		return;
-	}
-	PUSH(DS);
-	PUSH(ESI);
-	EAX *= 16;
-	ESI = 0x1000;
-	EAX &= 0x0ff0;
-	CX = CS; CX += 8; DS = CX;
-	ESI += EAX;
-	TEST((char) [DS:ESI], 0x0f);
-	if (!= 0) {
-		asmout("CALL FWORD PTR DS:[#work_sigcall]");
-	//	asmout("fcall 12*8,TAPI_SingnalMessageTimer");
-	}
-	POP(ESI);
-	POP(DS);
-	return;
-asmout("DecodeSiz:");
-}
-
-/*
-void far filter1()
-{
-	EAX = [DS:ESI + 8];
-	EAX &= 0x0fff;
-	if (EAX == 0x6a5 /* Ctrl + Alt + Delete */) {
-		asmout("fcall 8*8, KeyResetCPU");
-		for (;;)
-			HLT();
-
-	/*	// double-faultÇ≈ÉäÉZÉbÉgÇÇ©ÇØÇÈ
-		CLI();
-		// GDTÇ∆IDTÇÃÉäÉ~ÉbÉgÇ0Ç…Ç∑ÇÈÅB
-		EAX = 0;
-		PUSH(EAX);
-		PUSH(EAX);
-		asmout("LGDTE FWORD PTR SS:[ESP+2]");
-		asmout("LIDTE FWORD PTR SS:[ESP+2]");
-		ESP = 256;
-		INT(0x03);
-	*/
-	} else if (EAX == 0x6a4 /* Ctrl + Alt + Insert */) {
-		CL = 0x01;
-	} else if (EAX == 0x0ac /* left */) {
-		CL = 0x10;
-	} else if (EAX == 0x0ad /* right */) {
-		CL = 0x11;
-	} else if (EAX == 0x0a0 /* Enter */) {
-		CL = 0x12;
-	} else if (EAX == 0x1a0 /* Shift + Enter */) {
-		CL = 0x13;
-	} else if (EAX == 0x1ac /* Shift + left */) {
-		CL = 0x14;
-	} else if (EAX == 0x1ad /* Shift + right */) {
-		CL = 0x15;
-	} else if (EAX == 0x646 /* Ctrl + Alt + 'F' */) {
-		CL = 0x16;
-	} else if (EAX == 0x666 /* Ctrl + Alt + 'f' */) {
-		CL = 0x16;
-	} else if (EAX == 0x746 /* Shift + Ctrl + Alt + 'F' */) {
-		CL = 0x17;
-	} else if (EAX == 0x766 /* Shift + Ctrl + Alt + 'f' */) {
-		CL = 0x17;
-	} else
-		return;
-
-	ECX |= 0xffffff00;
-	PUSH([DS:ESI + 4]);
-	PUSH([DS:ESI + 0]);
-	(int) [DS:ESI + 0] = 0x00001241;
-	(int) [DS:ESI + 4] = ECX;
-	asmout("fcall 12*8,TAPI_SingnalMessageTimer");
-	POP([DS:ESI + 0]);
-	POP([DS:ESI + 4]);
-	return;
-asmout("DecodeSiz:");
-}
-*/
-
-#endif
+	/* mode-1„Éê„ÉÉ„Éï„Ç°„ÇíÊ§úÁ¥¢„Åô„Çã */
+	/* „Ç≥„Éº„Éâ„ÅåÂ≠òÂú®„Åó„Åü„Çâ„ÄÅshiftmap„Åß„ÅØ„Å™„Åè„ÄÅ„Éê„ÉÉ„Éï„Ç°ÂÜÖ„ÅÆ„Ç∑„Éï„Éà„Ç≥„Éº„Éâ„Çí„É≠„Éº„Éá

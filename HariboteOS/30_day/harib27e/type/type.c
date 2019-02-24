@@ -6,8 +6,8 @@ void HariMain(void)
 	char c, cmdline[30], *p;
 
 	api_cmdline(cmdline, 30);
-	for (p = cmdline; *p > ' '; p++) { }	/* ƒXƒy[ƒX‚ª—ˆ‚é‚Ü‚Å“Ç‚İ”ò‚Î‚· */
-	for (; *p == ' '; p++) { }	/* ƒXƒy[ƒX‚ğ“Ç‚İ”ò‚Î‚· */
+	for (p = cmdline; *p > ' '; p++) { }	/* ã‚¹ãƒšãƒ¼ã‚¹ãŒæ¥ã‚‹ã¾ã§èª­ã¿é£›ã°ã™ */
+	for (; *p == ' '; p++) { }	/* ã‚¹ãƒšãƒ¼ã‚¹ã‚’èª­ã¿é£›ã°ã™ */
 	fh = api_fopen(p);
 	if (fh != 0) {
 		for (;;) {
@@ -17,7 +17,7 @@ void HariMain(void)
 			api_putchar(c);
 		}
 	} else {
-		api_putstr0("File not found.\n");
+		api_putstr0("File not found.Â¥n");
 	}
 	api_end();
 }

@@ -1,8 +1,8 @@
 
 #include "textmodule.h"
 
-// ƒtƒ@ƒCƒ‹‚ª‚ ‚Á‚½ê‡‚É“Ç‚İ‚ŞA“Ç‚İ‚Ü‚È‚¢‚Ìİ’è
-// ƒtƒ@ƒCƒ‹‚ÌÅŒã‚ÉƒV[ƒN‚·‚é‚©‚Ç‚¤‚©‚Ìİ’è‚ğ‚Ç‚¤‚·‚é‚©H > Open‚à
+// ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã£ãŸå ´åˆã«èª­ã¿è¾¼ã‚€ã€èª­ã¿è¾¼ã¾ãªã„ã®è¨­å®š
+// ãƒ•ã‚¡ã‚¤ãƒ«ã®æœ€å¾Œã«ã‚·ãƒ¼ã‚¯ã™ã‚‹ã‹ã©ã†ã‹ã®è¨­å®šã‚’ã©ã†ã™ã‚‹ã‹ï¼Ÿ > Openã‚‚
 void	TextModule::New(){
 		TextData.clear();
 		FileName = "";
@@ -32,7 +32,7 @@ void	TextModule::Save(){
 	FILE*	fp;
 	fp = fopen(FileName.c_str(), "wt");
 	if(fp == NULL){
-		// ƒGƒ‰[
+		// ã‚¨ãƒ©ãƒ¼
 		return;
 	}
 	for(LineData itr = TextData.begin(); itr != TextData.end(); itr++) fputs((*itr).c_str(), fp);
@@ -113,14 +113,14 @@ void	main(){
 	TextModule::LineData	linedata1, linedata2;
 	tm.New();
 	linedata1 = tm.ReserveLine();
-	tm.PutLine(string("2\n"));
+	tm.PutLine(string("2Â¥n"));
 	linedata2 = tm.ReserveLine();
 	tm.SeekLine(linedata1);
-	tm.PutLine(string("1\n"));
+	tm.PutLine(string("1Â¥n"));
 	tm.SeekLine(linedata2);
 	tm.EraseLine(linedata1);
 	tm.EraseLine(linedata2);
-	tm.PutLine(string("3\n"));
+	tm.PutLine(string("3Â¥n"));
 	tm.Save(string("test.txt"));
 }
 */

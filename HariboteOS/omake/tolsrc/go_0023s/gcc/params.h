@@ -72,7 +72,7 @@ extern void set_param_value
 
 typedef enum compiler_param
 {
-#define DEFPARAM(enumerator, option, msgid, default) \
+#define DEFPARAM(enumerator, option, msgid, default) ¥
   enumerator,
 #include "params.def"
 #undef DEFPARAM  
@@ -80,20 +80,20 @@ typedef enum compiler_param
 } compiler_param;
 
 /* The value of the parameter given by ENUM.  */
-#define PARAM_VALUE(ENUM) \
+#define PARAM_VALUE(ENUM) ¥
   (compiler_params[(int) ENUM].value)
   
 /* Macros for the various parameters.  */
-#define MAX_INLINE_INSNS \
+#define MAX_INLINE_INSNS ¥
   PARAM_VALUE (PARAM_MAX_INLINE_INSNS)
-#define MAX_DELAY_SLOT_INSN_SEARCH \
+#define MAX_DELAY_SLOT_INSN_SEARCH ¥
   PARAM_VALUE (PARAM_MAX_DELAY_SLOT_INSN_SEARCH)
-#define MAX_DELAY_SLOT_LIVE_SEARCH \
+#define MAX_DELAY_SLOT_LIVE_SEARCH ¥
   PARAM_VALUE (PARAM_MAX_DELAY_SLOT_LIVE_SEARCH)
-#define MAX_PENDING_LIST_LENGTH \
+#define MAX_PENDING_LIST_LENGTH ¥
   PARAM_VALUE (PARAM_MAX_PENDING_LIST_LENGTH)
-#define MAX_GCSE_MEMORY \
+#define MAX_GCSE_MEMORY ¥
   ((size_t) PARAM_VALUE (PARAM_MAX_GCSE_MEMORY))
-#define MAX_GCSE_PASSES \
+#define MAX_GCSE_PASSES ¥
   PARAM_VALUE (PARAM_MAX_GCSE_PASSES)
 #endif /* ! GCC_PARAMS_H */

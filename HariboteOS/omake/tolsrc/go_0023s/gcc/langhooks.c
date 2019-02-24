@@ -94,7 +94,7 @@ lhd_set_yydebug (value)
      int value;
 {
   if (value)
-    fprintf (stderr, "warning: no yacc/bison-generated output to debug!\n");
+    fprintf (stderr, "warning: no yacc/bison-generated output to debug!¥n");
 }
 
 /* Provide a default routine to clear the binding stack.  This is used
@@ -294,12 +294,4 @@ lhd_tree_dump_dump_tree (di, t)
 }
 
 /* lang_hooks.tree_dump.type_qual:  Determine type qualifiers in a 
-   language-specific way.  */
-
-int
-lhd_tree_dump_type_quals (t)
-     tree t;
-{
-  return TYPE_QUALS (t);
-}
-
+   language-specific w

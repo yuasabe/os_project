@@ -48,31 +48,31 @@ Boston, MA 02111-1307, USA.  */
    embedded stabs.  */
 
 #undef DBX_OUTPUT_MAIN_SOURCE_FILE_END
-#define DBX_OUTPUT_MAIN_SOURCE_FILE_END(FILE, FILENAME)			\
-  asm_fprintf (FILE,							\
-	       "\t.text\n\t.stabs \"\",%d,0,0,%LLetext\n%LLetext:\n", N_SO)
+#define DBX_OUTPUT_MAIN_SOURCE_FILE_END(FILE, FILENAME)			¥
+  asm_fprintf (FILE,							¥
+	       "¥t.text¥n¥t.stabs ¥"¥",%d,0,0,%LLetext¥n%LLetext:¥n", N_SO)
 
 /* Like block addresses, stabs line numbers are relative to the
    current function.  */
 
 #undef ASM_OUTPUT_SOURCE_LINE
-#define ASM_OUTPUT_SOURCE_LINE(FILE, LINE)			\
-{ if (write_symbols == SDB_DEBUG) {				\
-    fprintf ((FILE), "\t.ln\t%d\n",				\
-	     ((sdb_begin_function_line > -1)			\
-	      ? (LINE) - sdb_begin_function_line : 1));		\
-  } else if (write_symbols == DBX_DEBUG) {			\
-    static int sym_lineno = 1;					\
-    char buffer[256];						\
-    ASM_GENERATE_INTERNAL_LABEL (buffer, "LM", sym_lineno);	\
-    fprintf (FILE, ".stabn 68,0,%d,", LINE);			\
-    assemble_name (FILE, buffer);				\
-    putc ('-', FILE);						\
-    assemble_name (FILE,					\
-		   XSTR (XEXP (DECL_RTL (current_function_decl), 0), 0)); \
-    putc ('\n', FILE);						\
-    ASM_OUTPUT_INTERNAL_LABEL (FILE, "LM", sym_lineno);		\
-    sym_lineno++;						\
+#define ASM_OUTPUT_SOURCE_LINE(FILE, LINE)			¥
+{ if (write_symbols == SDB_DEBUG) {				¥
+    fprintf ((FILE), "¥t.ln¥t%d¥n",				¥
+	     ((sdb_begin_function_line > -1)			¥
+	      ? (LINE) - sdb_begin_function_line : 1));		¥
+  } else if (write_symbols == DBX_DEBUG) {			¥
+    static int sym_lineno = 1;					¥
+    char buffer[256];						¥
+    ASM_GENERATE_INTERNAL_LABEL (buffer, "LM", sym_lineno);	¥
+    fprintf (FILE, ".stabn 68,0,%d,", LINE);			¥
+    assemble_name (FILE, buffer);				¥
+    putc ('-', FILE);						¥
+    assemble_name (FILE,					¥
+		   XSTR (XEXP (DECL_RTL (current_function_decl), 0), 0)); ¥
+    putc ('¥n', FILE);						¥
+    ASM_OUTPUT_INTERNAL_LABEL (FILE, "LM", sym_lineno);		¥
+    sym_lineno++;						¥
   } }
 
 /* When generating stabs debugging, use N_BINCL entries.  */

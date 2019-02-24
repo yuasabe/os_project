@@ -228,22 +228,22 @@ extract_string (pp)
   for (;;)
     {
       char c = *p;
-      if (c == '\0')
+      if (c == '¥0')
 	break;
       ++p;
       if (backquote)
 	obstack_1grow (&temporary_obstack, c);
       else if (! inside && c == ' ')
 	break;
-      else if (! inside && c == '\\')
+      else if (! inside && c == '¥¥')
 	backquote = 1;
-      else if (c == '\'')
+      else if (c == '¥'')
 	inside = !inside;
       else
 	obstack_1grow (&temporary_obstack, c);
     }
 
-  obstack_1grow (&temporary_obstack, '\0');
+  obstack_1grow (&temporary_obstack, '¥0');
   *pp = p;
   return obstack_finish (&temporary_obstack);
 }
@@ -305,11 +305,11 @@ afgets (stream)
      FILE *stream;
 {
   int c;
-  while ((c = getc (stream)) != EOF && c != '\n')
+  while ((c = getc (stream)) != EOF && c != '¥n')
     obstack_1grow (&temporary_obstack, c);
   if (obstack_object_size (&temporary_obstack) == 0)
     return NULL;
-  obstack_1grow (&temporary_obstack, '\0');
+  obstack_1grow (&temporary_obstack, '¥0');
   return obstack_finish (&temporary_obstack);
 }
 
@@ -443,17 +443,17 @@ finish_repo ()
   if (repo_file == 0)
     goto out;
 
-  fprintf (repo_file, "M %s\n", main_input_filename);
-  fprintf (repo_file, "D %s\n", dir);
+  fprintf (repo_file, "M %s¥n", main_input_filename);
+  fprintf (repo_file, "D %s¥n", dir);
   if (args)
-    fprintf (repo_file, "A %s\n", args);
+    fprintf (repo_file, "A %s¥n", args);
 
   for (t = pending_repo; t; t = TREE_CHAIN (t))
     {
       tree val = TREE_VALUE (t);
       char type = IDENTIFIER_REPO_CHOSEN (val) ? 'C' : 'O';
 
-      fprintf (repo_file, "%c %s\n", type, IDENTIFIER_POINTER (val));
+      fprintf (repo_file, "%c %s¥n", type, IDENTIFIER_POINTER (val));
     }
 
  out:

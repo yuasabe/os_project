@@ -29,8 +29,8 @@ hex_init ()
 }
 
 /* Are we ASCII? */
-#if '\n' == 0x0A && ' ' == 0x20 && '0' == 0x30 \
-  && 'A' == 0x41 && 'a' == 0x61 && '!' == 0x21 \
+#if '¥n' == 0x0A && ' ' == 0x20 && '0' == 0x30 ¥
+  && 'A' == 0x41 && 'a' == 0x61 && '!' == 0x21 ¥
   && EOF == -1
 
 const char _hex_value[_hex_array_size] =
@@ -60,7 +60,7 @@ const char _hex_value[_hex_array_size] =
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* P   Q   R   S   */
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* T   U   V   W   */
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* X   Y   Z   [   */
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* \   ]   ^   _   */
+  _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* ¥   ]   ^   _   */
 
   _hex_bad, 10,       11,       12,         /* `   a   b   c   */
   13,       14,       15,       _hex_bad,   /* d   e   f   g   */
@@ -69,7 +69,7 @@ const char _hex_value[_hex_array_size] =
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* p   q   r   s   */
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* t   u   v   w   */
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* x   y   z   {   */
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* |   }   ~   DEL */
+  _hex_bad, _hex_bad, _hex_bad, _hex_bad,   /* |   }   ‾   DEL */
 
   /* The high half of unsigned char, all values are _hex_bad.  */
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,
@@ -87,27 +87,4 @@ const char _hex_value[_hex_array_size] =
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,
   _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-  _hex_bad, _hex_bad, _hex_bad, _hex_bad,
-};
-#else
- #error "Unsupported host character set"
-#endif /* not ASCII */
+  _hex_bad, _hex

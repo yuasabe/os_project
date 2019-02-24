@@ -11,7 +11,7 @@
 char* GO_strchr (char *d, int c)
 {
 	while (c != *d) {
-		if ('\0' == *d++)
+		if ('¥0' == *d++)
 			return NULL;
 	}
 

@@ -115,27 +115,4 @@ extern void md5_process_bytes __P ((const void *buffer, size_t len,
 
    IMPORTANT: On some systems it is required that RESBUF is correctly
    aligned for a 32 bits value.  */
-extern void *md5_finish_ctx __P ((struct md5_ctx *ctx, void *resbuf));
-
-
-/* Put result from CTX in first 16 bytes following RESBUF.  The result is
-   always in little endian byte order, so that a byte-wise output yields
-   to the wanted ASCII representation of the message digest.
-
-   IMPORTANT: On some systems it is required that RESBUF is correctly
-   aligned for a 32 bits value.  */
-extern void *md5_read_ctx __P ((const struct md5_ctx *ctx, void *resbuf));
-
-
-/* Compute MD5 message digest for bytes read from STREAM.  The
-   resulting message digest number will be written into the 16 bytes
-   beginning at RESBLOCK.  */
-extern int md5_stream __P ((FILE *stream, void *resblock));
-
-/* Compute MD5 message digest for LEN bytes beginning at BUFFER.  The
-   result is always in little endian byte order, so that a byte-wise
-   output yields to the wanted ASCII representation of the message
-   digest.  */
-extern void *md5_buffer __P ((const char *buffer, size_t len, void *resblock));
-
-#endif
+extern void *md5_finish_ctx __P ((struct

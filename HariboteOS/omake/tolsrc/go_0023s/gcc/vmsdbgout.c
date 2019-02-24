@@ -230,14 +230,14 @@ struct gcc_debug_hooks vmsdbg_debug_hooks
 #define NUMBYTES0(I) ((I) < 128 ? 0 : (I) < 65536 ? 2 : 4)
 
 #ifndef UNALIGNED_PTR_ASM_OP
-#define UNALIGNED_PTR_ASM_OP \
+#define UNALIGNED_PTR_ASM_OP ¥
   (PTR_SIZE == 8 ? UNALIGNED_DOUBLE_INT_ASM_OP : UNALIGNED_INT_ASM_OP)
 #endif
 
 #ifndef UNALIGNED_OFFSET_ASM_OP
-#define UNALIGNED_OFFSET_ASM_OP(OFFSET) \
-  (NUMBYTES(OFFSET) == 4 \
-   ? UNALIGNED_LONG_ASM_OP \
+#define UNALIGNED_OFFSET_ASM_OP(OFFSET) ¥
+  (NUMBYTES(OFFSET) == 4 ¥
+   ? UNALIGNED_LONG_ASM_OP ¥
    : (NUMBYTES(OFFSET) == 2 ? UNALIGNED_SHORT_ASM_OP : ASM_BYTE_OP))
 #endif
 
@@ -277,86 +277,86 @@ static char text_end_label[MAX_ARTIFICIAL_LABEL_BYTES];
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DELTA2
-#define ASM_OUTPUT_DEBUG_DELTA2(FILE,LABEL1,LABEL2)			 \
-  do									 \
-    {									 \
-      fprintf ((FILE), "\t%s\t", UNALIGNED_SHORT_ASM_OP);		 \
-      assemble_name (FILE, LABEL1);					 \
-      fprintf (FILE, "-");						 \
-      assemble_name (FILE, LABEL2);					 \
-    }									 \
+#define ASM_OUTPUT_DEBUG_DELTA2(FILE,LABEL1,LABEL2)			 ¥
+  do									 ¥
+    {									 ¥
+      fprintf ((FILE), "¥t%s¥t", UNALIGNED_SHORT_ASM_OP);		 ¥
+      assemble_name (FILE, LABEL1);					 ¥
+      fprintf (FILE, "-");						 ¥
+      assemble_name (FILE, LABEL2);					 ¥
+    }									 ¥
   while (0)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DELTA4
-#define ASM_OUTPUT_DEBUG_DELTA4(FILE,LABEL1,LABEL2)			 \
-  do									 \
-    {									 \
-      fprintf ((FILE), "\t%s\t", UNALIGNED_INT_ASM_OP);			 \
-      assemble_name (FILE, LABEL1);					 \
-      fprintf (FILE, "-");						 \
-      assemble_name (FILE, LABEL2);					 \
-    }									 \
+#define ASM_OUTPUT_DEBUG_DELTA4(FILE,LABEL1,LABEL2)			 ¥
+  do									 ¥
+    {									 ¥
+      fprintf ((FILE), "¥t%s¥t", UNALIGNED_INT_ASM_OP);			 ¥
+      assemble_name (FILE, LABEL1);					 ¥
+      fprintf (FILE, "-");						 ¥
+      assemble_name (FILE, LABEL2);					 ¥
+    }									 ¥
   while (0)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_ADDR_DELTA
-#define ASM_OUTPUT_DEBUG_ADDR_DELTA(FILE,LABEL1,LABEL2)			 \
-  do									 \
-    {									 \
-      fprintf ((FILE), "\t%s\t", UNALIGNED_PTR_ASM_OP);			 \
-      assemble_name (FILE, LABEL1);					 \
-      fprintf (FILE, "-");						 \
-      assemble_name (FILE, LABEL2);					 \
-    }									 \
+#define ASM_OUTPUT_DEBUG_ADDR_DELTA(FILE,LABEL1,LABEL2)			 ¥
+  do									 ¥
+    {									 ¥
+      fprintf ((FILE), "¥t%s¥t", UNALIGNED_PTR_ASM_OP);			 ¥
+      assemble_name (FILE, LABEL1);					 ¥
+      fprintf (FILE, "-");						 ¥
+      assemble_name (FILE, LABEL2);					 ¥
+    }									 ¥
   while (0)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_ADDR
-#define ASM_OUTPUT_DEBUG_ADDR(FILE,LABEL)				 \
-  do									 \
-    {									 \
-      fprintf ((FILE), "\t%s\t", UNALIGNED_PTR_ASM_OP);			 \
-      assemble_name (FILE, LABEL);					 \
-    }									 \
+#define ASM_OUTPUT_DEBUG_ADDR(FILE,LABEL)				 ¥
+  do									 ¥
+    {									 ¥
+      fprintf ((FILE), "¥t%s¥t", UNALIGNED_PTR_ASM_OP);			 ¥
+      assemble_name (FILE, LABEL);					 ¥
+    }									 ¥
   while (0)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_ADDR_CONST
-#define ASM_OUTPUT_DEBUG_ADDR_CONST(FILE,ADDR)				\
-  fprintf ((FILE), "\t%s\t%s", UNALIGNED_PTR_ASM_OP, (ADDR))
+#define ASM_OUTPUT_DEBUG_ADDR_CONST(FILE,ADDR)				¥
+  fprintf ((FILE), "¥t%s¥t%s", UNALIGNED_PTR_ASM_OP, (ADDR))
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DATA1
-#define ASM_OUTPUT_DEBUG_DATA1(FILE,VALUE) \
-  fprintf ((FILE), "\t%s\t0x%x", ASM_BYTE_OP, (unsigned char) VALUE)
+#define ASM_OUTPUT_DEBUG_DATA1(FILE,VALUE) ¥
+  fprintf ((FILE), "¥t%s¥t0x%x", ASM_BYTE_OP, (unsigned char) VALUE)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DATA2
-#define ASM_OUTPUT_DEBUG_DATA2(FILE,VALUE) \
-  fprintf ((FILE), "\t%s\t0x%x", UNALIGNED_SHORT_ASM_OP, \
+#define ASM_OUTPUT_DEBUG_DATA2(FILE,VALUE) ¥
+  fprintf ((FILE), "¥t%s¥t0x%x", UNALIGNED_SHORT_ASM_OP, ¥
 	   (unsigned short) VALUE)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DATA4
-#define ASM_OUTPUT_DEBUG_DATA4(FILE,VALUE) \
-  fprintf ((FILE), "\t%s\t0x%lx", UNALIGNED_INT_ASM_OP, (unsigned long) VALUE)
+#define ASM_OUTPUT_DEBUG_DATA4(FILE,VALUE) ¥
+  fprintf ((FILE), "¥t%s¥t0x%lx", UNALIGNED_INT_ASM_OP, (unsigned long) VALUE)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DATA
-#define ASM_OUTPUT_DEBUG_DATA(FILE,VALUE) \
-  fprintf ((FILE), "\t%s\t0x%lx", UNALIGNED_OFFSET_ASM_OP(VALUE), VALUE)
+#define ASM_OUTPUT_DEBUG_DATA(FILE,VALUE) ¥
+  fprintf ((FILE), "¥t%s¥t0x%lx", UNALIGNED_OFFSET_ASM_OP(VALUE), VALUE)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_ADDR_DATA
-#define ASM_OUTPUT_DEBUG_ADDR_DATA(FILE,VALUE) \
-  fprintf ((FILE), "\t%s\t0x%lx", UNALIGNED_PTR_ASM_OP, \
+#define ASM_OUTPUT_DEBUG_ADDR_DATA(FILE,VALUE) ¥
+  fprintf ((FILE), "¥t%s¥t0x%lx", UNALIGNED_PTR_ASM_OP, ¥
 	   (unsigned long) VALUE)
 #endif
 
 #ifndef ASM_OUTPUT_DEBUG_DATA8
-#define ASM_OUTPUT_DEBUG_DATA8(FILE,VALUE) \
-  fprintf ((FILE), "\t%s\t0x%llx", UNALIGNED_DOUBLE_INT_ASM_OP, \
+#define ASM_OUTPUT_DEBUG_DATA8(FILE,VALUE) ¥
+  fprintf ((FILE), "¥t%s¥t0x%llx", UNALIGNED_DOUBLE_INT_ASM_OP, ¥
                                  (unsigned long long) VALUE)
 #endif
 
@@ -364,25 +364,25 @@ static char text_end_label[MAX_ARTIFICIAL_LABEL_BYTES];
    newline is produced.  When flag_verbose_asm is asserted, we add commnetary
    at the end of the line, so we must avoid output of a newline here.  */
 #ifndef ASM_OUTPUT_DEBUG_STRING
-#define ASM_OUTPUT_DEBUG_STRING(FILE,P)		\
-  do						\
-    {						\
-      register int slen = strlen(P);		\
-      register char *p = (P);			\
-      register int i;				\
-      fprintf (FILE, "\t.ascii \"");		\
-      for (i = 0; i < slen; i++)		\
-	{					\
-	  register int c = p[i];		\
-	  if (c == '\"' || c == '\\')		\
-	    putc ('\\', FILE);			\
-	  if (c >= ' ' && c < 0177)		\
-	    putc (c, FILE);			\
-	  else					\
-	    fprintf (FILE, "\\%o", c);		\
-	}					\
-      fprintf (FILE, "\"");			\
-    }						\
+#define ASM_OUTPUT_DEBUG_STRING(FILE,P)		¥
+  do						¥
+    {						¥
+      register int slen = strlen(P);		¥
+      register char *p = (P);			¥
+      register int i;				¥
+      fprintf (FILE, "¥t.ascii ¥"");		¥
+      for (i = 0; i < slen; i++)		¥
+	{					¥
+	  register int c = p[i];		¥
+	  if (c == '¥"' || c == '¥¥')		¥
+	    putc ('¥¥', FILE);			¥
+	  if (c >= ' ' && c < 0177)		¥
+	    putc (c, FILE);			¥
+	  else					¥
+	    fprintf (FILE, "¥¥%o", c);		¥
+	}					¥
+      fprintf (FILE, "¥"");			¥
+    }						¥
   while (0)
 #endif
 
@@ -390,14 +390,14 @@ static char text_end_label[MAX_ARTIFICIAL_LABEL_BYTES];
    macro has the same effect as ASM_OUTPUT_LABELREF, but copies to
    a string rather than writing to a file.  */
 #ifndef ASM_NAME_TO_STRING
-#define ASM_NAME_TO_STRING(STR, NAME) 		\
-  do						\
-    {						\
-      if ((NAME)[0] == '*')			\
-	strcpy (STR, NAME+1);			\
-      else					\
-	strcpy (STR, NAME);			\
-    }						\
+#define ASM_NAME_TO_STRING(STR, NAME) 		¥
+  do						¥
+    {						¥
+      if ((NAME)[0] == '*')			¥
+	strcpy (STR, NAME+1);			¥
+      else					¥
+	strcpy (STR, NAME);			¥
+    }						¥
   while (0)
 #endif
 
@@ -419,7 +419,7 @@ addr_const_to_string (str, x)
   char buf2[256];
 
 restart:
-  str[0] = '\0';
+  str[0] = '¥0';
   switch (GET_CODE (x))
     {
     case PC:
@@ -552,17 +552,17 @@ write_debug_header (header, comment, dosizeonly)
 			      header->dst__header_length.dst_w_length);
 
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s record length", ASM_COMMENT_START);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s record length", ASM_COMMENT_START);
+      fputc ('¥n', asm_out_file);
 
       ASM_OUTPUT_DEBUG_DATA2 (asm_out_file,
 			      header->dst__header_type.dst_w_type);
 
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s record type (%s)", ASM_COMMENT_START,
+	fprintf (asm_out_file, "¥t%s record type (%s)", ASM_COMMENT_START,
 		 comment);
 
-      fputc ('\n', asm_out_file);
+      fputc ('¥n', asm_out_file);
     }
 
   return 4;
@@ -582,8 +582,8 @@ write_debug_addr (symbol, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_ADDR (asm_out_file, symbol);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
 
   return PTR_SIZE;
@@ -603,8 +603,8 @@ write_debug_data1 (data1, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_DATA1 (asm_out_file, data1);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
 
   return 1;
@@ -624,8 +624,8 @@ write_debug_data2 (data2, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_DATA2 (asm_out_file, data2);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
 
   return 2;
@@ -644,8 +644,8 @@ write_debug_data4 (data4, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_DATA4 (asm_out_file, data4);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
   
   return 4;
@@ -664,8 +664,8 @@ write_debug_data8 (data8, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_DATA8 (asm_out_file, data8);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
 
   return 8;
@@ -686,8 +686,8 @@ write_debug_delta4 (label1, label2, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_DELTA4 (asm_out_file, label1, label2);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
 
   return 4;
@@ -707,8 +707,8 @@ write_debug_string (string, comment, dosizeonly)
     {
       ASM_OUTPUT_DEBUG_STRING (asm_out_file, string);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s %s", ASM_COMMENT_START, comment);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s %s", ASM_COMMENT_START, comment);
+      fputc ('¥n', asm_out_file);
     }
   
   return strlen (string);
@@ -929,15 +929,15 @@ write_rtnend (rtnnum, dosizeonly)
   return totsize;
 }
 
-#define K_DELTA_PC(I) \
+#define K_DELTA_PC(I) ¥
  ((I) < 128 ? -(I) : (I) < 65536 ? DST_K_DELTA_PC_W : DST_K_DELTA_PC_L)
 
-#define K_SET_LINUM(I) \
- ((I) < 256 ? DST_K_SET_LINUM_B \
+#define K_SET_LINUM(I) ¥
+ ((I) < 256 ? DST_K_SET_LINUM_B ¥
   : (I) < 65536 ? DST_K_SET_LINUM : DST_K_SET_LINUM_L)
 
-#define K_INCR_LINUM(I) \
- ((I) < 256 ? DST_K_INCR_LINUM \
+#define K_INCR_LINUM(I) ¥
+ ((I) < 256 ? DST_K_INCR_LINUM ¥
   : (I) < 65536 ? DST_K_INCR_LINUM_W : DST_K_INCR_LINUM_L)
 
 /* Output the PC to line number correlations and return the size.  Just return
@@ -986,8 +986,8 @@ write_pclines (dosizeonly)
     {
       ASM_OUTPUT_DEBUG_ADDR (asm_out_file, TEXT_SECTION_ASM_OP);
       if (flag_verbose_asm)
-	fprintf (asm_out_file, "\t%s line_num", ASM_COMMENT_START);
-      fputc ('\n', asm_out_file);
+	fprintf (asm_out_file, "¥t%s line_num", ASM_COMMENT_START);
+      fputc ('¥n', asm_out_file);
     }
 
   fn = line_info_table[1].dst_file_num;
@@ -1262,502 +1262,4 @@ write_srccorr (fileid, file_info_entry, dosizeonly)
   return totsize;
 }
 
-/* Output all the source correlation entries and return the size.  Just return
-   the size if DOSIZEONLY is non-zero.  */
-
-static int
-write_srccorrs (dosizeonly)
-     int dosizeonly;
-{
-  unsigned int i;
-  int totsize = 0;
-
-  for (i = 1; i < file_info_table_in_use; i++)
-    totsize += write_srccorr (i, file_info_table[i], dosizeonly);
-
-  return totsize;
-}     
-
-/* Output a marker (i.e. a label) for the beginning of a function, before
-   the prologue.  */
-
-static void
-vmsdbgout_begin_prologue (line, file)
-     unsigned int line;
-     const char *file;
-{
-  char label[MAX_ARTIFICIAL_LABEL_BYTES];
-
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.begin_prologue) (line, file);
-
-  if (debug_info_level > DINFO_LEVEL_NONE)
-    {
-      current_funcdef_number++;
-      ASM_GENERATE_INTERNAL_LABEL (label, FUNC_BEGIN_LABEL,
-				   current_funcdef_number);
-      ASM_OUTPUT_LABEL (asm_out_file, label);
-    }
-}
-
-/* Output a marker (i.e. a label) for the beginning of a function, after
-   the prologue.  */
-
-void
-vmsdbgout_after_prologue ()
-{
-  char label[MAX_ARTIFICIAL_LABEL_BYTES];
-
-  if (debug_info_level > DINFO_LEVEL_TERSE)
-    {
-      ASM_GENERATE_INTERNAL_LABEL (label, FUNC_PROLOG_LABEL,
-				   current_funcdef_number);
-      ASM_OUTPUT_LABEL (asm_out_file, label);
-    }
-}
-
-/* Output a marker (i.e. a label) for the absolute end of the generated code
-   for a function definition.  This gets called *after* the epilogue code has
-   been generated.  */
-
-static void
-vmsdbgout_end_epilogue ()
-{
-  char label[MAX_ARTIFICIAL_LABEL_BYTES];
-
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.end_epilogue) ();
-
-  if (debug_info_level > DINFO_LEVEL_NONE)
-    {
-      /* Output a label to mark the endpoint of the code generated for this
-         function.  */
-      ASM_GENERATE_INTERNAL_LABEL (label, FUNC_END_LABEL,
-				   current_funcdef_number);
-      ASM_OUTPUT_LABEL (asm_out_file, label);
-    }
-}
-
-/* Output a marker (i.e. a label) for the beginning of the generated code for
-   a lexical block.  */
-
-static void
-vmsdbgout_begin_block (line, blocknum)
-     register unsigned line;
-     register unsigned blocknum;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.begin_block) (line, blocknum);
-
-  if (debug_info_level > DINFO_LEVEL_TERSE)
-    ASM_OUTPUT_INTERNAL_LABEL (asm_out_file, BLOCK_BEGIN_LABEL, blocknum);
-}
-
-/* Output a marker (i.e. a label) for the end of the generated code for a
-   lexical block.  */
-
-static void
-vmsdbgout_end_block (line, blocknum)
-     register unsigned line;
-     register unsigned blocknum;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.end_block) (line, blocknum);
-
-  if (debug_info_level > DINFO_LEVEL_TERSE)
-    ASM_OUTPUT_INTERNAL_LABEL (asm_out_file, BLOCK_END_LABEL, blocknum);
-}
-
-/* Not implemented in VMS Debug.  */
-
-static bool
-vmsdbgout_ignore_block (block)
-     tree block;
-{
-  bool retval = 0;
-
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    retval = (*dwarf2_debug_hooks.ignore_block) (block);
-
-  return retval;
-}
-
-/* Add an entry for function DECL into the func_table.  */
-
-static void
-vmsdbgout_begin_function (decl)
-     tree decl;
-{
-  const char *name = XSTR (XEXP (DECL_RTL (decl), 0), 0);
-
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.begin_function) (decl);
-
-  if (func_table_in_use == func_table_allocated)
-    {
-      func_table_allocated += FUNC_TABLE_INCREMENT;
-      func_table = (char **) xrealloc (func_table,
-				       func_table_allocated * sizeof (char *));
-    }
-
-  /* Add the new entry to the end of the function name table.  */
-  func_table[func_table_in_use++] = xstrdup (name);
-}
-
-static char fullname_buff [4096];
-
-/* Return the full file specification for FILENAME.  The specification must be
-   in VMS syntax in order to be processed by VMS Debug.  */
-
-static char *
-full_name (filename)
-     const char *filename;
-{
-#ifdef VMS
-  FILE *fp = fopen (filename, "r");
-
-  fgetname (fp, fullname_buff, 1);
-  fclose (fp);
-#else
-  getcwd (fullname_buff, sizeof (fullname_buff));
-
-  strcat (fullname_buff, "/");
-  strcat (fullname_buff, filename);
-
-  /* ??? Insert hairy code here to translate Unix style file specification
-     to VMS style.  */
-#endif
-
-  return fullname_buff;
-}
-
-/* Lookup a filename (in the list of filenames that we know about here in
-   vmsdbgout.c) and return its "index".  The index of each (known) filename is
-   just a unique number which is associated with only that one filename.  We
-   need such numbers for the sake of generating labels  and references
-   to those files numbers.  If the filename given as an argument is not
-   found in our current list, add it to the list and assign it the next
-   available unique index number.  In order to speed up searches, we remember
-   the index of the filename was looked up last.  This handles the majority of
-   all searches.  */
-
-static unsigned int
-lookup_filename (file_name)
-     const char *file_name;
-{
-  static unsigned int last_file_lookup_index = 0;
-  register char *fn;
-  register unsigned i;
-  char *fnam;
-  long long cdt;
-  long ebk;
-  short ffb;
-  char rfo;
-  char flen;
-  struct stat statbuf;
-
-  if (stat (file_name, &statbuf) == 0)
-    {
-      long gmtoff;
-#ifdef VMS
-      struct tm *ts;
-
-      /* Adjust for GMT */
-      ts = (struct tm *) localtime (&statbuf.st_ctime);
-      gmtoff = ts->tm_gmtoff;
-
-      /* VMS has multiple file format types */
-      rfo = statbuf.st_fab_rfm;
-#else
-      /* Is GMT adjustment an issue with a cross-compiler? */
-      gmtoff = 0;
-
-      /* Assume stream LF type file */
-      rfo = 2;
-#endif
-      cdt = 10000000 * (statbuf.st_ctime + gmtoff + vms_epoch_offset);
-      ebk = statbuf.st_size / 512 + 1;
-      ffb = statbuf.st_size - ((statbuf.st_size / 512) * 512);
-      fnam = full_name (file_name);
-      flen = strlen (fnam);
-    }
-  else
-    {
-      cdt = 0;
-      ebk = 0;
-      ffb = 0;
-      rfo = 0;
-      fnam = (char *) "";
-      flen = 0;
-    }
-
-  /* Check to see if the file name that was searched on the previous call
-     matches this file name. If so, return the index.  */
-  if (last_file_lookup_index != 0)
-    {
-      fn = file_info_table[last_file_lookup_index].file_name;
-      if (strcmp (fnam, fn) == 0)
-	return last_file_lookup_index;
-    }
-
-  /* Didn't match the previous lookup, search the table */
-  for (i = 1; i < file_info_table_in_use; ++i)
-    {
-      fn = file_info_table[i].file_name;
-      if (strcmp (fnam, fn) == 0)
-	{
-	  last_file_lookup_index = i;
-	  return i;
-	}
-    }
-
-  /* Prepare to add a new table entry by making sure there is enough space in 
-     the table to do so.  If not, expand the current table.  */
-  if (file_info_table_in_use == file_info_table_allocated)
-    {
-
-      file_info_table_allocated += FILE_TABLE_INCREMENT;
-      file_info_table
-	= (dst_file_info_ref) xrealloc (file_info_table,
-					(file_info_table_allocated
-					 * sizeof (dst_file_info_entry)));
-    }
-
-  /* Add the new entry to the end of the filename table.  */
-  file_info_table[file_info_table_in_use].file_name = xstrdup (fnam);
-  file_info_table[file_info_table_in_use].max_line = 0;
-  file_info_table[file_info_table_in_use].cdt = cdt;
-  file_info_table[file_info_table_in_use].ebk = ebk;
-  file_info_table[file_info_table_in_use].ffb = ffb;
-  file_info_table[file_info_table_in_use].rfo = rfo;
-  file_info_table[file_info_table_in_use].flen = flen;
-
-  last_file_lookup_index = file_info_table_in_use++;
-  return last_file_lookup_index;
-}
-
-/* Output a label to mark the beginning of a source code line entry
-   and record information relating to this source line, in
-   'line_info_table' for later output of the .debug_line section.  */
-
-static void
-vmsdbgout_source_line (line, filename)
-     register unsigned line;
-     register const char *filename;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.source_line) (line, filename);
-
-  if (debug_info_level >= DINFO_LEVEL_TERSE)
-    {
-      dst_line_info_ref line_info;
-
-      ASM_OUTPUT_INTERNAL_LABEL (asm_out_file, LINE_CODE_LABEL,
-				 line_info_table_in_use);
-
-      /* Expand the line info table if necessary.  */
-      if (line_info_table_in_use == line_info_table_allocated)
-	{
-	  line_info_table_allocated += LINE_INFO_TABLE_INCREMENT;
-	  line_info_table
-	    = (dst_line_info_ref) xrealloc (line_info_table,
-					    (line_info_table_allocated
-					     * sizeof (dst_line_info_entry)));
-	  }
-
-      /* Add the new entry at the end of the line_info_table.  */
-      line_info = &line_info_table[line_info_table_in_use++];
-      line_info->dst_file_num = lookup_filename (filename);
-      line_info->dst_line_num = line;
-      if (line > file_info_table[line_info->dst_file_num].max_line)
-	file_info_table[line_info->dst_file_num].max_line = line;
-    }
-}
-
-/* Record the beginning of a new source file, for later output.
-   At present, unimplemented.  */
-
-static void
-vmsdbgout_start_source_file (lineno, filename)
-     unsigned int lineno;
-     const char *filename;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.start_source_file) (lineno, filename);
-}
-
-/* Record the end of a source file, for later output.
-   At present, unimplemented.  */
-
-static void
-vmsdbgout_end_source_file (lineno)
-     unsigned int lineno ATTRIBUTE_UNUSED;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.end_source_file) (lineno);
-}
-
-/* Set up for Debug output at the start of compilation.  */
-
-static void
-vmsdbgout_init (main_input_filename)
-     const char *main_input_filename;
-{
-  const char *language_string = lang_hooks.name;
-
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.init) (main_input_filename);
-
-  if (debug_info_level == DINFO_LEVEL_NONE)
-    return;
-
-  /* Remember the name of the primary input file.  */
-  primary_filename = main_input_filename;
-
-  /* Allocate the initial hunk of the file_info_table.  */
-  file_info_table
-    = (dst_file_info_ref) xcalloc (FILE_TABLE_INCREMENT,
-				   sizeof (dst_file_info_entry));
-  file_info_table_allocated = FILE_TABLE_INCREMENT;
-
-  /* Skip the first entry - file numbers begin at 1 */
-  file_info_table_in_use = 1;
-
-  func_table = (char **) xcalloc (FUNC_TABLE_INCREMENT, sizeof (char *));
-  func_table_allocated = FUNC_TABLE_INCREMENT;
-  func_table_in_use = 1;
-
-  /* Allocate the initial hunk of the line_info_table.  */
-  line_info_table
-    = (dst_line_info_ref) xcalloc (LINE_INFO_TABLE_INCREMENT,
-				   sizeof (dst_line_info_entry));
-  line_info_table_allocated = LINE_INFO_TABLE_INCREMENT;
-  /* zero-th entry is allocated, but unused */
-  line_info_table_in_use = 1;
-
-  lookup_filename (primary_filename);
-
-  if (!strcmp (language_string, "GNU C"))
-    module_language = DST_K_C;
-  else if (!strcmp (language_string, "GNU C++"))
-    module_language = DST_K_CXX;
-  else if (!strcmp (language_string, "GNU Ada"))
-    module_language = DST_K_ADA;
-  else if (!strcmp (language_string, "GNU F77"))
-    module_language = DST_K_FORTRAN;
-  else
-    module_language = DST_K_UNKNOWN;
-
-  module_producer
-    = (char *) xmalloc (strlen (language_string) + 1
-			+ strlen (version_string) + 1);
-  sprintf (module_producer, "%s %s", language_string, version_string);
-
-  ASM_GENERATE_INTERNAL_LABEL (text_end_label, TEXT_END_LABEL, 0);
-
-}
-
-/* Not implemented in VMS Debug.  */
-
-static void
-vmsdbgout_define (lineno, buffer)
-     unsigned int lineno;
-     const char *buffer;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.define) (lineno, buffer);
-}
-
-/* Not implemented in VMS Debug.  */
-
-static void
-vmsdbgout_undef (lineno, buffer)
-     unsigned int lineno;
-     const char *buffer;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.undef) (lineno, buffer);
-}
-
-/* Not implemented in VMS Debug.  */
-
-static void
-vmsdbgout_decl (decl)
-     tree decl;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.function_decl) (decl);
-}
-
-/* Not implemented in VMS Debug.  */
-
-static void
-vmsdbgout_global_decl (decl)
-     tree decl;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.global_decl) (decl);
-}
-
-/* Not implemented in VMS Debug.  */
-
-static void
-vmsdbgout_abstract_function (decl)
-     tree decl;
-{
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.outlining_inline_function) (decl);
-}
-
-/* Output stuff that Debug requires at the end of every file and generate the
-   VMS Debug debugging info.  */
-
-static void
-vmsdbgout_finish (input_filename)
-     const char *input_filename ATTRIBUTE_UNUSED;
-{
-  unsigned int i;
-  int totsize;
-
-  if (write_symbols == VMS_AND_DWARF2_DEBUG)
-    (*dwarf2_debug_hooks.finish) (input_filename);
-
-  if (debug_info_level == DINFO_LEVEL_NONE)
-    return;
-
-  /* Output a terminator label for the .text section.  */
-  text_section ();
-  ASM_OUTPUT_INTERNAL_LABEL (asm_out_file, TEXT_END_LABEL, 0);
-
-  /* Output debugging information.
-     Warning! Do not change the name of the .vmsdebug section without
-     changing it in the assembler also.  */
-  named_section (NULL_TREE, ".vmsdebug", 0);
-  ASM_OUTPUT_ALIGN (asm_out_file, 0);
-
-  totsize = write_modbeg (1);
-  for (i = 1; i < func_table_in_use; i++)
-    {
-      totsize += write_rtnbeg (i, 1);
-      totsize += write_rtnend (i, 1);
-    }
-  totsize += write_pclines (1);
-
-  write_modbeg (0);
-  for (i = 1; i < func_table_in_use; i++)
-    {
-      write_rtnbeg (i, 0);
-      write_rtnend (i, 0);
-    }
-  write_pclines (0);
-
-  if (debug_info_level > DINFO_LEVEL_TERSE)
-    {
-      totsize = write_srccorrs (1);
-      write_srccorrs (0);
-    }
-
-  totsize = write_modend (1);
-  write_modend (0);
-}
-#endif /* VMS_DEBUGGING_INFO */
+/* Output all the source correlation entries and return the size

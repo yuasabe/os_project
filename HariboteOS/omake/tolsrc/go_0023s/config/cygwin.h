@@ -34,26 +34,26 @@ Boston, MA 02111-1307, USA.  */
    existing args.  */
 
 #undef CPP_SPEC
-#define CPP_SPEC "%(cpp_cpu) %{posix:-D_POSIX_SOURCE} \
-  -D__stdcall=__attribute__((__stdcall__)) \
-  -D__fastcall=__attribute__((__fastcall__)) \
-  -D__cdecl=__attribute__((__cdecl__)) \
-  %{!ansi:-D_stdcall=__attribute__((__stdcall__)) \
-    -D_fastcall=__attribute__((__fastcall__)) \
-    -D_cdecl=__attribute__((__cdecl__))} \
-  -D__declspec(x)=__attribute__((x)) \
-  -D__i386__ -D__i386 \
-  %{mno-win32:%{mno-cygwin: %emno-cygwin and mno-win32 are not compatible}} \
-  %{mno-cygwin:-D__MSVCRT__ -D__MINGW32__ %{!ansi:%{mthreads:-D_MT}}}\
-  %{!mno-cygwin:-D__CYGWIN32__ -D__CYGWIN__ %{!ansi:-Dunix} -D__unix__ -D__unix }\
-  %{mwin32|mno-cygwin:-DWIN32 -D_WIN32 -D__WIN32 -D__WIN32__ %{!ansi:-DWINNT}}\
-  %{!mno-win32|mno-cygwin:-isystem ../include/w32api%s -isystem ../../include/w32api%s}\
+#define CPP_SPEC "%(cpp_cpu) %{posix:-D_POSIX_SOURCE} ¥
+  -D__stdcall=__attribute__((__stdcall__)) ¥
+  -D__fastcall=__attribute__((__fastcall__)) ¥
+  -D__cdecl=__attribute__((__cdecl__)) ¥
+  %{!ansi:-D_stdcall=__attribute__((__stdcall__)) ¥
+    -D_fastcall=__attribute__((__fastcall__)) ¥
+    -D_cdecl=__attribute__((__cdecl__))} ¥
+  -D__declspec(x)=__attribute__((x)) ¥
+  -D__i386__ -D__i386 ¥
+  %{mno-win32:%{mno-cygwin: %emno-cygwin and mno-win32 are not compatible}} ¥
+  %{mno-cygwin:-D__MSVCRT__ -D__MINGW32__ %{!ansi:%{mthreads:-D_MT}}}¥
+  %{!mno-cygwin:-D__CYGWIN32__ -D__CYGWIN__ %{!ansi:-Dunix} -D__unix__ -D__unix }¥
+  %{mwin32|mno-cygwin:-DWIN32 -D_WIN32 -D__WIN32 -D__WIN32__ %{!ansi:-DWINNT}}¥
+  %{!mno-win32|mno-cygwin:-isystem ../include/w32api%s -isystem ../../include/w32api%s}¥
 "
 
 #undef STARTFILE_SPEC
-#define STARTFILE_SPEC "\
-  %{shared|mdll: %{mno-cygwin:dllcrt2%O%s}}\
-  %{!shared: %{!mdll: %{!mno-cygwin:crt0%O%s} %{mno-cygwin:crt2%O%s}\
+#define STARTFILE_SPEC "¥
+  %{shared|mdll: %{mno-cygwin:dllcrt2%O%s}}¥
+  %{!shared: %{!mdll: %{!mno-cygwin:crt0%O%s} %{mno-cygwin:crt2%O%s}¥
   %{pg:gcrt0%O%s}}} crtbegin%O%s"
 
 #undef ENDFILE_SPEC
@@ -65,7 +65,7 @@ Boston, MA 02111-1307, USA.  */
    by calling the init function from the prologue.  */
 
 #undef LIBGCC_SPEC
-#define LIBGCC_SPEC \
+#define LIBGCC_SPEC ¥
   "%{mno-cygwin: %{mthreads:-lmingwthrd} -lmingw32} -lgcc %{mno-cygwin:-lmoldname -lmingwex -lmsvcrt}"
 
 /* This macro defines names of additional specifications to put in the specs
@@ -79,7 +79,7 @@ Boston, MA 02111-1307, USA.  */
    Do not define this macro if it does not need to do anything.  */
 
 #undef  SUBTARGET_EXTRA_SPECS
-#define SUBTARGET_EXTRA_SPECS \
+#define SUBTARGET_EXTRA_SPECS ¥
   { "mingw_include_path", DEFAULT_TARGET_MACHINE }
 
 /* We have to dynamic link to get to the system DLLs.  All of libc, libm and
@@ -89,154 +89,7 @@ Boston, MA 02111-1307, USA.  */
    ld, but that doesn't work just yet.  */
 
 #undef LIB_SPEC
-#define LIB_SPEC "\
-  %{pg:-lgmon} \
-  %{!mno-cygwin:-lcygwin} \
-  %{mno-cygwin:%{mthreads:-lmingwthrd} -lmingw32} \
-  %{mwindows:-lgdi32 -lcomdlg32} \
-  -luser32 -lkernel32 -ladvapi32 -lshell32"
-
-#define LINK_SPEC "\
-  %{mwindows:--subsystem windows} \
-  %{mconsole:--subsystem console} \
-  %{shared: %{mdll: %eshared and mdll are not compatible}} \
-  %{shared: --shared} %{mdll:--dll} \
-  %{static:-Bstatic} %{!static:-Bdynamic} \
-  %{shared|mdll: -e \
-    %{mno-cygwin:_DllMainCRTStartup@12} \
-    %{!mno-cygwin:__cygwin_dll_entry@12}}\
-  %{!mno-cygwin:--dll-search-prefix=cyg}"
-
-/* Allocate space for all of the machine-spec-specific stuff.
-   Allocate enough space for cygwin -> mingw32 munging. */
-
-#ifdef GPLUSPLUS_INCLUDE_DIR
-char cygwin_gplusplus_include_dir[sizeof (GPLUSPLUS_INCLUDE_DIR) + 1] = GPLUSPLUS_INCLUDE_DIR;
-#undef GPLUSPLUS_INCLUDE_DIR
-#define GPLUSPLUS_INCLUDE_DIR ((const char *) cygwin_gplusplus_include_dir)
-#ifndef GEN_CVT_ARRAY
-#define GEN_CVT_ARRAY
-#endif
-#endif
-
-#ifdef GPLUSPLUS_TOOL_INCLUDE_DIR
-char cygwin_gplusplus_tool_include_dir[sizeof (GPLUSPLUS_TOOL_INCLUDE_DIR) + 1] = GPLUSPLUS_TOOL_INCLUDE_DIR;
-#undef GPLUSPLUS_TOOL_INCLUDE_DIR
-#define GPLUSPLUS_TOOL_INCLUDE_DIR ((const char *) cygwin_gplusplus_tool_include_dir)
-#ifndef GEN_CVT_ARRAY
-#define GEN_CVT_ARRAY
-#endif
-#endif
-
-#ifdef GPLUSPLUS_BACKWARD_INCLUDE_DIR
-char cygwin_gplusplus_backward_include_dir[sizeof (GPLUSPLUS_BACKWARD_INCLUDE_DIR) + 1] = GPLUSPLUS_BACKWARD_INCLUDE_DIR;
-#undef GPLUSPLUS_BACKWARD_INCLUDE_DIR
-#define GPLUSPLUS_BACKWARD_INCLUDE_DIR ((const char *) cygwin_gplusplus_backward_include_dir)
-#ifndef GEN_CVT_ARRAY
-#define GEN_CVT_ARRAY
-#endif
-#endif
-
-#ifdef LOCAL_INCLUDE_DIR
-char cygwin_local_include_dir[sizeof (LOCAL_INCLUDE_DIR) + 1] = LOCAL_INCLUDE_DIR;
-#undef LOCAL_INCLUDE_DIR
-#define LOCAL_INCLUDE_DIR ((const char *) cygwin_local_include_dir)
-#ifndef GEN_CVT_ARRAY
-#define GEN_CVT_ARRAY
-#endif
-#endif
-
-#ifdef CROSS_INCLUDE_DIR
-char cygwin_cross_include_dir[sizeof (CROSS_INCLUDE_DIR) + 1] = CROSS_INCLUDE_DIR;
-#undef CROSS_INCLUDE_DIR
-#define CROSS_INCLUDE_DIR ((const char *) cygwin_cross_include_dir)
-#ifndef GEN_CVT_ARRAY
-#define GEN_CVT_ARRAY
-#endif
-#endif
-
-#ifdef TOOL_INCLUDE_DIR
-char cygwin_tool_include_dir[sizeof (TOOL_INCLUDE_DIR) + 1] = TOOL_INCLUDE_DIR;
-#undef TOOL_INCLUDE_DIR
-#define TOOL_INCLUDE_DIR ((const char *) cygwin_tool_include_dir)
-
-#ifndef CROSS_COMPILE
-#undef STANDARD_INCLUDE_DIR
-#define STANDARD_INCLUDE_DIR "/usr/include"
-char cygwin_standard_include_dir[sizeof (STANDARD_INCLUDE_DIR) + 1] = STANDARD_INCLUDE_DIR;
-#undef STANDARD_INCLUDE_DIR
-#define STANDARD_INCLUDE_DIR ((const char *) cygwin_standard_include_dir)
-#endif
-
-#ifndef GEN_CVT_ARRAY
-#define GEN_CVT_ARRAY
-#endif
-#endif
-
-#ifndef GEN_CVT_ARRAY
-extern char *cvt_to_mingw[];
-#else
-char *cvt_to_mingw[] =
-  {
-#ifdef GPLUSPLUS_INCLUDE_DIR
-    cygwin_gplusplus_include_dir,
-#endif
-
-#ifdef GPLUSPLUS_TOOL_INCLUDE_DIR
-    cygwin_gplusplus_tool_include_dir,
-#endif
-
-#ifdef GPLUSPLUS_BACKWARD_INCLUDE_DIR
-    cygwin_gplusplus_backward_include_dir,
-#endif
-
-#ifdef LOCAL_INCLUDE_DIR
-    cygwin_local_include_dir,
-#endif
-
-#ifdef CROSS_INCLUDE_DIR
-    cygwin_cross_include_dir,
-#endif
-
-#ifdef TOOL_INCLUDE_DIR
-    cygwin_tool_include_dir,
-#endif
-
-#ifdef STANDARD_INCLUDE_DIR
-    cygwin_standard_include_dir,
-#endif
-
-    NULL
-  };
-#undef GEN_CVS_ARRAY
-#endif /*GEN_CVS_ARRAY*/
-
-void mingw_scan PARAMS ((int, const char * const *, char **));
-#if 1
-#define GCC_DRIVER_HOST_INITIALIZATION \
-do \
-{ \
-  mingw_scan(argc, argv, (char **) &spec_machine); \
-  } \
-while (0)
-#else
-#define GCC_DRIVER_HOST_INITIALIZATION \
-do \
-{ \
-  char *cprefix = concat (tooldir_base_prefix, spec_machine, \
-			  dir_separator_str, NULL); \
-  if (!IS_ABSOLUTE_PATHNAME (cprefix)) \
-    cprefix = concat (standard_exec_prefix, spec_machine, dir_separator_str, \
-		      spec_version, dir_separator_str, tooldir_prefix, NULL); \
-  add_prefix (&exec_prefixes,\
-	      concat (cprefix, "../../../../", spec_machine, "/bin/", NULL), \
-	      "BINUTILS", PREFIX_PRIORITY_LAST, 0, NULL); \
-  add_prefix (&exec_prefixes, cprefix, \
-	      "BINUTILS", PREFIX_PRIORITY_LAST, 0, NULL); \
-  add_prefix (&startfile_prefixes,\
-	      concat (standard_startfile_prefix, "w32api", NULL),\
-	      "GCC", PREFIX_PRIORITY_LAST, 0, NULL);\
-  mingw_scan(argc, argv, &spec_machine); \
-  } \
-while (0)
-#endif
+#define LIB_SPEC "¥
+  %{pg:-lgmon} ¥
+  %{!mno-cygwin:-lcygwin} ¥
+  %{mno-cygwin:%{mth

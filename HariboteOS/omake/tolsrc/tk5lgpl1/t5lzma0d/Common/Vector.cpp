@@ -6,7 +6,7 @@
 
 #include "Vector.h"
 
-CBaseRecordVector::~CBaseRecordVector()
+CBaseRecordVector::‾CBaseRecordVector()
   { delete []((unsigned char *)_items); }
 void CBaseRecordVector::Clear() 
   { DeleteFrom(0); }

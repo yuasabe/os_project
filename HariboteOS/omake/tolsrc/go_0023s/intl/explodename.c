@@ -43,7 +43,7 @@ char *
 _nl_find_language (name)
      const char *name;
 {
-  while (name[0] != '\0' && name[0] != '_' && name[0] != '@'
+  while (name[0] != '¥0' && name[0] != '_' && name[0] != '@'
 	 && name[0] != '+' && name[0] != ',')
     ++name;
 
@@ -87,14 +87,14 @@ _nl_explode_name (name, language, modifier, territory, codeset,
   if (*language == cp)
     /* This does not make sense: language has to be specified.  Use
        this entry as it is without exploding.  Perhaps it is an alias.  */
-    cp = strchr (*language, '\0');
+    cp = strchr (*language, '¥0');
   else if (cp[0] == '_')
     {
       /* Next is the territory.  */
-      cp[0] = '\0';
+      cp[0] = '¥0';
       *territory = ++cp;
 
-      while (cp[0] != '\0' && cp[0] != '.' && cp[0] != '@'
+      while (cp[0] != '¥0' && cp[0] != '.' && cp[0] != '@'
 	     && cp[0] != '+' && cp[0] != ',' && cp[0] != '_')
 	++cp;
 
@@ -104,15 +104,15 @@ _nl_explode_name (name, language, modifier, territory, codeset,
 	{
 	  /* Next is the codeset.  */
 	  syntax = xpg;
-	  cp[0] = '\0';
+	  cp[0] = '¥0';
 	  *codeset = ++cp;
 
-	  while (cp[0] != '\0' && cp[0] != '@')
+	  while (cp[0] != '¥0' && cp[0] != '@')
 	    ++cp;
 
 	  mask |= XPG_CODESET;
 
-	  if (*codeset != cp && (*codeset)[0] != '\0')
+	  if (*codeset != cp && (*codeset)[0] != '¥0')
 	    {
 	      *normalized_codeset = _nl_normalize_codeset (*codeset,
 							   cp - *codeset);
@@ -128,10 +128,10 @@ _nl_explode_name (name, language, modifier, territory, codeset,
     {
       /* Next is the modifier.  */
       syntax = cp[0] == '@' ? xpg : cen;
-      cp[0] = '\0';
+      cp[0] = '¥0';
       *modifier = ++cp;
 
-      while (syntax == cen && cp[0] != '\0' && cp[0] != '+'
+      while (syntax == cen && cp[0] != '¥0' && cp[0] != '+'
 	     && cp[0] != ',' && cp[0] != '_')
 	++cp;
 
@@ -145,50 +145,8 @@ _nl_explode_name (name, language, modifier, territory, codeset,
       if (cp[0] == '+')
 	{
  	  /* Next is special application (CEN syntax).  */
-	  cp[0] = '\0';
+	  cp[0] = '¥0';
 	  *special = ++cp;
 
-	  while (cp[0] != '\0' && cp[0] != ',' && cp[0] != '_')
-	    ++cp;
-
-	  mask |= CEN_SPECIAL;
-	}
-
-      if (cp[0] == ',')
-	{
- 	  /* Next is sponsor (CEN syntax).  */
-	  cp[0] = '\0';
-	  *sponsor = ++cp;
-
-	  while (cp[0] != '\0' && cp[0] != '_')
-	    ++cp;
-
-	  mask |= CEN_SPONSOR;
-	}
-
-      if (cp[0] == '_')
-	{
- 	  /* Next is revision (CEN syntax).  */
-	  cp[0] = '\0';
-	  *revision = ++cp;
-
-	  mask |= CEN_REVISION;
-	}
-    }
-
-  /* For CEN syntax values it might be important to have the
-     separator character in the file name, not for XPG syntax.  */
-  if (syntax == xpg)
-    {
-      if (*territory != NULL && (*territory)[0] == '\0')
-	mask &= ~TERRITORY;
-
-      if (*codeset != NULL && (*codeset)[0] == '\0')
-	mask &= ~XPG_CODESET;
-
-      if (*modifier != NULL && (*modifier)[0] == '\0')
-	mask &= ~XPG_MODIFIER;
-    }
-
-  return mask;
-}
+	  while (cp[0] != '¥0' && cp[0] != ',' && cp[0] != '_')
+	    ++cp;

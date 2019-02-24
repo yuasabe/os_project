@@ -96,5 +96,4 @@ DEF_PREDICTOR (PRED_FPOPCODE, "fp_opcode", HITRATE (90), 0)
 /* Branch guarding call is probably taken.  */
 DEF_PREDICTOR (PRED_CALL, "call", HITRATE (70), 0)
 
-/* Branch causing function to terminate is probably not taken.  */
-DEF_PREDICTOR (PRED_ERROR_RETURN, "error return", HITRATE (52), 0)
+/* Branch ca

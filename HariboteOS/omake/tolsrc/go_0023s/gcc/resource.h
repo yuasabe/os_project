@@ -19,8 +19,8 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 02111-1307, USA.  */
 
 /* Macro to clear all resources.  */
-#define CLEAR_RESOURCE(RES)	\
- do { (RES)->memory = (RES)->unch_memory = (RES)->volatil = (RES)->cc = 0; \
+#define CLEAR_RESOURCE(RES)	¥
+ do { (RES)->memory = (RES)->unch_memory = (RES)->volatil = (RES)->cc = 0; ¥
       CLEAR_HARD_REG_SET ((RES)->regs); } while (0)
 
 /* The resources used by a given insn.  */

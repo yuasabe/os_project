@@ -164,18 +164,18 @@ int main (int argc, char **argv)
   for (i = 0; i < k; ++i)
     {
       pointers[i] = (void *) random ();
-      printf ("%x\n", pointers[i]);
+      printf ("%x¥n", pointers[i]);
     }
 
   sort_pointers (k, pointers, work);
 
-  printf ("\nSorted\n\n");
+  printf ("¥nSorted¥n¥n");
 
   result = 0;
 
   for (i = 0; i < k; ++i)
     {
-      printf ("%x\n", pointers[i]);
+      printf ("%x¥n", pointers[i]);
       if (i > 0 && (char*) pointers[i] < (char*) pointers[i - 1])
 	result = 1;
     }

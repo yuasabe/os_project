@@ -86,7 +86,7 @@ xmalloc_failed (size)
      size_t size;
 {
   fprintf (stderr,
-	   "\n%s%sCannot allocate %lu bytes\n",
+	   "¥n%s%sCannot allocate %lu bytes¥n",
 	   name, *name ? ": " : "",
 	   (unsigned long) size);
   xexit (1);

@@ -13,7 +13,7 @@ char* strrchr (char *d, int c)
 {
 	char *tmp = d;
 
-	while ('\0' != *d)
+	while ('¥0' != *d)
 		d++;
 
 	while (tmp <= d) {

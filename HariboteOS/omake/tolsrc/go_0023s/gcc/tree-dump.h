@@ -74,7 +74,7 @@ struct dump_info
 };
 
 /* Dump the CHILD and its children.  */
-#define dump_child(field, child) \
+#define dump_child(field, child) ¥
   queue_and_dump_index (di, field, child, DUMP_NONE)
 
 extern void dump_pointer

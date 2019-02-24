@@ -21,13 +21,13 @@ gas2nask.exe : gas2nask.o Makefile ../include/rules.mak
 nask.exe : nask.o Makefile ../include/rules.mak
 	$(MAKEC) ../nasklib
 	$(MAKEC) ../go_lib
-	$(LINK) --stack 0x2200000 -o nask.exe nask.o ../nasklib/nasklib.lib \
+	$(LINK) --stack 0x2200000 -o nask.exe nask.o ../nasklib/nasklib.lib ¥
 		../go_lib/go_lib.lib ../go_lib/stdin.o $(LINK_ADDLIB)
 #		18MB(apl) + 16MB(sys)
 
 naskcnv0.exe : naskcnv0.o Makefile ../include/rules.mak
 	$(MAKEC) ../go_lib
-	$(LINK) --stack 0x2000000 -o naskcnv0.exe naskcnv0.o \
+	$(LINK) --stack 0x2000000 -o naskcnv0.exe naskcnv0.o ¥
 		../go_lib/go_lib.lib $(LINK_ADDLIB)
 #		16MB(apl) + 16MB(sys)
 

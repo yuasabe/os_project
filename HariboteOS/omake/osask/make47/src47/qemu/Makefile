@@ -14,7 +14,7 @@ ALL :
 
 OSASK.EXE : $(MKFL) osalink1.opt timerdrv.tek
 	$(MAKE) -C .. at
-	$(COPY) ..\osask_at.exe osask_at.exe
+	$(COPY) ..¥osask_at.exe osask_at.exe
 	$(OSALINK)
 	$(DELE) osask_at.exe
 

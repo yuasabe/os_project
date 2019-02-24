@@ -1,430 +1,135 @@
 ----------------------------------------------------------------------
-                      OSASK/AT ver.4.7 ‘€ìà–¾‘
+                      OSASK/AT ver.4.7 æ“ä½œèª¬æ˜Žæ›¸
 ----------------------------------------------------------------------
 
-  OSASK‚ÌŽg‚¢•û‚Ìà–¾‚Å‚·BƒCƒ“ƒXƒg[ƒ‹‚â€”õ‚É‚Â‚¢‚Ä‚Í, ƒCƒ“ƒXƒg[ƒ‹
-à–¾‘‚ð‚²——‚­‚¾‚³‚¢B
+  OSASKã®ä½¿ã„æ–¹ã®èª¬æ˜Žã§ã™ã€‚ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã‚„æº–å‚™ã«ã¤ã„ã¦ã¯, ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+èª¬æ˜Žæ›¸ã‚’ã”è¦§ãã ã•ã„ã€‚
 
-1.I—¹•û–@
-~~~~~~~~~~
-@Ctrl+Alt+Delete‚ÅƒŠƒZƒbƒg‚Å‚«‚Ü‚·B‚ ‚é‚¢‚Í, ƒŠƒZƒbƒgƒXƒCƒbƒ`‚©“dŒ¹
-ƒXƒCƒbƒ`‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢BƒfƒBƒXƒNƒAƒNƒZƒX’†‚Å‚È‚¯‚ê‚Î, ‚¢‚Â“dŒ¹‚ðØ‚Á
-‚Ä‚à‚¢‚¢‚æ‚¤‚ÉÝŒv‚µ‚Ä‚ ‚è‚Ü‚·B
+1.çµ‚äº†æ–¹æ³•
+â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾
+ã€€Ctrl+Alt+Deleteã§ãƒªã‚»ãƒƒãƒˆã§ãã¾ã™ã€‚ã‚ã‚‹ã„ã¯, ãƒªã‚»ãƒƒãƒˆã‚¹ã‚¤ãƒƒãƒã‹é›»æº
+ã‚¹ã‚¤ãƒƒãƒã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚ãƒ‡ã‚£ã‚¹ã‚¯ã‚¢ã‚¯ã‚»ã‚¹ä¸­ã§ãªã‘ã‚Œã°, ã„ã¤é›»æºã‚’åˆ‡ã£
+ã¦ã‚‚ã„ã„ã‚ˆã†ã«è¨­è¨ˆã—ã¦ã‚ã‚Šã¾ã™ã€‚
 
 
-2.ƒEƒBƒ“ƒhƒE‚É‚Â‚¢‚Ä
-~~~~~~~~~~~~~~~~~~~~
-@ˆê”Ôã‚É‚ ‚éƒEƒBƒ“ƒhƒE‚Ì‚Ýƒ^ƒCƒgƒ‹ƒo[‚ªÂ‚­‚È‚è, ‘€ì‚Å‚«‚Ü‚·B‚±‚ê
-‚ðƒAƒNƒeƒBƒu‚É‚È‚Á‚Ä‚¢‚é‚Æ‚¢‚¢‚Ü‚·BƒAƒNƒeƒBƒu‚Å‚Í‚È‚¢ƒEƒBƒ“ƒhƒE‚ÍŠDF
-‚É‚È‚Á‚½‚è•‚­‚È‚Á‚½‚è‚µ‚Ü‚·B
-@ƒEƒBƒ“ƒhƒE‚ªd‚È‚é‚Æ, ‰º‚É‚È‚Á‚½ƒEƒBƒ“ƒhƒE‚Íƒ^ƒCƒgƒ‹ƒo[‚ª•‚­‚È‚è,
-ˆêØ•`‰æ‚³‚ê‚Ü‚¹‚ñB‚±‚ê‚ÍƒoƒO‚Å‚Í‚È‚­‚ÄŽd—l‚Å‚·B‘¼‚ÌOS‚Ì‚æ‚¤‚É‰º‚É‚È
-‚Á‚Ä‚à‚¿‚á‚ñ‚Æ•`‰æ‚·‚é‚æ‚¤‚É‚à‚Å‚«‚Ü‚·‚µ, «—ˆ‚Í‚»‚¤‚·‚é‚±‚Æ‚É‚È‚é‚Å‚µ
-‚å‚¤‚ª, ¡‚Í‚±‚ÌŽd—l‚Å‰ä–‚µ‚Ä‚­‚¾‚³‚¢B
-@‚È‚¨, ‰º‚É‚ ‚éŠDF‚Ì—Ìˆæ‚Íu•µˆÍ‹Cv‚Å‚· (Î) B
+2.ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã«ã¤ã„ã¦
+â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾
+ã€€ä¸€ç•ªä¸Šã«ã‚ã‚‹ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã¿ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼ãŒé’ããªã‚Š, æ“ä½œã§ãã¾ã™ã€‚ã“ã‚Œ
+ã‚’ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ãªã£ã¦ã„ã‚‹ã¨ã„ã„ã¾ã™ã€‚ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã§ã¯ãªã„ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯ç°è‰²
+ã«ãªã£ãŸã‚Šé»’ããªã£ãŸã‚Šã—ã¾ã™ã€‚
+ã€€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒé‡ãªã‚‹ã¨, ä¸‹ã«ãªã£ãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã¯ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼ãŒé»’ããªã‚Š,
+ä¸€åˆ‡æç”»ã•ã‚Œã¾ã›ã‚“ã€‚ã“ã‚Œã¯ãƒã‚°ã§ã¯ãªãã¦ä»•æ§˜ã§ã™ã€‚ä»–ã®OSã®ã‚ˆã†ã«ä¸‹ã«ãª
+ã£ã¦ã‚‚ã¡ã‚ƒã‚“ã¨æç”»ã™ã‚‹ã‚ˆã†ã«ã‚‚ã§ãã¾ã™ã—, å°†æ¥ã¯ãã†ã™ã‚‹ã“ã¨ã«ãªã‚‹ã§ã—
+ã‚‡ã†ãŒ, ä»Šã¯ã“ã®ä»•æ§˜ã§æˆ‘æ…¢ã—ã¦ãã ã•ã„ã€‚
+ã€€ãªãŠ, ä¸‹ã«ã‚ã‚‹ç°è‰²ã®é ˜åŸŸã¯ã€Œé›°å›²æ°—ã€ã§ã™ (ç¬‘) ã€‚
 
 
-3.ƒ}ƒEƒX‘€ì
-~~~~~~~~~~~~
-@PS/2ƒ}ƒEƒX‚ªÚ‘±‚³‚ê‚Ä‚¢‚ê‚Îƒ}ƒEƒXƒJ[ƒ\ƒ‹‚ª“®‚«‚Ü‚·BUSBƒ}ƒEƒX‚ÍŽg
-‚¦‚Ü‚¹‚ñB‚Ü‚½, ‰æ–Ê‚Ì’[‚ÉƒJ[ƒ\ƒ‹‚ðŽ‚Á‚Ä‚¢‚­‚Æ, ‰¼‘z‰æ–Ê‚Ì‚ ‚éŒÀ‚èƒX
-ƒNƒ[ƒ‹‚µ‚Ü‚·B
-@ƒ}ƒEƒX‚Ì‚Ç‚Ìƒ{ƒ^ƒ“‚Å‚à, ƒNƒŠƒbƒN‚µ‚½ƒEƒBƒ“ƒhƒE‚ðƒAƒNƒeƒBƒu‚É‚·‚é‚±‚Æ
-‚ª‚Å‚«‚Ü‚·B‚»‚ÌŒã‚ÅƒEƒBƒ“ƒhƒE‚ð•Â‚¶‚½‚èˆÚ“®‚µ‚½‚è‚Å‚«‚Ü‚·B
+3.ãƒžã‚¦ã‚¹æ“ä½œ
+â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾
+ã€€PS/2ãƒžã‚¦ã‚¹ãŒæŽ¥ç¶šã•ã‚Œã¦ã„ã‚Œã°ãƒžã‚¦ã‚¹ã‚«ãƒ¼ã‚½ãƒ«ãŒå‹•ãã¾ã™ã€‚USBãƒžã‚¦ã‚¹ã¯ä½¿
+ãˆã¾ã›ã‚“ã€‚ã¾ãŸ, ç”»é¢ã®ç«¯ã«ã‚«ãƒ¼ã‚½ãƒ«ã‚’æŒã£ã¦ã„ãã¨, ä»®æƒ³ç”»é¢ã®ã‚ã‚‹é™ã‚Šã‚¹
+ã‚¯ãƒ­ãƒ¼ãƒ«ã—ã¾ã™ã€‚
+ã€€ãƒžã‚¦ã‚¹ã®ã©ã®ãƒœã‚¿ãƒ³ã§ã‚‚, ã‚¯ãƒªãƒƒã‚¯ã—ãŸã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ã‚¢ã‚¯ãƒ†ã‚£ãƒ–ã«ã™ã‚‹ã“ã¨
+ãŒã§ãã¾ã™ã€‚ãã®å¾Œã§ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ãŸã‚Šç§»å‹•ã—ãŸã‚Šã§ãã¾ã™ã€‚
 
 
-4.ƒL[‘€ì
-~~~~~~~~~~
-@Œ»ÝAOSASK‚ª”FŽ¯‚·‚éƒL[‘€ì‚Í, ˆÈ‰º‚Ì10Ží—Þ‚Å‚·B
-‘¼‚ÌƒL[‚ÍŠî–{“I‚ÉƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ö‚Ì“ü—Í‚Æ‚µ‚Äˆµ‚í‚ê‚Ü‚·B
+4.ã‚­ãƒ¼æ“ä½œ
+â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾
+ã€€ç¾åœ¨ã€OSASKãŒèªè­˜ã™ã‚‹ã‚­ãƒ¼æ“ä½œã¯, ä»¥ä¸‹ã®10ç¨®é¡žã§ã™ã€‚
+ä»–ã®ã‚­ãƒ¼ã¯åŸºæœ¬çš„ã«ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã¸ã®å…¥åŠ›ã¨ã—ã¦æ‰±ã‚ã‚Œã¾ã™ã€‚
 
-  ECtrl+Alt+Delete
-    ƒŠƒZƒbƒg‚µ‚Ü‚·B
+  ãƒ»Ctrl+Alt+Delete
+    ãƒªã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
 
-  EF1
-    ‰æ–Êƒ‚[ƒh‚ð640x480 16F‚ÉØ‚èŠ·‚¦‚Ü‚·B
+  ãƒ»F1
+    ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã‚’640x480 16è‰²ã«åˆ‡ã‚Šæ›ãˆã¾ã™ã€‚
 
-  EF2
-    ‰æ–Êƒ‚[ƒh‚ð800x600 16F‚ÉØ‚èŠ·‚¦‚Ü‚·B
+  ãƒ»F2
+    ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã‚’800x600 16è‰²ã«åˆ‡ã‚Šæ›ãˆã¾ã™ã€‚
 
-  EF3
-    ‰æ–Êƒ‚[ƒh‚ð1024x768 64KF‚ÉØ‚èŠ·‚¦‚Ü‚· (pokon‚ÌsetvesaƒRƒ}ƒ“ƒh
-    ‚ÅŠ„‚è“–‚Ä‚ð•Ï‚¦‚ç‚ê‚Ü‚·)B‹N“®‚·‚é‚Æ‚±‚Ì‰æ–Êƒ‚[ƒh‚ÉØ‚è‘Ö‚í‚é
-    ‚Í‚¸‚Å‚· (”ñ‘Î‰ž‚ÌƒrƒfƒIƒJ[ƒh‚Å‚Íã‚Ì640x480 16F‚É‚È‚è‚Ü‚·)B
+  ãƒ»F3
+    ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã‚’1024x768 64Kè‰²ã«åˆ‡ã‚Šæ›ãˆã¾ã™ (pokonã®setvesaã‚³ãƒžãƒ³ãƒ‰
+    ã§å‰²ã‚Šå½“ã¦ã‚’å¤‰ãˆã‚‰ã‚Œã¾ã™)ã€‚èµ·å‹•ã™ã‚‹ã¨ã“ã®ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã«åˆ‡ã‚Šæ›¿ã‚ã‚‹
+    ã¯ãšã§ã™ (éžå¯¾å¿œã®ãƒ“ãƒ‡ã‚ªã‚«ãƒ¼ãƒ‰ã§ã¯ä¸Šã®640x480 16è‰²ã«ãªã‚Šã¾ã™)ã€‚
 
-  EF4
-    ‰æ–Êƒ‚[ƒh‚ð1280x1024 256F‚ÉØ‚èŠ·‚¦‚Ü‚· (pokon‚ÌsetvesaƒRƒ}ƒ“ƒh
-    ‚ÅŠ„‚è“–‚Ä‚ð•Ï‚¦‚ç‚ê‚Ü‚·)B
+  ãƒ»F4
+    ç”»é¢ãƒ¢ãƒ¼ãƒ‰ã‚’1280x1024 256è‰²ã«åˆ‡ã‚Šæ›ãˆã¾ã™ (pokonã®setvesaã‚³ãƒžãƒ³ãƒ‰
+    ã§å‰²ã‚Šå½“ã¦ã‚’å¤‰ãˆã‚‰ã‚Œã¾ã™)ã€‚
 
-¦‰æ–Ê‚©‚ç‚Í‚Ýo‚·ƒEƒBƒ“ƒhƒE‚ª‚ ‚éê‡, ‰æ–Êƒ‚[ƒhØ‚è‘Ö‚¦‚Í‚Å‚«‚Ü‚¹‚ñB
+â€»ç”»é¢ã‹ã‚‰ã¯ã¿å‡ºã™ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒã‚ã‚‹å ´åˆ, ç”»é¢ãƒ¢ãƒ¼ãƒ‰åˆ‡ã‚Šæ›¿ãˆã¯ã§ãã¾ã›ã‚“ã€‚
 
-  EF5
-    ƒtƒHƒ“ƒgƒtƒ@ƒCƒ‹‚ð“Ç‚Ýž‚Ý‚Ü‚· (‚±‚Ì‘€ì‚ð‚µ‚È‚­‚Ä‚à•K—v‚É‰ž‚¶‚ÄŽ©
-    “®“I‚É“Ç‚Ýž‚Ý‚Ü‚·) B
+  ãƒ»F5
+    ãƒ•ã‚©ãƒ³ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã¿ã¾ã™ (ã“ã®æ“ä½œã‚’ã—ãªãã¦ã‚‚å¿…è¦ã«å¿œã˜ã¦è‡ª
+    å‹•çš„ã«èª­ã¿è¾¼ã¿ã¾ã™) ã€‚
 
-  EF7
-    •ÇŽ†‚Ì•\Ž¦E”ñ•\Ž¦‚ðØ‚èŠ·‚¦‚Ü‚·B•ÇŽ†‚É‚Â‚¢‚Ä‚Í 8.•ÇŽ† ‚ðŒ©‚Ä‚­‚¾
-    ‚³‚¢B
+  ãƒ»F7
+    å£ç´™ã®è¡¨ç¤ºãƒ»éžè¡¨ç¤ºã‚’åˆ‡ã‚Šæ›ãˆã¾ã™ã€‚å£ç´™ã«ã¤ã„ã¦ã¯ 8.å£ç´™ ã‚’è¦‹ã¦ãã 
+    ã•ã„ã€‚
 
-  EF9 ‚Ü‚½‚Í Alt+Tab
-    ˆê”Ô‰º‚ÌƒEƒBƒ“ƒhƒE‚ðˆê”Ôã‚Éo‚µ‚Ü‚·B
+  ãƒ»F9 ã¾ãŸã¯ Alt+Tab
+    ä¸€ç•ªä¸‹ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ä¸€ç•ªä¸Šã«å‡ºã—ã¾ã™ã€‚
 
-  EF10
-    ˆê”Ôã‚Æ“ñ”Ô–Ú‚ÌƒEƒBƒ“ƒhƒE‚ð“ü‚êŠ·‚¦‚Ü‚·B
+  ãƒ»F10
+    ä¸€ç•ªä¸Šã¨äºŒç•ªç›®ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’å…¥ã‚Œæ›ãˆã¾ã™ã€‚
 
-  EF11
-    ƒEƒBƒ“ƒhƒE‚ðˆÚ“®‚µ‚Ü‚·BƒJ[ƒ\ƒ‹ƒL[‚ÅˆÚ“®, Enter‚ÅI‚í‚è‚Ü‚·B
+  ãƒ»F11
+    ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’ç§»å‹•ã—ã¾ã™ã€‚ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ã§ç§»å‹•, Enterã§çµ‚ã‚ã‚Šã¾ã™ã€‚
 
-  EF12 ‚Ü‚½‚Í Alt+F4
-    ƒEƒBƒ“ƒhƒE‚ð•Â‚¶‚Ü‚·B
+  ãƒ»F12 ã¾ãŸã¯ Alt+F4
+    ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’é–‰ã˜ã¾ã™ã€‚
 
 
-5.pokonƒ‰ƒ“ƒ`ƒƒ[
-~~~~~~~~~~~~~~~~~
-@OSASK ver.4.7‚ª‹N“®‚·‚é‚Æ, ‚·‚®‚ÉƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒ‰ƒ“ƒ`ƒƒ[pokon‚ªo
-‚Ü‚·Bpokon‚Íƒtƒ@ƒCƒ‹‚ð‘I‘ð‚µ‚Ä‹N“®‚·‚é‚±‚Æ‚È‚Ç‚ª‚Å‚«‚Ü‚·B
-@‚Ü‚½ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ªo‚·ƒtƒ@ƒCƒ‹‘I‘ðƒEƒBƒ“ƒhƒE‚àpokon‚Ìˆê•”‚Å‚·‚Ì
-‚Å, ˆÈ‰º‚Ìà–¾‚Æ“¯‚¶‘€ì (ƒfƒBƒXƒN“ü‚êŠ·‚¦‚È‚Ç) ‚ª‚Å‚«‚Ü‚·B
+5.pokonãƒ©ãƒ³ãƒãƒ£ãƒ¼
+â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾
+ã€€OSASK ver.4.7ãŒèµ·å‹•ã™ã‚‹ã¨, ã™ãã«ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ©ãƒ³ãƒãƒ£ãƒ¼pokonãŒå‡º
+ã¾ã™ã€‚pokonã¯ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠžã—ã¦èµ·å‹•ã™ã‚‹ã“ã¨ãªã©ãŒã§ãã¾ã™ã€‚
+ã€€ã¾ãŸã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãŒå‡ºã™ãƒ•ã‚¡ã‚¤ãƒ«é¸æŠžã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚‚pokonã®ä¸€éƒ¨ã§ã™ã®
+ã§, ä»¥ä¸‹ã®èª¬æ˜Žã¨åŒã˜æ“ä½œ (ãƒ‡ã‚£ã‚¹ã‚¯å…¥ã‚Œæ›ãˆãªã©) ãŒã§ãã¾ã™ã€‚
 
 
-5.1.pokon‚Ì‘€ì
-~~~~~~~~~~~~~~~
-  ‚Ü‚¸‚ÍƒL[‘€ì‚©‚çB
+5.1.pokonã®æ“ä½œ
+â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾â€¾
+  ã¾ãšã¯ã‚­ãƒ¼æ“ä½œã‹ã‚‰ã€‚
 
-  EƒJ[ƒ\ƒ‹ƒL[ã‰º
-    ƒtƒ@ƒCƒ‹‚ð‘I‘ð‚µ‚Ü‚·B
+  ãƒ»ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼ä¸Šä¸‹
+    ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠžã—ã¾ã™ã€‚
 
-  EƒJ[ƒ\ƒ‹ƒL[¶‰E
-    ƒy[ƒW’PˆÊ‚ÅƒJ[ƒ\ƒ‹‚ðˆÚ“®‚µ‚Ü‚·B¶‚Åã‚É, ‰E‚Å‰º‚És‚«‚Ü‚·B
+  ãƒ»ã‚«ãƒ¼ã‚½ãƒ«ã‚­ãƒ¼å·¦å³
+    ãƒšãƒ¼ã‚¸å˜ä½ã§ã‚«ãƒ¼ã‚½ãƒ«ã‚’ç§»å‹•ã—ã¾ã™ã€‚å·¦ã§ä¸Šã«, å³ã§ä¸‹ã«è¡Œãã¾ã™ã€‚
 
-  EPageUp, PageDown
-    ƒy[ƒW’PˆÊ‚ÅƒXƒNƒ[ƒ‹‚µ‚Ü‚·B
+  ãƒ»PageUp, PageDown
+    ãƒšãƒ¼ã‚¸å˜ä½ã§ã‚¹ã‚¯ãƒ­ãƒ¼ãƒ«ã—ã¾ã™ã€‚
 
-  E“K“–‚È•¶Žš
-    ‚»‚Ì•¶Žš‚ÅŽn‚Ü‚éƒtƒ@ƒCƒ‹‚ð‡‚É‘I‘ð‚µ‚Ü‚· (ƒT[ƒ`) B¡‚Ì‚Æ‚±‚ëƒtƒ@
-    ƒCƒ‹–¼‚Í‘S‚Ä‘å•¶Žš‚ÅŽn‚Ü‚Á‚Ä‚¢‚Ü‚·B‘å•¶Žš‚ð“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B
+  ãƒ»é©å½“ãªæ–‡å­—
+    ãã®æ–‡å­—ã§å§‹ã¾ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é †ã«é¸æŠžã—ã¾ã™ (ã‚µãƒ¼ãƒ) ã€‚ä»Šã®ã¨ã“ã‚ãƒ•ã‚¡
+    ã‚¤ãƒ«åã¯å…¨ã¦å¤§æ–‡å­—ã§å§‹ã¾ã£ã¦ã„ã¾ã™ã€‚å¤§æ–‡å­—ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ã€‚
 
-  EEnter
-    ‘I‘ð‚µ‚½ƒtƒ@ƒCƒ‹‚ðŽÀs‚µ‚Ü‚· (ŠJ‚«‚Ü‚·) B
+  ãƒ»Enter
+    é¸æŠžã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’å®Ÿè¡Œã—ã¾ã™ (é–‹ãã¾ã™) ã€‚
 
-  ECtrl+0 ‚©‚ç Ctrl+9
-    CF‚âƒn[ƒhƒfƒBƒXƒN‚ðŽg‚Á‚Ä‚¢‚é‚Æ‚«, Žg‚¤ƒfƒBƒXƒNƒCƒ[ƒW‚ðØ‚èŠ·‚¦
-    ‚Ü‚· (0‚©‚ç9‚ªFDIMAGE0.BIN‚©‚çFDIMAGE9.BIN‚É‘Î‰ž)BƒfƒBƒXƒN“ü‚êŠ·‚¦
-    ‚Æ“¯‚¶‚æ‚¤‚Éˆµ‚í‚ê‚Ü‚·B
+  ãƒ»Ctrl+0 ã‹ã‚‰ Ctrl+9
+    CFã‚„ãƒãƒ¼ãƒ‰ãƒ‡ã‚£ã‚¹ã‚¯ã‚’ä½¿ã£ã¦ã„ã‚‹ã¨ã, ä½¿ã†ãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’åˆ‡ã‚Šæ›ãˆ
+    ã¾ã™ (0ã‹ã‚‰9ãŒFDIMAGE0.BINã‹ã‚‰FDIMAGE9.BINã«å¯¾å¿œ)ã€‚ãƒ‡ã‚£ã‚¹ã‚¯å…¥ã‚Œæ›ãˆ
+    ã¨åŒã˜ã‚ˆã†ã«æ‰±ã‚ã‚Œã¾ã™ã€‚
 
-  ECtrl+T
-    ‘I‘ð‚µ‚½ƒtƒ@ƒCƒ‹‚ðteditc02‚ÅŠJ‚«‚Ü‚·B
+  ãƒ»Ctrl+T
+    é¸æŠžã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’teditc02ã§é–‹ãã¾ã™ã€‚
 
-  ECtrl+B
-    ‘I‘ð‚µ‚½ƒtƒ@ƒCƒ‹‚ðbeditc00‚ÅŠJ‚«‚Ü‚·B
+  ãƒ»Ctrl+B
+    é¸æŠžã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’beditc00ã§é–‹ãã¾ã™ã€‚
 
-  ECtrl+U
-    ‘I‘ð‚µ‚½ƒtƒ@ƒCƒ‹‚ðmcopyc1‚ÅƒRƒs[‚µ‚Ü‚·B
+  ãƒ»Ctrl+U
+    é¸æŠžã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’mcopyc1ã§ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚
 
-  ECtrl+C
-    ‚Ö‚Á‚Û‚±ƒRƒ“ƒ\[ƒ‹‚ªo‚Ü‚·B
+  ãƒ»Ctrl+C
+    ã¸ã£ã½ã“ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãŒå‡ºã¾ã™ã€‚
 
-  EInsert
-    ƒfƒBƒXƒN‚Ì“à—e‚ð“Ç‚Ýž‚Ý’¼‚µ‚Ü‚·BƒfƒBƒXƒN‚ð“ü‚êŠ·‚¦‚½‚ç“ü—Í‚µ‚Ä‚­
-    ‚¾‚³‚¢B‚½‚¾‚µ, ‘‚«Š·‚¦‚½ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚ÆŽg‚¦‚Ü‚¹‚ñB‚»‚ÌŽž‚ÍƒfƒB
-    ƒXƒN‚ð–ß‚µ‚ÄDeleteƒL[‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B
-    ‚Ü‚½, ‚±‚Ì‘€ì‚ð‚·‚é‚ÆŠJ‚¢‚Ä‚ ‚éƒtƒ@ƒCƒ‹‚Í‘S‚ÄoŠ•s–¾‚Ìƒtƒ@ƒCƒ‹‚Æ
-    ‚È‚è, ‘‚«–ß‚¹‚È‚­‚È‚è‚Ü‚·B
+  ãƒ»Insert
+    ãƒ‡ã‚£ã‚¹ã‚¯ã®å†…å®¹ã‚’èª­ã¿è¾¼ã¿ç›´ã—ã¾ã™ã€‚ãƒ‡ã‚£ã‚¹ã‚¯ã‚’å…¥ã‚Œæ›ãˆãŸã‚‰å…¥åŠ›ã—ã¦ã
+    ã ã•ã„ã€‚ãŸã ã—, æ›¸ãæ›ãˆãŸãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ã¨ä½¿ãˆã¾ã›ã‚“ã€‚ãã®æ™‚ã¯ãƒ‡ã‚£
+    ã‚¹ã‚¯ã‚’æˆ»ã—ã¦Deleteã‚­ãƒ¼ã‚’æŠ¼ã—ã¦ãã ã•ã„ã€‚
+    ã¾ãŸ, ã“ã®æ“ä½œã‚’ã™ã‚‹ã¨é–‹ã„ã¦ã‚ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã¯å…¨ã¦å‡ºæ‰€ä¸æ˜Žã®ãƒ•ã‚¡ã‚¤ãƒ«ã¨
+    ãªã‚Š, æ›¸ãæˆ»ã›ãªããªã‚Šã¾ã™ã€‚
 
-  EShift+Insert
-    ƒfƒBƒXƒN‚Ì‹­§“ü‘Ö‚¦‚Å‚·B•ÏX‚µ‚½ƒtƒ@ƒCƒ‹‚Ì‚±‚Æ‚Í–Y‚ê‚Ü‚·B
-
-  EDelete
-    ƒtƒ@ƒCƒ‹‚Ì•ÏX‚ðƒfƒBƒXƒN‚É‘‚«–ß‚µ‚Ü‚·BInsertƒL[‚ð‰Ÿ‚µ‚½Žž‚Æ“¯‚¶
-    ƒfƒBƒXƒN‚ð“ü‚ê‚Ä‚¨‚¢‚Ä‚­‚¾‚³‚¢B‚³‚à‚È‚¢‚ÆƒfƒBƒXƒNã‚Ìƒtƒ@ƒCƒ‹‚ª‰ó
-    ‚ê‚Ü‚·B
-
-  EShift+Delete
-    ‘‚«Š·‚¦‚½ƒtƒ@ƒCƒ‹‚ðŒŸo‚µ‚Ü‚·BŒŸo‚·‚é‚Æpokon‚Ì•¶Žš‚ªÔ‚­‚È‚è‚Ü
-    ‚·B‚±‚ê‚Íƒtƒ@ƒCƒ‹‚ð•Â‚¶‚éŽž‚È‚Ç‚ÉŽ©“®‚Ås‚í‚ê‚Ü‚·‚©‚ç, Žg‚¤•K—v‚Í
-    ‚ ‚è‚Ü‚¹‚ñB
-
-  ECtrl+S
-    1)ƒ\[ƒgØ‘Ö‚¦‚Å‚·Bƒtƒ@ƒCƒ‹–¼ƒ\[ƒg‚ÆŠg’£Žqƒ\[ƒg‚ðØ‘Ö‚¦‚Ü‚·B
-
-    2)’¼Ú‹N“®ƒfƒBƒXƒNì¬ƒ‚[ƒh’†‚ÉŽg‚¤ƒtƒH[ƒ}ƒbƒgƒXƒLƒbƒvƒL[‚Å‚·B
-    •’Ê‚ÍŽg‚¢‚Ü‚¹‚ñB
-
-  ECtrl+F
-    ’¼Ú‹N“®ƒfƒBƒXƒNì¬ƒ‚[ƒh‚É‚È‚è‚Ü‚·BÚ‚µ‚­‚Í, ƒCƒ“ƒXƒg[ƒ‹•Ò‚Ì
-    6.OSASK‚Å’¼Ú‹N“®ƒfƒBƒXƒN‚ðì‚é ‚ð‚²——‚­‚¾‚³‚¢B
-
-  ECtrl+R
-    ’¼Ú‹N“®ƒfƒBƒXƒNì¬ƒ‚[ƒh‚ðI‚í‚è‚Ü‚·B
-
-  ƒ}ƒEƒX‚Å‚à‘€ì‚Å‚«‚Ü‚·Bƒ_ƒuƒ‹ƒNƒŠƒbƒN‚Í–³‚­‚Ä, ‘S‚ÄƒVƒ“ƒOƒ‹ƒNƒŠƒbƒN
-‚Æ‚µ‚Ä”FŽ¯‚³‚ê‚Ü‚·B
-
-  EƒXƒNƒ[ƒ‹ƒo[
-    •’Ê‚ÌƒXƒNƒ[ƒ‹ƒo[‚Å‚· (^_^;
-
-  E‘I‘ð‚µ‚Ä‚¢‚È‚¢ƒtƒ@ƒCƒ‹–¼‚ðƒNƒŠƒbƒN
-    ‚»‚Ìƒtƒ@ƒCƒ‹‚ð‘I‘ð‚µ‚Ü‚·B
-
-  E‘I‘ð‚µ‚Ä‚¢‚éƒtƒ@ƒCƒ‹–¼‚ðƒNƒŠƒbƒN
-    ‚»‚Ìƒtƒ@ƒCƒ‹‚ðŽÀs‚µ‚Ü‚· (ŠJ‚«‚Ü‚·)B
-
-
-5.2.pokon‚ÅƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ð‹N“®
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-@pokon‚ªƒtƒ@ƒCƒ‹‚ÌŠÖ˜A•t‚¯‚ð’m‚Á‚Ä‚¢‚é‚Ì‚Å, ‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ðpokon‚Å
-uŠJ‚­v‚±‚Æ‚ª‚Å‚«‚Ü‚· (Šg’£Žq‚ðŽg‚¤‚Ì‚Í–{—ˆ‚ÌŽd—l‚Å‚Í‚ ‚è‚Ü‚¹‚ñ‚ª) B
-
-  EBIN
-    ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Å‚·BDRVSPACE.BIN‚È‚Çˆá‚¤‚à‚Ì‚à¬‚¶‚è‚Ü‚·‚ª, ‚»‚ê
-    ‚ÍŸŽè‚É‹æ•Ê‚µ‚Ü‚·B
-
-  EBMP
-    BMP‰æ‘œ‚Å‚·BPICTURE0‚ðŽg‚Á‚Ä•\Ž¦‚µ‚Ü‚·B
-
-  EHEL
-    ‚Ö‚ç‚Ö‚çƒAƒjƒƒf[ƒ^‚Å‚·BHELO‚ðŽg‚Á‚ÄÄ¶‚µ‚Ü‚·B
-
-  EJPG
-    JPEG‰æ‘œ‚Å‚·BPICTURE0‚ð‚Â‚©‚Á‚Ä•\Ž¦‚µ‚Ü‚·B
-
-  EMML
-    ƒeƒLƒXƒgŒ`Ž®‚ÌŠy•ˆ‚Å‚·BMMLPLAY‚ðŽg‚Á‚ÄÄ¶‚µ‚Ü‚·B
-
-  EPSF
-    ‚Ö‚Á‚Û‚±ƒRƒ“ƒ\[ƒ‹poko‚ÌƒXƒNƒŠƒvƒgƒtƒ@ƒCƒ‹‚Å‚·BƒRƒ“ƒ\[ƒ‹‚ªŠJ‚¢‚Ä
-    ‚¢‚È‚¯‚ê‚ÎŽÀs‚µ‚Ü‚·B
-
-  ETXT
-    ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚Å‚·BTEDITC02‚ðŽg‚Á‚Ä•\Ž¦‚µ‚Ü‚·B
-
-  EWRP
-    WABA‚ÌƒA[ƒJƒCƒu‚Å‚·BWABA‚ðŽg‚Á‚ÄŽÀs‚µ‚Ü‚·B
-
-  E5TQ
-    GyOTAK2—p–â‘èƒf[ƒ^‚Å‚·BGyOTAK2‚ðŽg‚Á‚ÄŽÀs‚µ‚Ü‚·B
-    (OSASK0.PSF‚Å‚ÌÝ’è‚Å‚·B)
-
-  E‚»‚Ì‘¼
-    BEDITC00‚ðŽg‚Á‚Ä•\Ž¦‚µ‚Ü‚·B
-
-@ƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒfƒBƒXƒN‚ÆOSASK‹N“®ƒfƒBƒXƒN‚Í•ÊX‚Å‚àˆê‚Å‚à‚©‚Ü‚¢
-‚Ü‚¹‚ñB‚µ‚©‚µ, ˆê‚Ì•û‚ªƒfƒBƒXƒN‚ð“ü‚êŠ·‚¦‚éŽèŠÔ‚ªÈ‚¯•Ö—˜‚Å‚µ‚å‚¤B
-
-
-5.3.pokon‚Åƒtƒ@ƒCƒ‹‘€ì
-~~~~~~~~~~~~~~~~~~~~~~~
-@pokon‚Åƒtƒ@ƒCƒ‹‘€ì‚ª‚Å‚«‚Ü‚·B
-
-  ECtrl+Shift+C (create)
-    NEW_FILE‚Æ‚¢‚¤ƒtƒ@ƒCƒ‹‚ðì‚è‚Ü‚·B‚·‚Å‚É‚ ‚éŽž‚Íì‚ê‚Ü‚¹‚ñB
-
-  ECtrl+Shift+D (delete)
-    ‘I‘ð‚µ‚Ä‚ ‚éƒtƒ@ƒCƒ‹‚ðíœ‚µ‚Ü‚·B
-
-  ECtrl+Shift+S (size)
-    resizer0‚ðŽg‚Á‚Äƒtƒ@ƒCƒ‹‚Ì‘å‚«‚³‚ð•Ï‚¦‚Ü‚·Bƒtƒ@ƒCƒ‹‚Ì¡‚Ì‘å‚«‚³‚ª
-    •\Ž¦‚³‚ê‚é‚Ì‚Å, ”‚ð“ü—Í‚µ‚ÄEnterƒL[‚ð‰Ÿ‚µ‚Ä‚­‚¾‚³‚¢B
-
-@ƒtƒ@ƒCƒ‹‚ðŒë‚Á‚ÄÁ‚µ‚½ê‡‚àQ‚Ä‚È‚¢‚Å‚­‚¾‚³‚¢Bpokon‚ÉDeleteƒL[‚ð
-“ü—Í‚·‚é‚Ü‚Å‚Í, ƒfƒBƒXƒN‚É‰e‹¿‚µ‚Ü‚¹‚ñBShift+Insert‚ð“ü—Í‚·‚ê‚ÎŒ³‚É–ß
-‚è‚Ü‚·B
-
-
-5.4.‰æ–Êƒ‚[ƒhØ‚è‘Ö‚¦ƒXƒNƒŠƒvƒg
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-  V-640-16.PSF ‚È‚Ç‚ÌƒXƒNƒŠƒvƒg‚ª•t‘®‚µ‚Ä‚¢‚Ü‚·BŽÀs‚·‚é‚Æ‰æ–Êƒ‚[ƒh
-‚ªØ‚è‘Ö‚í‚è‚Ü‚·BÅ‰‚Ì”Žš‚Í‰æ–Ê•, ŽŸ‚Ì”Žš‚Í‰æ‘f‚Ìƒrƒbƒg”‚ð•\‚í‚µ
-‚Ä‚¢‚Ü‚· (8‚Í256F, 16‚Í64KF, 32‚Í16MFƒ‚[ƒh‚ð•\‚µ‚Ü‚·)B
-  ƒrƒfƒIƒJ[ƒh‚ª‘Î‰ž‚µ‚Ä‚¢‚È‚¢‰æ–Êƒ‚[ƒh‚É‚ÍØ‚è‘Ö‚¦‚ç‚ê‚Ü‚¹‚ñB‚Ü‚½,
-‚Ö‚Á‚Û‚±ƒRƒ“ƒ\[ƒ‹‚ªŠJ‚¢‚Ä‚¢‚éŠÔ‚ÍƒXƒNƒŠƒvƒg‚ªŽÀs‚Å‚«‚Ü‚¹‚ñ‚Ì‚Å, ƒRƒ“
-ƒ\[ƒ‹‚ð•Â‚¶‚Ä‚©‚çŽg‚Á‚Ä‚­‚¾‚³‚¢B
-
-
-6.‚Ö‚Á‚Û‚±ƒRƒ“ƒ\[ƒ‹poko
-~~~~~~~~~~~~~~~~~~~~~~~~
-@pokon‚ªƒAƒNƒeƒBƒu‚É‚È‚Á‚Ä‚¢‚éŽž‚É, 'Ctrl+C'‚ð“ü—Í‚·‚é‚ÆƒRƒ“ƒ\[ƒ‹ƒE
-ƒBƒ“ƒhƒE‚ªo‚Ü‚·B‚±‚ÌƒRƒ“ƒ\[ƒ‹‚ÍCUIƒAƒvƒŠ‚Ì‚½‚ß‚Ì—§”h‚ÈƒRƒ“ƒ\[ƒ‹‚Å
-‚Í‚È‚­, ‚¢‚ë‚¢‚ë‚ÈŠJ”­’†‚Ì‹@”\‚ðŽg‚Á‚Ä‚Ý‚é‚½‚ß‚Ì‚¨‚Ü‚¯‚Å‚· (Î)B
-@‚±‚ÌƒRƒ“ƒ\[ƒ‹‚ÅŽg‚¦‚éƒRƒ}ƒ“ƒh‚ð‚¢‚­‚Â‚©Ð‰î‚µ‚Ü‚·B
-
-  Ememory
-  Etasklist
-    Œ»Ý‚Ìó‘Ô‚ð•\Ž¦‚·‚é‚¾‚¯‚ÌƒRƒ}ƒ“ƒh‚Å‚·BŽg‚Á‚Ä‚Ý‚ê‚Î‚·‚®‚É•ª‚©‚é‚Å
-    ‚µ‚å‚¤B
-
-  Emouseaccel n m
-    n, m‚Ì•”•ª‚Íƒpƒ‰ƒ[ƒ^[‚Å, ƒJ[ƒ\ƒ‹‚Ì‘¬‚³‚ªn‚æ‚è‘å‚«‚­‚È‚é‚Æm”{‚É
-    ‰Á‘¬‚³‚ê‚é‚Æ‚¢‚¤Žd‘g‚Ý‚É‚È‚Á‚Ä‚¢‚Ü‚·Bn‚Í1‚©2, m‚Í2`4‚­‚ç‚¢‚É‚µ‚Ä
-    ‚Ý‚Ü‚µ‚å‚¤B
-
-  Erename file1 file2
-    ƒtƒ@ƒCƒ‹‚Ì–¼‘O‚ð•ÏX‚µ‚Ü‚·Bfile1‚ª•ÏX‘O‚Ì–¼‘O‚Åfile2‚ªŒã‚Ì–¼‘O‚Å
-    ‚·BMS-DOS‚Å‚Í‹–‚³‚ê‚È‚¢Žš‚àŽg‚¦‚Ü‚·‚ª, ‚»‚ê‚Í‚â‚ß‚Ä‚­‚¾‚³‚¢B
-
-  EsendsignalU N sig
-    N”Ô‚Ìƒ^ƒXƒN‚ÉƒVƒOƒiƒ‹sig‚ð‘—M‚µ‚Ü‚·B
-      EF2‚ð‰Ÿ‚µ‚½‚±‚Æ‚É‚·‚é (800x600‚Å‹N“®)
-        senddignalU 3 0x205
-      EF5‚ð‰Ÿ‚µ‚½‚±‚Æ‚É‚·‚é (ƒtƒHƒ“ƒg‚Ì“Ç‚Ýž‚Ý)
-        sendsignalU 3 0x240
-      EF7‚ð‰Ÿ‚µ‚½‚±‚Æ‚É‚·‚é (•ÇŽ†‚Ì“Ç‚Ýž‚Ý)
-        sendsignalU 3 0x248
-      EƒL[ƒ{[ƒh‚ðUS101ƒ‚[ƒh‚É‚·‚é
-        sendsignalU 3 0x10001
-
-  Edefkeybind
-  Edefspkeybind
-    ƒL[ƒ{[ƒh‚Ì”z’u‚ð•Ï‚¦‚éƒRƒ}ƒ“ƒh‚Å‚·B‚±‚ê‚ðŽg‚¤‚É‚ÍOSASK‚Ìƒ\[ƒX
-    ‚ª‚ ‚Á‚½‚Ù‚¤‚ª‚¢‚¢‚Ì‚Å‚·‚ª, ‚æ‚­‚ ‚éÝ’è‚¾‚¯Ð‰î‚µ‚Ä‚¨‚«‚Ü‚·B
-      EƒL[ƒ{[ƒh‚ÌCtrl‚ÆCapsLock‚ðŠ®‚Ø‚«‚É“ü‚ê‘Ö‚¦‚é
-        defspkeybind 16 0x1d 0x0010c070
-        defspkeybind 46 0x3a 0x0000c000
-        defspkeybind 52 0x3a 0x4000c000
-        defkeybind 0xb2 0x1d 1 0xff 0xff
-        defkeybind 0xb5 0x3a 254 0x9d 254
-
-  Evesalist N
-    N ‚Í 1,2,3 ‚Ì‚¤‚¿‚Ì‚Ç‚ê‚©‚Ì”Žš‚Å‚·B‚»‚ê‚¼‚ê, 8bpp, 16bpp, 32bpp
-    ‚ÌŽg‚¦‚é‰æ–Êƒ‚[ƒh‚Æ”Ô†‚ª—ñ‹“‚³‚ê‚Ü‚·Bnone ‚Æ•\Ž¦‚³‚ê‚éê‡, ‚»‚Ì
-    ƒ‚[ƒh‚ÍŽg‚¦‚Ü‚¹‚ñB
-      —á:
-      poko>vesalist 1
-      VESA-2 BIOS is found.
-       101.  640x 480 L    103.  800x 600 L
-       105. 1024x 768 L
-
-      poko>vesalist 3
-      VESA-2 BIOS is found.
-       - none -
-
-  Esetvesa N 0x###
-    N ‚Í 0,3,4,-3,-4 ‚Ì‚¤‚¿‚Ì‚Ç‚ê‚©‚Ì”Žš‚Å‚·B0x### ‚Í vesalist ‚Å•\Ž¦
-    ‚³‚ê‚é‰æ–Êƒ‚[ƒh”Ô†‚ð ### ‚É“–‚Ä‚Í‚ß‚½‚à‚Ì‚Å‚·B
-      E3, 4‚Ìê‡‚Í, F3/F4‚Ö‚ÌŠ„‚è“–‚Ä‚Æ“¯Žž‚ÉØ‚è‘Ö‚¦
-      E-3, -4‚Ìê‡‚Í, Š„‚è“–‚Ä‚¾‚¯
-      E0‚Ìê‡‚Í, Ø‚è‘Ö‚¦‚¾‚¯
-      —á:
-      poko>setvesa 3 0x105
-      poko>setvesa 4 0x117
-
-  Edrvcf N
-    N ‚Í0‚©‚ç9‚Ü‚Å‚Ì”Žš‚Å, ‚»‚Ì”Ô†‚ÌPCƒJ[ƒhƒXƒƒbƒg‚É‚³‚³‚Á‚Ä‚¢‚éCF
-    ‚ÌƒfƒBƒXƒNƒCƒ[ƒW‚ðŽg‚¤‚æ‚¤‚É‚µ‚Ü‚·B‚½‚¾‚µ, N‚ª9‚¾‚Æƒhƒ‰ƒCƒu‚È‚µ
-    ‚É‚È‚è‚Ü‚· (CF‚àƒn[ƒhƒfƒBƒXƒN‚àƒtƒƒbƒsƒB‚àŽg‚¦‚È‚­‚È‚è‚Ü‚·)B
-    ‘‚«•Ï‚¦‚½ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚Æ‚«‚Í–³Œø‚É‚È‚è‚Ü‚·B
-    ƒXƒNƒŠƒvƒg‚Å‚ÍŽg‚¦‚Ü‚¹‚ñB
-
-  Edrvata N
-    N‚Í0‚©‚ç3‚Ì”Žš‚Å‚·B‚»‚ê‚¼‚ê,
-     0. ƒvƒ‰ƒCƒ}ƒŠ ƒ}ƒXƒ^[
-     1. ƒvƒ‰ƒCƒ}ƒŠ ƒXƒŒ[ƒu
-     2. ƒZƒJƒ“ƒ_ƒŠ ƒ}ƒXƒ^[
-     3. ƒZƒJƒ“ƒ_ƒŠ ƒXƒŒ[ƒu
-    ‚Ìƒn[ƒhƒfƒBƒXƒN‚É‘Î‰ž‚µ‚Ä‚¢‚Ä, ‚»‚Ìƒn[ƒhƒfƒBƒXƒN‚Ì‘æˆê‹æ‰æ‚É‚ ‚é
-    ƒfƒBƒXƒNƒCƒ[ƒW‚ðŽg‚¤‚æ‚¤‚É‚µ‚Ü‚·B
-    ‘‚«•Ï‚¦‚½ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚Æ‚«‚Í–³Œø‚É‚È‚è‚Ü‚·B
-    ƒXƒNƒŠƒvƒg‚Å‚ÍŽg‚¦‚Ü‚¹‚ñB
-
-  Edrvfd 0
-    ]—ˆ’Ê‚è‚ÉƒtƒƒbƒsƒB‚ðŽg‚¤‚æ‚¤‚É‚µ‚Ü‚·B
-    ‘‚«•Ï‚¦‚½ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚Æ‚«‚Í–³Œø‚É‚È‚è‚Ü‚·B
-
-  Esetwallpaper FILE
-    FILE‚ð•ÇŽ†‚É‚µ‚Ü‚·BFILE‚É‰½‚à‘‚©‚È‚¢‚Æ, •ÇŽ†–³‚µ‚É‚È‚è‚Ü‚·B
-
-  Esetext EXT FILE
-    Šg’£ŽqEXT‚ÉFILE‚Æ‚¢‚¤ƒvƒƒOƒ‰ƒ€‚ðŠÖ˜A•t‚Ü‚·BŠg’£Žq‚É"."‚ð•t‚¯‚Ä‚Í
-    ‚¢‚¯‚Ü‚¹‚ñB
-
-  Esetext .A FILE
-    pokon‚ÌCtrl+AƒL[‚ÉFILE‚Æ‚¢‚¤ƒvƒƒOƒ‰ƒ€‚ðŠÖ˜A•t‚¯‚Ü‚·BCtrl+b‚Å
-    bball.bin‚ð‹N“®‚·‚é‚È‚ç, setext .b bball.bin ‚Æ‚µ‚Ü‚·B
-
-6.1.‹N“®ƒXƒNƒŠƒvƒg
-~~~~~~~~~~~~~~~~~~
-@‹N“®Žž‚ÉOSASK0.PSF‚Æ‚¢‚¤ƒtƒ@ƒCƒ‹‚ð“Ç‚Ýž‚ñ‚Å, ‚»‚ê‚ðpoko‚ÌƒRƒ}ƒ“ƒh‚Æ
-‚µ‚ÄŽÀs‚·‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚Ü‚·Bs‚Éˆê‚Â‚Ã‚ÂƒRƒ}ƒ“ƒh‚ð‘‚¢‚Ä‚¨‚¢‚Ä‚­‚¾
-‚³‚¢B‹N“®Žž‚ÉƒtƒHƒ“ƒg‚â•ÇŽ†‚ð“Ç‚Ýž‚Ü‚¹‚½‚èÝ’è‚ð‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-  •s”õ‚É‚æ‚è, drvataƒRƒ}ƒ“ƒh‚ÆdrvcfƒRƒ}ƒ“ƒh‚ÍŽg‚¦‚Ü‚¹‚ñB
-
-
-7.ˆ³kƒtƒ@ƒCƒ‹
-~~~~~~~~~~~~~~
-@“ÆŽ©Œ`Ž®‚Ìˆ³kƒtƒ@ƒCƒ‹‚ªŽg‚¦‚Ü‚·B‚½‚¾‚µ, OS‚Æ‚µ‚Ä‚Í“Ç‚Ýž‚Ý‚¾‚¯‚µ‚©
-ƒTƒ|[ƒg‚µ‚Ä‚¢‚È‚¢‚Ì‚Å, ˆ³kƒtƒ@ƒCƒ‹‚Í‘‚«Š·‚¦‚Ä‚à‘‚«–ß‚µ‘ÎÛ‚É‚È‚è‚Ü
-‚¹‚ñB•Û‘¶‚µ‚½‚¢ê‡‚Ímcopyc1‚ðŽg‚Á‚ÄƒRƒs[‚·‚é‚Æ³‚µ‚­•Û‘¶‚Å‚«‚Ü‚·B
-
-@OSASK‚ÅŽg‚¦‚Î‘‚«–ß‚µˆÈŠO‚Í¡‚Ü‚Å‚Æ•Ï‚í‚è‚Ü‚¹‚ñ‚ª, ‘¼‚ÌOS‚Å‚Íˆ³k‚³
-‚ê‚½‚Ü‚ÜŒ©‚¦‚Ä‚µ‚Ü‚¢‚Ü‚·BL’·‚µ‚½ƒtƒ@ƒCƒ‹‚ðŒ©‚½‚¢ê‡‚à, mcopyc1‚ðŽg
-‚Á‚ÄƒRƒs[‚µ‚Ä‚­‚¾‚³‚¢BL’·‚µ‚½‚à‚Ì‚ª•Û‘¶‚³‚ê‚Ü‚·B
-
-
-8.•ÇŽ†
-~~~~~~
-@2F, 16F, 256F, 16MF‚ÌBMP(ƒ‰ƒ“ƒŒƒ“ƒOƒXˆ³k–¢‘Î‰ž)‚Æ, ƒx[ƒXƒ‰ƒCƒ“
-JPEG‚ªŽg‚¦‚Ü‚·Bí‚ÉƒZƒ“ƒ^ƒŠƒ“ƒO‚³‚ê‚Ü‚·B
-
-  ‰æ–Êƒ‚[ƒh‚ð•Ï‚¦‚é‚Æ•ÇŽ†‚ªÁ‚¦‚Ü‚·‚ª, Ž©“®‚Å“\‚è’¼‚·‚æ‚¤‚É‚Í‚È‚Á‚Ä‚¢
-‚Ü‚¹‚ñB‚à‚¤‚¢‚¿‚Ç“\‚è’¼‚µ‚Ä‚­‚¾‚³‚¢B
-
-
-9.¢‚Á‚½Žž‚É‚Í
-~~~~~~~~~~~~~~
-@‚±‚ñ‚È‚±‚Æ‚ª‚ ‚Á‚½‚ç, “®ìŠm”F•ñ‚·‚é‘O‚É‚¿‚å‚Á‚Æƒ`ƒFƒbƒN‚µ‚Ä‚Ý‚Ä‚­
-‚¾‚³‚¢B
-
-
-9.1.OSASK‚ª‹N“®‚µ‚È‚¢I
-~~~~~~~~~~~~~~~~~~~~~~~
-¨ƒtƒƒbƒs[ƒfƒBƒXƒN‚ª—ò‰»‚µ‚Ä‚¢‚Ü‚¹‚ñ‚©H
-    OSASK‚ÍƒfƒBƒXƒN‚Ì—ò‰»‚É‚¿‚å‚Á‚Æ•qŠ´‚È‚æ‚¤‚Å‚·B‚à‚µŒÃ‚¢ƒfƒBƒXƒN‚Å
-    ‚â‚Á‚Ä‚¢‚½‚ç, V‚µ‚¢ƒfƒBƒXƒN‚Å‚à‚¤ˆê“x‚â‚è’¼‚µ‚Ä‚Ý‚Ä‚­‚¾‚³‚¢B
-
-¨PS/2ƒ}ƒEƒX‚ÍÚ‘±‚³‚ê‚Ä‚¢‚Ü‚·‚©H
-    ‹@Ží‚É‚æ‚Á‚Ä‚ÍAPS/2ƒ}ƒEƒX‚ªÚ‘±‚³‚ê‚Ä‚¢‚È‚¢‚Æ‹N“®‚µ‚È‚¢‚æ‚¤‚Å‚·B
-    USBƒ}ƒEƒX‚ÍÚ‘±‚µ‚Ä‚à”FŽ¯‚µ‚È‚¢‚Ì‚Å, “K“–‚ÈPS/2ƒ}ƒEƒX‚ð•t‚¯‚Ä‚Ý‚Ä
-    ‚­‚¾‚³‚¢B
-
-¨ƒVƒŠƒAƒ‹ƒ}ƒEƒX‚ªÚ‘±‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ‚©H
-    ‹@Ží‚É‚æ‚Á‚Ä‚ÍAƒVƒŠƒAƒ‹ƒ}ƒEƒX‚ªÚ‘±‚³‚ê‚Ä‚¢‚é‚Æ‹N“®’†‚Éƒnƒ“ƒOƒAƒb
-    ƒv‚·‚é‚æ‚¤‚Å‚·BŽæ‚èŠO‚µ‚Ä‚Ý‚Ä‚­‚¾‚³‚¢B
-
-
-9.2.OSASK‚Ìƒ}ƒEƒX‚Ì“®‚«‚ª’x‚¢I
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-¨mouseaccelƒRƒ}ƒ“ƒh‚ðŽg‚Á‚Ä‚Ý‚Ü‚µ‚å‚¤B
-    Å‰‚Í mouseaccel 2 3 ‚Æ‚¢‚¤Ý’è‚É‚È‚Á‚Ä‚¢‚Ü‚·Bmouseaccel 1 3 ‚­
-    ‚ç‚¢‚É‚·‚é‚Æ‚¢‚¢‚©‚à’m‚ê‚Ü‚¹‚ñB
-
-
-9.3.ƒeƒLƒXƒgƒtƒ@ƒCƒ‹‚ª•ÒW‚Å‚«‚È‚¢I
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-¨‚»‚Ìƒtƒ@ƒCƒ‹‚ð‘¼‚Ìƒ^ƒXƒN‚ÅŠJ‚¢‚Ä‚¢‚Ü‚¹‚ñ‚©H
-    •¡”‚Ìƒ^ƒXƒN‚ª“¯‚¶ƒtƒ@ƒCƒ‹‚ðŽg‚Á‚Ä‚¢‚é‚Æ, •ÒWì‹Æ‚Ì‘å”¼‚ªƒLƒƒƒ“
-    ƒZƒ‹‚³‚ê‚Ü‚·B–Ê“|‚Å‚·‚ª, ŠY“–‚·‚éƒAƒvƒŠ‚ð‚Ý‚ñ‚È•Â‚¶‚Ä‚­‚¾‚³‚¢B
-    ‚»‚¤‚·‚ê‚Î•ÒW‚Å‚«‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
-    «—ˆ‚Ìƒo[ƒWƒ‡ƒ“‚Å‚Í, ‚±‚Ì§ŒÀ‚Í‚È‚­‚È‚è‚Ü‚·B
-
-9.4.‰æ–Êƒ‚[ƒh‚ª•Ï‚í‚ç‚È‚¢I
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-¨‹·‚¢‰æ–Êƒ‚[ƒh‚É‚µ‚æ‚¤‚Æ‚µ‚Ä‚¢‚Ü‚¹‚ñ‚©H
-    ƒEƒBƒ“ƒhƒE‚ª•ÏXŒã‚Ì‰æ–Ê‚©‚ç‚Í‚Ýo‚·‚½‚ß‚É, ‚ ‚«‚ç‚ß‚Ä‚¢‚Ü‚·B‘å‚«
-    ‚·‚¬‚éƒEƒBƒ“ƒhƒE‚ð•Â‚¶‚é‚Æ‚©, ‚³‚à‚È‚­‚Î‚à‚Á‚Æ¶ã‚Ì•û‚ÉˆÚ“®‚µ‚Ä‚â
-    ‚é‚È‚Ç‚µ‚Ä, ‚à‚¤ˆê“xŽŽ‚µ‚Ä‚­‚¾‚³‚¢B
-
-
-10.“®ìŠm”F•ñ‚Ì‚¨Šè‚¢
-~~~~~~~~~~~~~~~~~~~~~~~
-@³‚µ‚­“®ì‚µ‚È‚¢‹@”\‚ª‚ ‚Á‚½ê‡‚È‚Ç‚Í, ó‹µ‚ð‹³‚¦‚Ä‚¢‚½‚¾‚¯‚é‚Æ•‚©
-‚è‚Ü‚·B¡Œã‚ÌŠJ”­‚ÌŽQl‚É‚µ‚Ü‚·BˆÈ‰º‚Ì•û–@‚Ì‚¢‚¸‚ê‚©‚Å‚¨Šè‚¢‚µ‚Ü‚·B
-
-  EOSASK-ML‚É“Še
-  EOSASK-ML“Še/‰{——ƒtƒH[ƒ€‚É‘‚«ž‚Þ
-  Eì‡GŽÀ‚Éƒ[ƒ‹‚ðo‚·
-
-  ì‡GŽÀ‚ ‚Ä‚Ìƒ[ƒ‹‚Í, ƒvƒ‰ƒCƒoƒV[‚ÉŠÖ‚í‚é–â‘è‚ª–³‚¢‚©‚¬‚èT‚¦‚Ä‚­
-‚¾‚³‚¢BML‚âOSASK“`Œ¾”Â, 2‚¿‚á‚ñ‚Ë‚é‚È‚Ç‚Ì•û‚ª‘‚­‰ñ“š‚ª“¾‚ç‚ê‚Ü‚·B
-
-----------------------------------------------------------------------
-à–¾‘‚ÉŠÖ‚·‚é‚¨–â‚¢‡‚í‚¹‚Í‚ ‚Á‚«‚¡<akkiesoft—marokun.net>‚Ü‚Å
+  ãƒ»Shift+Insert
+    ãƒ‡ã‚£ã‚¹ã‚¯ã®å¼·

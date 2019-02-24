@@ -181,7 +181,7 @@ string_hash (k)
   hash = 0;
   len = 0;
 
-  while ((c = *s++) != '\0')
+  while ((c = *s++) != '¥0')
     {
       hash += c + (c << 17);
       hash ^= hash >> 2;

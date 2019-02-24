@@ -94,7 +94,7 @@ TEXTDOMAIN (domainname)
   old_domain = (char *) _nl_current_default_domain;
 
   /* If domain name is the null string set to default domain "messages".  */
-  if (domainname[0] == '\0'
+  if (domainname[0] == '¥0'
       || strcmp (domainname, _nl_default_default_domain) == 0)
     {
       _nl_current_default_domain = _nl_default_default_domain;
@@ -119,26 +119,4 @@ TEXTDOMAIN (domainname)
 #endif
 
       if (new_domain != NULL)
-	_nl_current_default_domain = new_domain;
-    }
-
-  /* We use this possibility to signal a change of the loaded catalogs
-     since this is most likely the case and there is no other easy we
-     to do it.  Do it only when the call was successful.  */
-  if (new_domain != NULL)
-    {
-      ++_nl_msg_cat_cntr;
-
-      if (old_domain != new_domain && old_domain != _nl_default_default_domain)
-	free (old_domain);
-    }
-
-  __libc_rwlock_unlock (_nl_state_lock);
-
-  return new_domain;
-}
-
-#ifdef _LIBC
-/* Alias for function name in GNU C Library.  */
-weak_alias (__textdomain, textdomain);
-#endif
+	_nl_current_default_do

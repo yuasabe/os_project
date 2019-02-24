@@ -13,12 +13,12 @@ IMGTOL   = $(TOOLPATH)imgtol
 COPY     = cp
 DEL      = rm -f
 
-# ƒfƒtƒHƒ‹ƒg“®ì
+# ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œ
 
 default :
 	$(MAKE) img
 
-# ƒtƒ@ƒCƒ‹¶¬‹K‘¥
+# ãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆè¦å‰‡
 
 ipl10.bin : ipl10.nas Makefile
 	$(NASK) ipl10.nas ipl10.bin ipl10.lst
@@ -39,7 +39,7 @@ naskfunc.obj : naskfunc.nas Makefile
 	$(NASK) naskfunc.nas naskfunc.obj naskfunc.lst
 
 bootpack.bim : bootpack.obj naskfunc.obj Makefile
-	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map \
+	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map Â¥
 		bootpack.obj naskfunc.obj
 # 3MB+64KB=3136KB
 
@@ -50,12 +50,12 @@ haribote.sys : asmhead.bin bootpack.hrb Makefile
 	cat asmhead.bin bootpack.hrb > haribote.sys
 
 haribote.img : ipl10.bin haribote.sys Makefile
-	$(EDIMG)   imgin:../../z_tools/fdimg0at.tek \
-		wbinimg src:ipl10.bin len:512 from:0 to:0 \
-		copy from:haribote.sys to:@: \
+	$(EDIMG)   imgin:../../z_tools/fdimg0at.tek Â¥
+		wbinimg src:ipl10.bin len:512 from:0 to:0 Â¥
+		copy from:haribote.sys to:@: Â¥
 		imgout:haribote.img
 
-# ƒRƒ}ƒ“ƒh
+# ã‚³ãƒžãƒ³ãƒ‰
 
 img :
 	$(MAKE) haribote.img

@@ -4,8 +4,8 @@ const int main(int argc, char **argv)
 {
 	FILE *fp0, *fp1;
 	if (argc != 3) {
-		fputs("\"txt2bin\"  copyright (C) 2001 H.Kawai\n"
-			"usage : >txt2bin source.txt font.bin\n", stdout
+		fputs("¥"txt2bin¥"  copyright (C) 2001 H.Kawai¥n"
+			"usage : >txt2bin source.txt font.bin¥n", stdout
 		);
 		return 1;
 	}
@@ -13,11 +13,11 @@ const int main(int argc, char **argv)
 	fp0 = fopen(argv[1], "r");
 	fp1 = fopen(argv[2], "wb");
 	if (fp0 == NULL) {
-		fputs("can't open input file.\n", stderr);
+		fputs("can't open input file.¥n", stderr);
 		return 2;
 	}
 	if (fp1 == NULL) {
-		fputs("can't open output file.\n", stderr);
+		fputs("can't open output file.¥n", stderr);
 		return 3;
 	}
 	do {

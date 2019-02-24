@@ -1,7 +1,7 @@
-OBJS_API =	api001.obj api002.obj api003.obj api004.obj api005.obj api006.obj \
-			api007.obj api008.obj api009.obj api010.obj api011.obj api012.obj \
-			api013.obj api014.obj api015.obj api016.obj api017.obj api018.obj \
-			api019.obj api020.obj \
+OBJS_API =	api001.obj api002.obj api003.obj api004.obj api005.obj api006.obj Â¥
+			api007.obj api008.obj api009.obj api010.obj api011.obj api012.obj Â¥
+			api013.obj api014.obj api015.obj api016.obj api017.obj api018.obj Â¥
+			api019.obj api020.obj Â¥
 			alloca.obj
 
 TOOLPATH = ../../../z_tools/
@@ -22,22 +22,22 @@ GOLIB    = $(TOOLPATH)golib00
 COPY     = cp
 DEL      = rm -f
 
-# ƒfƒtƒHƒ‹ƒg“®ì
+# ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œ
 
 default :
 	$(MAKE) apilib.lib
 
-# ƒtƒ@ƒCƒ‹¶¬‹K‘¥
+# ãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆè¦å‰‡
 
 apilib.lib : Makefile $(OBJS_API)
 	$(GOLIB) $(OBJS_API) out:apilib.lib
 
-# ˆê”Ê‹K‘¥
+# ä¸€èˆ¬è¦å‰‡
 
 %.obj : %.nas Makefile
 	$(NASK) $*.nas $*.obj $*.lst
 
-# ƒRƒ}ƒ“ƒh
+# ã‚³ãƒãƒ³ãƒ‰
 
 clean :
 	-$(DEL) *.lst

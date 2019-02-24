@@ -3,7 +3,7 @@
 
 	usage : >sjisconv [-e] [-s] input-file output-file
 
-	-s:ShiftJISÉÇÅ[Éh
+	-s:ShiftJIS„É¢„Éº„Éâ
 */
 
 #include <stdio.h>
@@ -11,7 +11,7 @@
 
 typedef unsigned char UCHAR;
 
-#define NL			"\n"
+#define NL			"¬•n"
 
 #define FLAG_E		0
 #define FLAG_S		1
@@ -60,7 +60,7 @@ int main(int argc, UCHAR **argv)
 		}
 	};
 	if (i != 2) {
-		errout("\"sjisconv\"  Copyright(C) 2003 H.Kawai" NL
+		errout("¬•"sjisconv¬•"  Copyright(C) 2003 H.Kawai" NL
 			"usage : >sjisconv [-e] [-s] input-file output-file" NL
 		);
 	}

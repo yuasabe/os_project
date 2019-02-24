@@ -12,7 +12,7 @@ static UCHAR *copystr(UCHAR *s0, UCHAR *s1, struct str_works *work)
 		errout("filebuf over!" NL);
 	while (s0 < s1)
 		*p++ = *s0++;
-	*p++ = '\0';
+	*p++ = 'Â¥0';
 	work->filebuf = p;
 	return r;
 }
@@ -56,7 +56,7 @@ too_many_object:
 	while (obj->name < t) {
 		if (t[-1] == '/')
 			break;
-		if (t[-1] == '\\')
+		if (t[-1] == 'Â¥Â¥')
 			break;
 		t--;
 	}
@@ -69,7 +69,7 @@ too_many_object:
 	}
 	if (*obj->file0 != '!')
 		errout_s_NL("unknown file type: ", obj->name);
-	/* ƒ‰ƒCƒuƒ‰ƒŠ‚Ìƒ[ƒh */
+	/* ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã®ãƒ­ãƒ¼ãƒ‰ */
 	p = obj->file0;
 	s = obj->file1;
 	t = &p[0x44];
@@ -186,7 +186,7 @@ static UCHAR *puttag()
 	UCHAR *p = iobuf_p;
 	static UCHAR tag[60] =
 		"/               " "0               "
-		"        0       " "0         `\n";
+		"        0       " "0         `Â¥n";
 	putbuf(60, tag);
 	return p;
 }
@@ -245,7 +245,7 @@ static void libout(struct str_works *work)
 	if (work->libname) {
 		for (pass = 0; pass < 2; pass++) {
 			iobuf_p = work->iobuf0;
-			putbuf(0x08, "!<arch>\n");
+			putbuf(0x08, "!<arch>Â¥n");
 
 			p = puttag();
 			put32b(len = work->label - work->label0);
@@ -254,7 +254,7 @@ static void libout(struct str_works *work)
 			for (i = 0; i < len; i++)
 				putbuf(work->label0[i].s1 - work->label0[i].s0 + 1, work->label0[i].s0);
 			if ((iobuf_p - work->iobuf0) & 1)
-				putbuf(1, "\0");
+				putbuf(1, "Â¥0");
 			putdec(p + 48, iobuf_p - p - 60);
 
 			p = puttag();
@@ -262,13 +262,13 @@ static void libout(struct str_works *work)
 			for (i = 0; i < len; i++)
 				put32l(work->objs0[i].ofs);
 			put32l(len = work->label - work->label0);
-			/* –{—ˆ‚Íƒ\[ƒg‚µ‚Äo—Í‚·‚é‚Ì‚¾‚ªAè”²‚«‚Åƒ\[ƒg‚µ‚Ä‚¢‚È‚¢ */
+			/* æœ¬æ¥ã¯ã‚½ãƒ¼ãƒˆã—ã¦å‡ºåŠ›ã™ã‚‹ã®ã ãŒã€æ‰‹æŠœãã§ã‚½ãƒ¼ãƒˆã—ã¦ã„ãªã„ */
 			for (i = 0; i < len; i++)
 				put16l(work->label0[i].obj - work->objs0 + 1);
 			for (i = 0; i < len; i++)
 				putbuf(work->label0[i].s1 - work->label0[i].s0 + 1, work->label0[i].s0);
 			if ((iobuf_p - work->iobuf0) & 1)
-				putbuf(1, "\0");
+				putbuf(1, "Â¥0");
 			putdec(p + 48, iobuf_p - p - 60);
 
 			p = puttag();
@@ -283,10 +283,10 @@ static void libout(struct str_works *work)
 					j = 15;
 				}
 				putbuf(16 - j, "/               ");
-				putbuf(44, "0                       0       0         `\n");
+				putbuf(44, "0                       0       0         `Â¥n");
 				putbuf(work->objs0[i].file1 - work->objs0[i].file0, work->objs0[i].file0);
 				if ((iobuf_p - work->iobuf0) & 1)
-					putbuf(1, "\0");
+					putbuf(1, "Â¥0");
 				putdec(p + 48, iobuf_p - p - 60);
 			}
 		}
@@ -301,7 +301,7 @@ static void libout(struct str_works *work)
 			msgout(NL);
 			for (j = 0; j < pass; j++) {
 				if (work->label0[j].obj == &work->objs0[i]) {
-					msgout("\t");
+					msgout("Â¥t");
 					msgout(work->label0[j].s0);
 					msgout(NL);
 				}
@@ -311,7 +311,7 @@ static void libout(struct str_works *work)
 	}
 	if (work->extname) {
 		len = work->objs - work->objs0;
-		if (work->extname[0] == '*' && work->extname[1] == '\0') {
+		if (work->extname[0] == '*' && work->extname[1] == 'Â¥0') {
 			for (i = 0; i < len; i++) {
 				if (GOLD_write_b(work->objs0[i].name, work->objs0[i].file1 - work->objs0[i].file0, work->objs0[i].file0))
 					errout_s_NL("can't write file: ", work->objs0[i].name);
@@ -319,25 +319,4 @@ static void libout(struct str_works *work)
 			goto fin;
 		}
 		for (i = 0; i < len; i++) {
-			for (j = 0; work->extname[j] == work->objs0[i].name[j]; j++) {
-				if (work->extname[j] == 0) {
-					if (GOLD_write_b(work->extname, work->objs0[i].file1 - work->objs0[i].file0, work->objs0[i].file0))
-						errout_s_NL("can't write file: ", work->extname);
-					goto fin;
-				}
-			}
-		}
-	}
-fin:
-	return;
-}
-
-static int getdec(const UCHAR *p)
-{
-	int i = 0;
-	while (*p == ' ')
-		p++;
-	while ('0' <= *p && *p <= '9')
-		i = i * 10 + (*p++ - '0');
-	return i;
-}
+			for (j = 0; work->e

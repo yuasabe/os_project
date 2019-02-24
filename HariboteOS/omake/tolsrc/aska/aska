@@ -1,467 +1,125 @@
 ---------------------------------------------------------------------
-                  CŒ¾ŒêŒ^ƒAƒZƒ“ƒuƒ‰"ASKA" Ver1.0ƒÀ18
+                  Cè¨€èªžåž‹ã‚¢ã‚»ãƒ³ãƒ–ãƒ©"ASKA" Ver1.0Î²18
 ---------------------------------------------------------------------
-§ì“úF2001/10/01
-§ìŽÒFshoe16(shoe16@wizard.elec.waseda.ac.jp)
-‘ŽwŠöFì‡“°
-C³“úF2001/12/06
-C³ŽÒFRisaPapa(ringring@zb4.so-net.ne.jp)
+åˆ¶ä½œæ—¥ï¼š2001/10/01
+åˆ¶ä½œè€…ï¼šshoe16(shoe16@wizard.elec.waseda.ac.jp)
+ç·æŒ‡æ®ï¼šå·åˆå ‚
+ä¿®æ­£æ—¥ï¼š2001/12/06
+ä¿®æ­£è€…ï¼šRisaPapa(ringring@zb4.so-net.ne.jp)
 
-‚PDASKA‚Æ‚Í
+ï¼‘ï¼ŽASKAã¨ã¯
 
-@]—ˆŒ^ƒAƒZƒ“ƒuƒ‰‚Ì‹Lq‚ðA‚P•¶‚P–½—ß‚ðŽç‚è‚Â‚ÂCŒ¾Œê‚É‚È‚é‚×‚­‹ß‚Ã
-‚¯‚æ‚¤‚Æ‚¢‚¤\‘z‚Ì‰º‚É¶‚Ü‚ê‚½‚à‚Ì‚ªASKA‚Å‚·B
-@]—ˆAƒAƒZƒ“ƒuƒ‰‚Å‚Íif•¶‚âloop•¶‚È‚Ç‚Å‚Í•s•K—v‚Éƒ‰ƒxƒ‹‚ª‘‚¦‚Ä‚µ‚Ü
-‚¢ŠÇ—‚ª”ñí‚É‘å•Ï‚Å‚µ‚½B‚Ü‚½\‘¢‘Ì‚ª•nŽã‚È‚½‚ßA‚«‚¿‚ñ‚Æ‚µ‚½ƒf[ƒ^
-Œ^‚ðŒ©’Ê‚µ‚æ‚­ƒTƒ|[ƒg‚·‚é‚Ì‚ª”ñí‚É¢“ï‚Å‚µ‚½B‚³‚ç‚ÉAƒAƒZƒ“ƒuƒ‰‚Í
-ƒtƒŠ[ƒXƒ^ƒCƒ‹Œ^‚ÌŒ¾Œê‚Å‚Í‚È‚¢‚½‚ß‚É‚Ps‚É‚P–½—ß‚Æ‚È‚ès”‚ª”ñí‚É‘½
-‚­‚È‚Á‚ÄƒvƒƒOƒ‰ƒ€‚ÌŒ©’Ê‚µ‚ªˆ«‚­‚È‚Á‚Ä‚¢‚Ü‚µ‚½B
-@‚±‚Ì‚æ‚¤‚È–â‘è‚É‘Îˆ‚·‚é‚×‚­AŠJ”­‚³‚ê‚½‚Ì‚ªASKA‚Æ‚¢‚¤‚í‚¯‚Å‚·B
-
-
-
-‚QDASKA‚ÌŽg‚¢•û
-
-@DOS‚ÌƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒgã‚©‚ç
-
-	ASKA “ü—Íƒtƒ@ƒCƒ‹–¼ o—Íƒtƒ@ƒCƒ‹–¼
-
-‚Æ‚·‚é‚Æ“ü—Íƒtƒ@ƒCƒ‹‚ðƒRƒ“ƒpƒCƒ‹‚µ‚Ä386ASMŒ`Ž®‚Ìo—Íƒtƒ@ƒCƒ‹‚ð¶¬‚µ
-‚Ü‚·Bo—Íƒtƒ@ƒCƒ‹‚ðÈ—ª‚±‚Æ‚à‚Å‚«‚Ü‚·B‚»‚Ìê‡A“ü—Íƒtƒ@ƒCƒ‹–¼‚ª
-"sample.ask"‚È‚ç‚Îo—Íƒtƒ@ƒCƒ‹–¼‚Í"sample.asm"‚É‚È‚è‚Ü‚·B
-
-—áF
-	C:\ASKA\WORK\>ASKA sample.ask sample.asm
-	C:\ASKA\WORK\>ASKA sample.ask
-
-
-d—vFƒRƒ}ƒ“ƒhƒvƒƒ“ƒvƒg‚ÌƒvƒƒpƒeƒBicommand.com‚ÌƒVƒ‡[ƒgƒJƒbƒg‚Ì
-@@@ƒvƒƒpƒeƒBj‚Ìƒƒ‚ƒŠ|ƒvƒƒeƒNƒgƒ‚[ƒh(DPMI)ƒƒ‚ƒŠ‚Ì‡Œv‚ðŽ©“®
-@@@‚Å‚È‚­‚Ä1024‚È‚Ç‚É‚µ‚Ä‚­‚¾‚³‚¢BŽ©“®‚Ì‚Ü‚Ü‚¾‚Æ“®‚«‚Ü‚¹‚ñB
-
-
-‚RDASKA‚Ì“Á’¥“I‚È‹@”\
-
-@ASKA‚Å‚ÍA
-
-Eif`else`Aloop`breakAforAwhileAdo`whileAcontinue‚ªŽg‚¦‚Ü‚·B
-EcharAshortAlongAbyteAwordAdword‚Å•Ï”éŒ¾‚ªo—ˆ‚Ü‚·B
-EŠÖ”“à‚ÅstaticƒL[ƒ[ƒh‚ðŽg‚¤‚±‚Æ‚ÅÃ“I‚È•Ï”‚ªéŒ¾‚Å‚«‚Ü‚·B
-EŠÖ”‚Í–ß‚è’lAˆø”‚È‚µ‚Ìvoid funcname();‚ÅéŒ¾‚ªo—ˆ‚Ü‚·B
-EŽ®•¶‚É‚Í=A+=A-=A*=A/=A&=A|=A^=A<<=A>>=A=-A=~A‚ªŽg‚¦‚Ü‚·B
-E”äŠrŽ®‚É‚Í==A!=A<A<=A>A>=A‚ªŽg‚¦‚Ü‚·B
-E\‘¢‘Ì‚É‚æ‚éŒ^’è‹`‚ªŽg‚¦‚Ü‚·B
-Eƒ|ƒCƒ“ƒ^‚â”z—ñ‚àŽg‚¦‚Ü‚·B
-Esegment‚É‚æ‚éƒZƒOƒƒ“ƒg’è‹`‚à‚«‚¿‚ñ‚Æo—ˆ‚Ü‚·B
-EŒ»ƒo[ƒWƒ‡ƒ“‚ÌASKA‚Å•â‚¢‚«‚ê‚Ä‚¢‚È‚¢386ASM–{—ˆ‚Ìƒj[ƒ‚ƒjƒbƒN–½—ß‚à
-@uasmkeyword(list, ...);v‚ÅƒTƒ|[ƒgB
-Eã‹L‚Åo—ˆ‚È‚¢".386p"‚È‚Ç‚Íasmout(".386p");‚ÅƒTƒ|[ƒgB
-EƒGƒCƒŠƒAƒX‚Æ‚¢‚¤ƒŒƒWƒXƒ^‚ð•Ï”‚ÉŠ„‚è“–‚Ä‚ÄŽg‚¤Ž–‚ªo—ˆ‚Ü‚·B
-Eƒ[ƒJƒ‹•Ï”‚ª’è‹`‚Å‚«‚Ü‚·B
-
-@‹t‚ÉAASKA‚Å‚ÍA
-
-Eƒ‰ƒxƒ‹‚Ì‘O•ûŽQÆ‚ªo—ˆ‚Ü‚¹‚ñB
-EŠÖ”‚Éˆø”‚ðŽ‚½‚¹‚é‚±‚Æ‚ªo—ˆ‚Ü‚¹‚ñB
+ã€€å¾“æ¥åž‹ã‚¢ã‚»ãƒ³ãƒ–ãƒ©ã®è¨˜è¿°ã‚’ã€ï¼‘æ–‡ï¼ï¼‘å‘½ä»¤ã‚’å®ˆã‚Šã¤ã¤Cè¨€èªžã«ãªã‚‹ã¹ãè¿‘ã¥
+ã‘ã‚ˆã†ã¨ã„ã†æ§‹æƒ³ã®ä¸‹ã«ç”Ÿã¾ã‚ŒãŸã‚‚ã®ãŒASKAã§ã™ã€‚
+ã€€å¾“æ¥ã€ã‚¢ã‚»ãƒ³ãƒ–ãƒ©ã§ã¯ifæ–‡ã‚„loopæ–‡ãªã©ã§ã¯ä¸å¿…è¦ã«ãƒ©ãƒ™ãƒ«ãŒå¢—ãˆã¦ã—ã¾
+ã„ç®¡ç†ãŒéžå¸¸ã«å¤§å¤‰ã§ã—ãŸã€‚ã¾ãŸæ§‹é€ ä½“ãŒè²§å¼±ãªãŸã‚ã€ãã¡ã‚“ã¨ã—ãŸãƒ‡ãƒ¼ã‚¿
+åž‹ã‚’è¦‹é€šã—ã‚ˆãã‚µãƒãƒ¼ãƒˆã™ã‚‹ã®ãŒéžå¸¸ã«å›°é›£ã§ã—ãŸã€‚ã•ã‚‰ã«ã€ã‚¢ã‚»ãƒ³ãƒ–ãƒ©ã¯
+ãƒ•ãƒªãƒ¼ã‚¹ã‚¿ã‚¤ãƒ«åž‹ã®è¨€èªžã§ã¯ãªã„ãŸã‚ã«ï¼‘è¡Œã«ï¼‘å‘½ä»¤ã¨ãªã‚Šè¡Œæ•°ãŒéžå¸¸ã«å¤š
+ããªã£ã¦ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã®è¦‹é€šã—ãŒæ‚ªããªã£ã¦ã„ã¾ã—ãŸã€‚
+ã€€ã“ã®ã‚ˆã†ãªå•é¡Œã«å¯¾å‡¦ã™ã‚‹ã¹ãã€é–‹ç™ºã•ã‚ŒãŸã®ãŒASKAã¨ã„ã†ã‚ã‘ã§ã™ã€‚
 
 
 
-‚SDŠÈˆÕŒ¾ŒêŽd—l
+ï¼’ï¼ŽASKAã®ä½¿ã„æ–¹
 
-EƒCƒ“ƒNƒ‹[ƒh
-	include "ƒtƒ@ƒCƒ‹–¼"
-‚Æ‚·‚é‚±‚Æ‚Åƒtƒ@ƒCƒ‹‚ð“Ç‚Ýž‚Þ‚±‚Æ‚ªo—ˆ‚Ü‚·B
-@‚Ü‚½Ainclude‚Ì‘ã‚í‚è‚É#include‚Å‚à“¯‚¶“®ì‚ð‚µ‚Ü‚·B
+ã€€DOSã®ã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆä¸Šã‹ã‚‰
+
+	ASKA å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«å å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«å
+
+ã¨ã™ã‚‹ã¨å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ã—ã¦386ASMå½¢å¼ã®å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—
+ã¾ã™ã€‚å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«ã‚’çœç•¥ã“ã¨ã‚‚ã§ãã¾ã™ã€‚ãã®å ´åˆã€å…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«åãŒ
+"sample.ask"ãªã‚‰ã°å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«åã¯"sample.asm"ã«ãªã‚Šã¾ã™ã€‚
+
+ä¾‹ï¼š
+	C:Â¥ASKAÂ¥WORKÂ¥>ASKA sample.ask sample.asm
+	C:Â¥ASKAÂ¥WORKÂ¥>ASKA sample.ask
 
 
-EƒRƒƒ“ƒg
-	// ƒRƒƒ“ƒg•¶
-‚Æ‚·‚éŽ–‚Å//ˆÈ~A‰üs‚ªŒ»‚ê‚é‚Ü‚Å‚Ì•¶‚ªƒRƒƒ“ƒgƒAƒEƒg‚³‚ê‚Ü‚·B‚±‚ê
-‚ç‚ÌƒRƒƒ“ƒg•¶‚ÍØ‚èŽÌ‚Ä‚ç‚ê‚Ü‚·B
-@‚Ü‚½ACŒ¾Œê‚Á‚Û‚­/* ` */‚àƒTƒ|[ƒg‚µ‚Ü‚µ‚½B‚½‚¾AƒlƒXƒg‚ªŒø‚­‚æ‚¤‚É
-‘g‚ñ‚Å‚ ‚é‚Ì‚Å’ˆÓ‚ª•K—v‚Å‚·B
+é‡è¦ï¼šã‚³ãƒžãƒ³ãƒ‰ãƒ—ãƒ­ãƒ³ãƒ—ãƒˆã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼ˆcommand.comã®ã‚·ãƒ§ãƒ¼ãƒˆã‚«ãƒƒãƒˆã®
+ã€€ã€€ã€€ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ï¼‰ã®ãƒ¡ãƒ¢ãƒªâˆ’ãƒ—ãƒ­ãƒ†ã‚¯ãƒˆãƒ¢ãƒ¼ãƒ‰(DPMI)ãƒ¡ãƒ¢ãƒªã®åˆè¨ˆã‚’è‡ªå‹•
+ã€€ã€€ã€€ã§ãªãã¦1024ãªã©ã«ã—ã¦ãã ã•ã„ã€‚è‡ªå‹•ã®ã¾ã¾ã ã¨å‹•ãã¾ã›ã‚“ã€‚
 
 
-EŽ®‚Ìƒpƒ‰ƒ[ƒ^
-@Ž®‚Ìƒpƒ‰ƒ[ƒ^‚ÍƒŒƒWƒXƒ^(r)Aƒƒ‚ƒŠŽQÆ(m)A‘¦’l(i)‚Ì‚RŽí—Þ‚ª‚ ‚è‚Ü
-‚·B‚»‚ê‚¼‚êA
+ï¼“ï¼ŽASKAã®ç‰¹å¾´çš„ãªæ©Ÿèƒ½
+
+ã€€ASKAã§ã¯ã€
+
+ãƒ»ifã€œelseã€œã€loopã€œbreakã€forã€whileã€doã€œwhileã€continueãŒä½¿ãˆã¾ã™ã€‚
+ãƒ»charã€shortã€longã€byteã€wordã€dwordã§å¤‰æ•°å®£è¨€ãŒå‡ºæ¥ã¾ã™ã€‚
+ãƒ»é–¢æ•°å†…ã§staticã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’ä½¿ã†ã“ã¨ã§é™çš„ãªå¤‰æ•°ãŒå®£è¨€ã§ãã¾ã™ã€‚
+ãƒ»é–¢æ•°ã¯æˆ»ã‚Šå€¤ã€å¼•æ•°ãªã—ã®void funcname();ã§å®£è¨€ãŒå‡ºæ¥ã¾ã™ã€‚
+ãƒ»å¼æ–‡ã«ã¯=ã€+=ã€-=ã€*=ã€/=ã€&=ã€|=ã€^=ã€<<=ã€>>=ã€=-ã€=â€¾ã€ãŒä½¿ãˆã¾ã™ã€‚
+ãƒ»æ¯”è¼ƒå¼ã«ã¯==ã€!=ã€<ã€<=ã€>ã€>=ã€ãŒä½¿ãˆã¾ã™ã€‚
+ãƒ»æ§‹é€ ä½“ã«ã‚ˆã‚‹åž‹å®šç¾©ãŒä½¿ãˆã¾ã™ã€‚
+ãƒ»ãƒã‚¤ãƒ³ã‚¿ã‚„é…åˆ—ã‚‚ä½¿ãˆã¾ã™ã€‚
+ãƒ»segmentã«ã‚ˆã‚‹ã‚»ã‚°ãƒ¡ãƒ³ãƒˆå®šç¾©ã‚‚ãã¡ã‚“ã¨å‡ºæ¥ã¾ã™ã€‚
+ãƒ»ç¾ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã®ASKAã§è£œã„ãã‚Œã¦ã„ãªã„386ASMæœ¬æ¥ã®ãƒ‹ãƒ¼ãƒ¢ãƒ‹ãƒƒã‚¯å‘½ä»¤ã‚‚
+ã€€ã€Œasmkeyword(list, ...);ã€ã§ã‚µãƒãƒ¼ãƒˆã€‚
+ãƒ»ä¸Šè¨˜ã§å‡ºæ¥ãªã„".386p"ãªã©ã¯asmout(".386p");ã§ã‚µãƒãƒ¼ãƒˆã€‚
+ãƒ»ã‚¨ã‚¤ãƒªã‚¢ã‚¹ã¨ã„ã†ãƒ¬ã‚¸ã‚¹ã‚¿ã‚’å¤‰æ•°ã«å‰²ã‚Šå½“ã¦ã¦ä½¿ã†äº‹ãŒå‡ºæ¥ã¾ã™ã€‚
+ãƒ»ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ãŒå®šç¾©ã§ãã¾ã™ã€‚
+
+ã€€é€†ã«ã€ASKAã§ã¯ã€
+
+ãƒ»ãƒ©ãƒ™ãƒ«ã®å‰æ–¹å‚ç…§ãŒå‡ºæ¥ã¾ã›ã‚“ã€‚
+ãƒ»é–¢æ•°ã«å¼•æ•°ã‚’æŒãŸã›ã‚‹ã“ã¨ãŒå‡ºæ¥ã¾ã›ã‚“ã€‚
+
+
+
+ï¼”ï¼Žç°¡æ˜“è¨€èªžä»•æ§˜
+
+ãƒ»ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰
+	include "ãƒ•ã‚¡ã‚¤ãƒ«å"
+ã¨ã™ã‚‹ã“ã¨ã§ãƒ•ã‚¡ã‚¤ãƒ«ã‚’èª­ã¿è¾¼ã‚€ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
+ã€€ã¾ãŸã€includeã®ä»£ã‚ã‚Šã«#includeã§ã‚‚åŒã˜å‹•ä½œã‚’ã—ã¾ã™ã€‚
+
+
+ãƒ»ã‚³ãƒ¡ãƒ³ãƒˆ
+	// ã‚³ãƒ¡ãƒ³ãƒˆæ–‡
+ã¨ã™ã‚‹äº‹ã§//ä»¥é™ã€æ”¹è¡ŒãŒç¾ã‚Œã‚‹ã¾ã§ã®æ–‡ãŒã‚³ãƒ¡ãƒ³ãƒˆã‚¢ã‚¦ãƒˆã•ã‚Œã¾ã™ã€‚ã“ã‚Œ
+ã‚‰ã®ã‚³ãƒ¡ãƒ³ãƒˆæ–‡ã¯åˆ‡ã‚Šæ¨ã¦ã‚‰ã‚Œã¾ã™ã€‚
+ã€€ã¾ãŸã€Cè¨€èªžã£ã½ã/* ã€œ */ã‚‚ã‚µãƒãƒ¼ãƒˆã—ã¾ã—ãŸã€‚ãŸã ã€ãƒã‚¹ãƒˆãŒåŠ¹ãã‚ˆã†ã«
+çµ„ã‚“ã§ã‚ã‚‹ã®ã§æ³¨æ„ãŒå¿…è¦ã§ã™ã€‚
+
+
+ãƒ»å¼ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿
+ã€€å¼ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯ãƒ¬ã‚¸ã‚¹ã‚¿(r)ã€ãƒ¡ãƒ¢ãƒªå‚ç…§(m)ã€å³å€¤(i)ã®ï¼“ç¨®é¡žãŒã‚ã‚Šã¾
+ã™ã€‚ãã‚Œãžã‚Œã€
 	r:EAX, CX, DS, CR0
-	m:data, data[0], [EAX], [DS:EAX+EBX*2+&data+~3], *(EAX+1)
+	m:data, data[0], [EAX], [DS:EAX+EBX*2+&data+â€¾3], *(EAX+1)
 	i:0xffff,-1,100,0b0011,&DATA,sizeof(TYPE),
-‚È‚Ç‚Ì‚æ‚¤‚É‚©‚¯‚Ü‚·B‚Ü‚½A•Ï”‚âƒƒ‚ƒŠŽQÆ‚Ìƒf[ƒ^Œ^‚ðˆêŽž“I‚É•Ï‚¦
-‚½‚è’è‹`‚·‚éê‡‚É‚ÍƒLƒƒƒXƒg‚ðŽg‚¤‚±‚Æ‚ªo—ˆ‚Ü‚·B
-
-¦‚±‚±‚ÉƒLƒƒƒXƒgŠÖŒWA‘¦’l‰‰ŽZŠÖŒWA[]“à‹Lq•ûŽ®ŠÖŒW‚ð‘‚­
-
-
-EŽ®•¶
-@Ž®•¶‚Í
-	rm  = rmi;	¨	MOV	rm,rmi
-			¨	MOVSX or MOVZX	(ƒTƒCƒY‚ªˆá‚¤‚Æ‚«)
-	r   =   0;	¨	XOR	r ,r
-	rm += rmi;	¨	ADD	rm,rmi
-	rm +=   1;	¨	INC	rm
-	rm -= rmi;	¨	SUB	rm,rmi
-	rm -=   1;	¨	DEC	rm
-	rm *=   1;	¨	Å“K‰»‚É‚æ‚èÈ—ª
-	reg*=   2;	¨	ADD	reg,reg
-	rm *=   2;	¨	SHL	rm,2
-	r32*=   3;	¨	LEA	r32,[r32 * 2 + r32]
-	rm *=   4;	¨	SHL	rm,2
-	r32*=   5;	¨	LEA	r32,[r32 * 4 + r32]
-	rm *=   8;	¨	SHL	rm,3
-	r32*=   9;	¨	LEA	r32,[r32 * 8 + r32]
-	rm *=   1;	¨	Å“K‰»‚É‚æ‚èÈ—ª
-	rm *=   2;	¨	SAR	rm,1	(unsigned‚ÌŽž‚ÍSHR)
-	rm *=   4;	¨	SAR	rm,2	(unsigned‚ÌŽž‚ÍSHR)
-	rm *=   8;	¨	SAR	rm,4	(unsigned‚ÌŽž‚ÍSHR)
-	rm &= rmi;	¨	AND	rm,rmi
-	rm |= rmi;	¨	OR	rm,rmi
-	rm ^= rmi;	¨	XOR	rm,rmi
-	rm<<= rmi;	¨	SAL	rm,rmi	(unsigned‚ÌŽž‚ÍSHL)
-	reg<<=  1;	¨	ADD	reg,reg
-	rm>>= rmi;	¨	SAR	rm,rmi	(unsigned‚ÌŽž‚ÍSHR)
-	rm =- rmi;	¨	NEG	rm
-	rm =~ rmi;	¨	NOT	rm
-	rm++;		¨	INC	rm
-	rm--;		¨	DEC	rm
-‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·BƒCƒ“ƒNƒŠƒƒ“ƒg‚ÆƒfƒNƒŠƒƒ“ƒgˆÈŠO‚Í¶‚É‚Pƒpƒ‰ƒ[ƒ^A
-‰E‚É‚Pƒpƒ‰ƒ[ƒ^‚Å‚·B‚½‚¾‚µA=-‚Æ=~‚Í¶‚Æ‰E‚Ìƒpƒ‰ƒ[ƒ^‚ª‚Ü‚Á‚½‚­“¯
-‚¶‚Å‚È‚¯‚ê‚Î‚È‚è‚Ü‚¹‚ñB
-”Œ»ƒo[ƒWƒ‡ƒ“‚Å‚Íƒ`ƒFƒbƒN‚Ís‚í‚ê‚Ä‚¢‚Ü‚¹‚ñ‚ªEEE
-
-“ÁŽê‚Èê‡‚Æ‚µ‚Äfar*‚ÅéŒ¾‚³‚ê‚½ƒ‰ƒxƒ‹‚¨‚æ‚ÑƒGƒCƒŠƒAƒX‚ÍA+=,-=,++,--
-‚ÉŒÀ‚Á‚ÄoffsetƒLƒƒƒXƒg‚ð‚Â‚¯‚È‚­‚Ä‚àƒfƒtƒHƒ‹ƒg‚ÅƒIƒtƒZƒbƒg‚É‰‰ŽZ‚ªŽ{
-‚³‚ê‚Ü‚·B‚Ü‚½A¶•Ó‚Æ‰E•Ó‚Å“¯ˆê‚ÌƒZƒOƒƒ“ƒgƒŒƒWƒXƒ^‚ðŽw’è‚µ‚½ƒGƒCƒŠ
-ƒAƒX‚Ìê‡‚ÍAƒIƒtƒZƒbƒg‚Ì‚Ý‚ª‘ã“ü‚³‚ê‚Ü‚·B‚³‚ç‚ÉA¶•Ó‚ªƒGƒCƒŠƒAƒX
-‚Å‰E•Ó‚ªƒƒ‚ƒŠ‚ÌŽž‚Í—á‚Ì‚æ‚¤‚ÉL(segreg)–½—ß‚ðŽg‚Á‚ÄƒfƒR[ƒh‚³‚ê‚Ü‚·B
-
-—áF
-	int*	a == DS:EAX;
-	int*	b;
-	a = b			¨	LDS	EAX,b
-
-
-E”äŠrŽ®‚Æif`else•¶
-@”äŠrŽ®‚Íif()•¶‚Ì’†‚ÅŽg‚í‚ê‚Ä‚¢‚Ü‚·‚ªA‰‰ŽZŽq‚ªˆá‚¤‚±‚ÆˆÈŠO‚ÍŽ®•¶‚Æ
-‚Ü‚Á‚½‚­“¯‚¶‚Å‚·Bu==A!=A<A<=A>A>=v‚ªŽg‚¦‚Ü‚·B
-@‚½‚¾A‘å¬‚Ì”äŠr‚ÌŽž‚É•„†‚Ì‚ ‚è‚È‚µ‚ªd—v‚É‚È‚Á‚Ä‚­‚é‚Ì‚ÅA•Ï”‚Ì
-Œ^“™‚ª‚È‚¢ê‡‚É‚ÍƒLƒƒƒXƒg(unsigned)‚©(signed)‚ð‚Â‚¯‚Ä–¾Ž¦“I‚É•„†‚Ì
-‚ ‚è‚È‚µ‚ðéŒ¾‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B‚±‚Ì‚Æ‚«A•K‚¸¶‚Ìƒpƒ‰ƒ[ƒ^‚Ì‘O‚É
-‚Â‚¯‚é‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B‚»‚êˆÈŠO‚ÍƒGƒ‰[‚Æ‚È‚è‚Ü‚·B
-
-—áF
-						cmp	eax,0
-	if((unsigned)EAX > 0){			jbe	#LL0000
-		
-						jmp	#LL0001
-	}else{				#LL0000:
-		
-	}				#LL0001:
-
-@‚½‚¾‚µif`goto‚Æif`break‚¨‚æ‚Ñif`continue‚Íƒ‰ƒxƒ‹‚ªÅ“K‰»‚³‚ê‚ÄƒW
-ƒƒƒ“ƒv‚ª‚Q‰ñ‚¨‚±‚È‚í‚ê‚é‚±‚Æ‚Í‚ ‚è‚Ü‚¹‚ñB
-
-—áF
-	if((unsigned)EAX > 0)			cmp	eax,0
-		goto label;			ja	#label
-
-@‚Ü‚½A”äŠr‚·‚éÛ‚É
-
-—áF
-	if((unsigned)>){			jbe	#LL0000
-		
-						jmp	#LL0001
-	}else{				#LL0000:
-		
-	}				#LL0001:
-
-‚Ì‚æ‚¤‚É‹Lq‚·‚é‚±‚Æ‚à‚Å‚«‚Ü‚·B‚±‚ê‚É‚æ‚è”äŠr‚Ís‚í‚ê‚¸‚Éƒtƒ‰ƒO‚É‚æ
-‚éƒWƒƒƒ“ƒv‚Ì‚Ý‚ð¶¬‚µ‚Ü‚·B
-
-ˆÈ‰ºAŽQl‚Æ‚µ‚ÄA”äŠr•¶‚ÅŽg—p‚Å‚«‚éŒ`Ž®‚ð‘‚«‚Ü‚·B
-
-	a==b, a!=b, a<b, a<=b, a>b, a>=b	Fcmp•t‚«
-	==, !=, <, <=, >, >=			Fcmp–³‚µ
-	==0, !=0				Fcmp–³‚µ•Êƒo[ƒWƒ‡ƒ“
-	a, !a					Fa!=0, a==0‚Ì•Ê‚Ì‘‚«•û
-
-
-Eloop•¶
-@loop•¶‚Í‰i‹vƒ‹[ƒv‚ðì‚èo‚µ‚Ü‚·B‰i‹vƒ‹[ƒv‚©‚ç”²‚¯‚é‚½‚ß‚É‚Íbreak
-•¶‚ðŽg‚¤•K—v‚ª‚ ‚è‚Ü‚·B
-
-—áF
-	loop{				#LL0000:
-		
-						jmp	#LL0000
-	}				#LL0001:
-
-
-Ebreak•¶
-@break•¶‚Íloop•¶‚©‚ç”²‚¯‚é‚½‚ß‚É‚ ‚è‚Ü‚·BƒlƒXƒg‚µ‚½loop‚ðˆê‹C‚É”²‚¯
-‚é‚½‚ß‚Ébreak‚Ì‚ ‚Æ‚É”Žš‚ð‚Â‚¯‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B‚±‚Ì”Žš‚Íˆê‹C‚Éloop
-•¶‚ð”²‚¯‚é”‚ð•\‚µ‚Ü‚·B‚Â‚Ü‚èA”Žš‚ð‚Â‚¯‚È‚¢‚½‚¾‚Ìbreak;•¶‚Í'1'‚ªÈ
-—ª‚³‚ê‚Ä‚¢‚é‚±‚Æ‚É‚È‚è‚Ü‚·B
-
-—áF
-	break;
-	break 2;
-
-
-Efor•¶
-@“¯—l‚ÉAfor•¶‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-—áF
-	for(ECX=0; ECX<10; ECX++){		xor	ecx,ecx
-					#LL0000:
-						cmp	ecx,10
-						jge	#LL0001
-		
-						inc	ecx
-						jmp	#LL0000
-	}				#LL0001:
-
-”—á•¶‚Å‚Ímov r,0  ¨  xor r,r‚ÌÅ“K‰»‚ð‚µ‚Ä‚¢‚Ü‚·
-
-
-Ewhile•¶
-
-@“¯—l‚ÉAwhile•¶‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-—áF
-	while(EAX == 0){		#LL0000:
-						test	eax,eax
-						jne	#LL0001
-		
-						jmp	#LL0000
-	}				#LL0001:
-
-”—á•¶‚Å‚Ícmp r,0  ¨  test r,r‚ÌÅ“K‰»‚ð‚µ‚Ä‚¢‚Ü‚·
-
-
-Edo`while•¶
-
-@“¯—l‚ÉAdo`while•¶‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-—áF
-	do{				#LL0000:
-		
-						test	eax,eax
-						je	#LL0000
-	}while(EAX == 0);		#LL0001:
-
-”—á•¶‚Å‚Ícmp r,0  ¨  test r,r‚ÌÅ“K‰»‚ð‚µ‚Ä‚¢‚Ü‚·
-
-
-E•Ï”’è‹`
-@•Ï”’è‹`‚Í
-
-—áF
-	char		a;	•„†‚ ‚è‚Å1ƒoƒCƒg
-	short		b;	•„†‚ ‚è‚Å2ƒoƒCƒg
-	long		c;	•„†‚ ‚è‚Å4ƒoƒCƒg
-	byte		d;	•„†‚È‚µ‚Å1ƒoƒCƒg
-	word		e;	•„†‚È‚µ‚Å2ƒoƒCƒg
-	dword		f;	•„†‚È‚µ‚Å4ƒoƒCƒg
-	long*		g;	ƒfƒtƒHƒ‹ƒg‚Å‚Ífarƒ|ƒCƒ“ƒ^
-	long near *	h;	nearƒL[ƒ[ƒh‚ð‚Â‚¯‚ê‚Înearƒ|ƒCƒ“ƒ^
-	dword		i[12];	dwordŒ^‚Ì”z—ñ12ƒoƒCƒg
-	int		j;	•„†‚ ‚è‚Å4ƒoƒCƒg
-	unsigned int	k;	unsigned‚É‚æ‚è•„†‚È‚µ‚Å4ƒoƒCƒg
-
-‚Ì‚æ‚¤‚É‚È‚è‚Ü‚·B‚±‚±‚Å’ˆÓ‚·‚×‚«‚Í”z—ñ‚Å‚µ‚å‚¤B’Êí‚ÌCŒ¾Œê‚Å‚Í”z—ñ
-‚ÍuŒ^‚Ì—v‘f‚ð‰½ŒÂŠm•Û‚·‚é‚©v‚Å‚µ‚½‚ªAASKA‚Å‚Í’Pƒ‚Éu‰½ƒoƒCƒgŠm•Û
-‚·‚é‚©v‚Æ‚¢‚¤ˆÓ–¡‚É‚È‚è‚Ü‚·B‚Â‚Ü‚èA—á•¶‚ÌˆÓ–¡‚ÍudwordŒ^‚Ì”z—ñ‚ð‚R
-—v‘fŠm•Û‚·‚év‚Æ‚¢‚¤ˆÓ–¡‚É‚È‚è‚Ü‚·B
-@‚Ü‚½A‚±‚ê‚ªƒOƒ[ƒoƒ‹‚È’è‹`‚È‚ç‚Î‰Šú‰»‚ª‹–‚³‚ê‚Ü‚·B‚½‚¾‚µAŒ»Ý
-‚Å‚Í\‘¢‘Ì‚ð‰Šú‰»‚·‚é‚±‚Æ‚Ío—ˆ‚Ü‚¹‚ñB”z—ñ‚Ìê‡‚Í""‚ðŽg‚Á‚½•¶Žš—ñ
-‚Ì‚Ý‰Â”\‚Å‚·B
-
-—áF
-	long	c = 1;
-
-@‚Ü‚½Aƒ[ƒJƒ‹‚È’è‹`‚¾‚Á‚½‚çAŒ»Ý‚Å‚Í‰Šú‰»‚Í‹–‚³‚ê‚Ü‚¹‚ñB
-ƒ[ƒJƒ‹•Ï”‚ðŽg‚¤ê‡A‚©‚È‚è§–ñ‚ª‚ ‚é‚Ì‚Å’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
-
-—áFiì‡ŽÐ’·‚æ‚èj
-
-	void function()
-	{
-	    PUSH(EBP);  /* ‚±‚ê‚ÍA‘g‚Ýž‚ÝŠÖ” */
-	    ESP -= local;  /* local‚ÍAASKA‚Ì“Á•Ê‚È•Ï” */
-	    EBP = ESP;
-	
-	    int a, b;
-	    a = 3;
-	    b = ECX;
-	
-	    ESP = EBP + local;
-	    POP(EBP);
-	    return;
-	}
-
-‚±‚Ì‚æ‚¤‚ÉAƒXƒ^ƒbƒN‚ÌŠÇ—‚ð‚µ‚Á‚©‚è‚µ‚È‚¢‚Æ–\‘–‚µ‚Ü‚·B
-ƒ\[ƒX’†‚Ìlocal‚ÍƒVƒXƒeƒ€•Ï”‚ÅA‚±‚ÌŠÖ”‚ÅŽg‚í‚ê‚Ä‚¢‚éƒ[ƒJƒ‹•Ï”‚Ì
-‘ƒoƒCƒg”‚ð•\‚µ‚Ü‚·B‚Ü‚½Aƒ[ƒJƒ‹•Ï”‚ðƒfƒtƒHƒ‹ƒg‚ÌSS:EBP‚ÉŠ„‚è•t‚¯‚½‚­
-‚È‚¢ê‡‚ÍA
-
-—áF
-	default(local == SS:EBP - local);
-
-‚Ì\•¶‚Å•ÏX‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B‚¿‚È‚Ý‚ÉAã‹L‚Ì•û–@‚ÍENTER,LEAVE‚ðŽg‚¤Žž‚Ì
-‘‚«•û‚Å‚·B
-
-¦default == ‚ÌŽ®‚âA&&‚Í”pŽ~‚³‚ê‚Ü‚µ‚½B
-
-
-@ƒ[ƒJƒ‹‚È’è‹`‚ÌƒGƒCƒŠƒAƒX‚É‚æ‚éƒŒƒWƒXƒ^‚Ö‚ÌŠ„•t‚ÍA
-
-—áF
-	long	c == EAX;
-
-@‚±‚¤‚·‚é‚±‚Æ‚ÅAc‚ðƒAƒNƒZƒX‚·‚é‚ÆEAX‚ðƒAƒNƒZƒX‚·‚é‚Ì‚Æ“¯‚¶Œø‰Ê‚ª“¾
-‚ç‚ê‚Ü‚·BˆêŒ©‚ ‚Ü‚èˆÓ–¡‚ª“à—e‚ÉŽv‚¦‚Ü‚·‚ªA—˜“_‚Æ‚µ‚Äˆê‚Â‚ÍƒŒƒWƒXƒ^
-‚É–¼‘O‚ð—^‚¦‚éŽ–‚ªo—ˆ‚é‚½‚ß‚É—p“r‚ª‚Í‚Á‚«‚è‚·‚é‚Ì‚ÆA‚à‚¤ˆê‚Â‚ÍA
-
-—áF
-	struct	Point{
-		long	x;
-		long	y;
-	};
-
-	Point*	p == DS:EAX;
-
-‚Ì‚æ‚¤‚É\‘¢‘Ì‚ð’è‹`‚µ‚Ä‚»‚Ìƒ|ƒCƒ“ƒ^‚ÌƒGƒCƒŠƒAƒX‚ðì‚é‚±‚Æ‚ÅA
-
-—áF
-	p->x = 7;			mov	DS:[EAX],7
-	p->y = 9;			mov	DS:[EAX+4],9
-
-‚Ì‚æ‚¤‚É\‘¢‘Ì‚ÉƒAƒNƒZƒX‚·‚é‚±‚Æ‚ªo—ˆ‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
-@‚±‚ê‚ÍA’Êí•Ï”‚Ìƒ|ƒCƒ“ƒ^‚ÍŽQÆ‚Å‚«‚È‚¢‚Æ‚¢‚¤Žã“_‚ð•â‚¤‚Ì‚É\•ª‚È
-Šg’£‚Å‚ ‚é‚Æl‚¦‚Ü‚·B‚Ü‚½A
-
-—áF
-	void	[2];
-
-‚ÅŽè“®ƒAƒ‰ƒCƒ“‚ðs‚¤‚±‚Æ‚ªo—ˆ‚Ü‚·B
-
-‚³‚ç‚ÉAstaticƒL[ƒ[ƒh‚ðŽg‚¤‚±‚Æ‚ÅAŠÖ”“à‚ÉÃ“I•Ï”‚ðì‚èo‚·Ž–‚ª
-o—ˆ‚é‚æ‚¤‚É‚È‚è‚Ü‚µ‚½B
-
-—áF
-	static long DATA::staticdata;
-
-—á‚Ì’Ê‚èA•K‚¸Š„‚è•t‚¯‚éƒZƒOƒƒ“ƒg–¼‚ð–¾Ž¦‚µ‚Ä‚­‚¾‚³‚¢B
-
-‚Ü‚½AŽ©“®static•Ï”‚Æ‚àŒ¾‚¤‚×‚«A•¶Žš—ñŽ©“®Š„•t‚ªƒTƒ|[ƒg‚³‚ê‚Ü‚µ‚½B
-
-—áF
-	EAX = DATA::"string\n";
-
-‚±‚Ì‚æ‚¤‚ÉAŠÖ”’†‚É•¶Žš—ñ‚ðŠ„‚è•t‚¯‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B
-
-
-E\‘¢‘Ì’è‹`
-@\‘¢‘Ì‚ÍCŒ¾Œê‚ÆŒ¾‚¤‚æ‚è‚ÍAC++Œ¾Œê‚É‹ß‚¢‚©‚à‚µ‚ê‚Ü‚¹‚ñB‚à‚¿‚ë‚ñŠÖ
-”‚ð’†‚ÉŠÜ‚ß‚½‚è‚Ío—ˆ‚Ü‚¹‚ñ‚ªAtypedef‚Å‚¢‚¿‚¢‚¿’è‹`‚µ‚½‚è‚µ‚È‚­‚Ä‚à
-—Ç‚¢‚Æ‚±‚ë‚ªCŒ¾Œê‚Ì\‘¢‘Ì‚É”ä‚×‚Ä•Ö—˜‚Å‚·B‘Ž®‚ÍƒGƒCƒŠƒAƒX‚ÌŠ‚ðŽQÆ
-‚µ‚Ä‚­‚¾‚³‚¢B
-
-
-EƒZƒOƒƒ“ƒg’è‹`
-@ŠÖ”‚â•Ï”‚ð‚Ç‚ÌƒZƒOƒƒ“ƒg‚ÉŠ„‚è•t‚¯‚é‚©‚Í‚µ‚Á‚©‚è’è‹`‚µ‚È‚¯‚ê‚Î‚È
-‚è‚Ü‚¹‚ñB
-
-—áF
-	segment DATA(DWORD, PRIVATE, USE32, RW, 'DATA');
-
-@‚±‚±‚ÅA()“à‚Ìƒpƒ‰ƒ[ƒ^‚Í‡˜‚ÉŠÖŒW‚ ‚è‚Ü‚¹‚ñBD‚«‚È‚æ‚¤‚É‘‚¢‚Ä
-‚­‚¾‚³‚¢B‚Ü‚½AƒOƒ[ƒoƒ‹•Ï”‚Í‚±‚Ìsegment–½—ß“à‚Å‚µ‚©‘‚­‚±‚Æ‚ªo—ˆ
-‚Ü‚¹‚ñB
-
-—áF
-	segment DATA(DWORD, PRIVATE, USE32, RW, 'DATA'){
-		long	a = 1;
-		dword	b;
-	}
-
-
-EŠÖ”’è‹`
-@ŠÖ”‚ÍA‚Ü‚¸‚»‚ê‚ðŠ„‚è•t‚¯‚éƒZƒOƒƒ“ƒg‚ª–³‚¯‚ê‚Î‚È‚è‚Ü‚¹‚ñBã‹L‚Ì
-segment–½—ß‚É‚æ‚Á‚ÄƒZƒOƒƒ“ƒg‚ðì¬‚µ‚Ä‚­‚¾‚³‚¢B
-
-—áF
-	segment CODE(DWORD, PRIVATE, USE32, ER, 'CODE');
-
-‚»‚Ì‚ ‚ÆA
-
-—áF
-	void CODE::func(){
-		
-	}
-		‚Ü‚½‚Í
-	void CODE::func(void){
-		
-	}
-
-‚ÅŠÖ”‚ðéŒ¾‚·‚é‚±‚Æ‚ªo—ˆ‚Ü‚·B‚±‚ÌŠÖ”‚Ì’†‚ÉƒvƒƒOƒ‰ƒ€‚ð‘‚­‚±‚Æ‚É
-‚È‚è‚Ü‚·B‚±‚Ì‚Æ‚«ACŒ¾Œê‚Ì‚æ‚¤‚ÉŽ©“®‚Åreturn‚ð•t‚¯‚½‚è‚Í‚µ‚È‚¢‚Ì‚Å
-’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
-@‚Ü‚½ACŒ¾Œê‚Æ“¯‚¶‚­A“Á•Ê‚ÈŠÖ”‚Æ‚µ‚Ämain()‚ª‚ ‚è‚Ü‚·B‚±‚ê‚ªƒvƒ
-ƒOƒ‰ƒ€“à‚É‚ ‚Á‚½ê‡Auend mainv‚ªƒAƒZƒ“ƒuƒ‰‚Ö‚Ì“WŠJŽž‚É’Ç‰Á‚³‚ê‚Ü
-‚·B‚Â‚Ü‚èAmain‚ªƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚É‚È‚é‚í‚¯‚Å‚·B
-
-‘¼‚ÉŠÖ”‚Ìƒvƒƒgƒ^ƒCƒvéŒ¾‚àƒTƒ|[ƒg‚µ‚Ä‚Ü‚·‚Ì‚ÅA
-
-—áF
-	void CODE::func();
-		‚Ü‚½‚Í
-	void CODE::func(void);
-
-‚Æ‘‚­‚±‚Æ‚à‚Å‚«‚Ü‚·B
-
-Eƒ‰ƒxƒ‹
-@ƒ‰ƒxƒ‹‚Í
-
-—áF
-label1:
-@label2:
-#label3:
-
-void	main(){
-label4:
-@label5:
-#label6:
-}
-
-‚Ì‘‚«•û‚ª‚ ‚è‚Ü‚·B‚±‚±‚Å@‚ÍƒOƒ[ƒoƒ‹ƒXƒR[ƒv‚ðˆÓ–¡‚µA#‚Íƒ[ƒJƒ‹ƒXƒR[ƒv‚ð
-ˆÓ–¡‚µ‚Ü‚·B‚È‚É‚à‚Â‚¯‚È‚¢‚ÆƒfƒtƒHƒ‹ƒg‚ÌˆÓ–¡‚É‚È‚è‚Ü‚·B
-‚µ‚©‚µƒOƒ[ƒoƒ‹ƒXƒR[ƒv‚Åƒ[ƒJƒ‹ƒ‰ƒxƒ‹‚Í’è‹`‚Å‚«‚È‚¢‚Ì‚ÅAlabel3‚ÍƒGƒ‰[‚É
-‚È‚è‚Ü‚·B
-
-’ˆÓ‚µ‚Ä‚¢‚½‚¾‚«‚½‚¢‚Ì‚ÍA‚±‚Ìƒ‰ƒxƒ‹‚ÌŽg‚¢•û‚Å‚·BŒã•ûŽQÆ‚·‚éê‡‚É‚ÍŽ©“®“I‚É
-ƒOƒ[ƒoƒ‹‚©ƒ[ƒJƒ‹‚©”»’f‚µ‚Ä‚­‚ê‚é‚Ì‚Å‚æ‚¢‚Ì‚Å‚·‚ªA‘O•ûŽQÆ‚Ìê‡‚É‚Í
-Ž©“®“I‚É”»•Ê‚Å‚«‚¸Aƒ[ƒJƒ‹ƒXƒR[ƒv‚É‚µ‚Ä‚µ‚Ü‚¢‚Ü‚·B
-
-
-‚TDƒTƒ“ƒvƒ‹
-
-@\‚µ–ó‚ ‚è‚Ü‚¹‚ñA‚Ü‚¾o—ˆ‚Ä‚Ü‚¹‚ñiŠ¾
-
-‚UD–ÆÓ
-@‚±‚ê‚ÍƒtƒŠ[ƒ\ƒtƒg‚Å‚·B‚±‚Ìƒ\ƒtƒg‚ðŽg‚Á‚Ä‚È‚ñ‚ç‚©‚ÌáŠQ‚ð‹N‚±‚µ‚½‚Æ‚µ‚Ä‚à
-“–•û‚ÍÓ”C‚ð‚¢‚Á‚³‚¢•‰‚¢‚Ü‚¹‚ñB
-@‚Ü‚½A‚±‚ê‚Í“–•ª‚ÌŠÔ“]Ú‹ÖŽ~‚Å‚·B
-@‚±‚Ìƒ\ƒtƒg‚É‚Í‚â‚Ë‚¤‚ç‚¨‚³‚ñ‚ªì¬‚µ‚½
-	yaneurao GAME SDK for Windows95/98/NT/2000 version 1.00ƒ¿4
-‚ÌƒXƒNƒŠƒvƒg•”•ª‚ÌœŠi•”•ªA‚¨‚æ‚ÑŽš‹å‰ðÍ•”‚ðiƒ\[ƒXƒtƒŠ[‚Å‚ ‚é‚½‚ßj
-‚Ù‚Ú‚»‚Ì‚Ü‚ÜŽg‚í‚¹‚Ä‚¢‚½‚¾‚«‚Ü‚µ‚½B
-
-¦ƒ\[ƒXƒtƒŠ[‚Æ‚Í‚¢‚¦‹KŠiŠO‚ÌŽg‚¢•û‚Å‚ ‚é‚½‚ßA‚â‚Ë‚¤‚ç‚¨‚³‚ñ‚Ì‹–‰Â‚ð
-@‚Ü‚¾“¾‚Ä‚¢‚È‚¢Œ»ó‚Í‚Æ‚è‚ ‚¦‚¸ŽÐ“àŒöŠJ‚Ì‚ÝB
-
-‚Ü‚½A‚â‚Ë‚¤‚ç‚¨‚³‚ñ‚ÌWebƒy[ƒW‚Í
-	http://www.sun-inet.or.jp/~yaneurao/
-‚Å‚·B
+ãªã©ã®ã‚ˆã†ã«ã‹ã‘ã¾ã™ã€‚ã¾ãŸã€å¤‰æ•°ã‚„ãƒ¡ãƒ¢ãƒªå‚ç…§ã®ãƒ‡ãƒ¼ã‚¿åž‹ã‚’ä¸€æ™‚çš„ã«å¤‰ãˆ
+ãŸã‚Šå®šç¾©ã™ã‚‹å ´åˆã«ã¯ã‚­ãƒ£ã‚¹ãƒˆã‚’ä½¿ã†ã“ã¨ãŒå‡ºæ¥ã¾ã™ã€‚
+
+â€»ã“ã“ã«ã‚­ãƒ£ã‚¹ãƒˆé–¢ä¿‚ã€å³å€¤æ¼”ç®—é–¢ä¿‚ã€[]å†…è¨˜è¿°æ–¹å¼é–¢ä¿‚ã‚’æ›¸ã
+
+
+ãƒ»å¼æ–‡
+ã€€å¼æ–‡ã¯
+	rm  = rmi;	â†’	MOV	rm,rmi
+			â†’	MOVSX or MOVZX	(ã‚µã‚¤ã‚ºãŒé•ã†ã¨ã)
+	r   =   0;	â†’	XOR	r ,r
+	rm += rmi;	â†’	ADD	rm,rmi
+	rm +=   1;	â†’	INC	rm
+	rm -= rmi;	â†’	SUB	rm,rmi
+	rm -=   1;	â†’	DEC	rm
+	rm *=   1;	â†’	æœ€é©åŒ–ã«ã‚ˆã‚Šçœç•¥
+	reg*=   2;	â†’	ADD	reg,reg
+	rm *=   2;	â†’	SHL	rm,2
+	r32*=   3;	â†’	LEA	r32,[r32 * 2 + r32]
+	rm *=   4;	â†’	SHL	rm,2
+	r32*=   5;	â†’	LEA	r32,[r32 * 4 + r32]
+	rm *=   8;	â†’	SHL	rm,3
+	r32*=   9;	â†’	LEA	r32,[r32 * 8 + r32]
+	rm *=   1;	â†’	æœ€é©åŒ–ã«ã‚ˆã‚Šçœç•¥
+	rm *=   2;	â†’	SAR	rm,1	(unsignedã®æ™‚ã¯SHR)
+	rm *=   4;	â†’	SAR	rm,2	(unsignedã®æ™‚ã¯SHR)
+	rm *=   8;	â†’	SAR	rm,4	(unsignedã®æ™‚ã¯SHR)
+	rm &= rmi;	â†’	AND	rm,rmi
+	rm |= rmi;	â†’	OR	rm,rmi
+	rm ^= rmi;	â†’	XOR	rm,rmi
+	rm<<= rmi;	â†’	SAL	rm,rmi	(unsignedã®æ™‚ã¯SHL)
+	reg<<=  1;	â†’	ADD	reg,reg
+	rm>>= rmi;	â†’	SAR	rm,rmi	(unsignedã®æ™‚ã¯SHR)
+	rm =- rmi;	â†’	NEG	rm
+	rm =â€¾ rmi;	â†’	NOT

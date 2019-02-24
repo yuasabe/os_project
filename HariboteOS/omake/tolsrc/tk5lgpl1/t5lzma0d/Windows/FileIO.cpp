@@ -12,7 +12,7 @@ namespace NWindows {
 namespace NFile {
 namespace NIO {
 
-CFileBase::~CFileBase()
+CFileBase::‾CFileBase()
 {
   Close();
 }

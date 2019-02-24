@@ -16,7 +16,7 @@ clean :
 nask.exe : nask.obj Makefile ../include/rules.mak
 	$(MAKEC) ../nasklib
 	$(MAKEC) ../go_lib
-	$(LINK) -o nask.exe nask.obj ../nasklib/nasklib.lib \
+	$(LINK) -o nask.exe nask.obj ../nasklib/nasklib.lib ¥
 		../go_lib/go_lib.lib ../go_lib/stdin.o
 
 naskcnv0.exe : naskcnv0.obj Makefile ../include/rules.mak

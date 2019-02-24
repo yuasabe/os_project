@@ -12,7 +12,7 @@ size_t strlen (char *d)
 {
 	char *tmp = d;
 
-	while ('\0' != *d)
+	while ('¥0' != *d)
 		d++;
 
 	return d - tmp;

@@ -354,7 +354,7 @@ ssa_rename_from_free ()
 void
 ssa_rename_from_print ()
 {
-  printf ("ssa_rename_from's hash table contents:\n");
+  printf ("ssa_rename_from's hash table contents:¥n");
   htab_traverse (ssa_rename_from_ht, &ssa_rename_from_print_1, NULL);
 }
 
@@ -367,7 +367,7 @@ ssa_rename_from_print_1 (slot, data)
      void *data ATTRIBUTE_UNUSED;
 {
   ssa_rename_from_pair * p = *slot;
-  printf ("ssa_rename_from maps pseudo %i to original %i.\n",
+  printf ("ssa_rename_from maps pseudo %i to original %i.¥n",
 	  p->reg, REGNO (p->original));
   return 1;
 }
@@ -628,7 +628,7 @@ compute_iterated_dominance_frontiers (idfs, frontiers, evals, nregs)
   if (rtl_dump_file)
     {
       fprintf (rtl_dump_file,
-	       "Iterated dominance frontier: %d passes on %d regs.\n",
+	       "Iterated dominance frontier: %d passes on %d regs.¥n",
 	       passes, nregs);
     }
 }
@@ -1157,9 +1157,9 @@ convert_to_ssa ()
   if (rtl_dump_file)
     {
       int i;
-      fputs (";; Immediate Dominators:\n", rtl_dump_file);
+      fputs (";; Immediate Dominators:¥n", rtl_dump_file);
       for (i = 0; i < n_basic_blocks; ++i)
-	fprintf (rtl_dump_file, ";\t%3d = %3d\n", i, idom[i]);
+	fprintf (rtl_dump_file, ";¥t%3d = %3d¥n", i, idom[i]);
       fflush (rtl_dump_file);
     }
 
@@ -1446,7 +1446,7 @@ eliminate_phi (e, reg_partition)
   end_sequence ();
   insert_insn_on_edge (insn, e);
   if (rtl_dump_file)
-    fprintf (rtl_dump_file, "Emitting copy on edge (%d,%d)\n",
+    fprintf (rtl_dump_file, "Emitting copy on edge (%d,%d)¥n",
 	     e->src->index, e->dest->index);
 
   sbitmap_free (visited);

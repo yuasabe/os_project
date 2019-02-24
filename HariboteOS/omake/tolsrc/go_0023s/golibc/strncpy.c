@@ -12,7 +12,7 @@ char* strncpy (char *d, const char *s, size_t sz)
 {
 	char *tmp = d;
 
-	while ('\0' != *s) {
+	while ('¥0' != *s) {
 		if (0 == sz)
 			break;
 		sz--;
@@ -20,7 +20,7 @@ char* strncpy (char *d, const char *s, size_t sz)
 	}
 
 	while (sz--)
-		*d++ = '\0';
+		*d++ = '¥0';
 
 	return tmp;
 }

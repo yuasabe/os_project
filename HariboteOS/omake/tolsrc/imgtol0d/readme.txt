@@ -1,16 +1,16 @@
-IMGTOL‚ÌŽg‚¢•û                                     2003.12.27 ì‡GŽÀ
+IMGTOLã®ä½¿ã„æ–¹                                     2003.12.27 å·åˆç§€å®Ÿ
 
-‚PD‚±‚ê‚Í‚È‚É‚©H
+ï¼‘ï¼Žã“ã‚Œã¯ãªã«ã‹ï¼Ÿ
 
-  IMGTOL‚ÍDOS”Ä—pƒtƒ@ƒ“ƒNƒVƒ‡ƒ“‚ðŽg‚Á‚ÄƒfƒBƒXƒNƒCƒ[ƒW‚ðì‚Á‚½‚èAƒfƒBƒXƒNƒCƒ
-[ƒW‚ð‘‚«ž‚ñ‚¾‚è‚·‚éƒc[ƒ‹‚Å‚·B‚»‚Ì‘¼‚É‚àƒfƒBƒXƒNƒCƒ[ƒW‚ðˆµ‚¤ã‚Å•Ö—˜‚Å‚Í
-‚È‚¢‚©‚ÆŽv‚í‚ê‚é‹@”\‚âAOSŠJ”­‚ÉŽg‚¦‚»‚¤‚È‹@”\‚ðŽ‚Á‚Ä‚¢‚Ü‚·B
+  IMGTOLã¯DOSæ±Žç”¨ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ã‚’ä½¿ã£ã¦ãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ä½œã£ãŸã‚Šã€ãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡
+ãƒ¼ã‚¸ã‚’æ›¸ãè¾¼ã‚“ã ã‚Šã™ã‚‹ãƒ„ãƒ¼ãƒ«ã§ã™ã€‚ãã®ä»–ã«ã‚‚ãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’æ‰±ã†ä¸Šã§ä¾¿åˆ©ã§ã¯
+ãªã„ã‹ã¨æ€ã‚ã‚Œã‚‹æ©Ÿèƒ½ã‚„ã€OSé–‹ç™ºã«ä½¿ãˆãã†ãªæ©Ÿèƒ½ã‚’æŒã£ã¦ã„ã¾ã™ã€‚
 
-  ‚µ‚©‚µ‰½‚Æ‚¢‚Á‚Ä‚àÅ‘å‚Ì“Á’¥‚ÍAOS‚Ì”z•zŽž‚Éƒoƒ“ƒhƒ‹‚µ‚Ä‚à‘S‚­–â‘è‚É‚È‚ç‚È‚¢
-ƒ‰ƒCƒZƒ“ƒX‚ª“K—p‚³‚ê‚Ä‚¢‚é‚±‚Æ‚ÆAƒoƒ“ƒhƒ‹‚µ‚Ä‚àŽ×–‚‚É‚Í‚È‚ç‚È‚¢‚»‚ÌƒTƒCƒY‚Å‚µ
-‚å‚¤B2.33KBƒoƒCƒg‚Å‚·iÎjB
+  ã—ã‹ã—ä½•ã¨ã„ã£ã¦ã‚‚æœ€å¤§ã®ç‰¹å¾´ã¯ã€OSã®é…å¸ƒæ™‚ã«ãƒãƒ³ãƒ‰ãƒ«ã—ã¦ã‚‚å…¨ãå•é¡Œã«ãªã‚‰ãªã„
+ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ãŒé©ç”¨ã•ã‚Œã¦ã„ã‚‹ã“ã¨ã¨ã€ãƒãƒ³ãƒ‰ãƒ«ã—ã¦ã‚‚é‚ªé­”ã«ã¯ãªã‚‰ãªã„ãã®ã‚µã‚¤ã‚ºã§ã—
+ã‚‡ã†ã€‚2.33KBãƒã‚¤ãƒˆã§ã™ï¼ˆç¬‘ï¼‰ã€‚
 
-‚QDŠÈ’P‚ÈŽg‚¢•û‚Ì•\
+ï¼’ï¼Žç°¡å˜ãªä½¿ã„æ–¹ã®è¡¨
 
     read.   >imgtol r [opt] drive: filename  size  (drv -> file)
     write.  >imgtol w [opt] drive: filename [size] (file -> drv)
@@ -23,157 +23,78 @@ IMGTOL‚ÌŽg‚¢•û                                     2003.12.27 ì‡GŽÀ
       opt(sector-bytes) = -512(default), -1024
       size unit : kilobyte
 
-‚RDƒfƒBƒXƒNƒCƒ[ƒW‚ðƒfƒBƒXƒN‚É‘‚«ž‚Þ•û–@
+ï¼“ï¼Žãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ãƒ‡ã‚£ã‚¹ã‚¯ã«æ›¸ãè¾¼ã‚€æ–¹æ³•
 
-  PCAT‚Ìê‡i‚Æ‚¢‚¤‚©1440KB-FD‚Ìê‡j
+  PCATã®å ´åˆï¼ˆã¨ã„ã†ã‹1440KB-FDã®å ´åˆï¼‰
     prompt>imgtol w a: fdimage.bin
 
-  TOWNS‚âNEC98‚Ìê‡i‚Æ‚¢‚¤‚©1232KB-FD‚Ìê‡j
+  TOWNSã‚„NEC98ã®å ´åˆï¼ˆã¨ã„ã†ã‹1232KB-FDã®å ´åˆï¼‰
     prompt>imgtol w -1024 a: fdimage.bin
 
-  ‚±‚Ìê‡‚¾‚Æƒtƒ@ƒCƒ‹‚ªs‚«‚é‚Ü‚Å‘‚«ž‚Ý‚Ü‚·BƒfƒBƒXƒN‚ªs‚«‚Ä‚àDOS‚©‚çƒGƒ‰[
-‚ª—ˆ‚È‚¢ŒÀ‚èA‘‚«ž‚Ý–½—ß‚ð‘—‚è‘±‚¯‚Ü‚·iÎjBƒfƒBƒXƒN—e—Ê‚æ‚è‚à‘å‚«‚Èƒtƒ@ƒC
-ƒ‹‚ðˆµ‚¤‚Æ‚«‚È‚Ç‚ÍA
+  ã“ã®å ´åˆã ã¨ãƒ•ã‚¡ã‚¤ãƒ«ãŒå°½ãã‚‹ã¾ã§æ›¸ãè¾¼ã¿ã¾ã™ã€‚ãƒ‡ã‚£ã‚¹ã‚¯ãŒå°½ãã¦ã‚‚DOSã‹ã‚‰ã‚¨ãƒ©ãƒ¼
+ãŒæ¥ãªã„é™ã‚Šã€æ›¸ãè¾¼ã¿å‘½ä»¤ã‚’é€ã‚Šç¶šã‘ã¾ã™ï¼ˆç¬‘ï¼‰ã€‚ãƒ‡ã‚£ã‚¹ã‚¯å®¹é‡ã‚ˆã‚Šã‚‚å¤§ããªãƒ•ã‚¡ã‚¤
+ãƒ«ã‚’æ‰±ã†ã¨ããªã©ã¯ã€
 
-  PCAT‚Ìê‡i‚Æ‚¢‚¤‚©1440KB-FD‚Ìê‡j
+  PCATã®å ´åˆï¼ˆã¨ã„ã†ã‹1440KB-FDã®å ´åˆï¼‰
     prompt>imgtol w a: fdimage.bin 1440
 
-  TOWNS‚âNEC98‚Ìê‡i‚Æ‚¢‚¤‚©1232KB-FD‚Ìê‡j
+  TOWNSã‚„NEC98ã®å ´åˆï¼ˆã¨ã„ã†ã‹1232KB-FDã®å ´åˆï¼‰
     prompt>imgtol w -1024 a: fdimage.bin 1232
 
-‚È‚Ç‚Æ‚µ‚Ä‚­‚¾‚³‚¢BãŒÀ‚ªÝ’è‚³‚êA‚»‚êˆÈã‚ÍƒAƒNƒZƒX‚µ‚Ü‚¹‚ñB‚È‚¨ƒAƒNƒZƒX‚Í
-‚‘¬‰»‚Ì‚½‚ß‚É36KB(-512Žž)A‚à‚µ‚­‚Í16KB(-1024Žž)’PˆÊ‚Ås‚È‚Á‚Ä‚¢‚Ü‚·BˆÈ‘O‚Ì
-ƒo[ƒWƒ‡ƒ“‚Å‚Í‚±‚Ì’PˆÊ‚Å‚ÌƒI[ƒo[ƒ‰ƒ“‚ª‚ ‚è‚¦‚Ü‚µ‚½‚ªA‚±‚Ìƒo[ƒWƒ‡ƒ“‚ÍƒI[ƒo
-ƒ‰ƒ“‚µ‚Ü‚¹‚ñB
+ãªã©ã¨ã—ã¦ãã ã•ã„ã€‚ä¸Šé™ãŒè¨­å®šã•ã‚Œã€ãã‚Œä»¥ä¸Šã¯ã‚¢ã‚¯ã‚»ã‚¹ã—ã¾ã›ã‚“ã€‚ãªãŠã‚¢ã‚¯ã‚»ã‚¹ã¯
+é«˜é€ŸåŒ–ã®ãŸã‚ã«36KB(-512æ™‚)ã€ã‚‚ã—ãã¯16KB(-1024æ™‚)å˜ä½ã§è¡Œãªã£ã¦ã„ã¾ã™ã€‚ä»¥å‰ã®
+ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã§ã¯ã“ã®å˜ä½ã§ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ©ãƒ³ãŒã‚ã‚Šãˆã¾ã—ãŸãŒã€ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã¯ã‚ªãƒ¼ãƒ
+ãƒ©ãƒ³ã—ã¾ã›ã‚“ã€‚
 
-  ua:v‚Æ‚©ufdimage.binv‚Ì•”•ª‚ÍŽ©•ª‚ÌŽg‚¢‚½‚¢ó‹µ‚É‡‚í‚¹‚Ä‘‚«Š·‚¦‚Ä‚­‚¾‚³
-‚¢BHDD‚Ìƒhƒ‰ƒCƒu‚â‘¼‚ÌƒfƒoƒCƒX‚É‚à‚Å‚«‚Ü‚·i’1jB‚È‚¨31MBˆÈã‚ÉƒAƒNƒZƒX‚·‚é
-‚±‚Æ‚Í‚Å‚«‚¸A‚»‚Ì‚¤‚¿ŸŽè‚É³íI—¹‚µ‚Ä‚µ‚Ü‚¢‚Ü‚·B––”ö‚ÌƒTƒCƒYŽw’è‚à32767ˆÈã
-‚ðŽw’è‚µ‚È‚¢‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢B
+  ã€Œa:ã€ã¨ã‹ã€Œfdimage.binã€ã®éƒ¨åˆ†ã¯è‡ªåˆ†ã®ä½¿ã„ãŸã„çŠ¶æ³ã«åˆã‚ã›ã¦æ›¸ãæ›ãˆã¦ãã ã•
+ã„ã€‚HDDã®ãƒ‰ãƒ©ã‚¤ãƒ–ã‚„ä»–ã®ãƒ‡ãƒã‚¤ã‚¹ã«ã‚‚ã§ãã¾ã™ï¼ˆè¨»1ï¼‰ã€‚ãªãŠ31MBä»¥ä¸Šã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹
+ã“ã¨ã¯ã§ããšã€ãã®ã†ã¡å‹æ‰‹ã«æ­£å¸¸çµ‚äº†ã—ã¦ã—ã¾ã„ã¾ã™ã€‚æœ«å°¾ã®ã‚µã‚¤ã‚ºæŒ‡å®šã‚‚32767ä»¥ä¸Š
+ã‚’æŒ‡å®šã—ãªã„ã‚ˆã†ã«ã—ã¦ãã ã•ã„ã€‚
 
-  ‚È‚¨A“r’†Œo‰ß‚ÍˆêØ•\Ž¦‚³‚ê‚Ü‚¹‚ñB‹C’·‚É‘Ò‚¿‚Ü‚µ‚å‚¤B‚Ü‚½uƒfƒBƒXƒN‚Ì“à—e
-‚ªŽ¸‚í‚ê‚Ü‚·A‚æ‚ë‚µ‚¢‚Å‚·‚©Hv‚Ý‚½‚¢‚È‚±‚Æ‚à‚¢‚¢‚Ü‚¹‚ñB‚»‚¤‚¢‚¤‚Ì‚ð•t‚¯‚½‚¯
-‚ê‚ÎAƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ðì‚Á‚Ä‚»‚±‚Åecho‚âpause‚ð‚µ‚Ä‚­‚¾‚³‚¢B
+  ãªãŠã€é€”ä¸­çµŒéŽã¯ä¸€åˆ‡è¡¨ç¤ºã•ã‚Œã¾ã›ã‚“ã€‚æ°—é•·ã«å¾…ã¡ã¾ã—ã‚‡ã†ã€‚ã¾ãŸã€Œãƒ‡ã‚£ã‚¹ã‚¯ã®å†…å®¹
+ãŒå¤±ã‚ã‚Œã¾ã™ã€ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿã€ã¿ãŸã„ãªã“ã¨ã‚‚ã„ã„ã¾ã›ã‚“ã€‚ãã†ã„ã†ã®ã‚’ä»˜ã‘ãŸã‘
+ã‚Œã°ã€ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã£ã¦ãã“ã§echoã‚„pauseã‚’ã—ã¦ãã ã•ã„ã€‚
 
-<’1>
-  HDD‚âCF‚Ö‘‚«ž‚à‚¤‚Æ‚·‚é‚ÆAWin95‚È‚Ç‚Å‚ÍƒGƒ‰[‚É‚È‚è‚Ü‚·B‚µ‚©‚µ‚±‚ê‚Í‰ñ”ð
-‚·‚é•û–@‚ª‚ ‚è‚Ü‚·B—á‚¦‚ÎAƒhƒ‰ƒCƒuE:‚Ö‘‚«ž‚Ý‚½‚¢ê‡A
+<è¨»1>
+  HDDã‚„CFã¸æ›¸ãè¾¼ã‚‚ã†ã¨ã™ã‚‹ã¨ã€Win95ãªã©ã§ã¯ã‚¨ãƒ©ãƒ¼ã«ãªã‚Šã¾ã™ã€‚ã—ã‹ã—ã“ã‚Œã¯å›žé¿
+ã™ã‚‹æ–¹æ³•ãŒã‚ã‚Šã¾ã™ã€‚ä¾‹ãˆã°ã€ãƒ‰ãƒ©ã‚¤ãƒ–E:ã¸æ›¸ãè¾¼ã¿ãŸã„å ´åˆã€
 
     prompt>lock e:
     prompt>imgtol w e: cfimage.bin
     prompt>unlock e:
 
-‚Æ‚·‚ê‚Î–â‘è‚È‚­‘‚«ž‚ß‚Ü‚·B
+ã¨ã™ã‚Œã°å•é¡Œãªãæ›¸ãè¾¼ã‚ã¾ã™ã€‚
 
 
-‚SDƒfƒBƒXƒN‚ð“Ç‚ñ‚ÅƒfƒBƒXƒNƒCƒ[ƒW‚ðì‚é•û–@
+ï¼”ï¼Žãƒ‡ã‚£ã‚¹ã‚¯ã‚’èª­ã‚“ã§ãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã‚’ä½œã‚‹æ–¹æ³•
 
-  PCAT‚Ìê‡i‚Æ‚¢‚¤‚©1440KB-FD‚Ìê‡j
+  PCATã®å ´åˆï¼ˆã¨ã„ã†ã‹1440KB-FDã®å ´åˆï¼‰
     prompt>imgtol r a: fdimage.bin 1440
 
-  TOWNS‚âNEC98‚Ìê‡i‚Æ‚¢‚¤‚©1232KB-FD‚Ìê‡j
+  TOWNSã‚„NEC98ã®å ´åˆï¼ˆã¨ã„ã†ã‹1232KB-FDã®å ´åˆï¼‰
     prompt>imgtol r -1024 a: fdimage.bin 1232 
 
-  ƒTƒCƒYŽw’è‚ÍÈ—ª‚Å‚«‚Ü‚¹‚ñBŽÀƒfƒBƒXƒN‚æ‚è‚à­‚È‚¢’l‚àŽw’è‚Å‚«‚Ü‚·B‚»‚Ìê‡
-‚Í‚»‚±‚Ü‚Å‚µ‚©“Ç‚Ý‚Ü‚¹‚ñB
+  ã‚µã‚¤ã‚ºæŒ‡å®šã¯çœç•¥ã§ãã¾ã›ã‚“ã€‚å®Ÿãƒ‡ã‚£ã‚¹ã‚¯ã‚ˆã‚Šã‚‚å°‘ãªã„å€¤ã‚‚æŒ‡å®šã§ãã¾ã™ã€‚ãã®å ´åˆ
+ã¯ãã“ã¾ã§ã—ã‹èª­ã¿ã¾ã›ã‚“ã€‚
 
-  ua:v‚Æ‚©ufdimage.binv‚Ì•”•ª‚ÍŽ©•ª‚ÌŽg‚¢‚½‚¢ó‹µ‚É‡‚í‚¹‚Ä‘‚«Š·‚¦‚Ä‚­‚¾‚³
-‚¢BHDD‚Ìƒhƒ‰ƒCƒu‚â‘¼‚ÌƒfƒoƒCƒX‚É‚à–â‘è‚È‚­‚Å‚«‚Ü‚·‚ªA31MBˆÈã‚É‚ÍƒAƒNƒZƒX‚Å‚«
-‚È‚¢‚Ì‚ÅA‚»‚ê‚Í‚²—¹³‚­‚¾‚³‚¢B31MB‚ð’´‚¦‚ÄƒAƒNƒZƒX‚Å‚«‚é‚Ì‚Ípcctol‚Å‚·B
+  ã€Œa:ã€ã¨ã‹ã€Œfdimage.binã€ã®éƒ¨åˆ†ã¯è‡ªåˆ†ã®ä½¿ã„ãŸã„çŠ¶æ³ã«åˆã‚ã›ã¦æ›¸ãæ›ãˆã¦ãã ã•
+ã„ã€‚HDDã®ãƒ‰ãƒ©ã‚¤ãƒ–ã‚„ä»–ã®ãƒ‡ãƒã‚¤ã‚¹ã«ã‚‚å•é¡Œãªãã§ãã¾ã™ãŒã€31MBä»¥ä¸Šã«ã¯ã‚¢ã‚¯ã‚»ã‚¹ã§ã
+ãªã„ã®ã§ã€ãã‚Œã¯ã”äº†æ‰¿ãã ã•ã„ã€‚31MBã‚’è¶…ãˆã¦ã‚¢ã‚¯ã‚»ã‚¹ã§ãã‚‹ã®ã¯pcctolã§ã™ã€‚
 
-  ‚È‚¨A“r’†Œo‰ß‚ÍˆêØ•\Ž¦‚³‚ê‚Ü‚¹‚ñB‹C’·‚É‘Ò‚¿‚Ü‚µ‚å‚¤B
+  ãªãŠã€é€”ä¸­çµŒéŽã¯ä¸€åˆ‡è¡¨ç¤ºã•ã‚Œã¾ã›ã‚“ã€‚æ°—é•·ã«å¾…ã¡ã¾ã—ã‚‡ã†ã€‚
 
-‚TDƒfƒBƒXƒNƒCƒ[ƒW‚ÌƒTƒCƒY‚Ì•ÏX‚Ì•û–@
+ï¼•ï¼Žãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã®ã‚µã‚¤ã‚ºã®å¤‰æ›´ã®æ–¹æ³•
 
-  ‚½‚Æ‚¦‚Î600KB‚ÌATŒÝŠ·‹@—pƒfƒBƒXƒNƒCƒ[ƒW‚ª‚ ‚Á‚ÄAu‚±‚ê‚¶‚á‚ •s•Ö‚¶‚á‚ `A
-–l‚Í1440KB‚ÌƒCƒ[ƒW‚ª‚Ù‚µ‚¢‚ñ‚¾‚ Iv‚Æ‚¢‚¤‚Æ‚«‚ÍŽŸ‚Ì‚æ‚¤‚É‚µ‚Ü‚·B
+  ãŸã¨ãˆã°600KBã®ATäº’æ›æ©Ÿç”¨ãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ãŒã‚ã£ã¦ã€ã€Œã“ã‚Œã˜ã‚ƒã‚ä¸ä¾¿ã˜ã‚ƒã‚ã€œã€
+åƒ•ã¯1440KBã®ã‚¤ãƒ¡ãƒ¼ã‚¸ãŒã»ã—ã„ã‚“ã ã‚ï¼ã€ã¨ã„ã†ã¨ãã¯æ¬¡ã®ã‚ˆã†ã«ã—ã¾ã™ã€‚
 
     prompt>imgtol e src.bin dest.bin 1440
 
-‚±‚¤‚·‚é‚ÆA600KB‚Ìsrc.bin‚ðŠg’£‚µ‚Ä1440KB‚É‚µ‚½‚à‚Ì‚ªdest.bin‚Æ‚µ‚Äo—Í‚³‚ê‚Ü
-‚·B“¯‚¶ƒtƒ@ƒCƒ‹‚ðŽw’è‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB•K‚¸“ü—Íƒtƒ@ƒCƒ‹–¼‚Æo—Íƒtƒ@ƒCƒ‹–¼
-‚Í•ÊX‚É‚µ‚Ä‚­‚¾‚³‚¢BŒë‚Á‚Ä“¯‚¶ƒtƒ@ƒCƒ‹‚ðŽw’è‚·‚é‚Æƒtƒ@ƒCƒ‹‚ª‰ó‚ê‚Ü‚·B‚È‚¨A
-1440KB‚ÉŠg’£‚ÆŒ¾‚Á‚Ä‚àA—v‚·‚é‚É‚½‚¾u00v‚Å–„‚Ü‚Á‚½ƒZƒNƒ^‚ð—v‹ƒTƒCƒY‚É‚È‚é‚Ü
-‚Å•t‚¯‘«‚µ‚Ä‚¢‚é‚¾‚¯‚Å‚·B‚È‚É‚à‚¢‚¶‚Á‚Ä‚¢‚Ü‚¹‚ñB
+ã“ã†ã™ã‚‹ã¨ã€600KBã®src.binã‚’æ‹¡å¼µã—ã¦1440KBã«ã—ãŸã‚‚ã®ãŒdest.binã¨ã—ã¦å‡ºåŠ›ã•ã‚Œã¾
+ã™ã€‚åŒã˜ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚å¿…ãšå…¥åŠ›ãƒ•ã‚¡ã‚¤ãƒ«åã¨å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«å
+ã¯åˆ¥ã€…ã«ã—ã¦ãã ã•ã„ã€‚èª¤ã£ã¦åŒã˜ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã™ã‚‹ã¨ãƒ•ã‚¡ã‚¤ãƒ«ãŒå£Šã‚Œã¾ã™ã€‚ãªãŠã€
+1440KBã«æ‹¡å¼µã¨è¨€ã£ã¦ã‚‚ã€è¦ã™ã‚‹ã«ãŸã ã€Œ00ã€ã§åŸ‹ã¾ã£ãŸã‚»ã‚¯ã‚¿ã‚’è¦æ±‚ã‚µã‚¤ã‚ºã«ãªã‚‹ã¾
+ã§ä»˜ã‘è¶³ã—ã¦ã„ã‚‹ã ã‘ã§ã™ã€‚ãªã«ã‚‚ã„ã˜ã£ã¦ã„ã¾ã›ã‚“ã€‚
 
-  ‚È‚¨AŽw’è‚µ‚½ƒtƒ@ƒCƒ‹‚æ‚è‚à¬‚³‚¢ƒTƒCƒY‚ðŽw’è‚·‚é‚±‚Æ‚à‚Å‚«A‚»‚Ìê‡‚ÍAƒt
-ƒ@ƒCƒ‹‚ÌŒã‚ë‚ªƒJƒbƒg‚³‚ê‚½Œ‹‰Ê‚ªo‚Ä‚«‚Ü‚·Bì‚Á‚½ƒfƒBƒXƒNƒCƒ[ƒW‚ÌŒã”¼‚ðØ‚è
-ŽÌ‚Ä‚½‚¢‚Æ‚«‚ÉŽg‚¢‚Ü‚·B—á‚É‚æ‚Á‚ÄA31MBˆÈã‚ÌƒTƒCƒY‚ÍŽw’è‚Å‚«‚Ü‚¹‚ñ‚Ì‚Å‚æ‚ë‚µ
-‚­B
-
-‚UDƒI[ƒo[ƒ‰ƒCƒgƒRƒs[‚Ì•û–@
-
-  ƒI[ƒo[ƒ‰ƒCƒgƒRƒs[‚Æ‚¢‚¤‚Ì‚ÍAŒ´‘¥‚Æ‚µ‚ÄƒRƒs[æ‚Ìƒtƒ@ƒCƒ‹ƒTƒCƒY‚ð•ÏX‚¹‚¸
-‚ÉƒRƒs[‚·‚é‚Æ‚¢‚¤‚à‚Ì‚ÅA’P‚ÉƒTƒCƒY‚ª•Ï‚í‚ç‚È‚¢‚Æ‚¢‚¤‚¾‚¯‚Å‚Í‚È‚­Aƒtƒ@ƒCƒ‹‚Ì
-ƒfƒBƒXƒNã‚ÌˆÊ’u‚à•s•Ï‚Å‚·BOS‚ÌƒCƒ[ƒW‚È‚Ç‚ð‘‚«ž‚Þ‚Ì‚É“K‚µ‚Ä‚¢‚Ü‚·B
-
-    prompt>imgtol c src.bin dest.bin 50
-
-‚Æ‚·‚é‚ÆAsrc.bin‚ÌÅ‰‚Ì50KB‚ªdest.bin‚É‘‚«ž‚Ü‚ê‚Ü‚·B‚à‚µsrc.bin‚ª50KB‚É–ž
-‚½‚È‚¯‚ê‚Î‚»‚Ì•ª‚Íu00v‚Å–„‚ß‚½“à—e‚ð“Ç‚Ýž‚ñ‚¾‚±‚Æ‚É‚µ‚Ä‘‚«ž‚Ý‚Ü‚·B‘‚«ž
-‚ÝƒTƒCƒY‚ªdest.bin‚ÌƒTƒCƒY‚ðã‰ñ‚Á‚½ê‡‚ÍA‘f’¼‚Édest.bin‚Ìƒtƒ@ƒCƒ‹ƒTƒCƒY‚ðŠg
-’£‚µ‚Ä‘‚«ž‚Ý‚ð‘±‚¯‚Ü‚·Bdest.bin‚ÌƒTƒCƒY‚Ì‚Ù‚¤‚ª‘‚«ž‚ÝƒTƒCƒY‚æ‚è‚à‘å‚«‚©‚Á
-‚½ê‡AƒTƒCƒY‚Í•ÏX‚³‚ê‚Ü‚¹‚ñB‚Ü‚½‘‚«Š·‚¦”ÍˆÍŠO‚Ì“à—e‚Í‚»‚Ì‚Ü‚Ü•ÛŽ‚³‚ê‚Ü‚·
-BƒRƒ}ƒ“ƒhŽÀs‚ÉÛ‚µ‚Ädest.bin‚ª‘¶Ý‚µ‚È‚¯‚ê‚ÎƒGƒ‰[‚É‚È‚è‚Ü‚·BÅŒã‚Ì50‚Æ‚¢‚¤
-ƒTƒCƒYŽw’è‚ÍÈ—ª‚Å‚«A‚±‚Ìê‡‚Ísrc.bin‚ÌƒTƒCƒY‚ðŽw’è‚µ‚½‚±‚Æ‚É‚È‚è‚Ü‚·B
-
-‚VDexe2sys‚Æ‚µ‚Ä‚ÌŽg—p•û–@
-
-  exe2sys‚ÍAexeƒtƒ@ƒCƒ‹‚Ìƒwƒbƒ_‚ð‰ðŽß‚µ‚ÄŠ’è‚ÌƒAƒhƒŒƒX‚ÖƒŠƒƒP[ƒg‚µ‚½Œã‚Ìƒ
-ƒ‚ƒŠƒCƒ[ƒW‚ð¶¬‚·‚é‚à‚Ì‚Å‚·BOS‚ðexeŒ`Ž®‚Åì‚Á‚Ä‚¨‚¢‚ÄAƒ[ƒhƒCƒ[ƒW‚É•ÏŠ·
-‚·‚éê‡‚ÉŽg‚¢‚Ü‚·B
-
-    prompt>imgtol s src.exe dest.bin 2048
-
-‚±‚Ìê‡‚ÌÅŒã‚Ì2048‚ÍƒŠƒƒP[ƒgƒZƒOƒƒ“ƒgƒAƒhƒŒƒX‚Å‚·B‚È‚¨’ˆÓ‚ª•K—v‚È‚Ì‚ÍA
-‚±‚Ì2048‚ª10i”‚Å‚ ‚é‚±‚Æ‚Å‚·B16i”Žw’è‚Í‚Å‚«‚Ü‚¹‚ñB‚±‚Ìê‡A0x0800:0x0000
-‚Éƒ[ƒh‚³‚ê‚½‚Æ‚µ‚ÄƒŠƒƒP[ƒVƒ‡ƒ“‚ðs‚¢A‚»‚ÌŒ‹‰Ê‚ðo—Í‚µ‚Ü‚·B
-
-‚WDSF16ê—pƒRƒ}ƒ“ƒhŒQ
-
-  imgtol‚ÍAWin95‚ÌDOSƒvƒƒ“ƒvƒg“à‚ÅSF16ƒtƒH[ƒ}ƒbƒg‚ðŠ|‚¯‚½‚èA‚à‚µ‚­‚ÍSF16ƒt
-ƒH[ƒ}ƒbƒg‚Å‹Lq‚³‚ê‚½OS‚ðƒCƒ“ƒXƒg[ƒ‹‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·BSF16ƒtƒH[ƒ}ƒbƒg‚Æ‚¢
-‚¤‚Ì‚ÍFAT16‚ðŠg’£‚µ‚½‚à‚Ì‚ÅAƒfƒBƒXƒNƒCƒ[ƒW‚ðì‚éÛ‚ÉƒCƒ“ƒXƒg[ƒ‹æ‚Ì—e—Ê‚ð‚ 
-‚ç‚©‚¶‚ßŒˆ‚ß‚Ä‚¨‚©‚È‚­‚Ä‚æ‚¢‚Æ‚¢‚¤—˜“_‚ðŽ‚½‚¹‚½‚à‚Ì‚Å‚·B
-
-  ‚Ü‚¸ASF16‚ÅƒƒfƒBƒA‚ðƒtƒH[ƒ}ƒbƒg‚µ‚Ä‚Ý‚Ü‚µ‚å‚¤BfƒRƒ}ƒ“ƒh‚ðŽg‚¢Aƒuƒ‰ƒ“ƒNƒC
-ƒ[ƒW‚ð‘‚«ž‚Ü‚¹‚Ü‚·isf16_08.bin‚Ísf16set.lzh‚Ì’†‚É‚ ‚è‚Ü‚·jB
-
-    prompt>imgtol f a: sf16_08.bin
-
-  Windows95OSR2.0‚ÅŽÀŒ±‚µ‚½‚Æ‚±‚ëA‚»‚Ì‚Ü‚Ü‚Å‚Í‚¤‚Ü‚­”FŽ¯‚Å‚«‚¸Œë“®ì‚µ‚Ü‚·B‚±
-‚ê‚Å‘‚«ž‚ñ‚¾Œã‚ÉAˆê’UƒfƒBƒXƒN‚ð”²‚¢‚Ä‚­‚¾‚³‚¢B‚»‚µ‚Ä‚à‚¤ˆê‰ñ“ü‚ê‚é‚ÆA‚«‚¿
-‚ñ‚Æ”FŽ¯‚µ‚Ü‚·BCF‚Ìê‡‚àAˆê“x³‹K‚Ì‘€ì‚ÅƒCƒWƒFƒNƒg‚µ‚Ä‚­‚¾‚³‚¢BHDD‚Ìê‡‚Í
-Aunlock‚µ‚½‚ç‚·‚®‚ÉÄ‹N“®‚µ‚Ä‚­‚¾‚³‚¢BEEE‚ ‚ A‚¦‚¦‚ÆAFDˆÈŠO‚ðŽw’è‚·‚éê
-‡AwƒRƒ}ƒ“ƒh‚Æ“¯—l‚ÉAlock/unlock‚ð‚â‚é•K—v‚ª‚ ‚è‚Ü‚·i‚RDŽQÆjB
-
-  ‚Ü‚½fƒRƒ}ƒ“ƒh‚ÍŒë‘€ì‚Å‘åØ‚ÈHDD‚ð”ò‚Î‚µ‚Ä‚µ‚Ü‚Á‚½‚è‚µ‚È‚¢‚æ‚¤‚ÉA2.0GBˆÈã‚Ì
-ƒp[ƒeƒBƒVƒ‡ƒ“‚Ö‚Ì‘‚«ž‚Ý‚¾‚Æ”»’f‚·‚é‚ÆAŽ©Žå“I‚ÉƒGƒ‰[‚É‚µ‚ÄˆêØ‚Ì‘‚«ž‚Ý‚ð
-‚µ‚Ü‚¹‚ñB
-
-  ‚Ü‚½fƒRƒ}ƒ“ƒh‚ÍFAT12‚©FAT16‚©SF16‚Å‚ ‚ç‚©‚¶‚ßƒtƒH[ƒ}ƒbƒg‚³‚ê‚Ä‚¢‚È‚¢‚ÆA‚»‚Ì
-ƒhƒ‰ƒCƒu‚ð‚¤‚Ü‚­”FŽ¯‚Å‚«‚Ü‚¹‚ñ‚Ì‚ÅAfdiskŒã‚Éˆê‰ž“K“–‚ÉƒtƒH[ƒ}ƒbƒg‚µ‚ÄA‚»‚ê‚©
-‚ç‚±‚Ì‚±‚ÌƒRƒ}ƒ“ƒh‚ÅSF16ƒtƒH[ƒ}ƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
-
-  ‚³‚ÄA‚±‚ê‚ÅƒfƒBƒXƒN‚É‚¢‚ë‚¢‚ë‘‚«ž‚ñ‚ÅA‚»‚ê‚ðÄƒCƒ“ƒXƒg[ƒ‹‰Â”\‚ÈƒfƒBƒXƒN
-ƒCƒ[ƒW‚É•ÏŠ·‚µ‚½‚­‚È‚Á‚½‚çArƒRƒ}ƒ“ƒh‚ÆRƒRƒ}ƒ“ƒh‚ðŽg‚¢‚Ü‚·B
-
-  ‚Ü‚¸ArƒRƒ}ƒ“ƒh‚ÅƒfƒBƒXƒNƒCƒ[ƒW‚ðŽæ‚èo‚µ‚Ü‚·i31MB‚Ü‚Å‚µ‚©Žæ‚èo‚¹‚È‚¢‚Ì‚Å
-‚»‚ê‚æ‚èŒã‚ë‚É‚Íƒtƒ@ƒCƒ‹‚ª‘¶Ý‚µ‚È‚¢‚æ‚¤‚É‚µ‚Ä‚­‚¾‚³‚¢jB‚±‚ê‚Íƒhƒ‰ƒCƒu‚Ì—e—Ê
-‘S‘Ì‚Å‚ ‚é•K—v‚Í‚È‚­Aƒtƒ@ƒCƒ‹‚ª“ü‚Á‚Ä‚¢‚é‚Æ‚±‚ë‚Ü‚Å‚Å‚¢‚¢‚Å‚·B‚»‚µ‚ÄA
-
-    prompt>imgtol R rawimage.bin release.bin
-
-‚È‚Ç‚Æ‚â‚é‚ÆAŒã‚ë‚Ì•s—v‚È•”•ª‚ªØ‚èŽÌ‚Ä‚ç‚ê‚ÄAfƒRƒ}ƒ“ƒh‚ÅƒCƒ“ƒXƒg[ƒ‹‰Â”\‚Èƒf
-ƒBƒXƒNƒCƒ[ƒW‚É•ÏŠ·‚³‚ê‚Ü‚·Bˆê“x‚±‚Ì•ÏŠ·‚ð‚·‚ê‚ÎAfƒRƒ}ƒ“ƒh‚ÅD‚«‚È—e—Ê‚ÖƒCƒ“
-ƒXƒg[ƒ‹‚Å‚«‚Ü‚·BwƒRƒ}ƒ“ƒh‚Ì‚æ‚¤‚ÉA“Ç‚Ýo‚µ‚½ƒhƒ‰ƒCƒu‚Æ“¯—e—Ê‚Å‚È‚¯‚ê‚Î‚È‚ç‚È
-‚¢A‚Æ‚¢‚¤‚±‚Æ‚Í‚ ‚è‚Ü‚¹‚ñB
-
-‚XDŽÓŽ«
-
-  I.Tak.‚³‚ñ‚ª–l‚É‚â‚é‹C‚ð‹N‚±‚·‚«‚Á‚©‚¯‚ð‚­‚ê‚Ü‚µ‚½B‚Ç‚¤‚à‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü
-‚·B
-
-‚P‚ODƒ‰ƒCƒZƒ“ƒX
-
-  –ˆ“x‚ÌKL-01‚Å‚·B
+  ãªãŠã€æŒ‡å®šã—ãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚ˆã‚Šã‚‚å°ã•ã„ã‚µã‚¤ã‚ºã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã‚‚ã§ãã€ãã®å ´åˆã¯ã€ãƒ•
+ã‚¡ã‚¤ãƒ«ã®å¾Œã‚ãŒã‚«ãƒƒãƒˆã•ã‚ŒãŸçµæžœãŒå‡ºã¦ãã¾ã™ã€‚ä½œã£ãŸãƒ‡ã‚£ã‚¹ã‚¯ã‚¤ãƒ¡ãƒ¼ã‚¸ã®å¾Œ

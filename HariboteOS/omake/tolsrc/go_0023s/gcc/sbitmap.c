@@ -71,7 +71,7 @@ sbitmap_vector_alloc (n_vecs, n_elms)
     /* Based on DEFAULT_ALIGNMENT computation in obstack.c.  */
     struct { char x; SBITMAP_ELT_TYPE y; } align;
     int alignment = (char *) & align.y - & align.x;
-    vector_bytes = (vector_bytes + alignment - 1) & ~ (alignment - 1);
+    vector_bytes = (vector_bytes + alignment - 1) & ‾ (alignment - 1);
   }
 
   amt = vector_bytes + (n_vecs * elm_bytes);
@@ -158,7 +158,7 @@ sbitmap_vector_ones (bmap, n_vecs)
 }
 
 /* Set DST to be A union (B - C).
-   DST = A | (B & ~C).
+   DST = A | (B & ‾C).
    Return non-zero if any change is made.  */
 
 int
@@ -172,7 +172,7 @@ sbitmap_union_of_diff (dst, a, b, c)
   for (dstp = dst->elms, ap = a->elms, bp = b->elms, cp = c->elms, i = 0;
        i < dst->size; i++, dstp++)
     {
-      SBITMAP_ELT_TYPE tmp = *ap++ | (*bp++ & ~*cp++);
+      SBITMAP_ELT_TYPE tmp = *ap++ | (*bp++ & ‾*cp++);
 
       if (*dstp != tmp)
 	{
@@ -194,11 +194,11 @@ sbitmap_not (dst, src)
   sbitmap_ptr dstp, srcp;
 
   for (dstp = dst->elms, srcp = src->elms, i = 0; i < dst->size; i++)
-    *dstp++ = ~(*srcp++);
+    *dstp++ = ‾(*srcp++);
 }
 
 /* Set the bits in DST to be the difference between the bits
-   in A and the bits in B. i.e. dst = a & (~b).  */
+   in A and the bits in B. i.e. dst = a & (‾b).  */
 
 void
 sbitmap_difference (dst, a, b)
@@ -208,7 +208,7 @@ sbitmap_difference (dst, a, b)
   sbitmap_ptr dstp, ap, bp;
   
   for (dstp = dst->elms, ap = a->elms, bp = b->elms, i = 0; i < dst->size; i++)
-    *dstp++ = *ap++ & (~*bp++);
+    *dstp++ = *ap++ & (‾*bp++);
 }
 
 /* Set DST to be (A and B).
@@ -361,270 +361,4 @@ sbitmap_a_and_b_or_c (dst, a, b, c)
    block number BB, using the new flow graph structures.  */
 
 void
-sbitmap_intersection_of_succs (dst, src, bb)
-     sbitmap dst;
-     sbitmap *src;
-     int bb;
-{
-  basic_block b = BASIC_BLOCK (bb);
-  unsigned int set_size = dst->size;
-  edge e;
-
-  for (e = b->succ; e != 0; e = e->succ_next)
-    {
-      if (e->dest == EXIT_BLOCK_PTR)
-        continue;
-
-      sbitmap_copy (dst, src[e->dest->index]);
-      break;
-    }
-
-  if (e == 0)
-    sbitmap_ones (dst);
-  else
-    for (e = e->succ_next; e != 0; e = e->succ_next)
-      {
-	unsigned int i;
-	sbitmap_ptr p, r;
-
-	if (e->dest == EXIT_BLOCK_PTR)
-	  continue;
-
-	p = src[e->dest->index]->elms;
-	r = dst->elms;
-	for (i = 0; i < set_size; i++)
-	  *r++ &= *p++;
-      }
-}
-
-/* Set the bitmap DST to the intersection of SRC of predecessors of
-   block number BB, using the new flow graph structures.  */
-
-void
-sbitmap_intersection_of_preds (dst, src, bb)
-     sbitmap dst;
-     sbitmap *src;
-     int bb;
-{
-  basic_block b = BASIC_BLOCK (bb);
-  unsigned int set_size = dst->size;
-  edge e;
-
-  for (e = b->pred; e != 0; e = e->pred_next)
-    {
-      if (e->src == ENTRY_BLOCK_PTR)
-        continue;
-
-      sbitmap_copy (dst, src[e->src->index]);
-      break;
-    }
-
-  if (e == 0)
-    sbitmap_ones (dst);
-  else
-    for (e = e->pred_next; e != 0; e = e->pred_next)
-      {
-	unsigned int i;
-	sbitmap_ptr p, r;
-
-	if (e->src == ENTRY_BLOCK_PTR)
-	  continue;
-
-	p = src[e->src->index]->elms;
-	r = dst->elms;
-	for (i = 0; i < set_size; i++)
-	  *r++ &= *p++;
-      }
-}
-
-/* Set the bitmap DST to the union of SRC of successors of
-   block number BB, using the new flow graph structures.  */
-
-void
-sbitmap_union_of_succs (dst, src, bb)
-     sbitmap dst;
-     sbitmap *src;
-     int bb;
-{
-  basic_block b = BASIC_BLOCK (bb);
-  unsigned int set_size = dst->size;
-  edge e;
-
-  for (e = b->succ; e != 0; e = e->succ_next)
-    {
-      if (e->dest == EXIT_BLOCK_PTR)
-        continue;
-
-      sbitmap_copy (dst, src[e->dest->index]);
-      break;
-    }
-
-  if (e == 0)
-    sbitmap_zero (dst);
-  else
-    for (e = e->succ_next; e != 0; e = e->succ_next)
-      {
-	unsigned int i;
-	sbitmap_ptr p, r;
-
-	if (e->dest == EXIT_BLOCK_PTR)
-	  continue;
-
-	p = src[e->dest->index]->elms;
-	r = dst->elms;
-	for (i = 0; i < set_size; i++)
-	  *r++ |= *p++;
-      }
-}
-
-/* Set the bitmap DST to the union of SRC of predecessors of
-   block number BB, using the new flow graph structures.  */
-
-void
-sbitmap_union_of_preds (dst, src, bb)
-     sbitmap dst;
-     sbitmap *src;
-     int bb;
-{
-  basic_block b = BASIC_BLOCK (bb);
-  unsigned int set_size = dst->size;
-  edge e;
-
-  for (e = b->pred; e != 0; e = e->pred_next)
-    {
-      if (e->src== ENTRY_BLOCK_PTR)
-        continue;
-
-      sbitmap_copy (dst, src[e->src->index]);
-      break;
-    }
-
-  if (e == 0)
-    sbitmap_zero (dst);
-  else
-    for (e = e->pred_next; e != 0; e = e->pred_next)
-      {
-	unsigned int i;
-	sbitmap_ptr p, r;
-
-	if (e->src == ENTRY_BLOCK_PTR)
-	  continue;
-	
-	p = src[e->src->index]->elms;
-	r = dst->elms;
-	for (i = 0; i < set_size; i++)
-	  *r++ |= *p++;
-      }
-}
-#endif
-
-/* Return number of first bit set in the bitmap, -1 if none.  */
-
-int
-sbitmap_first_set_bit (bmap)
-     sbitmap bmap;
-{
-  unsigned int n;
-
-  EXECUTE_IF_SET_IN_SBITMAP (bmap, 0, n, { return n; });
-  return -1;
-}
-
-/* Return number of last bit set in the bitmap, -1 if none.  */
-
-int
-sbitmap_last_set_bit (bmap)
-     sbitmap bmap;
-{
-  int i;
-  SBITMAP_ELT_TYPE *ptr = bmap->elms;
-
-  for (i = bmap->size - 1; i >= 0; i--)
-    {
-      SBITMAP_ELT_TYPE word = ptr[i];
-
-      if (word != 0)
-	{
-	  unsigned int index = (i + 1) * SBITMAP_ELT_BITS - 1;
-	  SBITMAP_ELT_TYPE mask
-	    = (SBITMAP_ELT_TYPE) 1 << (SBITMAP_ELT_BITS - 1);
-
-	  while (1)
-	    {
-	      if ((word & mask) != 0)
-		return index;
-
-	      mask >>= 1;
-	      index--;
-	    }
-	}
-    }
-
-  return -1;
-}
-
-void
-dump_sbitmap (file, bmap)
-     FILE *file;
-     sbitmap bmap;
-{
-  unsigned int i, n, j;
-  unsigned int set_size = bmap->size;
-  unsigned int total_bits = bmap->n_bits;
-
-  fprintf (file, "  ");
-  for (i = n = 0; i < set_size && n < total_bits; i++)
-    for (j = 0; j < SBITMAP_ELT_BITS && n < total_bits; j++, n++)
-      {
-	if (n != 0 && n % 10 == 0)
-	  fprintf (file, " ");
-
-	fprintf (file, "%d",
-		 (bmap->elms[i] & ((SBITMAP_ELT_TYPE) 1 << j)) != 0);
-      }
-
-  fprintf (file, "\n");
-}
-
-void
-debug_sbitmap (bmap)
-     sbitmap bmap;
-{
-  unsigned int i, pos;
-
-  fprintf (stderr, "n_bits = %d, set = {", bmap->n_bits);
-
-  for (pos = 30, i = 0; i < bmap->n_bits; i++)
-    if (TEST_BIT (bmap, i))
-      {
-	if (pos > 70)
-	  {
-	    fprintf (stderr, "\n");
-	    pos = 0;
-	  }
-
-	fprintf (stderr, "%d ", i);
-	pos += 1 + (i >= 10) + (i >= 100);
-      }
-
-  fprintf (stderr, "}\n");
-}
-
-void
-dump_sbitmap_vector (file, title, subtitle, bmaps, n_maps)
-     FILE *file;
-     const char *title, *subtitle;
-     sbitmap *bmaps;
-     int n_maps;
-{
-  int bb;
-
-  fprintf (file, "%s\n", title);
-  for (bb = 0; bb < n_maps; bb++)
-    {
-      fprintf (file, "%s %d\n", subtitle, bb);
-      dump_sbitmap (file, bmaps[bb]);
-    }
-
-  fprintf (file, "\n");
-}
+sbitmap_interse

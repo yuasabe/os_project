@@ -149,7 +149,7 @@ do_preprocessing (argc, argv)
   /* Open the output now.  We must do so even if no_output is on,
      because there may be other output than from the actual
      preprocessing (e.g. from -dM).  */
-  if (options->out_fname[0] == '\0')
+  if (options->out_fname[0] == '¥0')
     print.outf = stdout;
   else
     {
@@ -183,7 +183,7 @@ do_preprocessing (argc, argv)
 
   /* Flush any pending output.  */
   if (print.printed)
-    putc ('\n', print.outf);
+    putc ('¥n', print.outf);
 
   if (ferror (print.outf) || fclose (print.outf))
     cpp_notice_from_errno (pfile, options->out_fname);
@@ -278,7 +278,7 @@ check_multiline_token (str)
   unsigned int i;
 
   for (i = 0; i < str->len; i++)
-    if (str->text[i] == '\n')
+    if (str->text[i] == '¥n')
       print.line++;
 }
 
@@ -293,7 +293,7 @@ maybe_print_line (map, line)
   /* End the previous line of text.  */
   if (print.printed)
     {
-      putc ('\n', print.outf);
+      putc ('¥n', print.outf);
       print.line++;
       print.printed = 0;
     }
@@ -302,7 +302,7 @@ maybe_print_line (map, line)
     {
       while (line > print.line)
 	{
-	  putc ('\n', print.outf);
+	  putc ('¥n', print.outf);
 	  print.line++;
 	}
     }
@@ -320,7 +320,7 @@ print_line (map, line, special_flags)
 {
   /* End any previous line of text.  */
   if (print.printed)
-    putc ('\n', print.outf);
+    putc ('¥n', print.outf);
   print.printed = 0;
 
   print.line = line;
@@ -334,8 +334,8 @@ print_line (map, line, special_flags)
 	 ourselves.  */
       p = cpp_quote_string (to_file_quoted,
 			    (unsigned char *)map->to_file, to_file_len);
-      *p = '\0';
-      fprintf (print.outf, "# %u \"%s\"%s",
+      *p = '¥0';
+      fprintf (print.outf, "# %u ¥"%s¥"%s",
 	       SOURCE_LINE (map, print.line), to_file_quoted, special_flags);
 
       if (map->sysp == 2)
@@ -343,7 +343,7 @@ print_line (map, line, special_flags)
       else if (map->sysp == 1)
 	fputs (" 3", print.outf);
 
-      putc ('\n', print.outf);
+      putc ('¥n', print.outf);
     }
 }
 
@@ -384,7 +384,7 @@ cb_ident (pfile, line, str)
      const cpp_string * str;
 {
   maybe_print_line (print.map, line);
-  fprintf (print.outf, "#ident \"%s\"\n", str->text);
+  fprintf (print.outf, "#ident ¥"%s¥"¥n", str->text);
   print.line++;
 }
 
@@ -403,7 +403,7 @@ cb_define (pfile, line, node)
   else
     fputs ((const char *) NODE_NAME (node), print.outf);
 
-  putc ('\n', print.outf);
+  putc ('¥n', print.outf);
   print.line++;
 }
 
@@ -414,7 +414,7 @@ cb_undef (pfile, line, node)
      cpp_hashnode *node;
 {
   maybe_print_line (print.map, line);
-  fprintf (print.outf, "#undef %s\n", NODE_NAME (node));
+  fprintf (print.outf, "#undef %s¥n", NODE_NAME (node));
   print.line++;
 }
 
@@ -426,7 +426,7 @@ cb_include (pfile, line, dir, header)
      const cpp_token *header;
 {
   maybe_print_line (print.map, line);
-  fprintf (print.outf, "#%s %s\n", dir, cpp_token_as_text (pfile, header));
+  fprintf (print.outf, "#%s %s¥n", dir, cpp_token_as_text (pfile, header));
   print.line++;
 }
 
@@ -487,7 +487,7 @@ dump_macro (pfile, node, v)
     {
       fputs ("#define ", print.outf);
       fputs ((const char *) cpp_macro_definition (pfile, node), print.outf);
-      putc ('\n', print.outf);
+      putc ('¥n', print.outf);
       print.line++;
     }
 

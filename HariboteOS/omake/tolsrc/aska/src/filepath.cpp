@@ -5,7 +5,7 @@ void	filepath::set(string& s){
 	stringx	strx;
 	int		n;
 	strx = s;
-	n = strx.lastdelimiter("\\");
+	n = strx.lastdelimiter("¥¥");
 	if(n == -1){
 		tmp1 = "";
 		tmp2 = strx.right(n);
@@ -47,7 +47,7 @@ string	filepath::getfullname(){
 	string tmp;
 	tmp = getfullpath();
 	if(tmp != ""){
-		tmp += "\\";
+		tmp += "¥¥";
 	}
 	tmp += getfilename();
 	return tmp;
@@ -57,7 +57,7 @@ string	filepath::getfullname(){
 /*
 void main(){
 	filepath	p;
-	p = "c:\\program files\\desktop.ini";
+	p = "c:¥¥program files¥¥desktop.ini";
 	puts(p.drive);
 	puts(p.path);
 	puts(p.name);

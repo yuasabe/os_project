@@ -1,7 +1,7 @@
-MAKE     = ..\make.exe -r
-OSALINK  = ..\osalink1.exe 
+MAKE     = ..¥make.exe -r
+OSALINK  = ..¥osalink1.exe 
 MV       = ren
-EDIMG    = ..\edimg.exe
+EDIMG    = ..¥edimg.exe
 RM       = del
 
 ALL :

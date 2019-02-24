@@ -11,20 +11,20 @@
 # 
 # REM ### autoexec.bat
 # 
-# set MINGW=c:\mingw
-# set PATH=%MINGW%\bin;%MINGW%\lib\gcc-lib\mingw32\2.95.3-6;%PATH%
-# set GCC_EXEC_PREFIX=%MINGW%\lib\gcc-lib\mingw32\2.95.3-6
-# set LIBRARY_PATH=%MINGW%\lib;%MINGW%\lib\gcc-lib\mingw32\2.95.3-6
-# set C_INCLUDE_PATH=%MINGW%\include
-# set CPLUS_INCLUDE_PATH=%MINGW%\include\g++-3
-# set OBJC_INCLUDE_PATH=%MINGW%\lib\gcc-lib\mingw32\2.95.3-6\include\obj
+# set MINGW=c:¥mingw
+# set PATH=%MINGW%¥bin;%MINGW%¥lib¥gcc-lib¥mingw32¥2.95.3-6;%PATH%
+# set GCC_EXEC_PREFIX=%MINGW%¥lib¥gcc-lib¥mingw32¥2.95.3-6
+# set LIBRARY_PATH=%MINGW%¥lib;%MINGW%¥lib¥gcc-lib¥mingw32¥2.95.3-6
+# set C_INCLUDE_PATH=%MINGW%¥include
+# set CPLUS_INCLUDE_PATH=%MINGW%¥include¥g++-3
+# set OBJC_INCLUDE_PATH=%MINGW%¥lib¥gcc-lib¥mingw32¥2.95.3-6¥include¥obj
 # REM set LANG=C-SJIS
 # 
 # Memory Setting For Environment Variables On Windows98
 # 
 # REM ### config.sys
 #
-# shell=C:\WINDOWS\COMMAND.COM /P /E:4096
+# shell=C:¥WINDOWS¥COMMAND.COM /P /E:4096
 #
 
 
@@ -53,12 +53,12 @@ SRCDIR=
 # Target
 #
 
-SRCS =${SRCDIR}main.${CPP} ${SRCDIR}parser.${CPP} ${SRCDIR}module.${CPP} \
-	${SRCDIR}generator.${CPP} ${SRCDIR}filepath.${CPP} ${SRCDIR}scanner.${CPP} \
+SRCS =${SRCDIR}main.${CPP} ${SRCDIR}parser.${CPP} ${SRCDIR}module.${CPP} ¥
+	${SRCDIR}generator.${CPP} ${SRCDIR}filepath.${CPP} ${SRCDIR}scanner.${CPP} ¥
 	${SRCDIR}stringx.${CPP} ${SRCDIR}table.${CPP} ${SRCDIR}textmodule.${CPP}
 
-OBJS = ${SRCDIR}main.${O} ${SRCDIR}parser.${O} ${SRCDIR}module.${O} \
-	${SRCDIR}generator.${O} ${SRCDIR}filepath.${O} ${SRCDIR}scanner.${O} \
+OBJS = ${SRCDIR}main.${O} ${SRCDIR}parser.${O} ${SRCDIR}module.${O} ¥
+	${SRCDIR}generator.${O} ${SRCDIR}filepath.${O} ${SRCDIR}scanner.${O} ¥
 	${SRCDIR}stringx.${O} ${SRCDIR}table.${O} ${SRCDIR}textmodule.${O}
 
 %.${O} : ${SRCDIR}%.${CPP}
@@ -74,6 +74,6 @@ distclean: clean
 
 clean:
 	rm -f .depend a.out core ${PGNAME}
-	rm -f ${SRCDIR}*.${O} *~
+	rm -f ${SRCDIR}*.${O} *‾
 
 # Are You Ready to Be A Member of OSASK Project Now?

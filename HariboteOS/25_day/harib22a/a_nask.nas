@@ -100,10 +100,10 @@ _api_boxfilwin:	; void api_boxfilwin(int win, int x0, int y0, int x1, int y1, in
 _api_initmalloc:	; void api_initmalloc(void);
 		PUSH	EBX
 		MOV		EDX,8
-		MOV		EBX,[CS:0x0020]		; malloc—Ìˆæ‚Ì”Ô’n
+		MOV		EBX,[CS:0x0020]		; mallocé ˜åŸŸã®ç•ªåœ°
 		MOV		EAX,EBX
-		ADD		EAX,32*1024			; 32KB‚ğ‘«‚·
-		MOV		ECX,[CS:0x0000]		; ƒf[ƒ^ƒZƒOƒƒ“ƒg‚Ì‘å‚«‚³
+		ADD		EAX,32*1024			; 32KBã‚’è¶³ã™
+		MOV		ECX,[CS:0x0000]		; ãƒ‡ãƒ¼ã‚¿ã‚»ã‚°ãƒ¡ãƒ³ãƒˆã®å¤§ãã•
 		SUB		ECX,EAX
 		INT		0x40
 		POP		EBX
@@ -207,24 +207,4 @@ _api_inittimer:		; void api_inittimer(int timer, int data);
 		RET
 
 _api_settimer:		; void api_settimer(int timer, int time);
-		PUSH	EBX
-		MOV		EDX,18
-		MOV		EBX,[ESP+ 8]		; timer
-		MOV		EAX,[ESP+12]		; time
-		INT		0x40
-		POP		EBX
-		RET
-
-_api_freetimer:		; void api_freetimer(int timer);
-		PUSH	EBX
-		MOV		EDX,19
-		MOV		EBX,[ESP+ 8]		; timer
-		INT		0x40
-		POP		EBX
-		RET
-
-_api_beep:			; void api_beep(int tone);
-		MOV		EDX,20
-		MOV		EAX,[ESP+4]			; tone
-		INT		0x40
-		RET
+		

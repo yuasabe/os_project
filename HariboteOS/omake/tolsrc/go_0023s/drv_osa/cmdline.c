@@ -9,8 +9,8 @@ UCHAR **ConvCmdLine1(int *pargc, UCHAR *p)
 		while ((*q++ = *p++) > ' ');
 		argc++;
 		p--;
-		*(q - 1) = '\0';
-		while ('\0' < *p && *p <= ' ')
+		*(q - 1) = '¥0';
+		while ('¥0' < *p && *p <= ' ')
 			p++;
 	} while (*p);
 	argv = GOL_sysmalloc((argc + 1) * sizeof (char *));

@@ -5,26 +5,26 @@ RM=-del
 CFLAGS = -c -O3
 LDFLAGS = -Wl,-s
 
-OBJS = \
-  LzmaAlone.o \
-  LzmaBench.o \
-  LZMADecoder.o \
-  LZMAEncoder.o \
-  LZInWindow.o \
-  LZOutWindow.o \
-  RangeCoderBit.o \
-  InBuffer.o \
-  OutBuffer.o \
-  FileStreams.o \
-  AlignedBuffer.o \
-  C_FileIO.o \
-  CommandLineParser.o \
-  CRC.o \
-  String.o \
-  StringConvert.o \
-  StringToInt.o \
-  Vector.o \
-	FileIO.o \
+OBJS = ¥
+  LzmaAlone.o ¥
+  LzmaBench.o ¥
+  LZMADecoder.o ¥
+  LZMAEncoder.o ¥
+  LZInWindow.o ¥
+  LZOutWindow.o ¥
+  RangeCoderBit.o ¥
+  InBuffer.o ¥
+  OutBuffer.o ¥
+  FileStreams.o ¥
+  AlignedBuffer.o ¥
+  C_FileIO.o ¥
+  CommandLineParser.o ¥
+  CRC.o ¥
+  String.o ¥
+  StringConvert.o ¥
+  StringToInt.o ¥
+  Vector.o ¥
+	FileIO.o ¥
 
 all: $(PROG)
 

@@ -11,7 +11,7 @@ CInBuffer::CInBuffer(UInt32 bufferSize):
   _bufferBase = new Byte[_bufferSize];
 }
 
-CInBuffer::~CInBuffer()
+CInBuffer::‾CInBuffer()
 {
   delete []_bufferBase;
 }

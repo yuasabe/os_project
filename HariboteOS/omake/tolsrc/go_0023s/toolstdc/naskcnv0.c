@@ -3,8 +3,8 @@
 
 	usage : >naskcnv0 [-l] [-s] [-w] input-file output-file
 
-	-l:leaをmovに変換
-	-s:余計なdword、word、byteを削除
+	-l:lea繧知ov縺ｫ螟画鋤
+	-s:菴呵ｨ医↑dword縲『ord縲｜yte繧貞炎髯､
 */
 
 #include <stdio.h>
@@ -18,7 +18,7 @@ char *GO_strchr(const char *cs, int c);
 typedef unsigned char UCHAR;
 typedef unsigned int UINT;
 
-#define	NL			"\n"
+#define	NL			"ﾂ･n"
 #define	LEN_NL		1
 
 //	static char errflag = 0;
@@ -78,7 +78,7 @@ int main(int argc, UCHAR **argv)
 		}
 	}
 	if (i != 2) {
-		errout("\"naskcnv0\"  Copyright(C) 2003 H.Kawai" NL
+		errout("ﾂ･"naskcnv0ﾂ･"  Copyright(C) 2003 H.Kawai" NL
 			"usage : >naskcnv0 [-l] [-s] [-w] input-file output-file" NL
 		);
 	}

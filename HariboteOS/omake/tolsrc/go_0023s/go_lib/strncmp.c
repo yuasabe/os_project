@@ -13,7 +13,7 @@ int	GO_strncmp (char *d, char *s, size_t sz)
 #if 0
 	/* Gaku's code */
 
-	while ( sz-- && '\0' != *d ) {
+	while ( sz-- && '¥0' != *d ) {
 		if (*d != *s)
 			return *d - *s;
 		d++;
@@ -27,7 +27,7 @@ int	GO_strncmp (char *d, char *s, size_t sz)
 	/* Kawai's code */
 
 	while (sz--) {
-		if (*d == '\0')
+		if (*d == '¥0')
 			goto ret;
 		if (*d != *s) {
 ret:

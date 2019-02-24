@@ -15,7 +15,7 @@ void SplitCommandLine(const UString &src, UString &dest1, UString &dest2)
   for (i = 0; i < src.Length(); i++)
   {
     wchar_t c = src[i];
-    if (c == L'\"')
+    if (c == L'¥"')
       quoteMode = !quoteMode;
     else if (c == L' ' && !quoteMode)
     {
@@ -64,7 +64,7 @@ CParser::CParser(int numSwitches):
   _switches = new CSwitchResult[_numSwitches];
 }
 
-CParser::~CParser()
+CParser::‾CParser()
 {
   delete []_switches;
 }

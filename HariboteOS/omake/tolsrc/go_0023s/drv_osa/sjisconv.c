@@ -3,7 +3,7 @@
 
 	usage : >sjisconv [-e] [-s] input-file output-file
 
-	-s:ShiftJISƒ‚[ƒh
+	-s:ShiftJISãƒ¢ãƒ¼ãƒ‰
 */
 
 #include "../include/string.h"		/* strlen, strstr, strchr */
@@ -12,18 +12,18 @@
 #define FLAG_E		0
 #define FLAG_S		1
 
-#define	NL			"\r\n"
+#define	NL			"Â¥rÂ¥n"
 #define	LEN_NL		2
 
 struct STR_FLAGS {
 	UCHAR opt[3];
 };
 
-struct STR_SJISCONV { /* STR_GAS2NASK‚ÆƒRƒ“ƒpƒ` */
-	UCHAR *cmdlin; /* '\0'‚ÅI‚í‚é */
-	UCHAR *outname; /* '\0'‚ÅI‚í‚é, work‚Ì‚Ç‚±‚©‚Ö‚Ìƒ|ƒCƒ“ƒ^ */
-	UCHAR *dest0, *dest1; /* o—Íƒtƒ@ƒCƒ‹(dest0‚Í‘‚«Š·‚¦‚ç‚ê‚é) */
-	UCHAR *err0, *err1; /* ƒRƒ“ƒ\[ƒ‹ƒƒbƒZ[ƒW(err0‚Í‘‚«Š·‚¦‚ç‚ê‚é) */
+struct STR_SJISCONV { /* STR_GAS2NASKã¨ã‚³ãƒ³ãƒ‘ãƒ */
+	UCHAR *cmdlin; /* 'Â¥0'ã§çµ‚ã‚ã‚‹ */
+	UCHAR *outname; /* 'Â¥0'ã§çµ‚ã‚ã‚‹, workã®ã©ã“ã‹ã¸ã®ãƒã‚¤ãƒ³ã‚¿ */
+	UCHAR *dest0, *dest1; /* å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«(dest0ã¯æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹) */
+	UCHAR *err0, *err1; /* ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸(err0ã¯æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹) */
 	UCHAR *work0, *work1;
 	int errcode;
 };
@@ -61,9 +61,9 @@ int sjisconv_main(struct STR_SJISCONV *params)
 	while (*p0 > ' ')
 		p0++;
 	for (;;) {
-		while (*p0 != '\0' && *p0 <= ' ')
+		while (*p0 != 'Â¥0' && *p0 <= ' ')
 			p0++;
-		if (*p0 == '\0')
+		if (*p0 == 'Â¥0')
 			break;
 		if (*p0 == '-') {
 			do {
@@ -79,7 +79,7 @@ int sjisconv_main(struct STR_SJISCONV *params)
 		do {
 			*f++ = *p0++;
 		} while (*p0 > ' ');
-		*f = '\0';
+		*f = 'Â¥0';
 		if (i == 0) {
 			src0 = osain(filename, &size);
 			if (src0 == NULL)
@@ -88,7 +88,7 @@ int sjisconv_main(struct STR_SJISCONV *params)
 		i++;
 	}
 	if (i != 2) {
-		errout("\"sjisconv\"  Copyright(C) 2003 H.Kawai" NL
+		errout("Â¥"sjisconvÂ¥"  Copyright(C) 2003 H.Kawai" NL
 			"usage : >sjisconv [-e] [-s] input-file output-file" NL
 		);
 	}

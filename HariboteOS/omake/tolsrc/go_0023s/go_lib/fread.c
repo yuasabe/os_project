@@ -8,7 +8,7 @@ size_t GO_fread(void *ptr, size_t size, size_t nobj, GO_FILE *stream)
 {
 	int bytes = nobj;
 	if (size != 1) {
-		fputs("GO_fread:size != 1.\n", stderr);
+		fputs("GO_fread:size != 1.¥n", stderr);
 		abort();
 	}
 	if (bytes > stream->p1 - stream->p)

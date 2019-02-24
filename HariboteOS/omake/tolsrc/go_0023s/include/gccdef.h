@@ -35,8 +35,8 @@
 -lang-c
 -Asystem=winnt -Acpu=i386 -Amachine=i386
 
- J:\MINGW\BIN\..\lib\gcc-lib\mingw32\3.2\cpp0.exe -lang-c -v -iprefix J:\MINGW\B
-IN\../lib/gcc-lib/mingw32/3.2/ -D__GNUC__=3 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEV
+ J:¥MINGW¥BIN¥..¥lib¥gcc-lib¥mingw32¥3.2¥cpp0.exe -lang-c -v -iprefix J:¥MINGW¥B
+IN¥../lib/gcc-lib/mingw32/3.2/ -D__GNUC__=3 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEV
 EL__=0 -D__GXX_ABI_VERSION=102 -D_WIN32 -D__WIN32 -D__WIN32__ -DWIN32 -D__MINGW3
 2__ -D__MSVCRT__ -DWINNT -D_X86_=1 -D_WIN32 -D__WIN32 -D__WIN32__ -D__WIN32__ -D
 __MINGW32__ -D__MSVCRT__ -D__WINNT__ -D_X86_=1 -D__WIN32 -D__WINNT -Asystem=winn

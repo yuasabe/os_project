@@ -67,14 +67,14 @@ Boston, MA 02111-1307, USA.  */
    arguments are as for DEF_OPERATOR, but there is no need to provide
    an ASSIGNMENT_P argument; it is always zero.  */
 
-#define DEF_SIMPLE_OPERATOR(NAME, CODE, MANGLING, ARITY) \
+#define DEF_SIMPLE_OPERATOR(NAME, CODE, MANGLING, ARITY) ¥
   DEF_OPERATOR(NAME, CODE, MANGLING, ARITY, 0)
 
 /* Use DEF_ASSN_OPERATOR to define an assignment operator.  Its
    arguments are as for DEF_OPERATOR, but there is no need to provide
    an ASSIGNMENT_P argument; it is always one.  */
 
-#define DEF_ASSN_OPERATOR(NAME, CODE, MANGLING, ARITY) \
+#define DEF_ASSN_OPERATOR(NAME, CODE, MANGLING, ARITY) ¥
   DEF_OPERATOR(NAME, CODE, MANGLING, ARITY, 1)
 
 /* Memory allocation operators.  */
@@ -88,7 +88,7 @@ DEF_SIMPLE_OPERATOR ("+", CONVERT_EXPR, "ps", 1)
 DEF_SIMPLE_OPERATOR ("-", NEGATE_EXPR, "ng", 1)
 DEF_SIMPLE_OPERATOR ("&", ADDR_EXPR, "ad", 1)
 DEF_SIMPLE_OPERATOR ("*", INDIRECT_REF, "de", 1)
-DEF_SIMPLE_OPERATOR ("~", BIT_NOT_EXPR, "co", 1)
+DEF_SIMPLE_OPERATOR ("‾", BIT_NOT_EXPR, "co", 1)
 DEF_SIMPLE_OPERATOR ("!", TRUTH_NOT_EXPR, "nt", 1)
 DEF_SIMPLE_OPERATOR ("++", PREINCREMENT_EXPR, "pp", 1)
 DEF_SIMPLE_OPERATOR ("--", PREDECREMENT_EXPR, "mm", 1)
@@ -104,50 +104,4 @@ DEF_SIMPLE_OPERATOR ("", STATIC_CAST_EXPR, "cv", 1)
 
 /* Binary operators.  */
 DEF_SIMPLE_OPERATOR ("+", PLUS_EXPR, "pl", 2)
-DEF_SIMPLE_OPERATOR ("-", MINUS_EXPR, "mi", 2)
-DEF_SIMPLE_OPERATOR ("*", MULT_EXPR, "ml", 2)
-DEF_SIMPLE_OPERATOR ("/", TRUNC_DIV_EXPR, "dv", 2)
-DEF_SIMPLE_OPERATOR ("%", TRUNC_MOD_EXPR, "rm", 2)
-DEF_SIMPLE_OPERATOR ("&", BIT_AND_EXPR, "an", 2)
-DEF_SIMPLE_OPERATOR ("|", BIT_IOR_EXPR, "or", 2)
-DEF_SIMPLE_OPERATOR ("^", BIT_XOR_EXPR, "eo", 2)
-DEF_SIMPLE_OPERATOR ("<<", LSHIFT_EXPR, "ls", 2)
-DEF_SIMPLE_OPERATOR (">>", RSHIFT_EXPR, "rs", 2)
-DEF_SIMPLE_OPERATOR ("==", EQ_EXPR, "eq", 2)
-DEF_SIMPLE_OPERATOR ("!=", NE_EXPR, "ne", 2)
-DEF_SIMPLE_OPERATOR ("<", LT_EXPR, "lt", 2)
-DEF_SIMPLE_OPERATOR (">", GT_EXPR, "gt", 2)
-DEF_SIMPLE_OPERATOR ("<=", LE_EXPR, "le", 2)
-DEF_SIMPLE_OPERATOR (">=", GE_EXPR, "ge", 2)
-DEF_SIMPLE_OPERATOR ("&&", TRUTH_ANDIF_EXPR, "aa", 2)
-DEF_SIMPLE_OPERATOR ("||", TRUTH_ORIF_EXPR, "oo", 2)
-DEF_SIMPLE_OPERATOR (",", COMPOUND_EXPR, "cm", 2)
-DEF_SIMPLE_OPERATOR ("->*", MEMBER_REF, "pm", 2)
-DEF_SIMPLE_OPERATOR ("->", COMPONENT_REF, "pt", 2)
-DEF_SIMPLE_OPERATOR ("[]", ARRAY_REF, "ix", 2)
-DEF_SIMPLE_OPERATOR ("++", POSTINCREMENT_EXPR, "pp", 2)
-DEF_SIMPLE_OPERATOR ("--", POSTDECREMENT_EXPR, "mm", 2)
-/* These are extensions.  */
-DEF_SIMPLE_OPERATOR ("<?", MIN_EXPR, "v23min", 2)
-DEF_SIMPLE_OPERATOR (">?", MAX_EXPR, "v23max", 2)
-/* This one is needed for mangling.  */
-DEF_SIMPLE_OPERATOR ("::", SCOPE_REF, "sr", 2)
-
-/* Assignment operators.  */
-DEF_ASSN_OPERATOR ("=", NOP_EXPR, "aS", 2)
-DEF_ASSN_OPERATOR ("+=", PLUS_EXPR, "pL", 2)
-DEF_ASSN_OPERATOR ("-=", MINUS_EXPR, "mI", 2)
-DEF_ASSN_OPERATOR ("*=", MULT_EXPR, "mL", 2)
-DEF_ASSN_OPERATOR ("/=", TRUNC_DIV_EXPR, "dV", 2)
-DEF_ASSN_OPERATOR ("%=", TRUNC_MOD_EXPR, "rM", 2)
-DEF_ASSN_OPERATOR ("&=", BIT_AND_EXPR, "aN", 2)
-DEF_ASSN_OPERATOR ("|=", BIT_IOR_EXPR, "oR", 2)
-DEF_ASSN_OPERATOR ("^=", BIT_XOR_EXPR, "eO", 2)
-DEF_ASSN_OPERATOR ("<<=", LSHIFT_EXPR, "lS", 2)
-DEF_ASSN_OPERATOR (">>=", RSHIFT_EXPR, "rS", 2)
-
-/* Ternary operators.  */
-DEF_SIMPLE_OPERATOR ("?:", COND_EXPR, "qu", 3)
-
-/* Miscellaneous.  */
-DEF_SIMPLE_OPERATOR ("()", CALL_EXPR, "cl", -1)
+DEF

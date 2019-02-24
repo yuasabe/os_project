@@ -22,11 +22,11 @@ Behavior is undefined if the pathname ends in a directory separator.
 #define DIR_SEPARATOR '/'
 #endif
 
-#if defined (_WIN32) || defined (__MSDOS__) || defined (__DJGPP__) || \
+#if defined (_WIN32) || defined (__MSDOS__) || defined (__DJGPP__) || ¥
   defined (__OS2__)
 #define HAVE_DOS_BASED_FILE_SYSTEM
 #ifndef DIR_SEPARATOR_2 
-#define DIR_SEPARATOR_2 '\\'
+#define DIR_SEPARATOR_2 '¥¥'
 #endif
 #endif
 
@@ -34,7 +34,7 @@ Behavior is undefined if the pathname ends in a directory separator.
 #ifndef DIR_SEPARATOR_2
 # define IS_DIR_SEPARATOR(ch) ((ch) == DIR_SEPARATOR)
 #else /* DIR_SEPARATOR_2 */
-# define IS_DIR_SEPARATOR(ch) \
+# define IS_DIR_SEPARATOR(ch) ¥
 	(((ch) == DIR_SEPARATOR) || ((ch) == DIR_SEPARATOR_2))
 #endif /* DIR_SEPARATOR_2 */
 

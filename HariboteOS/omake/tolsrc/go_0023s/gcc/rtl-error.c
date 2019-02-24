@@ -138,7 +138,4 @@ _fatal_insn_not_found (insn, file, line, function)
   if (INSN_CODE (insn) < 0)
     _fatal_insn ("unrecognizable insn:", insn, file, line, function);
   else
-    _fatal_insn ("insn does not satisfy its constraints:",
-		insn, file, line, function);
-}
-
+    _fatal_insn ("insn does not sati

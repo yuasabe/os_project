@@ -44,7 +44,7 @@ Boston, MA 02111-1307, USA.  */
    -- If this is a Win32 OS, then the Registry will be examined for
       an entry of "key" in 
 
-      HKEY_LOCAL_MACHINE\SOFTWARE\Free Software Foundation\<KEY>
+      HKEY_LOCAL_MACHINE¥SOFTWARE¥Free Software Foundation¥<KEY>
 
       if found, that value will be used. <KEY> defaults to GCC version
       string, but can be overridden at configuration time.

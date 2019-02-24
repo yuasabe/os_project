@@ -61,13 +61,13 @@ AT&T C compiler.  From the example below I would conclude the following:
 
 /* 1 if PARM is passed to this function in memory.  */
 
-#define PARM_PASSED_IN_MEMORY(PARM) \
+#define PARM_PASSED_IN_MEMORY(PARM) ¥
  (GET_CODE (DECL_INCOMING_RTL (PARM)) == MEM)
 
 /* A C expression for the integer offset value of an automatic variable
    (C_AUTO) having address X (an RTX).  */
 #ifndef DEBUGGER_AUTO_OFFSET
-#define DEBUGGER_AUTO_OFFSET(X) \
+#define DEBUGGER_AUTO_OFFSET(X) ¥
   (GET_CODE (X) == PLUS ? INTVAL (XEXP (X, 1)) : 0)
 #endif
 
@@ -143,56 +143,56 @@ static void sdbout_global_decl		PARAMS ((tree));
 #endif
 
 #ifndef PUT_SDB_SCL
-#define PUT_SDB_SCL(a) fprintf(asm_out_file, "\t.scl\t%d%s", (a), SDB_DELIM)
+#define PUT_SDB_SCL(a) fprintf(asm_out_file, "¥t.scl¥t%d%s", (a), SDB_DELIM)
 #endif
 
 #ifndef PUT_SDB_INT_VAL
-#define PUT_SDB_INT_VAL(a) \
- do {									\
-   fputs ("\t.val\t", asm_out_file);		       			\
-   fprintf (asm_out_file, HOST_WIDE_INT_PRINT_DEC, (HOST_WIDE_INT) (a)); \
-   fprintf (asm_out_file, "%s", SDB_DELIM);				\
+#define PUT_SDB_INT_VAL(a) ¥
+ do {									¥
+   fputs ("¥t.val¥t", asm_out_file);		       			¥
+   fprintf (asm_out_file, HOST_WIDE_INT_PRINT_DEC, (HOST_WIDE_INT) (a)); ¥
+   fprintf (asm_out_file, "%s", SDB_DELIM);				¥
  } while (0)
 
 #endif
 
 #ifndef PUT_SDB_VAL
-#define PUT_SDB_VAL(a)				\
-( fputs ("\t.val\t", asm_out_file),		\
-  output_addr_const (asm_out_file, (a)),	\
+#define PUT_SDB_VAL(a)				¥
+( fputs ("¥t.val¥t", asm_out_file),		¥
+  output_addr_const (asm_out_file, (a)),	¥
   fprintf (asm_out_file, SDB_DELIM))
 #endif
 
 #ifndef PUT_SDB_DEF
-#define PUT_SDB_DEF(a)				\
-do { fprintf (asm_out_file, "\t.def\t");	\
-     assemble_name (asm_out_file, a); 	\
+#define PUT_SDB_DEF(a)				¥
+do { fprintf (asm_out_file, "¥t.def¥t");	¥
+     assemble_name (asm_out_file, a); 	¥
      fprintf (asm_out_file, SDB_DELIM); } while (0)
 #endif
 
 #ifndef PUT_SDB_PLAIN_DEF
-#define PUT_SDB_PLAIN_DEF(a) fprintf(asm_out_file,"\t.def\t.%s%s",a, SDB_DELIM)
+#define PUT_SDB_PLAIN_DEF(a) fprintf(asm_out_file,"¥t.def¥t.%s%s",a, SDB_DELIM)
 #endif
 
 #ifndef PUT_SDB_ENDEF
-#define PUT_SDB_ENDEF fputs("\t.endef\n", asm_out_file)
+#define PUT_SDB_ENDEF fputs("¥t.endef¥n", asm_out_file)
 #endif
 
 #ifndef PUT_SDB_TYPE
-#define PUT_SDB_TYPE(a) fprintf(asm_out_file, "\t.type\t0%o%s", a, SDB_DELIM)
+#define PUT_SDB_TYPE(a) fprintf(asm_out_file, "¥t.type¥t0%o%s", a, SDB_DELIM)
 #endif
 
 #ifndef PUT_SDB_SIZE
-#define PUT_SDB_SIZE(a) \
- do {									\
-   fputs ("\t.size\t", asm_out_file);					\
-   fprintf (asm_out_file, HOST_WIDE_INT_PRINT_DEC, (HOST_WIDE_INT) (a)); \
-   fprintf (asm_out_file, "%s", SDB_DELIM);				\
+#define PUT_SDB_SIZE(a) ¥
+ do {									¥
+   fputs ("¥t.size¥t", asm_out_file);					¥
+   fprintf (asm_out_file, HOST_WIDE_INT_PRINT_DEC, (HOST_WIDE_INT) (a)); ¥
+   fprintf (asm_out_file, "%s", SDB_DELIM);				¥
  } while(0)
 #endif
 
 #ifndef PUT_SDB_START_DIM
-#define PUT_SDB_START_DIM fprintf(asm_out_file, "\t.dim\t")
+#define PUT_SDB_START_DIM fprintf(asm_out_file, "¥t.dim¥t")
 #endif
 
 #ifndef PUT_SDB_NEXT_DIM
@@ -204,42 +204,42 @@ do { fprintf (asm_out_file, "\t.def\t");	\
 #endif
 
 #ifndef PUT_SDB_TAG
-#define PUT_SDB_TAG(a)				\
-do { fprintf (asm_out_file, "\t.tag\t");	\
-     assemble_name (asm_out_file, a);	\
+#define PUT_SDB_TAG(a)				¥
+do { fprintf (asm_out_file, "¥t.tag¥t");	¥
+     assemble_name (asm_out_file, a);	¥
      fprintf (asm_out_file, SDB_DELIM); } while (0)
 #endif
 
 #ifndef PUT_SDB_BLOCK_START
-#define PUT_SDB_BLOCK_START(LINE)		\
-  fprintf (asm_out_file,			\
-	   "\t.def\t.bb%s\t.val\t.%s\t.scl\t100%s\t.line\t%d%s\t.endef\n", \
+#define PUT_SDB_BLOCK_START(LINE)		¥
+  fprintf (asm_out_file,			¥
+	   "¥t.def¥t.bb%s¥t.val¥t.%s¥t.scl¥t100%s¥t.line¥t%d%s¥t.endef¥n", ¥
 	   SDB_DELIM, SDB_DELIM, SDB_DELIM, (LINE), SDB_DELIM)
 #endif
 
 #ifndef PUT_SDB_BLOCK_END
-#define PUT_SDB_BLOCK_END(LINE)			\
-  fprintf (asm_out_file,			\
-	   "\t.def\t.eb%s\t.val\t.%s\t.scl\t100%s\t.line\t%d%s\t.endef\n",  \
+#define PUT_SDB_BLOCK_END(LINE)			¥
+  fprintf (asm_out_file,			¥
+	   "¥t.def¥t.eb%s¥t.val¥t.%s¥t.scl¥t100%s¥t.line¥t%d%s¥t.endef¥n",  ¥
 	   SDB_DELIM, SDB_DELIM, SDB_DELIM, (LINE), SDB_DELIM)
 #endif
 
 #ifndef PUT_SDB_FUNCTION_START
-#define PUT_SDB_FUNCTION_START(LINE)		\
-  fprintf (asm_out_file,			\
-	   "\t.def\t.bf%s\t.val\t.%s\t.scl\t101%s\t.line\t%d%s\t.endef\n", \
+#define PUT_SDB_FUNCTION_START(LINE)		¥
+  fprintf (asm_out_file,			¥
+	   "¥t.def¥t.bf%s¥t.val¥t.%s¥t.scl¥t101%s¥t.line¥t%d%s¥t.endef¥n", ¥
 	   SDB_DELIM, SDB_DELIM, SDB_DELIM, (LINE), SDB_DELIM)
 #endif
 
 #ifndef PUT_SDB_FUNCTION_END
-#define PUT_SDB_FUNCTION_END(LINE)		\
-  fprintf (asm_out_file,			\
-	   "\t.def\t.ef%s\t.val\t.%s\t.scl\t101%s\t.line\t%d%s\t.endef\n", \
+#define PUT_SDB_FUNCTION_END(LINE)		¥
+  fprintf (asm_out_file,			¥
+	   "¥t.def¥t.ef%s¥t.val¥t.%s¥t.scl¥t101%s¥t.line¥t%d%s¥t.endef¥n", ¥
 	   SDB_DELIM, SDB_DELIM, SDB_DELIM, (LINE), SDB_DELIM)
 #endif
 
 #ifndef SDB_GENERATE_FAKE
-#define SDB_GENERATE_FAKE(BUFFER, NUMBER) \
+#define SDB_GENERATE_FAKE(BUFFER, NUMBER) ¥
   sprintf ((BUFFER), ".%dfake", (NUMBER));
 #endif
 
@@ -250,20 +250,20 @@ do { fprintf (asm_out_file, "\t.tag\t");	\
 
 /* Set the sdb tag identifier string for TYPE to NAME.  */
 
-#define SET_KNOWN_TYPE_TAG(TYPE, NAME) \
+#define SET_KNOWN_TYPE_TAG(TYPE, NAME) ¥
   TYPE_SYMTAB_POINTER (TYPE) = (NAME)
 
 /* Return the name (a string) of the struct, union or enum tag
    described by the TREE_LIST node LINK.  This is 0 for an anonymous one.  */
 
-#define TAG_NAME(link) \
-  (((link) && TREE_PURPOSE ((link)) \
-    && IDENTIFIER_POINTER (TREE_PURPOSE ((link)))) \
+#define TAG_NAME(link) ¥
+  (((link) && TREE_PURPOSE ((link)) ¥
+    && IDENTIFIER_POINTER (TREE_PURPOSE ((link)))) ¥
    ? IDENTIFIER_POINTER (TREE_PURPOSE ((link))) : (char *) 0)
 
 /* Ensure we don't output a negative line number.  */
-#define MAKE_LINE_SAFE(line)  \
-  if ((int) line <= sdb_begin_function_line) \
+#define MAKE_LINE_SAFE(line)  ¥
+  if ((int) line <= sdb_begin_function_line) ¥
     line = sdb_begin_function_line + 1
 
 /* Perform linker optimization of merging header file definitions together
@@ -275,7 +275,7 @@ do { fprintf (asm_out_file, "\t.tag\t");	\
 #ifdef MIPS_DEBUGGING_INFO
 
 #ifndef PUT_SDB_SRC_FILE
-#define PUT_SDB_SRC_FILE(FILENAME) \
+#define PUT_SDB_SRC_FILE(FILENAME) ¥
 output_file_directive (asm_out_file, (FILENAME))
 #endif
 
@@ -380,9 +380,9 @@ gen_fake_label ()
 /* Produce the number that describes a pointer, function or array type.
    PREV is the number describing the target, value or element type.
    DT_type describes how to transform that type.  */
-#define PUSH_DERIVED_LEVEL(DT_type,PREV)		\
-  ((((PREV) & ~(int) N_BTMASK) << (int) N_TSHIFT)		\
-   | ((int) DT_type << (int) N_BTSHFT)			\
+#define PUSH_DERIVED_LEVEL(DT_type,PREV)		¥
+  ((((PREV) & ‾(int) N_BTMASK) << (int) N_TSHIFT)		¥
+   | ((int) DT_type << (int) N_BTSHFT)			¥
    | ((PREV) & (int) N_BTMASK))
 
 /* Number of elements used in sdb_dims.  */
@@ -433,7 +433,7 @@ template_name_p (name)
   while (*ptr && *ptr != '<')
     ptr++;
 
-  return *ptr != '\0';
+  return *ptr != '¥0';
 }
 
 static void
@@ -1613,7 +1613,7 @@ sdbout_source_line (line, filename)
 #ifdef ASM_OUTPUT_SOURCE_LINE
       ASM_OUTPUT_SOURCE_LINE (asm_out_file, line);
 #else
-      fprintf (asm_out_file, "\t.ln\t%d\n",
+      fprintf (asm_out_file, "¥t.ln¥t%d¥n",
 	       ((sdb_begin_function_line > -1)
 		? line - sdb_begin_function_line : 1));
 #endif
@@ -1686,9 +1686,9 @@ sdbout_end_epilogue ()
 #ifdef PUT_SDB_EPILOGUE_END
   PUT_SDB_EPILOGUE_END (name);
 #else
-  fprintf (asm_out_file, "\t.def\t");
+  fprintf (asm_out_file, "¥t.def¥t");
   assemble_name (asm_out_file, name);
-  fprintf (asm_out_file, "%s\t.val\t.%s\t.scl\t-1%s\t.endef\n",
+  fprintf (asm_out_file, "%s¥t.val¥t.%s¥t.scl¥t-1%s¥t.endef¥n",
 	   SDB_DELIM, SDB_DELIM, SDB_DELIM);
 #endif
 }

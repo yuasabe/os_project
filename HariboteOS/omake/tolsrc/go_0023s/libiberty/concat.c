@@ -97,7 +97,7 @@ vconcat_copy (dst, first, args)
       memcpy (end, arg, length);
       end += length;
     }
-  *end = '\000';
+  *end = '¥000';
 
   return dst;
 }
@@ -154,80 +154,4 @@ concat VPARAMS ((const char *first, ...))
 {
   char *newstr;
 
-  /* First compute the size of the result and get sufficient memory.  */
-  VA_OPEN (args, first);
-  VA_FIXEDARG (args, const char *, first);
-  newstr = (char *) xmalloc (vconcat_length (first, args) + 1);
-  VA_CLOSE (args);
-
-  /* Now copy the individual pieces to the result string. */
-  VA_OPEN (args, first);
-  VA_FIXEDARG (args, const char *, first);
-  vconcat_copy (newstr, first, args);
-  VA_CLOSE (args);
-
-  return newstr;
-}
-
-/*
-
-@deftypefn Extension char* reconcat (char *@var{optr}, const char *@var{s1}, @dots{}, @code{NULL})
-
-Same as @code{concat}, except that if @var{optr} is not @code{NULL} it
-is freed after the string is created.  This is intended to be useful
-when you're extending an existing string or building up a string in a
-loop:
-
-@example
-  str = reconcat (str, "pre-", str, NULL);
-@end example
-
-@end deftypefn
-
-*/
-
-char *
-reconcat VPARAMS ((char *optr, const char *first, ...))
-{
-  char *newstr;
-
-  /* First compute the size of the result and get sufficient memory.  */
-  VA_OPEN (args, first);
-  VA_FIXEDARG (args, char *, optr);
-  VA_FIXEDARG (args, const char *, first);
-  newstr = (char *) xmalloc (vconcat_length (first, args) + 1);
-  VA_CLOSE (args);
-
-  /* Now copy the individual pieces to the result string. */
-  VA_OPEN (args, first);
-  VA_FIXEDARG (args, char *, optr);
-  VA_FIXEDARG (args, const char *, first);
-  vconcat_copy (newstr, first, args);
-  if (optr) /* Done before VA_CLOSE so optr stays in scope for K&R C.  */
-    free (optr);
-  VA_CLOSE (args);
-
-  return newstr;
-}
-
-#ifdef MAIN
-#define NULLP (char *)0
-
-/* Simple little test driver. */
-
-#include <stdio.h>
-
-int
-main ()
-{
-  printf ("\"\" = \"%s\"\n", concat (NULLP));
-  printf ("\"a\" = \"%s\"\n", concat ("a", NULLP));
-  printf ("\"ab\" = \"%s\"\n", concat ("a", "b", NULLP));
-  printf ("\"abc\" = \"%s\"\n", concat ("a", "b", "c", NULLP));
-  printf ("\"abcd\" = \"%s\"\n", concat ("ab", "cd", NULLP));
-  printf ("\"abcde\" = \"%s\"\n", concat ("ab", "c", "de", NULLP));
-  printf ("\"abcdef\" = \"%s\"\n", concat ("", "a", "", "bcd", "ef", NULLP));
-  return 0;
-}
-
-#endif
+  /*

@@ -22,8 +22,8 @@ void GOL_callmain0()
 		while ((*q++ = *p++) > ' ');
 		argc++;
 		p--;
-		*(q - 1) = '\0';
-		while ('\0' < *p && *p <= ' ')
+		*(q - 1) = 'Â¥0';
+		while ('Â¥0' < *p && *p <= ' ')
 			p++;
 	} while (*p);
 	argv = GOL_sysmalloc((argc + 1) * sizeof (char *));
@@ -51,12 +51,12 @@ static int writefile(const UCHAR *name, const UCHAR *p0, const UCHAR *p1)
 	q = GOL_work0;
 	while (p0 < p1) {
 		c = *p0++;
-		if (c == '\n')
-			*q++ = '\r';
-		if (c == '\r') {
-			if (p0 < p1 && *p0 == '\n') {
-				*q++ = '\r';
-				c = '\n';
+		if (c == 'Â¥n')
+			*q++ = 'Â¥r';
+		if (c == 'Â¥r') {
+			if (p0 < p1 && *p0 == 'Â¥n') {
+				*q++ = 'Â¥r';
+				c = 'Â¥n';
 				p0++;
 			}
 		}
@@ -69,17 +69,17 @@ void GOL_sysabort(UCHAR termcode)
 {
 	static const UCHAR *termmsg[] = {
 		"",
-		"[TERM_WORKOVER]\n",
-		"[TERM_OUTOVER]\n",
-		"[TERM_ERROVER]\n",
-		"[TERM_BUGTRAP]\n",
-		"[TERM_SYSRESOVER]\n",
-		"[TERM_ABORT]\n"
+		"[TERM_WORKOVER]Â¥n",
+		"[TERM_OUTOVER]Â¥n",
+		"[TERM_ERROVER]Â¥n",
+		"[TERM_BUGTRAP]Â¥n",
+		"[TERM_SYSRESOVER]Â¥n",
+		"[TERM_ABORT]Â¥n"
 	};
-	GO_stderr.p1 += 128; /* —\”õ‚ÉŽæ‚Á‚Ä‚¨‚¢‚½•ª‚ð•œŠˆ */
-	/* ƒoƒbƒtƒ@‚ðo—Í */
+	GO_stderr.p1 += 128; /* äºˆå‚™ã«å–ã£ã¦ãŠã„ãŸåˆ†ã‚’å¾©æ´» */
+	/* ãƒãƒƒãƒ•ã‚¡ã‚’å‡ºåŠ› */
 	if (writefile(GOL_outname, GO_stdout.p0, GO_stdout.p)) {
-		GO_fputs("GOL_sysabort:output error!\n", &GO_stderr);
+		GO_fputs("GOL_sysabort:output error!Â¥n", &GO_stderr);
 		termcode = 6;
 	}
 	if (termcode <= 6)

@@ -15,10 +15,10 @@ char* strstr (char *d, const char *s)
 	char *tmp;
 	const char *bgn = s;
 
-	while ('\0' != *d) {
+	while ('¥0' != *d) {
 		tmp = d;
 		while (*d++ == *s++)
-			if ('\0' == *d || '\0' == *s)
+			if ('¥0' == *d || '¥0' == *s)
 				return tmp;
 		d = tmp+1;
 		s = bgn;

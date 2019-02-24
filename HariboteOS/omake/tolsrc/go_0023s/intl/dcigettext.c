@@ -72,7 +72,7 @@
 #if defined __GNUC__ && __GNUC__ >= 2
 # define alignof(TYPE) __alignof__ (TYPE)
 #else
-# define alignof(TYPE) \
+# define alignof(TYPE) ¥
     ((int) &((struct { char dummy1; TYPE dummy2; } *) 0)->dummy2)
 #endif
 
@@ -155,13 +155,13 @@ static void *mempcpy PARAMS ((void *dest, const void *src, size_t n));
  */
 #if defined _WIN32 || defined __WIN32__ || defined __EMX__ || defined __DJGPP__
   /* Win32, OS/2, DOS */
-# define ISSLASH(C) ((C) == '/' || (C) == '\\')
-# define HAS_DEVICE(P) \
-    ((((P)[0] >= 'A' && (P)[0] <= 'Z') || ((P)[0] >= 'a' && (P)[0] <= 'z')) \
+# define ISSLASH(C) ((C) == '/' || (C) == '¥¥')
+# define HAS_DEVICE(P) ¥
+    ((((P)[0] >= 'A' && (P)[0] <= 'Z') || ((P)[0] >= 'a' && (P)[0] <= 'z')) ¥
      && (P)[1] == ':')
 # define IS_ABSOLUTE_PATH(P) (ISSLASH ((P)[0]) || HAS_DEVICE (P))
-# define IS_PATH_WITH_DIR(P) \
-    (strchr (P, '/') != NULL || strchr (P, '\\') != NULL || HAS_DEVICE (P))
+# define IS_PATH_WITH_DIR(P) ¥
+    (strchr (P, '/') != NULL || strchr (P, '¥¥') != NULL || HAS_DEVICE (P))
 #else
   /* Unix */
 # define ISSLASH(C) ((C) == '/')
@@ -284,24 +284,24 @@ struct block_list
   void *address;
   struct block_list *next;
 };
-# define ADD_BLOCK(list, addr)						      \
-  do {									      \
-    struct block_list *newp = (struct block_list *) malloc (sizeof (*newp));  \
-    /* If we cannot get a free block we cannot add the new element to	      \
-       the list.  */							      \
-    if (newp != NULL) {							      \
-      newp->address = (addr);						      \
-      newp->next = (list);						      \
-      (list) = newp;							      \
-    }									      \
+# define ADD_BLOCK(list, addr)						      ¥
+  do {									      ¥
+    struct block_list *newp = (struct block_list *) malloc (sizeof (*newp));  ¥
+    /* If we cannot get a free block we cannot add the new element to	      ¥
+       the list.  */							      ¥
+    if (newp != NULL) {							      ¥
+      newp->address = (addr);						      ¥
+      newp->next = (list);						      ¥
+      (list) = newp;							      ¥
+    }									      ¥
   } while (0)
-# define FREE_BLOCKS(list)						      \
-  do {									      \
-    while (list != NULL) {						      \
-      struct block_list *old = list;					      \
-      list = list->next;						      \
-      free (old);							      \
-    }									      \
+# define FREE_BLOCKS(list)						      ¥
+  do {									      ¥
+    while (list != NULL) {						      ¥
+      struct block_list *old = list;					      ¥
+      list = list->next;						      ¥
+      free (old);							      ¥
+    }									      ¥
   } while (0)
 # undef alloca
 # define alloca(size) (malloc (size))
@@ -356,15 +356,15 @@ __libc_rwlock_define_initialized (, _nl_state_lock)
 # endif
 static int enable_secure;
 # define ENABLE_SECURE (enable_secure == 1)
-# define DETERMINE_SECURE \
-  if (enable_secure == 0)						      \
-    {									      \
-/* !kawai! */ \
-      if (1 /* getuid () != geteuid () || getgid () != getegid () */)		      \
-/* end of !kawai! */ \
-	enable_secure = 1;						      \
-      else								      \
-	enable_secure = -1;						      \
+# define DETERMINE_SECURE ¥
+  if (enable_secure == 0)						      ¥
+    {									      ¥
+/* !kawai! */ ¥
+      if (1 /* getuid () != geteuid () || getgid () != getegid () */)		      ¥
+/* end of !kawai! */ ¥
+	enable_secure = 1;						      ¥
+      else								      ¥
+	enable_secure = -1;						      ¥
     }
 #endif
 
@@ -499,7 +499,7 @@ DCIGETTEXT (domainname, msgid1, msgid2, plural, n, category)
 		  : n == 1 ? (char *) msgid1 : (char *) msgid2);
 	}
 
-      stpcpy (stpcpy (strchr (dirname, '\0'), "/"), binding->dirname);
+      stpcpy (stpcpy (strchr (dirname, '¥0'), "/"), binding->dirname);
     }
 
   /* Now determine the symbolic name of CATEGORY and its value.  */
@@ -525,23 +525,23 @@ DCIGETTEXT (domainname, msgid1, msgid2, plural, n, category)
   while (1)
     {
       /* Make CATEGORYVALUE point to the next element of the list.  */
-      while (categoryvalue[0] != '\0' && categoryvalue[0] == ':')
+      while (categoryvalue[0] != '¥0' && categoryvalue[0] == ':')
 	++categoryvalue;
-      if (categoryvalue[0] == '\0')
+      if (categoryvalue[0] == '¥0')
 	{
 	  /* The whole contents of CATEGORYVALUE has been searched but
 	     no valid entry has been found.  We solve this situation
 	     by implicitly appending a "C" entry, i.e. no translation
 	     will take place.  */
 	  single_locale[0] = 'C';
-	  single_locale[1] = '\0';
+	  single_locale[1] = '¥0';
 	}
       else
 	{
 	  char *cp = single_locale;
-	  while (categoryvalue[0] != '\0' && categoryvalue[0] != ':')
+	  while (categoryvalue[0] != '¥0' && categoryvalue[0] != ':')
 	    *cp++ = *categoryvalue++;
-	  *cp = '\0';
+	  *cp = '¥0';
 
 	  /* When this is a SUID binary we must not allow accessing files
 	     outside the dedicated directories.  */
@@ -816,420 +816,4 @@ _nl_find_msg (domain_file, domainbinding, msgid, lengthp)
 	      if (freemem_size < sizeof (size_t))
 		goto resize_freemem;
 
-	      res = __gconv (domain->conv,
-			     &inbuf, inbuf + resultlen,
-			     &outbuf,
-			     outbuf + freemem_size - sizeof (size_t),
-			     &non_reversible);
-
-	      if (res == __GCONV_OK || res == __GCONV_EMPTY_INPUT)
-		break;
-
-	      if (res != __GCONV_FULL_OUTPUT)
-		{
-		  __libc_lock_unlock (lock);
-		  goto converted;
-		}
-
-	      inbuf = result;
-# else
-#  if HAVE_ICONV
-	      const char *inptr = (const char *) inbuf;
-	      size_t inleft = resultlen;
-	      char *outptr = (char *) outbuf;
-	      size_t outleft;
-
-	      if (freemem_size < sizeof (size_t))
-		goto resize_freemem;
-
-	      outleft = freemem_size - sizeof (size_t);
-	      if (iconv (domain->conv,
-			 (ICONV_CONST char **) &inptr, &inleft,
-			 &outptr, &outleft)
-		  != (size_t) (-1))
-		{
-		  outbuf = (unsigned char *) outptr;
-		  break;
-		}
-	      if (errno != E2BIG)
-		{
-		  __libc_lock_unlock (lock);
-		  goto converted;
-		}
-#  endif
-# endif
-
-	    resize_freemem:
-	      /* We must allocate a new buffer or resize the old one.  */
-	      if (malloc_count > 0)
-		{
-		  ++malloc_count;
-		  freemem_size = malloc_count * INITIAL_BLOCK_SIZE;
-		  newmem = (transmem_block_t *) realloc (transmem_list,
-							 freemem_size);
-# ifdef _LIBC
-		  if (newmem != NULL)
-		    transmem_list = transmem_list->next;
-		  else
-		    {
-		      struct transmem_list *old = transmem_list;
-
-		      transmem_list = transmem_list->next;
-		      free (old);
-		    }
-# endif
-		}
-	      else
-		{
-		  malloc_count = 1;
-		  freemem_size = INITIAL_BLOCK_SIZE;
-		  newmem = (transmem_block_t *) malloc (freemem_size);
-		}
-	      if (__builtin_expect (newmem == NULL, 0))
-		{
-		  freemem = NULL;
-		  freemem_size = 0;
-		  __libc_lock_unlock (lock);
-		  goto converted;
-		}
-
-# ifdef _LIBC
-	      /* Add the block to the list of blocks we have to free
-                 at some point.  */
-	      newmem->next = transmem_list;
-	      transmem_list = newmem;
-
-	      freemem = newmem->data;
-	      freemem_size -= offsetof (struct transmem_list, data);
-# else
-	      transmem_list = newmem;
-	      freemem = newmem;
-# endif
-
-	      outbuf = freemem + sizeof (size_t);
-	    }
-
-	  /* We have now in our buffer a converted string.  Put this
-	     into the table of conversions.  */
-	  *(size_t *) freemem = outbuf - freemem - sizeof (size_t);
-	  domain->conv_tab[act] = (char *) freemem;
-	  /* Shrink freemem, but keep it aligned.  */
-	  freemem_size -= outbuf - freemem;
-	  freemem = outbuf;
-	  freemem += freemem_size & (alignof (size_t) - 1);
-	  freemem_size = freemem_size & ~ (alignof (size_t) - 1);
-
-	  __libc_lock_unlock (lock);
-	}
-
-      /* Now domain->conv_tab[act] contains the translation of all
-	 the plural variants.  */
-      result = domain->conv_tab[act] + sizeof (size_t);
-      resultlen = *(size_t *) domain->conv_tab[act];
-    }
-
- converted:
-  /* The result string is converted.  */
-
-#endif /* _LIBC || HAVE_ICONV */
-
-  *lengthp = resultlen;
-  return result;
-}
-
-
-/* Look up a plural variant.  */
-static char *
-internal_function
-plural_lookup (domain, n, translation, translation_len)
-     struct loaded_l10nfile *domain;
-     unsigned long int n;
-     const char *translation;
-     size_t translation_len;
-{
-  struct loaded_domain *domaindata = (struct loaded_domain *) domain->data;
-  unsigned long int index;
-  const char *p;
-
-  index = plural_eval (domaindata->plural, n);
-  if (index >= domaindata->nplurals)
-    /* This should never happen.  It means the plural expression and the
-       given maximum value do not match.  */
-    index = 0;
-
-  /* Skip INDEX strings at TRANSLATION.  */
-  p = translation;
-  while (index-- > 0)
-    {
-#ifdef _LIBC
-      p = __rawmemchr (p, '\0');
-#else
-      p = strchr (p, '\0');
-#endif
-      /* And skip over the NUL byte.  */
-      p++;
-
-      if (p >= translation + translation_len)
-	/* This should never happen.  It means the plural expression
-	   evaluated to a value larger than the number of variants
-	   available for MSGID1.  */
-	return (char *) translation;
-    }
-  return (char *) p;
-}
-
-
-/* Function to evaluate the plural expression and return an index value.  */
-static unsigned long int
-internal_function
-plural_eval (pexp, n)
-     struct expression *pexp;
-     unsigned long int n;
-{
-  switch (pexp->nargs)
-    {
-    case 0:
-      switch (pexp->operation)
-	{
-	case var:
-	  return n;
-	case num:
-	  return pexp->val.num;
-	default:
-	  break;
-	}
-      /* NOTREACHED */
-      break;
-    case 1:
-      {
-	/* pexp->operation must be lnot.  */
-	unsigned long int arg = plural_eval (pexp->val.args[0], n);
-	return ! arg;
-      }
-    case 2:
-      {
-	unsigned long int leftarg = plural_eval (pexp->val.args[0], n);
-	if (pexp->operation == lor)
-	  return leftarg || plural_eval (pexp->val.args[1], n);
-	else if (pexp->operation == land)
-	  return leftarg && plural_eval (pexp->val.args[1], n);
-	else
-	  {
-	    unsigned long int rightarg = plural_eval (pexp->val.args[1], n);
-
-	    switch (pexp->operation)
-	      {
-	      case mult:
-		return leftarg * rightarg;
-	      case divide:
-		return leftarg / rightarg;
-	      case module:
-		return leftarg % rightarg;
-	      case plus:
-		return leftarg + rightarg;
-	      case minus:
-		return leftarg - rightarg;
-	      case less_than:
-		return leftarg < rightarg;
-	      case greater_than:
-		return leftarg > rightarg;
-	      case less_or_equal:
-		return leftarg <= rightarg;
-	      case greater_or_equal:
-		return leftarg >= rightarg;
-	      case equal:
-		return leftarg == rightarg;
-	      case not_equal:
-		return leftarg != rightarg;
-	      default:
-		break;
-	      }
-	  }
-	/* NOTREACHED */
-	break;
-      }
-    case 3:
-      {
-	/* pexp->operation must be qmop.  */
-	unsigned long int boolarg = plural_eval (pexp->val.args[0], n);
-	return plural_eval (pexp->val.args[boolarg ? 1 : 2], n);
-      }
-    }
-  /* NOTREACHED */
-  return 0;
-}
-
-
-/* Return string representation of locale CATEGORY.  */
-static const char *
-internal_function
-category_to_name (category)
-     int category;
-{
-  const char *retval;
-
-  switch (category)
-  {
-#ifdef LC_COLLATE
-  case LC_COLLATE:
-    retval = "LC_COLLATE";
-    break;
-#endif
-#ifdef LC_CTYPE
-  case LC_CTYPE:
-    retval = "LC_CTYPE";
-    break;
-#endif
-#ifdef LC_MONETARY
-  case LC_MONETARY:
-    retval = "LC_MONETARY";
-    break;
-#endif
-#ifdef LC_NUMERIC
-  case LC_NUMERIC:
-    retval = "LC_NUMERIC";
-    break;
-#endif
-#ifdef LC_TIME
-  case LC_TIME:
-    retval = "LC_TIME";
-    break;
-#endif
-#ifdef LC_MESSAGES
-  case LC_MESSAGES:
-    retval = "LC_MESSAGES";
-    break;
-#endif
-#ifdef LC_RESPONSE
-  case LC_RESPONSE:
-    retval = "LC_RESPONSE";
-    break;
-#endif
-#ifdef LC_ALL
-  case LC_ALL:
-    /* This might not make sense but is perhaps better than any other
-       value.  */
-    retval = "LC_ALL";
-    break;
-#endif
-  default:
-    /* If you have a better idea for a default value let me know.  */
-    retval = "LC_XXX";
-  }
-
-  return retval;
-}
-
-/* Guess value of current locale from value of the environment variables.  */
-static const char *
-internal_function
-guess_category_value (category, categoryname)
-     int category;
-     const char *categoryname;
-{
-  const char *language;
-  const char *retval;
-  (void) category;  /* shut up compiler */
-  (void) categoryname;  /* ditto */
-  
-  /* The highest priority value is the `LANGUAGE' environment
-     variable.  But we don't use the value if the currently selected
-     locale is the C locale.  This is a GNU extension.  */
-  language = getenv ("LANGUAGE");
-  if (language != NULL && language[0] == '\0')
-    language = NULL;
-
-  /* We have to proceed with the POSIX methods of looking to `LC_ALL',
-     `LC_xxx', and `LANG'.  On some systems this can be done by the
-     `setlocale' function itself.  */
-#if defined _LIBC || (defined HAVE_SETLOCALE && defined HAVE_LC_MESSAGES && defined HAVE_LOCALE_NULL)
-  retval = setlocale (category, NULL);
-#else
-  /* Setting of LC_ALL overwrites all other.  */
-  retval = getenv ("LC_ALL");
-  if (retval == NULL || retval[0] == '\0')
-    {
-      /* Next comes the name of the desired category.  */
-      retval = getenv (categoryname);
-      if (retval == NULL || retval[0] == '\0')
-	{
-	  /* Last possibility is the LANG environment variable.  */
-	  retval = getenv ("LANG");
-	  if (retval == NULL || retval[0] == '\0')
-	    /* We use C as the default domain.  POSIX says this is
-	       implementation defined.  */
-	    return "C";
-	}
-    }
-#endif
-
-  return language != NULL && strcmp (retval, "C") != 0 ? language : retval;
-}
-
-/* @@ begin of epilog @@ */
-
-/* We don't want libintl.a to depend on any other library.  So we
-   avoid the non-standard function stpcpy.  In GNU C Library this
-   function is available, though.  Also allow the symbol HAVE_STPCPY
-   to be defined.  */
-#if !_LIBC && !HAVE_STPCPY
-static char *
-stpcpy (dest, src)
-     char *dest;
-     const char *src;
-{
-  while ((*dest++ = *src++) != '\0')
-    /* Do nothing. */ ;
-  return dest - 1;
-}
-#endif
-
-#if !_LIBC && !HAVE_MEMPCPY
-static void *
-mempcpy (dest, src, n)
-     void *dest;
-     const void *src;
-     size_t n;
-{
-  return (void *) ((char *) memcpy (dest, src, n) + n);
-}
-#endif
-
-
-#ifdef _LIBC
-/* If we want to free all resources we have to do some work at
-   program's end.  */
-static void __attribute__ ((unused))
-free_mem (void)
-{
-  void *old;
-
-  while (_nl_domain_bindings != NULL)
-    {
-      struct binding *oldp = _nl_domain_bindings;
-      _nl_domain_bindings = _nl_domain_bindings->next;
-      if (oldp->dirname != _nl_default_dirname)
-	/* Yes, this is a pointer comparison.  */
-	free (oldp->dirname);
-      free (oldp->codeset);
-      free (oldp);
-    }
-
-  if (_nl_current_default_domain != _nl_default_default_domain)
-    /* Yes, again a pointer comparison.  */
-    free ((char *) _nl_current_default_domain);
-
-  /* Remove the search tree with the known translations.  */
-  __tdestroy (root, free);
-  root = NULL;
-
-  while (transmem_list != NULL)
-    {
-      old = transmem_list;
-      transmem_list = transmem_list->next;
-      free (old);
-    }
-}
-
-text_set_element (__libc_subfreeres, free_mem);
-#endif
+	      res = __gconv (doma

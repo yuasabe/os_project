@@ -14,7 +14,7 @@
 
 typedef unsigned char UCHAR;
 
-#define	NL			"\r\n"
+#define	NL			"Â¥rÂ¥n"
 
 typedef struct GO_STR_FILE {
 	UCHAR *p0, *p1, *p;
@@ -46,21 +46,21 @@ struct bss_alloc {
 void mainCRTStartup(void)
 {
 	struct bss_alloc bss_image;
-	struct bss_alloc *bss0 = (void *) ((((int) &bss_image) + 0x0f) & ~0x0f);
+	struct bss_alloc *bss0 = (void *) ((((int) &bss_image) + 0x0f) & â€¾0x0f);
 	int argc;
 	UCHAR **argv;
 	GO_stdout.p0 = GO_stdout.p = ((struct bss_alloc *) bss0)->_stdout;
 	GO_stdout.p1 = GO_stdout.p0 + SIZ_STDOUT;
-	GO_stdout.dummy = ~0;
+	GO_stdout.dummy = â€¾0;
 	GO_stderr.p0 = GO_stderr.p = ((struct bss_alloc *) bss0)->_stderr;
 	GO_stderr.p1 = GO_stderr.p0 + SIZ_STDERR;
-	GO_stderr.dummy = ~0;
+	GO_stderr.dummy = â€¾0;
 	GOL_memmaninit(&GOL_sysman, SIZ_SYSWRK, ((struct bss_alloc *) bss0)->syswrk);
 	GOL_memmaninit(&GOL_memman, SIZ_WORK, GOL_work0 = ((struct bss_alloc *) bss0)->work);
 	argv = ConvCmdLine0(&argc);
 
 	GOL_retcode = main1(argc, argv, bss0->work1);
-	/* ƒoƒbƒtƒ@‚ðo—Í */
+	/* ãƒãƒƒãƒ•ã‚¡ã‚’å‡ºåŠ› */
 	GOL_sysabort(0);
 }
 
@@ -73,8 +73,8 @@ UCHAR **ConvCmdLine0(int *pargc)
 		while ((*q++ = *p++) > ' ');
 		argc++;
 		p--;
-		*(q - 1) = '\0';
-		while ('\0' < *p && *p <= ' ')
+		*(q - 1) = 'Â¥0';
+		while ('Â¥0' < *p && *p <= ' ')
 			p++;
 	} while (*p);
 	argv = GOL_sysmalloc((argc + 1) * sizeof (char *));

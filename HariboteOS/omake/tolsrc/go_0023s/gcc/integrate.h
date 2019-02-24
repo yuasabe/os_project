@@ -174,23 +174,23 @@ extern rtx get_label_from_map PARAMS ((struct inline_remap *, int));
 
 extern varray_type global_const_equiv_varray;
 
-#define MAYBE_EXTEND_CONST_EQUIV_VARRAY(MAP,MAX)			\
-  {									\
-    if ((size_t)(MAX) >= VARRAY_SIZE ((MAP)->const_equiv_varray))	\
-      {									\
-        int is_global = (global_const_equiv_varray			\
-			 == (MAP)->const_equiv_varray);			\
-        VARRAY_GROW ((MAP)->const_equiv_varray, (MAX)+1);		\
-	if (is_global)							\
-	   global_const_equiv_varray = (MAP)->const_equiv_varray;	\
-      }									\
+#define MAYBE_EXTEND_CONST_EQUIV_VARRAY(MAP,MAX)			¥
+  {									¥
+    if ((size_t)(MAX) >= VARRAY_SIZE ((MAP)->const_equiv_varray))	¥
+      {									¥
+        int is_global = (global_const_equiv_varray			¥
+			 == (MAP)->const_equiv_varray);			¥
+        VARRAY_GROW ((MAP)->const_equiv_varray, (MAX)+1);		¥
+	if (is_global)							¥
+	   global_const_equiv_varray = (MAP)->const_equiv_varray;	¥
+      }									¥
   }
 
-#define SET_CONST_EQUIV_DATA(MAP,REG,RTX,AGE)				\
-  {									\
-    struct const_equiv_data *p;						\
-    MAYBE_EXTEND_CONST_EQUIV_VARRAY ((MAP), REGNO (REG));		\
-    p = &VARRAY_CONST_EQUIV ((MAP)->const_equiv_varray, REGNO (REG));	\
-    p->rtx = (RTX);							\
-    p->age = (AGE);							\
+#define SET_CONST_EQUIV_DATA(MAP,REG,RTX,AGE)				¥
+  {									¥
+    struct const_equiv_data *p;						¥
+    MAYBE_EXTEND_CONST_EQUIV_VARRAY ((MAP), REGNO (REG));		¥
+    p = &VARRAY_CONST_EQUIV ((MAP)->const_equiv_varray, REGNO (REG));	¥
+    p->rtx = (RTX);							¥
+    p->age = (AGE);							¥
   }

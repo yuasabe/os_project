@@ -1,10 +1,10 @@
 /* asmhead.nas */
 struct BOOTINFO { /* 0x0ff0-0x0fff */
-	char cyls; /* ƒu[ƒgƒZƒNƒ^‚Í‚Ç‚±‚Ü‚ÅƒfƒBƒXƒN‚ğ“Ç‚ñ‚¾‚Ì‚© */
-	char leds; /* ƒu[ƒg‚ÌƒL[ƒ{[ƒh‚ÌLED‚Ìó‘Ô */
-	char vmode; /* ƒrƒfƒIƒ‚[ƒh  ‰½ƒrƒbƒgƒJƒ‰[‚© */
+	char cyls; /* ãƒ–ãƒ¼ãƒˆã‚»ã‚¯ã‚¿ã¯ã©ã“ã¾ã§ãƒ‡ã‚£ã‚¹ã‚¯ã‚’èª­ã‚“ã ã®ã‹ */
+	char leds; /* ãƒ–ãƒ¼ãƒˆæ™‚ã®ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã®LEDã®çŠ¶æ…‹ */
+	char vmode; /* ãƒ“ãƒ‡ã‚ªãƒ¢ãƒ¼ãƒ‰  ä½•ãƒ“ãƒƒãƒˆã‚«ãƒ©ãƒ¼ã‹ */
 	char reserve;
-	short scrnx, scrny; /* ‰æ–Ê‰ğ‘œ“x */
+	short scrnx, scrny; /* ç”»é¢è§£åƒåº¦ */
 	char *vram;
 };
 #define ADR_BOOTINFO	0x00000ff0
@@ -126,96 +126,13 @@ void enable_mouse(struct FIFO32 *fifo, int data0, struct MOUSE_DEC *mdec);
 int mouse_decode(struct MOUSE_DEC *mdec, unsigned char dat);
 
 /* memory.c */
-#define MEMMAN_FREES		4090	/* ‚±‚ê‚Å–ñ32KB */
+#define MEMMAN_FREES		4090	/* ã“ã‚Œã§ç´„32KB */
 #define MEMMAN_ADDR			0x003c0000
-struct FREEINFO {	/* ‚ ‚«î•ñ */
+struct FREEINFO {	/* ã‚ãæƒ…å ± */
 	unsigned int addr, size;
 };
-struct MEMMAN {		/* ƒƒ‚ƒŠŠÇ— */
+struct MEMMAN {		/* ãƒ¡ãƒ¢ãƒªç®¡ç† */
 	int frees, maxfrees, lostsize, losts;
 	struct FREEINFO free[MEMMAN_FREES];
 };
-unsigned int memtest(unsigned int start, unsigned int end);
-void memman_init(struct MEMMAN *man);
-unsigned int memman_total(struct MEMMAN *man);
-unsigned int memman_alloc(struct MEMMAN *man, unsigned int size);
-int memman_free(struct MEMMAN *man, unsigned int addr, unsigned int size);
-unsigned int memman_alloc_4k(struct MEMMAN *man, unsigned int size);
-int memman_free_4k(struct MEMMAN *man, unsigned int addr, unsigned int size);
-
-/* sheet.c */
-#define MAX_SHEETS		256
-struct SHEET {
-	unsigned char *buf;
-	int bxsize, bysize, vx0, vy0, col_inv, height, flags;
-	struct SHTCTL *ctl;
-};
-struct SHTCTL {
-	unsigned char *vram, *map;
-	int xsize, ysize, top;
-	struct SHEET *sheets[MAX_SHEETS];
-	struct SHEET sheets0[MAX_SHEETS];
-};
-struct SHTCTL *shtctl_init(struct MEMMAN *memman, unsigned char *vram, int xsize, int ysize);
-struct SHEET *sheet_alloc(struct SHTCTL *ctl);
-void sheet_setbuf(struct SHEET *sht, unsigned char *buf, int xsize, int ysize, int col_inv);
-void sheet_updown(struct SHEET *sht, int height);
-void sheet_refresh(struct SHEET *sht, int bx0, int by0, int bx1, int by1);
-void sheet_slide(struct SHEET *sht, int vx0, int vy0);
-void sheet_free(struct SHEET *sht);
-
-/* timer.c */
-#define MAX_TIMER		500
-struct TIMER {
-	struct TIMER *next;
-	unsigned int timeout, flags;
-	struct FIFO32 *fifo;
-	int data;
-};
-struct TIMERCTL {
-	unsigned int count, next;
-	struct TIMER *t0;
-	struct TIMER timers0[MAX_TIMER];
-};
-extern struct TIMERCTL timerctl;
-void init_pit(void);
-struct TIMER *timer_alloc(void);
-void timer_free(struct TIMER *timer);
-void timer_init(struct TIMER *timer, struct FIFO32 *fifo, int data);
-void timer_settime(struct TIMER *timer, unsigned int timeout);
-void inthandler20(int *esp);
-
-/* mtask.c */
-#define MAX_TASKS		1000	/* Å‘åƒ^ƒXƒN” */
-#define TASK_GDT0		3		/* TSS‚ğGDT‚Ì‰½”Ô‚©‚çŠ„‚è“–‚Ä‚é‚Ì‚© */
-#define MAX_TASKS_LV	100
-#define MAX_TASKLEVELS	10
-struct TSS32 {
-	int backlink, esp0, ss0, esp1, ss1, esp2, ss2, cr3;
-	int eip, eflags, eax, ecx, edx, ebx, esp, ebp, esi, edi;
-	int es, cs, ss, ds, fs, gs;
-	int ldtr, iomap;
-};
-struct TASK {
-	int sel, flags; /* sel‚ÍGDT‚Ì”Ô†‚Ì‚±‚Æ */
-	int level, priority;
-	struct TSS32 tss;
-};
-struct TASKLEVEL {
-	int running; /* “®ì‚µ‚Ä‚¢‚éƒ^ƒXƒN‚Ì” */
-	int now; /* Œ»İ“®ì‚µ‚Ä‚¢‚éƒ^ƒXƒN‚ª‚Ç‚ê‚¾‚©•ª‚©‚é‚æ‚¤‚É‚·‚é‚½‚ß‚Ì•Ï” */
-	struct TASK *tasks[MAX_TASKS_LV];
-};
-struct TASKCTL {
-	int now_lv; /* Œ»İ“®ì’†‚ÌƒŒƒxƒ‹ */
-	char lv_change; /* Ÿ‰ñƒ^ƒXƒNƒXƒCƒbƒ`‚Ì‚Æ‚«‚ÉAƒŒƒxƒ‹‚à•Ï‚¦‚½‚Ù‚¤‚ª‚¢‚¢‚©‚Ç‚¤‚© */
-	struct TASKLEVEL level[MAX_TASKLEVELS];
-	struct TASK tasks0[MAX_TASKS];
-};
-extern struct TIMER *task_timer;
-struct TASK *task_now(void);
-struct TASK *task_init(struct MEMMAN *memman);
-struct TASK *task_alloc(void);
-void task_run(struct TASK *task, int level, int priority);
-void task_switch(void);
-void task_sleep(struct TASK *task);
+unsigned int memtest(unsigned int start, unsigned int

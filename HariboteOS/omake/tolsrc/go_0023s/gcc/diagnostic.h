@@ -146,7 +146,7 @@ struct output_buffer
 
 /* The rest of the `variable argument list' not yet processed.
    This macro works on both `output_state *' and `output_buffer *'.  */
-#define output_buffer_format_args(BUFFER) \
+#define output_buffer_format_args(BUFFER) ¥
    *(((output_state *)(BUFFER))->format_args)
 
 /* In line-wrapping mode, whether we should start a new line.  */
@@ -156,7 +156,7 @@ struct output_buffer
 #define output_indentation(BUFFER) (BUFFER)->state.indent_skip
 
 /* A pointer to the formatted diagonstic message.  */
-#define output_message_text(BUFFER) \
+#define output_message_text(BUFFER) ¥
    ((const char *) obstack_base (&(BUFFER)->obstack))
 
 /* This data structure bundles altogether any information relevant to
@@ -221,103 +221,4 @@ struct diagnostic_context
 
 /* Client supplied function called after a diagnostic message is
    displayed.  */
-#define diagnostic_finalizer(DC) (DC)->end_diagnostic
-
-/* Extension hook for client.  */
-#define diagnostic_auxiliary_data(DC) (DC)->x_data
-
-/* Client supplied function used to decode formats.  Can operate on both
- `output_buffer *' and `diagnostic_context *'.  */
-#define diagnostic_format_decoder(DC) ((output_buffer *)(DC))->format_decoder
-
-/* Prefixing rule used in formatting a diagnostic message.  Accepts both
-   `output_buffer *' and `diagnostic_context *'.  */
-#define diagnostic_prefixing_rule(DC) \
-   ((output_buffer *)(DC))->state.prefixing_rule
-
-/* Maximum characters per line in automatic line wrapping mode.
-   Zero means don't wrap lines.  */
-#define diagnostic_line_cutoff(DC) \
-   ((output_buffer *)(DC))->state.ideal_maximum_length
-
-/* This diagnostic context is used by front-ends that directly output
-   diagnostic messages without going through `error', `warning',
-   and similar functions.  */
-extern diagnostic_context *global_dc;
-
-/* This will be removed shortly.  */
-extern output_buffer *diagnostic_buffer;
-
-/* The total count of a KIND of diagnostics meitted so far.  */
-#define diagnostic_kind_count(DC, DK) \
-   ((output_buffer *)(DC))->state.diagnostic_count[(int) (DK)]
-
-/* The number of errors that have been issued so far.  Ideally, these
-   would take an output_buffer as an argument.  */
-#define errorcount diagnostic_kind_count (global_dc, DK_ERROR)
-/* Similarly, but for warnings.  */
-#define warningcount diagnostic_kind_count (global_dc, DK_WARNING)
-/* Similarly, but for sorrys.  */
-#define sorrycount diagnostic_kind_count (global_dc, DK_SORRY)
-
-/* Returns non-zero if warnings should be emitted.  */
-#define diagnostic_report_warnings_p()			\
-  (!inhibit_warnings					\
-   && !(in_system_header && !warn_system_headers))
-
-
-/* Prototypes */
-extern void set_diagnostic_context	PARAMS ((diagnostic_context *,
-						 const char *, va_list *,
-						 const char *, int, int));
-extern void set_internal_error_function	PARAMS ((void (*)
-						 PARAMS ((const char *,
-							  va_list *))));
-extern void report_diagnostic		PARAMS ((diagnostic_context *));
-extern void diagnostic_initialize	PARAMS ((diagnostic_context *));
-extern void init_output_buffer		PARAMS ((output_buffer *,
-						 const char *, int));
-extern void flush_diagnostic_buffer	PARAMS ((void));
-extern void output_clear		PARAMS ((output_buffer *));
-extern const char *output_get_prefix	PARAMS ((const output_buffer *));
-extern const char *output_last_position PARAMS ((const output_buffer *));
-extern void output_set_prefix		PARAMS ((output_buffer *,
-						 const char *));
-extern void output_destroy_prefix	PARAMS ((output_buffer *));
-extern void output_set_maximum_length   PARAMS ((output_buffer *, int));
-extern void output_emit_prefix		PARAMS ((output_buffer *));
-extern void output_add_newline		PARAMS ((output_buffer *));
-extern void output_add_space		PARAMS ((output_buffer *));
-extern int output_space_left		PARAMS ((const output_buffer *));
-extern void output_append		PARAMS ((output_buffer *, const char *,
-						 const char *));
-extern void output_add_character	PARAMS ((output_buffer *, int));
-extern void output_decimal		PARAMS ((output_buffer *, int));
-extern void output_add_string		PARAMS ((output_buffer *,
-						 const char *));
-extern const char *output_finalize_message PARAMS ((output_buffer *));
-extern void output_clear_message_text	PARAMS ((output_buffer *));
-extern void output_printf		PARAMS ((output_buffer *, const char *,
-						 ...)) ATTRIBUTE_PRINTF_2;
-extern int output_is_line_wrapping	PARAMS ((output_buffer *));
-extern void output_verbatim		PARAMS ((output_buffer *, const char *,
-						 ...)) ATTRIBUTE_PRINTF_2;
-extern void verbatim			PARAMS ((const char *, ...))
-     ATTRIBUTE_PRINTF_1;
-extern char *context_as_prefix		PARAMS ((const char *, int, int));
-extern char *file_name_as_prefix	PARAMS ((const char *));
-extern int error_module_changed         PARAMS ((void));
-extern void record_last_error_module	PARAMS ((void));
-extern int error_function_changed	PARAMS ((void));
-extern void record_last_error_function	PARAMS ((void));
-extern void report_problematic_module	PARAMS ((output_buffer *));     
-
-/* Called by report_error_function to print out function name.
- * Default may be overridden by language front-ends.  */
-extern void (*print_error_function) PARAMS ((diagnostic_context *,
-                                             const char *));
-
-extern void default_print_error_function PARAMS ((diagnostic_context *,
-                                                  const char *));
-
-#endif /* ! GCC_DIAGNOSTIC_H */
+#define diagnostic_finalizer(DC) (DC)->end

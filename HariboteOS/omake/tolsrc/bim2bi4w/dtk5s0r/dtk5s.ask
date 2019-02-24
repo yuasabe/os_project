@@ -50,7 +50,7 @@ sign:
 }
 
 void getnum_s7s()
-/* DS:ESIÇ©ÇÁÉäÅ[Éh */
+/* DS:ESI„Åã„Çâ„É™„Éº„Éâ */
 {
 	EAX = 0;
 	do {
@@ -80,7 +80,7 @@ void _tek_decode()
 		TEST(AL, 0x01);
 		if (== 0) {
 			ESI--;
-			lzrestore_stk5(); /* EAXÇ…ÉRÉìÉfÉBÉVÉáÉìÇï‘Ç∑ */
+			lzrestore_stk5(); /* EAX„Å´„Ç≥„É≥„Éá„Ç£„Ç∑„Éß„É≥„ÇíËøî„Åô */
 		} else {
 			TEST(AL, 0x20);
 			if (!= 0)
@@ -181,7 +181,7 @@ err:
 	} else
 		LODSB();
 	DIV(CL);
-	ROR(EAX, 8); /* pbÇ24-31Ç÷, AHÇALÇ÷ */
+	ROR(EAX, 8); /* pb„Çí24-31„Å∏, AH„ÇíAL„Å∏ */
 	CL = 9;
 	AH = 0;
 	DIV(CL);
@@ -191,7 +191,7 @@ err:
 	SHL(EBX, CL);
 	EBX += 1846; /* LZMA_BASE_SIZE */
 
-	/* ÇΩÇ¢ÇƒÇ¢ÇÃèÍçáÅAlpÇÕ0Ç≈lcÇÕ3ÇÁÇµÇ¢ */
+	/* „Åü„ÅÑ„Å¶„ÅÑ„ÅÆÂ†¥Âêà„ÄÅlp„ÅØ0„Åßlc„ÅØ3„Çâ„Åó„ÅÑ */
 
 	ECX = ESP;
 	do {
@@ -203,7 +203,7 @@ err:
 	PUSH(EDX); /* rd->BufferLim */
 	PUSH(ESI);
 	PUSH(EDI);
-	PUSH(EBP); /* èoóÕÉTÉCÉY */
+	PUSH(EBP); /* Âá∫Âäõ„Çµ„Ç§„Ç∫ */
 	EDI = ECX;
 
 	CL = AL; /* lp */
@@ -237,8 +237,8 @@ err:
 	PUSH(-1);
 
 	EBP = ESP;
-	PUSH(EDI); /* ãåÉXÉ^ÉbÉN */
-	/* çáåvÇ≈64KBÇ≠ÇÁÇ¢ÇÃó]óTÇ™ÇŸÇµÇ¢ */
+	PUSH(EDI); /* Êóß„Çπ„Çø„ÉÉ„ÇØ */
+	/* ÂêàË®à„Åß64KB„Åè„Çâ„ÅÑ„ÅÆ‰ΩôË£ï„Åå„Åª„Åó„ÅÑ */
 	
 	CL = 4;
 	do {
@@ -279,9 +279,9 @@ void rdd_direct()
 			goto shift;
 shift1:
 		range >>= 1;
-		CMP(code, range); /* >= Ç»ÇÁ CF = 0 */
+		CMP(code, range); /* >= „Å™„Çâ CF = 0 */
 		if ((unsigned) >=)
-			code -= range; /* ëäïœÇÌÇÁÇ∏CF = 0 */
+			code -= range; /* Áõ∏Â§â„Çè„Çâ„ÅöCF = 0 */
 		RCL(result, 1);
 		ECX--;
 	} while (!= 0);
@@ -290,12 +290,12 @@ shift:
 	code <<= 8;
 	range <<= 8;
 	LODSB();
-	goto shift1;	/* 1âÒÇ≈Ç©Ç»ÇÁÇ∏ë´ÇËÇÈÇ©Ç«Ç§Ç©ÇÕÇªÇÍÇÊÇËëOÇ…ÇÊÇÈ */
+	goto shift1;	/* 1Âõû„Åß„Åã„Å™„Çâ„ÅöË∂≥„Çä„Çã„Åã„Å©„ÅÜ„Åã„ÅØ„Åù„Çå„Çà„ÇäÂâç„Å´„Çà„Çã */
 }
 
 /* 00000011111 */
 /* 11111100001 */
-/* Ç«ÇøÇÁÇ…ÇµÇƒÇ‡ÅA1âÒÇ≈ë´ÇËÇÈ */
+/* „Å©„Å°„Çâ„Å´„Åó„Å¶„ÇÇ„ÄÅ1Âõû„ÅßË∂≥„Çä„Çã */
 
 void rdd_bittree()
 {
@@ -303,7 +303,7 @@ void rdd_bittree()
 }
 
 void rdd_bittree0()
-/* åãâ ÇÕè„à ÉrÉbÉgÇ…Ç≤Ç›Ç™Ç¬Ç≠ÇÃÇ≈ÅAåƒÇ—èoÇµå≥Ç≈É}ÉXÉNÇπÇÊ */
+/* ÁµêÊûú„ÅØ‰∏ä‰Ωç„Éì„ÉÉ„Éà„Å´„Åî„Åø„Åå„Å§„Åè„ÅÆ„Åß„ÄÅÂëº„Å≥Âá∫„ÅóÂÖÉ„Åß„Éû„Çπ„ÇØ„Åõ„Çà */
 /* EBX:prob0 */
 {
 	STR_LZMA *work == SS:EBP;
@@ -335,7 +335,7 @@ shift1:
 		range -= bound;
 		(signed int) tmp >>= kNumMoveBits;
 		POP(EBX);
-		prob -= tmp; /* CFÇ…ÉfÉRÅ[Éhåãâ  */
+		prob -= tmp; /* CF„Å´„Éá„Ç≥„Éº„ÉâÁµêÊûú */
 		POP(ECX);
 		work->p[EBX * 4] = prob;
 		POP(result);
@@ -353,8 +353,8 @@ shift:
 
 
 void getlen()
-/* EBXÇ…prob0, EDX:posState */
-/* EDXÇ…ï‘Ç∑ */
+/* EBX„Å´prob0, EDX:posState */
+/* EDX„Å´Ëøî„Åô */
 {
 	PUSH(EDX);
 	rdd_bit(); /* LenChoice */
@@ -442,332 +442,4 @@ shift:
 }
 
 void decodemain()
-/* EBP */
-{
-	STR_LZMA *work == SS:EBP;
-	ESI = work->rd_src;
-//	EDI = work->rd_range;
-	EDI |= -1;
-	EAX = work->rd_code;
-	EBX = IsMatch;
-	rdd_bit(); /* Ç±ÇÍÇÕÇ©Ç»ÇÁÇ∏CF = 0Ç…Ç»ÇÈÅistk5Ç≈ÇÕÅj */
-	if (CF != 0)
-		goto err;
-	EBX = Literal;
-	CL = 8;
-	rdd_bittree();
-	EBX = work->outStream;
-	[SEG_ES:EBX] = DL;
-	EBX++;
-	work->outStream = EBX;
-
-//PUSH(work->outSize);_puthex();POP(EDX);
-//PUSH(work->nowPos); _puthex(); POP(EDX);
-
-	EDX = work->nowPos;
-	if ((unsigned) EDX < work->outSize) {
-loophead:
-		EBX = work->state;
-		EDX &= work->posStateMask;
-		EBX <<= kNumPosBitsMax;
-		PUSH(EDX); /* posState */
-		EBX += EDX;
-		rdd_bit();
-		if (CF == 0) {	/* not LZ */
-			POP(EDX);
-			EBX = work->state;
-			PUSH(EDI);
-		//	BL = [SEG_CS:state_table + EBX];
-			asmout("MOV BL,[DS:.state_table+EBX]");
-			EDX = work->nowPos;
-			(char) work->state = BL;
-			EDI = work->outStream;
-			EDX &= work->literalPosMask;
-			CL = work->lc;
-			EBX = (unsigned char) [SEG_ES:EDI - 1];
-			SHL(EDX, CL);
-			CL = work->lc8;
-			SHR(EBX, CL);
-			EBX += EDX;
-			POP(EDI);
-			EBX *= 256;
-			CL = 8;
-			EBX += Literal;
-			rdd_bittree();
-			EBX = work->outStream;
-			[SEG_ES:EBX] = DL;
-			EDX = work->nowPos;
-			EBX++;
-			EDX++;
-			work->outStream = EBX;
-			work->nowPos = EDX;
-			if ((unsigned) EDX < work->outSize)
-				goto loophead;
-			goto fin;
-		}
-lzphase:
-		/* LZ */
-		EBX = work->state;
-		EBX += IsRep;
-		rdd_bit();
-		if (CF != 0) {	/* repdis */
-			EBX += IsRepG0 - IsRep;
-			rdd_bit();
-			if (CF == 0) {	/* rep[0] */
-				EBX = work->state;
-				POP(EDX);
-				EBX <<= kNumPosBitsMax;
-				PUSH(EDX);
-				LEA(EBX, [EBX + EDX + IsRep0Long]);
-				rdd_bit();
-				if (CF == 0) { /* rep[0] && len == 1 */
-					POP(EDX);
-					BL = (char) work->state;
-					PUSH(EDI);
-					CMP(BL, 7);
-					EDI = work->outStream;
-					EDX = work->repdis[0];
-					SBB(BL, BL); /* -1, 0 */
-					PUSH(EAX);
-					BL &= -2;
-					AL = [SEG_ES:EDI + EDX];
-					EDX = work->nowPos;
-					BL += 11; /* 9, 11 */
-					STOSB();
-					(char) work->state = BL;
-					EDX++;
-					work->outStream = EDI;
-					POP(EAX);
-					work->nowPos = EDX;
-					POP(EDI);
-					if ((unsigned) EDX < work->outSize)
-						goto lzdone;
-					goto fin;
-				}
-			} else {
-				EBX += IsRepG1 - IsRepG0;
-				rdd_bit();
-				EDX = work->repdis[4];
-				if (CF != 0) {	/* not rep[1] */
-					EBX += IsRepG2 - IsRepG1;
-					rdd_bit();
-					EDX = work->repdis[8];
-					if (CF != 0) {	/* not rep[2] */
-						EBX = EDX;
-						EDX = work->repdis[12];
-						work->repdis[12] = EBX;
-					}
-					EBX = work->repdis[4];
-					work->repdis[8] = EBX;
-				}
-				EBX = work->repdis[0];
-				work->repdis[0] = EDX;
-				work->repdis[4] = EBX;
-			}
-			BL = (char) work->state;
-			POP(EDX);
-			CMP(BL, 7);
-			SBB(BL, BL); /* -1, 0 */
-			BL &= -3;
-			BL += 11; /* 8, 11 */
-			(char) work->state = BL;
-			EBX = RepLenCoder;
-			getlen();
-			ECX = EDX;
-			EDX = work->repdis[0];
-		} else {
-			/* not repdis */
-			EDX = work->repdis[8];
-			EBX = work->repdis[4];
-			work->repdis[12] = EDX;
-			EDX = work->repdis[0];
-			work->repdis[8] = EBX;
-			work->repdis[4] = EDX;
-			BL = (char) work->state;
-			POP(EDX); /* posState */
-			CMP(BL, 7);
-			SBB(BL, BL); /* -1, 0 */
-			BL &= -3;
-			BL += 10; /* 7, 10 */
-			(char) work->state = BL;
-			EBX = LenCoder;
-			getlen();
-			EBX = EDX;
-			PUSH(EDX); /* len */
-			if ((unsigned) EBX >= kNumLenToPosStates1)
-				EBX = kNumLenToPosStates1;
-			EBX <<= kNumPosSlotBits;
-			CL = kNumPosSlotBits;
-			EBX += PosSlot;
-			rdd_bittree();
-			EDX &= 0x3f;
-			if ((unsigned) EDX >= kStartPosModelIndex) {
-				ECX = EDX;
-				EBX = EDX;
-				(unsigned int) ECX >>= 1;
-				EDX = 1;
-				ECX--; /* CFïsïœ */
-				RCL(EDX, 1);
-				if ((unsigned) EBX < kEndPosModelIndex) {
-					/* ÉäÉoÅ[ÉXÇ≈ECXÉrÉbÉgÇEDXÇ…âüÇµçûÇﬁ */
-					PUSH(EDX);
-					SHL(EDX, CL);
-					NOT(EBX);
-					PUSH(ECX);
-					LEA(EBX, [EBX + EDX + SpecPos]);
-					rdd_bittree();
-					EBX = EDX;
-					POP(ECX);
-				} else {
-					ECX -= kNumAlignBits;
-					rdd_direct();
-					CL = kNumAlignBits;
-					EBX = Align;
-					PUSH(EDX);
-					rdd_bittree();
-					EBX = EDX;
-					CL = kNumAlignBits;
-				}
-				POP(EDX);
-				do {
-					(unsigned int) EBX >>= 1;
-					RCL(EDX, 1);
-					ECX--;
-				} while (!= 0);
-			}
-			NOT(EDX);
-			POP(ECX); /* len */
-			work->repdis[0] = EDX;
-		}
-		PUSH(EDI);
-		ECX += kMatchMinLen;
-		PUSH(ESI);
-		EDI = work->outStream;
-		ESI = work->outSize;
-		ESI -= work->nowPos;
-		if ((unsigned) ECX >= ESI)
-			ECX = ESI;
-		LEA(ESI, [EDI + EDX]);
-		work->nowPos += ECX;
-		asmout("rep movsb");
-
-		work->outStream = EDI;
-		POP(ESI);
-		EDX = work->nowPos;
-		POP(EDI);
-		if ((unsigned) EDX >= work->outSize)
-			goto fin;
-lzdone:
-		EBX = work->state;
-		EDX &= work->posStateMask;
-		EBX <<= kNumPosBitsMax;
-		PUSH(EDX); /* posState */
-		EBX += EDX;
-		rdd_bit();
-		if (CF != 0)
-			goto lzphase;
-		POP(EDX);
-		EBX = work->state;
-		PUSH(EDI);
-	//	BL = [SEG_CS:state_table + EBX];
-		asmout("MOV BL,[DS:.state_table+EBX]");
-		EDX = work->nowPos;
-		(char) work->state = BL;
-		EDI = work->outStream;
-		EDX &= work->literalPosMask;
-		CL = work->lc;
-		EBX = (unsigned char) [SEG_ES:EDI - 1];
-		SHL(EDX, CL);
-		CL = work->lc8;
-		SHR(EBX, CL);
-		EBX += EDX;
-		EDX = work->repdis[0];
-		EBX *= 256;
-		CL = [SEG_ES:EDI + EDX];
-		POP(EDI);
-lit1:
-		unsigned int result == EDX, range == EDI, code == EAX;
-		unsigned int bound == EBX, prob == EDX, tmp == ECX;
-		PUSH(EBX);
-		MOV(result, 1);
-		EBX *= 2;
-		EBX += work->p[Literal * 4];
-		do {
-			ECX *= 2;
-			PUSH(EBX);
-			EBX += result;
-			PUSH(result);
-			PUSH(ECX);
-			ECX &= 0x100;
-			EBX += ECX;
-			PUSH(EBX);
-			prob = work->p[EBX * 4];
-			if ((unsigned) range < kTopValue)
-				goto lit1load0;
-lit1load1:
-			bound = range;
-			tmp = prob;
-			bound >>= kNumBitModelTotalBits;
-			IMUL(bound, prob);
-			if ((unsigned) code < bound) {
-				range = bound;
-				prob--;
-				bound = 0;
-				tmp -= kBitModelTotal + 1;
-			}
-			code -= bound;
-			range -= bound;
-			(signed int) tmp >>= kNumMoveBits;
-			POP(EBX);
-			prob -= tmp; /* CFÇ…ÉfÉRÅ[Éhåãâ  */
-			POP(ECX);
-			work->p[EBX * 4] = prob;
-			POP(result);
-			POP(EBX);
-			RCL(result, 1);
-			if ((unsigned) result >= 0x100)
-				goto finlit1;
-			DH = DL;
-			DH ^= CH;
-			TEST(DH, 1);
-			MOV(DH, 0);
-		} while (== 0);
-		EBX = result;
-		CL = 0;
-		do {
-			EBX *= 2;
-			CL++;
-		} while ((unsigned) EBX < 0x100);
-		POP(EBX);
-		EBX += Literal;
-		rdd_bittree0();
-		goto lit11;
-	}
-lit1load0:
-	code <<= 8;
-	range <<= 8;
-	LODSB();
-	goto lit1load1;
-finlit1:
-	POP(EBX);
-	goto lit11;
-lit11:
-	EBX = work->outStream;
-	[SEG_ES:EBX] = DL;
-	EDX = work->nowPos;
-	EBX++;
-	EDX++;
-	work->outStream = EBX;
-	work->nowPos = EDX;
-	if ((unsigned) EDX < work->outSize)
-		goto loophead;
-fin:
-	return;
-err:
-	EAX = 0;
-	ESP = [SS:EBP - 4];
-	EAX++;
-	return;
-state_table:
-	DB(0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 4, 5);
-}
+/* EBP *

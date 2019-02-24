@@ -149,10 +149,10 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 #define PAGE_L1_SIZE	((size_t) 1 << PAGE_L1_BITS)
 #define PAGE_L2_SIZE	((size_t) 1 << PAGE_L2_BITS)
 
-#define LOOKUP_L1(p) \
+#define LOOKUP_L1(p) ¥
   (((size_t) (p) >> (32 - PAGE_L1_BITS)) & ((1 << PAGE_L1_BITS) - 1))
 
-#define LOOKUP_L2(p) \
+#define LOOKUP_L2(p) ¥
   (((size_t) (p) >> G.lg_pagesize) & ((1 << PAGE_L2_BITS) - 1))
 
 /* The number of objects per allocation page, for objects on a page of
@@ -165,7 +165,7 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 /* The number of extra orders, not corresponding to power-of-two sized
    objects.  */
 
-#define NUM_EXTRA_ORDERS \
+#define NUM_EXTRA_ORDERS ¥
   (sizeof (extra_order_size_table) / sizeof (extra_order_size_table[0]))
 
 /* The Ith entry is the maximum size of an object to be stored in the
@@ -341,7 +341,7 @@ static struct globals
 
 /* The size in bytes required to maintain a bitmap for the objects
    on a page-entry.  */
-#define BITMAP_SIZE(Num_objects) \
+#define BITMAP_SIZE(Num_objects) ¥
   (CEIL ((Num_objects), HOST_BITS_PER_LONG) * sizeof(long))
 
 /* Skip garbage collection if the current allocation is not at least
@@ -397,7 +397,7 @@ ggc_allocated_p (p)
   base = &G.lookup[0];
 #else
   page_table table = G.lookup;
-  size_t high_bits = (size_t) p & ~ (size_t) 0xffffffff;
+  size_t high_bits = (size_t) p & ‾ (size_t) 0xffffffff;
   while (1)
     {
       if (table == NULL)
@@ -430,7 +430,7 @@ lookup_page_table_entry(p)
   base = &G.lookup[0];
 #else
   page_table table = G.lookup;
-  size_t high_bits = (size_t) p & ~ (size_t) 0xffffffff;
+  size_t high_bits = (size_t) p & ‾ (size_t) 0xffffffff;
   while (table->high_bits != high_bits)
     table = table->next;
   base = &table->table[0];
@@ -457,7 +457,7 @@ set_page_table_entry(p, entry)
   base = &G.lookup[0];
 #else
   page_table table;
-  size_t high_bits = (size_t) p & ~ (size_t) 0xffffffff;
+  size_t high_bits = (size_t) p & ‾ (size_t) 0xffffffff;
   for (table = G.lookup; table; table = table->next)
     if (table->high_bits == high_bits)
       goto found;
@@ -488,7 +488,7 @@ debug_print_page_list (order)
      int order;
 {
   page_entry *p;
-  printf ("Head=%p, Tail=%p:\n", (PTR) G.pages[order],
+  printf ("Head=%p, Tail=%p:¥n", (PTR) G.pages[order],
 	  (PTR) G.page_tails[order]);
   p = G.pages[order];
   while (p != NULL)
@@ -497,7 +497,7 @@ debug_print_page_list (order)
 	      p->num_free_objects);
       p = p->next;
     }
-  printf ("NULL\n");
+  printf ("NULL¥n");
   fflush (stdout);
 }
 
@@ -557,7 +557,7 @@ clear_page_group_in_use (group, page)
      page_group *group;
      char *page;
 {
-  group->in_use &= ~(1 << page_group_index (group->allocation, page));
+  group->in_use &= ‾(1 << page_group_index (group->allocation, page));
 }
 #endif
 
@@ -737,7 +737,7 @@ alloc_page (order)
 
   if (GGC_DEBUG_LEVEL >= 2)
     fprintf (G.debug_file, 
-	     "Allocating page at %p, object size=%ld, data %p-%p\n",
+	     "Allocating page at %p, object size=%ld, data %p-%p¥n",
 	     (PTR) entry, (long) OBJECT_SIZE (order), page,
 	     page + entry_size - 1);
 
@@ -752,7 +752,7 @@ free_page (entry)
 {
   if (GGC_DEBUG_LEVEL >= 2)
     fprintf (G.debug_file, 
-	     "Deallocating page at %p, data %p-%p\n", (PTR) entry,
+	     "Deallocating page at %p, data %p-%p¥n", (PTR) entry,
 	     entry->page, entry->page + entry->bytes - 1);
 
   set_page_table_entry (entry->page, NULL);
@@ -914,7 +914,7 @@ ggc_alloc (size)
       if ((entry->in_use_p[word] >> bit) & 1)
 	{
 	  word = bit = 0;
-	  while (~entry->in_use_p[word] == 0)
+	  while (‾entry->in_use_p[word] == 0)
 	    ++word;
 	  while ((entry->in_use_p[word] >> bit) & 1)
 	    ++bit;
@@ -959,7 +959,7 @@ ggc_alloc (size)
 
   if (GGC_DEBUG_LEVEL >= 3)
     fprintf (G.debug_file, 
-	     "Allocating object, requested size=%ld, actual=%ld at %p on %p\n",
+	     "Allocating object, requested size=%ld, actual=%ld at %p on %p¥n",
 	     (long) size, (long) OBJECT_SIZE (order), result, (PTR) entry);
 
   return result;
@@ -1000,7 +1000,7 @@ ggc_set_mark (p)
   entry->num_free_objects -= 1;
 
   if (GGC_DEBUG_LEVEL >= 4)
-    fprintf (G.debug_file, "Marking %p\n", p);
+    fprintf (G.debug_file, "Marking %p¥n", p);
 
   return 0;
 }
@@ -1126,393 +1126,4 @@ init_ggc ()
       int i;
 
       o = size_lookup[OBJECT_SIZE (order)];
-      for (i = OBJECT_SIZE (order); size_lookup [i] == o; --i)
-	size_lookup[i] = order;
-    }
-}
-
-/* Increment the `GC context'.  Objects allocated in an outer context
-   are never freed, eliminating the need to register their roots.  */
-
-void
-ggc_push_context ()
-{
-  ++G.context_depth;
-
-  /* Die on wrap.  */
-  if (G.context_depth == 0)
-    abort ();
-}
-
-/* Merge the SAVE_IN_USE_P and IN_USE_P arrays in P so that IN_USE_P
-   reflects reality.  Recalculate NUM_FREE_OBJECTS as well.  */
-
-static void
-ggc_recalculate_in_use_p (p)
-     page_entry *p;
-{
-  unsigned int i;
-  size_t num_objects;
-
-  /* Because the past-the-end bit in in_use_p is always set, we 
-     pretend there is one additional object.  */
-  num_objects = OBJECTS_PER_PAGE (p->order) + 1;
-
-  /* Reset the free object count.  */
-  p->num_free_objects = num_objects;
-
-  /* Combine the IN_USE_P and SAVE_IN_USE_P arrays.  */
-  for (i = 0; 
-       i < CEIL (BITMAP_SIZE (num_objects),
-		 sizeof (*p->in_use_p));
-       ++i)
-    {
-      unsigned long j;
-
-      /* Something is in use if it is marked, or if it was in use in a
-	 context further down the context stack.  */
-      p->in_use_p[i] |= p->save_in_use_p[i];
-
-      /* Decrement the free object count for every object allocated.  */
-      for (j = p->in_use_p[i]; j; j >>= 1)
-	p->num_free_objects -= (j & 1);
-    }
-
-  if (p->num_free_objects >= num_objects)
-    abort ();
-}
-
-/* Decrement the `GC context'.  All objects allocated since the 
-   previous ggc_push_context are migrated to the outer context.  */
-
-void
-ggc_pop_context ()
-{
-  unsigned order, depth;
-
-  depth = --G.context_depth;
-
-  /* Any remaining pages in the popped context are lowered to the new
-     current context; i.e. objects allocated in the popped context and
-     left over are imported into the previous context.  */
-  for (order = 2; order < NUM_ORDERS; order++)
-    {
-      page_entry *p;
-
-      for (p = G.pages[order]; p != NULL; p = p->next)
-	{
-	  if (p->context_depth > depth)
-	    p->context_depth = depth;
-
-	  /* If this page is now in the topmost context, and we'd
-	     saved its allocation state, restore it.  */
-	  else if (p->context_depth == depth && p->save_in_use_p)
-	    {
-	      ggc_recalculate_in_use_p (p);
-	      free (p->save_in_use_p);
-	      p->save_in_use_p = 0;
-	    }
-	}
-    }
-}
-
-/* Unmark all objects.  */
-
-static inline void
-clear_marks ()
-{
-  unsigned order;
-
-  for (order = 2; order < NUM_ORDERS; order++)
-    {
-      size_t num_objects = OBJECTS_PER_PAGE (order);
-      size_t bitmap_size = BITMAP_SIZE (num_objects + 1);
-      page_entry *p;
-
-      for (p = G.pages[order]; p != NULL; p = p->next)
-	{
-#ifdef ENABLE_CHECKING
-	  /* The data should be page-aligned.  */
-	  if ((size_t) p->page & (G.pagesize - 1))
-	    abort ();
-#endif
-
-	  /* Pages that aren't in the topmost context are not collected;
-	     nevertheless, we need their in-use bit vectors to store GC
-	     marks.  So, back them up first.  */
-	  if (p->context_depth < G.context_depth)
-	    {
-	      if (! p->save_in_use_p)
-		p->save_in_use_p = xmalloc (bitmap_size);
-	      memcpy (p->save_in_use_p, p->in_use_p, bitmap_size);
-	    }
-
-	  /* Reset reset the number of free objects and clear the
-             in-use bits.  These will be adjusted by mark_obj.  */
-	  p->num_free_objects = num_objects;
-	  memset (p->in_use_p, 0, bitmap_size);
-
-	  /* Make sure the one-past-the-end bit is always set.  */
-	  p->in_use_p[num_objects / HOST_BITS_PER_LONG] 
-	    = ((unsigned long) 1 << (num_objects % HOST_BITS_PER_LONG));
-	}
-    }
-}
-
-/* Free all empty pages.  Partially empty pages need no attention
-   because the `mark' bit doubles as an `unused' bit.  */
-
-static inline void
-sweep_pages ()
-{
-  unsigned order;
-
-  for (order = 2; order < NUM_ORDERS; order++)
-    {
-      /* The last page-entry to consider, regardless of entries
-	 placed at the end of the list.  */
-      page_entry * const last = G.page_tails[order];
-
-      size_t num_objects = OBJECTS_PER_PAGE (order);
-      size_t live_objects;
-      page_entry *p, *previous;
-      int done;
-	
-      p = G.pages[order];
-      if (p == NULL)
-	continue;
-
-      previous = NULL;
-      do
-	{
-	  page_entry *next = p->next;
-
-	  /* Loop until all entries have been examined.  */
-	  done = (p == last);
-
-	  /* Add all live objects on this page to the count of
-             allocated memory.  */
-	  live_objects = num_objects - p->num_free_objects;
-
-	  G.allocated += OBJECT_SIZE (order) * live_objects;
-
-	  /* Only objects on pages in the topmost context should get
-	     collected.  */
-	  if (p->context_depth < G.context_depth)
-	    ;
-
-	  /* Remove the page if it's empty.  */
-	  else if (live_objects == 0)
-	    {
-	      if (! previous)
-		G.pages[order] = next;
-	      else
-		previous->next = next;
-
-	      /* Are we removing the last element?  */
-	      if (p == G.page_tails[order])
-		G.page_tails[order] = previous;
-	      free_page (p);
-	      p = previous;
-	    }
-
-	  /* If the page is full, move it to the end.  */
-	  else if (p->num_free_objects == 0)
-	    {
-	      /* Don't move it if it's already at the end.  */
-	      if (p != G.page_tails[order])
-		{
-		  /* Move p to the end of the list.  */
-		  p->next = NULL;
-		  G.page_tails[order]->next = p;
-
-		  /* Update the tail pointer...  */
-		  G.page_tails[order] = p;
-
-		  /* ... and the head pointer, if necessary.  */
-		  if (! previous)
-		    G.pages[order] = next;
-		  else
-		    previous->next = next;
-		  p = previous;
-		}
-	    }
-
-	  /* If we've fallen through to here, it's a page in the
-	     topmost context that is neither full nor empty.  Such a
-	     page must precede pages at lesser context depth in the
-	     list, so move it to the head.  */
-	  else if (p != G.pages[order])
-	    {
-	      previous->next = p->next;
-	      p->next = G.pages[order];
-	      G.pages[order] = p;
-	      /* Are we moving the last element?  */
-	      if (G.page_tails[order] == p)
-	        G.page_tails[order] = previous;
-	      p = previous;
-	    }
-
-	  previous = p;
-	  p = next;
-	} 
-      while (! done);
-
-      /* Now, restore the in_use_p vectors for any pages from contexts
-         other than the current one.  */
-      for (p = G.pages[order]; p; p = p->next)
-	if (p->context_depth != G.context_depth)
-	  ggc_recalculate_in_use_p (p);
-    }
-}
-
-#ifdef GGC_POISON
-/* Clobber all free objects.  */
-
-static inline void
-poison_pages ()
-{
-  unsigned order;
-
-  for (order = 2; order < NUM_ORDERS; order++)
-    {
-      size_t num_objects = OBJECTS_PER_PAGE (order);
-      size_t size = OBJECT_SIZE (order);
-      page_entry *p;
-
-      for (p = G.pages[order]; p != NULL; p = p->next)
-	{
-	  size_t i;
-
-	  if (p->context_depth != G.context_depth)
-	    /* Since we don't do any collection for pages in pushed
-	       contexts, there's no need to do any poisoning.  And
-	       besides, the IN_USE_P array isn't valid until we pop
-	       contexts.  */
-	    continue;
-
-	  for (i = 0; i < num_objects; i++)
-	    {
-	      size_t word, bit;
-	      word = i / HOST_BITS_PER_LONG;
-	      bit = i % HOST_BITS_PER_LONG;
-	      if (((p->in_use_p[word] >> bit) & 1) == 0)
-		memset (p->page + i * size, 0xa5, size);
-	    }
-	}
-    }
-}
-#endif
-
-/* Top level mark-and-sweep routine.  */
-
-void
-ggc_collect ()
-{
-  /* Avoid frequent unnecessary work by skipping collection if the
-     total allocations haven't expanded much since the last
-     collection.  */
-#ifndef GGC_ALWAYS_COLLECT
-  if (G.allocated < GGC_MIN_EXPAND_FOR_GC * G.allocated_last_gc)
-    return;
-#endif
-
-  timevar_push (TV_GC);
-  if (!quiet_flag)
-    fprintf (stderr, " {GC %luk -> ", (unsigned long) G.allocated / 1024);
-
-  /* Zero the total allocated bytes.  This will be recalculated in the
-     sweep phase.  */
-  G.allocated = 0;
-
-  /* Release the pages we freed the last time we collected, but didn't 
-     reuse in the interim.  */
-  release_pages ();
-
-  clear_marks ();
-  ggc_mark_roots ();
-  
-#ifdef GGC_POISON
-  poison_pages ();
-#endif
-
-  sweep_pages ();
-
-  G.allocated_last_gc = G.allocated;
-  if (G.allocated_last_gc < GGC_MIN_LAST_ALLOCATED)
-    G.allocated_last_gc = GGC_MIN_LAST_ALLOCATED;
-
-  timevar_pop (TV_GC);
-
-  if (!quiet_flag)
-    fprintf (stderr, "%luk}", (unsigned long) G.allocated / 1024);
-}
-
-/* Print allocation statistics.  */
-#define SCALE(x) ((unsigned long) ((x) < 1024*10 \
-		  ? (x) \
-		  : ((x) < 1024*1024*10 \
-		     ? (x) / 1024 \
-		     : (x) / (1024*1024))))
-#define LABEL(x) ((x) < 1024*10 ? ' ' : ((x) < 1024*1024*10 ? 'k' : 'M'))
-
-void
-ggc_print_statistics ()
-{
-  struct ggc_statistics stats;
-  unsigned int i;
-  size_t total_overhead = 0;
-
-  /* Clear the statistics.  */
-  memset (&stats, 0, sizeof (stats));
-  
-  /* Make sure collection will really occur.  */
-  G.allocated_last_gc = 0;
-
-  /* Collect and print the statistics common across collectors.  */
-  ggc_print_common_statistics (stderr, &stats);
-
-  /* Release free pages so that we will not count the bytes allocated
-     there as part of the total allocated memory.  */
-  release_pages ();
-
-  /* Collect some information about the various sizes of 
-     allocation.  */
-  fprintf (stderr, "\n%-5s %10s  %10s  %10s\n",
-	   "Size", "Allocated", "Used", "Overhead");
-  for (i = 0; i < NUM_ORDERS; ++i)
-    {
-      page_entry *p;
-      size_t allocated;
-      size_t in_use;
-      size_t overhead;
-
-      /* Skip empty entries.  */
-      if (!G.pages[i])
-	continue;
-
-      overhead = allocated = in_use = 0;
-
-      /* Figure out the total number of bytes allocated for objects of
-	 this size, and how many of them are actually in use.  Also figure
-	 out how much memory the page table is using.  */
-      for (p = G.pages[i]; p; p = p->next)
-	{
-	  allocated += p->bytes;
-	  in_use += 
-	    (OBJECTS_PER_PAGE (i) - p->num_free_objects) * OBJECT_SIZE (i);
-
-	  overhead += (sizeof (page_entry) - sizeof (long)
-		       + BITMAP_SIZE (OBJECTS_PER_PAGE (i) + 1));
-	}
-      fprintf (stderr, "%-5d %10ld%c %10ld%c %10ld%c\n", OBJECT_SIZE (i),
-	       SCALE (allocated), LABEL (allocated),
-	       SCALE (in_use), LABEL (in_use),
-	       SCALE (overhead), LABEL (overhead));
-      total_overhead += overhead;
-    }
-  fprintf (stderr, "%-5s %10ld%c %10ld%c %10ld%c\n", "Total",
-	   SCALE (G.bytes_mapped), LABEL (G.bytes_mapped),
-	   SCALE (G.allocated), LABEL(G.allocated),
-	   SCALE (total_overhead), LABEL (total_overhead));
-}
+      for (i = OBJ

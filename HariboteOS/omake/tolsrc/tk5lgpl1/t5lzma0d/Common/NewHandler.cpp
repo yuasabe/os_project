@@ -51,7 +51,7 @@ void * __cdecl operator new(size_t size)
   }
   if (p == 0)
     throw CNewException();
-  printf("Alloc %6d, size = %8d\n", numAllocs, size);
+  printf("Alloc %6d, size = %8d¥n", numAllocs, size);
   return p;
 }
 
@@ -63,7 +63,7 @@ public:
     for (int i = 0; i < kDebugSize; i++)
       a[i] = 0;
   }
-  ~CC()
+  ‾CC()
   {
     for (int i = 0; i < kDebugSize; i++)
       if (a[i] != 0)
@@ -83,7 +83,7 @@ void __cdecl operator delete(void *p)
   */
   HeapFree(GetProcessHeap(), 0, p);
   numAllocs--;
-  printf("Free %d\n", numAllocs);
+  printf("Free %d¥n", numAllocs);
 }
 
 #endif
@@ -98,7 +98,7 @@ CNewHandlerSetter::CNewHandlerSetter()
 {
   // MemErrorOldVCFunction = _set_new_handler(MemErrorVC);
 }
-CNewHandlerSetter::~CNewHandlerSetter()
+CNewHandlerSetter::‾CNewHandlerSetter()
 {
   // _set_new_handler(MemErrorOldVCFunction);
 }

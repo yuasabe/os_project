@@ -1,6 +1,6 @@
-// "keymos0.ask" ver.0.6 copyright(C) 2002 H.Kawai(ì‡GÀ)
+// "keymos0.ask" ver.0.6 copyright(C) 2002 H.Kawai(å·åˆç§€å®Ÿ)
 
-// ‚±‚Ìƒo[ƒWƒ‡ƒ“‚àOTASK”Å‚Æ“¯‚¶‚­AƒL[‚ğ‰Ÿ‚µ‚È‚ª‚ç”²‚­‚ÆƒtƒF[ƒY‚ª‹¶‚¤
+// ã“ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã‚‚OTASKç‰ˆã¨åŒã˜ãã€ã‚­ãƒ¼ã‚’æŠ¼ã—ãªãŒã‚‰æŠœãã¨ãƒ•ã‚§ãƒ¼ã‚ºãŒç‹‚ã†
 
 #include "osaskinc.ask"
 
@@ -10,7 +10,7 @@ default(code == CODE);
 struct keyboarddata {
 	int send_buf[64]; // 0x00
 	int pushflags[64]; // 0x40
-	int queue_buf[128]; // 0x80 (dw”:32...ƒuƒƒbƒN‚ÍÅ‚‚Å‚à8dw’ö“x‚É)
+	int queue_buf[128]; // 0x80 (dwæ•°:32...ãƒ–ãƒ­ãƒƒã‚¯ã¯æœ€é«˜ã§ã‚‚8dwç¨‹åº¦ã«)
 	int mouse_queue_buf[128]; // 0x100
 	int keysignal[6], [2]; // 0x180
 	/* void near * */ int keyjmp; // 0x188
@@ -68,15 +68,15 @@ nextcmd:
 	if (EAX == 0x0118)
 		goto cmd0118; // KeyEnableA20
 	if (EAX == 0x0100)
-		goto cmd0100; // ‰Šú‰»
+		goto cmd0100; // åˆæœŸåŒ–
 	if (EAX == 0x010c)
 		goto cmd010c; // KeyResetCPU
 	if (EAX == 0x0124)
-		goto cmd0124; // KeyboardIntDrv‚ÌƒxƒNƒ^’ñ‹Ÿ
+		goto cmd0124; // KeyboardIntDrvã®ãƒ™ã‚¯ã‚¿æä¾›
 	if (EAX == 0x0128)
-		goto cmd0128; // MouseIntDrv‚ÌƒxƒNƒ^’ñ‹Ÿ
+		goto cmd0128; // MouseIntDrvã®ãƒ™ã‚¯ã‚¿æä¾›
 	if (EAX == 0x0018)
-		goto cmd0018; // ƒo[ƒWƒ‡ƒ“—v‹
+		goto cmd0018; // ãƒãƒ¼ã‚¸ãƒ§ãƒ³è¦æ±‚
 
 	INT(0x03);
 
@@ -87,7 +87,7 @@ cmd0000:
 	return;
 
 cmd0100:
-	// ‰Šú‰»
+	// åˆæœŸåŒ–
 	PUSH((offset) cmd);
 	keyboardInit();
 	POP((offset) cmd);
@@ -109,28 +109,28 @@ cmd0104:
 	(offset) cmd += 4;
 	goto nextcmd;
 
-// –{—ˆ‚È‚çACF‚àƒ`ƒFƒbƒN‚µ‚È‚­‚Ä‚Í‚¢‚¯‚È‚¢‚µA
-// ³íI—¹Š„‚è‚İ‚à”­s‚·‚×‚«
+// æœ¬æ¥ãªã‚‰ã€CFã‚‚ãƒã‚§ãƒƒã‚¯ã—ãªãã¦ã¯ã„ã‘ãªã„ã—ã€
+// æ­£å¸¸çµ‚äº†å‰²ã‚Šè¾¼ã¿ã‚‚ç™ºè¡Œã™ã¹ã
 
 	ALIGN(4);
 
 cmd0104_cmdline:
 
-// –{—ˆ‚ÍAÅ‰‚Éƒ^ƒCƒ€ƒAƒEƒg‚ğdŠ|‚¯‚ÄAƒoƒbƒtƒ@‚ğ“f‚©‚¹‚é‚×‚«
+// æœ¬æ¥ã¯ã€æœ€åˆã«ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’ä»•æ›ã‘ã¦ã€ãƒãƒƒãƒ•ã‚¡ã‚’åã‹ã›ã‚‹ã¹ã
 
 //	DD(11-4-4);
 //	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
 //	asmout("DD OFFSET KeyQueCmd_WriteCmdReg,0AAH");  // controller self test
 //	asmout("DD OFFSET KeyQueCmd_RecieveCheck,055H"); // test successful code.
-//	asmout("DD OFFSET KeyQueCmd_WriteCmdReg,0ABH");  // keyboard interface test (Gateway SOLO2150‚Å‚ÍA‚±‚ê‚Åˆø‚Á‚©‚©‚é)
+//	asmout("DD OFFSET KeyQueCmd_WriteCmdReg,0ABH");  // keyboard interface test (Gateway SOLO2150ã§ã¯ã€ã“ã‚Œã§å¼•ã£ã‹ã‹ã‚‹)
 //	asmout("DD OFFSET KeyQueCmd_RecieveCheck,000H"); // test successful code.
 //	asmout("DD OFFSET KeyQueCmd_WriteCmdReg,0AEH");  // keyboard interface enable
 
 	DD(9 - 4);
 	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
 	asmout("DD OFFSET KeyQueCmd_AckSendData,0FFH"); // keyboard reset
-		// ª‚±‚ÌƒRƒ}ƒ“ƒh‚ªƒ^ƒCƒ€ƒAƒEƒg‚µ‚½‚çAƒL[ƒ{[ƒh‚Í‚Â‚È‚ª‚Á‚Ä‚¢‚È‚¢
-	asmout("DD OFFSET KeyQueCmd_RecieveCheck,0AAH"); // power on reset(reset¬Œ÷)
+		// â†‘ã“ã®ã‚³ãƒãƒ³ãƒ‰ãŒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã—ãŸã‚‰ã€ã‚­ãƒ¼ãƒœãƒ¼ãƒ‰ã¯ã¤ãªãŒã£ã¦ã„ãªã„
+	asmout("DD OFFSET KeyQueCmd_RecieveCheck,0AAH"); // power on reset(resetæˆåŠŸ)
 //	asmout("DD OFFSET KeyQueCmd_AckSendData,0F5H");  // keyboard disable scanning
 //	asmout("DD OFFSET KeyQueCmd_WriteCmdReg,060H");  // write mode command
 //	DD(6);
@@ -180,14 +180,14 @@ cmd010c:
 	(offset) cmd += 8; /* 2002.12.04 bugfix, skip opt */
 	goto nextcmd;
 
-// –{—ˆ‚È‚çACF‚àƒ`ƒFƒbƒN‚µ‚È‚­‚Ä‚Í‚¢‚¯‚È‚¢‚µA
-// ³íI—¹Š„‚è‚İ‚à”­s‚·‚×‚«
+// æœ¬æ¥ãªã‚‰ã€CFã‚‚ãƒã‚§ãƒƒã‚¯ã—ãªãã¦ã¯ã„ã‘ãªã„ã—ã€
+// æ­£å¸¸çµ‚äº†å‰²ã‚Šè¾¼ã¿ã‚‚ç™ºè¡Œã™ã¹ã
 
 	ALIGN(4);
 
 cmd010c_cmdline:
 
-// –{—ˆ‚ÍAÅ‰‚Éƒ^ƒCƒ€ƒAƒEƒg‚ğdŠ|‚¯‚ÄAƒoƒbƒtƒ@‚ğ“f‚©‚¹‚é‚×‚«
+// æœ¬æ¥ã¯ã€æœ€åˆã«ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’ä»•æ›ã‘ã¦ã€ãƒãƒƒãƒ•ã‚¡ã‚’åã‹ã›ã‚‹ã¹ã
 
 	DD(3);
 	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
@@ -250,20 +250,20 @@ cmd0118:
 	(offset) cmd += 4;
 	goto nextcmd;
 
-// –{—ˆ‚È‚çACF‚àƒ`ƒFƒbƒN‚µ‚È‚­‚Ä‚Í‚¢‚¯‚È‚¢‚µA
-// ³íI—¹Š„‚è‚İ‚à”­s‚·‚×‚«
+// æœ¬æ¥ãªã‚‰ã€CFã‚‚ãƒã‚§ãƒƒã‚¯ã—ãªãã¦ã¯ã„ã‘ãªã„ã—ã€
+// æ­£å¸¸çµ‚äº†å‰²ã‚Šè¾¼ã¿ã‚‚ç™ºè¡Œã™ã¹ã
 
 	ALIGN(4);
 
 cmd0118_cmdline:
 
-// –{—ˆ‚ÍAÅ‰‚Éƒ^ƒCƒ€ƒAƒEƒg‚ğdŠ|‚¯‚ÄAƒoƒbƒtƒ@‚ğ“f‚©‚¹‚é‚×‚«
+// æœ¬æ¥ã¯ã€æœ€åˆã«ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’ä»•æ›ã‘ã¦ã€ãƒãƒƒãƒ•ã‚¡ã‚’åã‹ã›ã‚‹ã¹ã
 
 	DD(6);
 	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
 	asmout("DD OFFSET KeyQueCmd_WriteCmdReg,0D1H");
 	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
-	asmout("DD OFFSET KeyQueCmd_SendData,0DFH"); // enable A20 (0xdd‚¾‚Ædisable)
+	asmout("DD OFFSET KeyQueCmd_SendData,0DFH"); // enable A20 (0xddã ã¨disable)
 	DD(0);
 
 // Bit 7  Keyboard data (output)    1
@@ -288,14 +288,14 @@ cmd011c:
 	(offset) cmd += 4;
 	goto nextcmd;
 
-// –{—ˆ‚È‚çACF‚àƒ`ƒFƒbƒN‚µ‚È‚­‚Ä‚Í‚¢‚¯‚È‚¢‚µA
-// ³íI—¹Š„‚è‚İ‚à”­s‚·‚×‚«
+// æœ¬æ¥ãªã‚‰ã€CFã‚‚ãƒã‚§ãƒƒã‚¯ã—ãªãã¦ã¯ã„ã‘ãªã„ã—ã€
+// æ­£å¸¸çµ‚äº†å‰²ã‚Šè¾¼ã¿ã‚‚ç™ºè¡Œã™ã¹ã
 
 	ALIGN(4);
 
 cmd011c_cmdline:
 
-// –{—ˆ‚ÍAÅ‰‚Éƒ^ƒCƒ€ƒAƒEƒg‚ğdŠ|‚¯‚ÄAƒoƒbƒtƒ@‚ğ“f‚©‚¹‚é‚×‚«
+// æœ¬æ¥ã¯ã€æœ€åˆã«ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’ä»•æ›ã‘ã¦ã€ãƒãƒƒãƒ•ã‚¡ã‚’åã‹ã›ã‚‹ã¹ã
 
 //	DD(9);
 //	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
@@ -310,9 +310,9 @@ cmd011c_cmdline:
 	DD(2 /* 7 */);
 	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
 //	asmout("DD OFFSET MouQueCmd_AckSendData,0FFH"); // mouse reset
-		// ª‚±‚ÌƒRƒ}ƒ“ƒh‚ªƒ^ƒCƒ€ƒAƒEƒg‚µ‚½‚çAƒ}ƒEƒX‚Í‚Â‚È‚ª‚Á‚Ä‚¢‚È‚¢
-//	asmout("DD OFFSET MouQueCmd_RecieveCheck,0AAH"); // power on reset(reset¬Œ÷ ‘æ1ƒoƒCƒg)
-//	asmout("DD OFFSET MouQueCmd_RecieveCheck,000H"); // power on reset(reset¬Œ÷ ‘æ2ƒoƒCƒg)
+		// â†‘ã“ã®ã‚³ãƒãƒ³ãƒ‰ãŒã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã—ãŸã‚‰ã€ãƒã‚¦ã‚¹ã¯ã¤ãªãŒã£ã¦ã„ãªã„
+//	asmout("DD OFFSET MouQueCmd_RecieveCheck,0AAH"); // power on reset(resetæˆåŠŸ ç¬¬1ãƒã‚¤ãƒˆ)
+//	asmout("DD OFFSET MouQueCmd_RecieveCheck,000H"); // power on reset(resetæˆåŠŸ ç¬¬2ãƒã‚¤ãƒˆ)
 	asmout("DD OFFSET MouQueCmd_ResetCommand");
 
 	DD(0);
@@ -330,14 +330,14 @@ cmd0120:
 	(offset) cmd += 4;
 	goto nextcmd;
 
-// –{—ˆ‚È‚çACF‚àƒ`ƒFƒbƒN‚µ‚È‚­‚Ä‚Í‚¢‚¯‚È‚¢‚µA
-// ³íI—¹Š„‚è‚İ‚à”­s‚·‚×‚«
+// æœ¬æ¥ãªã‚‰ã€CFã‚‚ãƒã‚§ãƒƒã‚¯ã—ãªãã¦ã¯ã„ã‘ãªã„ã—ã€
+// æ­£å¸¸çµ‚äº†å‰²ã‚Šè¾¼ã¿ã‚‚ç™ºè¡Œã™ã¹ã
 
 	ALIGN(4);
 
 cmd0120_cmdline:
 
-// –{—ˆ‚ÍAÅ‰‚Éƒ^ƒCƒ€ƒAƒEƒg‚ğdŠ|‚¯‚ÄAƒoƒbƒtƒ@‚ğ“f‚©‚¹‚é‚×‚«
+// æœ¬æ¥ã¯ã€æœ€åˆã«ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆã‚’ä»•æ›ã‘ã¦ã€ãƒãƒƒãƒ•ã‚¡ã‚’åã‹ã›ã‚‹ã¹ã
 
 	DD(3);
 	asmout("DD OFFSET KeyQueCmd_WaitBufEnpty");
@@ -348,22 +348,22 @@ cmd0120_cmdline:
 	DD(0);
 
 cmd0124:
-	// KeyboardIntDrv‚ÌƒxƒNƒ^’ñ‹Ÿ
+	// KeyboardIntDrvã®ãƒ™ã‚¯ã‚¿æä¾›
 	asmout("MOV DWORD PTR FS:[EBX+4],OFFSET KeyboardIntDrv");
 	(short) cmd[8] = CS;
 	(offset) cmd += 12;
 	goto nextcmd;
 
 cmd0128:
-	// MouseIntDrv‚ÌƒxƒNƒ^’ñ‹Ÿ
+	// MouseIntDrvã®ãƒ™ã‚¯ã‚¿æä¾›
 	asmout("MOV DWORD PTR FS:[EBX+4],OFFSET MouseIntDrv");
 	(short) cmd[8] = CS;
 	(offset) cmd += 12;
 	goto nextcmd;
 
 cmd0018:
-	// ƒo[ƒWƒ‡ƒ“—v‹
-	// –{—ˆ‚ÍAcmd[4]‚ª0‚Å‚ ‚é‚±‚Æ‚ğŠm”F‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢
+	// ãƒãƒ¼ã‚¸ãƒ§ãƒ³è¦æ±‚
+	// æœ¬æ¥ã¯ã€cmd[4]ãŒ0ã§ã‚ã‚‹ã“ã¨ã‚’ç¢ºèªã—ãªã‘ã‚Œã°ã„ã‘ãªã„
 	cmd[ 8] = 300; // ver.0.30
 	cmd[12] = 0;
 	cmd[16] = 0;
@@ -373,14 +373,14 @@ cmd0018:
 }
 
 void near keyboardInit()
-// –{—ˆ‚È‚ç‚±‚¢‚Â‚Í‚P‚Â‚Ìƒ^ƒXƒN‚Æ‚µ‚Ä‹N“®‚·‚éB
-// LDT‚ÉƒVƒXƒeƒ€ƒR[ƒ‹•K—v‚È‘S‚Ä‚ÌŠÂ‹«‚ğ‚¿A
-// ƒZƒbƒeƒBƒ“ƒO‚ªÏ‚ñ‚¾‚çAƒXƒŠ[ƒv‚·‚éB
-// ”Ä—pƒŒƒWƒXƒ^‚ÍA‚·‚×‚Ä”j‰ó‚³‚ê‚é
+// æœ¬æ¥ãªã‚‰ã“ã„ã¤ã¯ï¼‘ã¤ã®ã‚¿ã‚¹ã‚¯ã¨ã—ã¦èµ·å‹•ã™ã‚‹ã€‚
+// LDTã«ã‚·ã‚¹ãƒ†ãƒ ã‚³ãƒ¼ãƒ«å¿…è¦ãªå…¨ã¦ã®ç’°å¢ƒã‚’æŒã¡ã€
+// ã‚»ãƒƒãƒ†ã‚£ãƒ³ã‚°ãŒæ¸ˆã‚“ã ã‚‰ã€ã‚¹ãƒªãƒ¼ãƒ—ã™ã‚‹ã€‚
+// æ±ç”¨ãƒ¬ã‚¸ã‚¹ã‚¿ã¯ã€ã™ã¹ã¦ç ´å£Šã•ã‚Œã‚‹
 {
 	unsigned int Init_sel     ==  2 * 8, TAPI_sel   == 12 * 8;
 
-	// ASKA‚ÌƒtƒHƒ[‚Ì‚½‚ß‚Ì’è”éŒ¾
+	// ASKAã®ãƒ•ã‚©ãƒ­ãƒ¼ã®ãŸã‚ã®å®šæ•°å®£è¨€
 	asmout("work_send_buf EQU 0000H");
 	asmout("work_pushflags EQU 0040H");
 	asmout("work_queue_buf EQU 0080H");
@@ -394,15 +394,15 @@ void near keyboardInit()
 	asmout("work_mouse_send_buf equ 01C0H");
 	asmout("work_err_send_buf EQU 0200H");
 
-//	PUSH(DS); // ‚ ‚ç‚©‚¶‚ßAmalloc‚µ‚ÄGDT‚ÉŠ„‚è“–‚Ä‚Ä‚¨‚­
+//	PUSH(DS); // ã‚ã‚‰ã‹ã˜ã‚ã€mallocã—ã¦GDTã«å‰²ã‚Šå½“ã¦ã¦ãŠã
 //	PUSH(EAX);
 //	PUSH(ECX);
-//	AX = CS; AX += 8; DS = AX; // “Á’è‚ÌDS‚ÉˆË‘¶‚µ‚È‚¢‚½‚ß‚Ìè‘±‚«
+//	AX = CS; AX += 8; DS = AX; // ç‰¹å®šã®DSã«ä¾å­˜ã—ãªã„ãŸã‚ã®æ‰‹ç¶šã
 
 	keyboarddata *work == DS:0;
 	int zero == EAX, i == ECX;
 	zero = 0;
-	i = 64 + 64 / 8; // ‚Â‚¢‚Å‚Épushflags‚à‰Šú‰»
+	i = 64 + 64 / 8; // ã¤ã„ã§ã«pushflagsã‚‚åˆæœŸåŒ–
 	do {
 		i--;
 		/* work->send_buf[i * 8 + 0] = zero */ asmout("MOV DWORD PTR DS:[ECX * 8 + 0],EAX");
@@ -418,7 +418,7 @@ void near keyboardInit()
 //	asmout("MOV DWORD PTR DS:[0180H],OFFSET Keydecode_Main");
 //	asmout("MOV DWORD PTR DS:[0184H],22*8");
 
-	work->queue_free_dw = /* sizeof (work->queue_buf) */ 128 / 4 - 1 /* quecmd_tonormal‚Ì•ª */;
+	work->queue_free_dw = /* sizeof (work->queue_buf) */ 128 / 4 - 1 /* quecmd_tonormalã®åˆ† */;
 	work->queue_write_ptr = /* (offset) work->queue_buf */ 0x80;
 	work->queue_exec_ptr  = /* (offset) work->queue_buf */ 0x80;
 
@@ -429,7 +429,7 @@ void near keyboardInit()
 	PUSH((int) 0); // eoc
 	PUSH(EAX);
 	PUSH(EAX);
-	PUSH(0x011c /* TAPI_SingnalMessageTimerƒxƒNƒ^—v‹ */);
+	PUSH(0x011c /* TAPI_SingnalMessageTimerãƒ™ã‚¯ã‚¿è¦æ±‚ */);
 	MOV(EAX, SS);
 	EBX = ESP;
 	FS = AX;
@@ -449,7 +449,7 @@ void near keyboardInit()
 //	/* work->mousesignal[4] */ [work + 0x1B4] = /* CS */ 12*8;
 //	asmout("MOV DWORD PTR DS:[work_mousesignal+4],12*8");
 
-	work->mouse_queue_free_dw = /* sizeof (work->mouse_queue_buf) */ 128 / 4 - 1 /* mouse_quecmd_tonormal‚Ì•ª */;
+	work->mouse_queue_free_dw = /* sizeof (work->mouse_queue_buf) */ 128 / 4 - 1 /* mouse_quecmd_tonormalã®åˆ† */;
 	work->mouse_queue_write_ptr = /* (offset) work->mouse_queue_buf */ 0x100;
 	work->mouse_queue_exec_ptr  = /* (offset) work->mouse_queue_buf */ 0x100;
 
@@ -465,19 +465,19 @@ dummy_fret:
 }
 
 /*
-	DS:ESI‚©‚ç‚Ìd—l(ƒ^ƒCƒ}[ê—pƒVƒOƒiƒ‹ˆ—ƒ‹[ƒ`ƒ“g—p)B
-	+00 : bit0-2 : ƒƒbƒZ[ƒWdw”BÅ‚7(28bytes)B
-	      bit3   : eax, ecx, edxƒ[ƒh & CF = 1‚ğ‚â‚é‚©‚â‚ç‚È‚¢‚©(1‚Å‚â‚é)B
-	      bit4-  : ƒƒbƒZ[ƒW‚Ì‘—Mæ‚Ìw’è‚Ég‚¤iƒVƒOƒiƒ‹ƒ|[ƒgjB
-	+04 -	     : ƒƒbƒZ[ƒW‚ğ‘‚­
+	DS:ESIã‹ã‚‰ã®ä»•æ§˜(ã‚¿ã‚¤ãƒãƒ¼å°‚ç”¨ã‚·ã‚°ãƒŠãƒ«å‡¦ç†ãƒ«ãƒ¼ãƒãƒ³ä½¿ç”¨æ™‚)ã€‚
+	+00 : bit0-2 : ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸dwæ•°ã€‚æœ€é«˜7(28bytes)ã€‚
+	      bit3   : eax, ecx, edxãƒ­ãƒ¼ãƒ‰ & CF = 1ã‚’ã‚„ã‚‹ã‹ã‚„ã‚‰ãªã„ã‹(1ã§ã‚„ã‚‹)ã€‚
+	      bit4-  : ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®é€ä¿¡å…ˆã®æŒ‡å®šã«ä½¿ã†ï¼ˆã‚·ã‚°ãƒŠãƒ«ãƒãƒ¼ãƒˆï¼‰ã€‚
+	+04 -	     : ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ›¸ã
 
-	DS:ESI‚©‚ç‚Ìd—l(”Ä—pƒVƒOƒiƒ‹ˆ—ƒ‹[ƒ`ƒ“g—p)B
-	+00 : bit0-3 : ƒƒbƒZ[ƒWdw”BÅ‚15(60bytes)B
-	      bit4-  : ƒƒbƒZ[ƒW‚Ì‘—Mæ‚Ìw’è‚Ég‚¤iƒVƒOƒiƒ‹ƒ|[ƒgjB
-	+04 -	     : ƒƒbƒZ[ƒW‚ğ‘‚­
+	DS:ESIã‹ã‚‰ã®ä»•æ§˜(æ±ç”¨ã‚·ã‚°ãƒŠãƒ«å‡¦ç†ãƒ«ãƒ¼ãƒãƒ³ä½¿ç”¨æ™‚)ã€‚
+	+00 : bit0-3 : ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸dwæ•°ã€‚æœ€é«˜15(60bytes)ã€‚
+	      bit4-  : ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã®é€ä¿¡å…ˆã®æŒ‡å®šã«ä½¿ã†ï¼ˆã‚·ã‚°ãƒŠãƒ«ãƒãƒ¼ãƒˆï¼‰ã€‚
+	+04 -	     : ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ›¸ã
 
-	ˆê”Ê‚É‚ÍAƒƒbƒZ[ƒW–{‘Ì‚ÌÅ‰‚Ì4ƒoƒCƒg‚ÍAó‚¯æ‚Á‚½ƒ‹[ƒ`ƒ“‚ª’N‚©‚ç‚ÌƒƒbƒZ[ƒW‚Å‚ ‚é‚©‚ğ
-	¯•Ê‚·‚é‚Ì‚Ég‚í‚ê‚éB‚ä‚¦‚ÉAƒL[ƒR[ƒh’l‚È‚Ç‚ÍA+08‚É‘‚«‚Ü‚ê‚éB
+	ä¸€èˆ¬ã«ã¯ã€ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸æœ¬ä½“ã®æœ€åˆã®4ãƒã‚¤ãƒˆã¯ã€å—ã‘å–ã£ãŸãƒ«ãƒ¼ãƒãƒ³ãŒèª°ã‹ã‚‰ã®ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã§ã‚ã‚‹ã‹ã‚’
+	è­˜åˆ¥ã™ã‚‹ã®ã«ä½¿ã‚ã‚Œã‚‹ã€‚ã‚†ãˆã«ã€ã‚­ãƒ¼ã‚³ãƒ¼ãƒ‰å€¤ãªã©ã¯ã€+08ã«æ›¸ãè¾¼ã¾ã‚Œã‚‹ã€‚
 */
 
 void far KeyboardIntDrv()
@@ -496,8 +496,8 @@ void far KeyboardIntDrv()
 
 	PUSH(DS);
 	PUSH(EAX);
-	MOV(EAX, CS); EAX += 8; DS = AX; // “Á’è‚ÌDS‚ÉˆË‘¶‚µ‚È‚¢‚½‚ß‚Ìè‘±‚«
-	ss0->ring0_count++; // Š„‚è‚İƒ‹[ƒ`ƒ“‚ÌŠî–{
+	MOV(EAX, CS); EAX += 8; DS = AX; // ç‰¹å®šã®DSã«ä¾å­˜ã—ãªã„ãŸã‚ã®æ‰‹ç¶šã
+	ss0->ring0_count++; // å‰²ã‚Šè¾¼ã¿ãƒ«ãƒ¼ãƒãƒ³ã®åŸºæœ¬
 	ss0->cli_count++;
 }
 
@@ -505,9 +505,9 @@ void near KeyboardIntDrv2()
 {
 	keyboarddata *work == DS:0;
 
-// æ‚ÉŠ„‚è‚İ‚ğI—¹‚³‚¹‚Ä‚µ‚Ü‚¤(2000/05/29 ƒf[ƒ^[‚ğæ‚è‚±‚Ú‚·ƒGƒ‰[‚ª‚ ‚Á‚½‚½‚ß)B
-// M†‚Ì—§‚¿ã‚ª‚è‚ªŠ„‚è‚İ‚ğ‹N‚±‚·‚©‚çAŠQ‚Í‚È‚¢‚¾‚ë‚¤B
-	AL = 0x61 /* IRQ-01‚ğI—¹ */;
+// å…ˆã«å‰²ã‚Šè¾¼ã¿ã‚’çµ‚äº†ã•ã›ã¦ã—ã¾ã†(2000/05/29 ãƒ‡ãƒ¼ã‚¿ãƒ¼ã‚’å–ã‚Šã“ã¼ã™ã‚¨ãƒ©ãƒ¼ãŒã‚ã£ãŸãŸã‚)ã€‚
+// ä¿¡å·ã®ç«‹ã¡ä¸ŠãŒã‚ŠãŒå‰²ã‚Šè¾¼ã¿ã‚’èµ·ã“ã™ã‹ã‚‰ã€å®³ã¯ãªã„ã ã‚ã†ã€‚
+	AL = 0x61 /* IRQ-01ã‚’çµ‚äº† */;
 	OUT(0x20, AL);
 
 	IN(AL, 0x60);
@@ -548,7 +548,7 @@ if (AL == 0x01 /* ESC */) { // !!!
 	keycode &= 0x0100007f; // 00:make, 01:break
 
 send_keycode:
-	/* make/break‚Ìê‡‚ÍAremake‚âoverbreak‚Ìƒ`ƒFƒbƒN‚à‚·‚é */
+	/* make/breakã®å ´åˆã¯ã€remakeã‚„overbreakã®ãƒã‚§ãƒƒã‚¯ã‚‚ã™ã‚‹ */
 	asmout("KeyIntDrv_send_keycode: EQU $");
 	PUSHAD();
 	if (keycode < 0x02000000) {
@@ -560,984 +560,4 @@ send_keycode:
 			/* BTS(*(work->pushflags), keycode2) */ asmout("BTS DWORD PTR DS:[040H],ECX");
 		} else {
 			// break
-			/* BTR(*(work->pushflags), keycode2) */ asmout("BTR DWORD PTR DS:[040H],ECX");
-			CMC() /* CF =~ CF */;
-		}
-		ADC(keycode3, 0);
-		keycode3 <<= 25; // EAX = 0 or 0x02000000
-		keycode |= keycode3;
-	}
-	/* work->send_buf[8] */ [work + 0x08] = keycode;
-	// make/remake/break/overbreak‚Ì‚¢‚¸‚ê‚Å‚àA‘—M‚·‚é
-	ESI = /* &work->send_buf */ 0x00;
-	/* (work->keysignal)() */ asmout("CALL FAR DWORD DS:[0180H]"); 
-	// ESI‚àŠÜ‚ßA”Ä—pƒŒƒWƒXƒ^‚Í‚·‚×‚Ä”j‰ó‚³‚ê‚é
-	POPAD();
-fin:
-}
-
-void near KeyIntDrv_Ret()
-{
-//	IN(AL, 0x64);
-//	AL &= 0x21;
-	// if (AL == 1 /* keyboard data ‚ ‚è */) goto KeyboardIntDrv2;
-//	CMP(AL, 1);
-//	asmout("JE KeyboardIntDrv2");
-		// ‚½‚¢‚Ä‚¢‚Ìê‡AKeyIntDrv_Normal‚É–ß‚Á‚Ä‚­‚é‚¾‚ë‚¤B
-		// ‚µ‚©‚µAƒL[ƒVƒOƒiƒ‹‚ªˆø‚«‹à‚É‚È‚Á‚ÄAƒRƒ}ƒ“ƒhƒ‚[ƒh‚ÉˆÚ‚é‚©‚à‚µ‚ê‚È‚¢B
-//	AL = 0x61 /* IRQ-01‚ğI—¹ */;
-//	OUT(0x20, AL);
-	POP(EAX);
-
-	SS0_struct *ss0 == /* SS:(- sizeof (SS0_struct)) */ SS:0xffffffc0;
-
-	ss0->cli_count--; // Š„‚è‚İƒ‹[ƒ`ƒ“‚ÌŠî–{
-	if (== 0) goto call_clicall;
-	POP(DS);
-	ss0->ring0_count--;
-	if (== 0) goto call_ring0call;
-	IRETD();
-
-call_clicall:
-	PUSHAD();
-	/* (ss0->clicall)() */ asmout("CALL FAR DWORD SS:[0FFFFFFC0H+038H]");
-	POPAD();
-	POP(DS);
-	ss0->ring0_count--;
-	if (== 0) goto call_ring0call;
-	IRETD();
-
-call_ring0call:
-	/* (ss0->ring0call)() */ jmp_system_count0();
-//	IRETD();
-}
-
-void near KeyIntDrv_E0byte()
-{
-	asmout("#KeyIntDrv_Ret EQU KeyIntDrv_Ret");
-	asmout("#KeyIntDrv_send_keycode EQU KeyIntDrv_send_keycode");
-
-	/* work->keyjmp = KeyIntDrv_E0byte; */ asmout("MOV DWORD PTR DS:[0188h],OFFSET KeyIntDrv_Normal");
-	if (AL == 0x2a)
-		goto KeyIntDrv_Ret; // E0 2A ‚ğÌ‚Ä‚é
-	if (AL == 0xaa)
-		goto KeyIntDrv_Ret; // E0 AA ‚ğÌ‚Ä‚é
-	if (AL == 0x36)
-		goto KeyIntDrv_Ret; // E0 36 ‚ğÌ‚Ä‚é
-	if (AL == 0xb6)
-		goto KeyIntDrv_Ret; // E0 B6 ‚ğÌ‚Ä‚é
-	MOVSX(EAX, AL);
-	EAX &= 0x0100007f;
-	EAX |= 0x00000080;
-	goto KeyIntDrv_send_keycode;
-}
-
-void near KeyIntDrv_E1byte()
-{
-	asmout("#KeyIntDrv_Ret EQU KeyIntDrv_Ret");
-	asmout("#KeyIntDrv_send_keycode EQU KeyIntDrv_send_keycode");
-
-	/* work->keyjmp = e1_0x1d; */ asmout("MOV DWORD PTR DS:[0188h],OFFSET #e1_0x1d");
-	if (AL == 0x1d)
-		goto KeyIntDrv_Ret; // E1 1D ‚Ü‚Å‚ğŠm”F‚µ‚ÄÌ‚Ä‚é
-	/* work->keyjmp = e1_0x9d; */ asmout("MOV DWORD PTR DS:[0188h],OFFSET #e1_0x9d");
-	if (AL == 0x9d)
-		goto KeyIntDrv_Ret; // E1 9D ‚Ü‚Å‚ğŠm”F‚µ‚ÄÌ‚Ä‚é
-
-int03:
-	INT(0x03); // ‚±‚±‚É—ˆ‚é‚Æ‚«‚Í–¢’m‚ÌƒL[ƒR[ƒh‚É‘˜‹ö
-
-e1_0x1d:
-	if (AL != 0x45)
-		goto int03; // E1 1D 45 ‚¶‚á‚È‚©‚Á‚½
-	EAX = 0x00000100;
-	/* work->keyjmp = KeyIntDrv_E0byte; */ asmout("MOV DWORD PTR DS:[0188h],OFFSET KeyIntDrv_Normal");
-	goto KeyIntDrv_send_keycode;
-
-e1_0x9d:
-	if (AL != 0xC5)
-		goto int03; // E1 9D C5 ‚¶‚á‚È‚©‚Á‚½
-	EAX = 0x01000100;
-	/* work->keyjmp = KeyIntDrv_E0byte; */ asmout("MOV DWORD PTR DS:[0188h],OFFSET KeyIntDrv_Normal");
-	goto KeyIntDrv_send_keycode;
-
-}
-
-void near KeyboardQueueExecute()
-/*	ƒL[ƒ{[ƒhƒ}ƒCƒNƒƒRƒ}ƒ“ƒhƒLƒ…[ƒCƒ“ƒO
-
-	‚à‚Á‚Æ‘½‹@”\‚É‚·‚éBw’èƒoƒCƒg‚ğ‘Ò‚ÂAACK/NACK“]‘—‚·‚éA’Pƒ“]‘—‚·‚éA‚ª‘I‚×‚éB
-		4ƒoƒCƒg‚ÌƒWƒƒƒ“ƒvƒxƒNƒ^‚ğƒRƒ}ƒ“ƒh‚É‚·‚éB
-		ƒpƒ‰ƒ[ƒ^[‚à4ƒoƒCƒgƒAƒ‰ƒCƒ“B
-		‚Ü‚½AƒRƒ}ƒ“ƒh‚É‚æ‚éƒRƒ}ƒ“ƒhƒLƒ…[‚Ìæ“ªˆÚ“®‚à‚â‚éB
-
-		ƒm[ƒ}ƒ‹ƒ‚[ƒh‚ÉˆÚs	00    <
-		’Pƒ“]‘—		01 xx
-		w’èƒoƒCƒgóM‘Ò‚¿	02 xx < óM‚µ‚½‚¢ƒoƒCƒg”‚ğ‘‚­
-		“Á’èƒf[ƒ^[óM‘Ò‚¿	03 xx < ...ƒGƒ‰[‚Ì‚ÍA0x00000001‚ğ•Ô‚·B
-		ACK“]‘—			04 xx < ...ƒGƒ‰[‚Ì‚ÍA0x00000002‚ğ•Ô‚·B
-		óMƒf[ƒ^[Ì‚Ä‚é	05    < ƒoƒCƒg”•s–¾‚Ìê‡
-		óMƒ|ƒCƒ“ƒ^‰Šú‰»	06
-		³íI—¹ƒVƒOƒiƒ‹”­¶	07	... ³íI—¹‚È‚Ì‚ÅA0‚ğ•Ô‚·B
-		
-		ƒVƒOƒiƒ‹ƒwƒbƒ_İ’è	80 (align 4) dw,wd,wd
-		ƒVƒOƒiƒ‹Šg’£İ’è	81 (align 4) dw,wd,wd
-				(Å‰‚Ì6bytes‚Íƒ|ƒCƒ“ƒ^BÅŒã‚Ìwd‚Í“]‘—dw”)
-		ƒVƒOƒiƒ‹ƒxƒNƒ^İ’è	82 (align 4) dw,wd,wd
-				(Å‰‚Ì6bytes‚Íƒ|ƒCƒ“ƒ^BÅŒã‚Ìwd‚Íƒ_ƒ~[)
-		óMƒf[ƒ^[ƒRƒs[	83 (align 4) dw,wd,wd
-				(Å‰‚Ì6bytes‚Íƒ|ƒCƒ“ƒ^BÅŒã‚Ìwd‚Í“]‘—‰Â”\dw”)
-				‚È‚¨A“]‘—‚³‚ê‚éÅ‰‚Ìdw‚ÍAƒoƒbƒtƒ@g—p—ÊB
-
-	‘‚«‚İ‘¦’l‚Í‚â‚ß‚éB‘‚«‚İæ‚ÍAóMƒoƒbƒtƒ@B
-
-	‚±‚Ì•\‚Ì’†‚Ì00`83‚ÍAFS:EBX‚É‘‚­ƒRƒ}ƒ“ƒh‚Æ‚Í–³ŠÖŒW
-
-	‚±‚Ì‹@”\(02)‚Ì‚¨‚©‚°‚ÅA•¡”ƒoƒCƒg‚Ì‘Ò‚¿‚ª‹Lq‚Å‚«‚é
-	ˆê”Ê“I‚É‚ÍAƒGƒ‰[ƒVƒOƒiƒ‹‚ÍAãˆÊ‚ÌƒL[ƒ{[ƒhƒhƒ‰ƒCƒo[‚ÉÚ‘±‚·‚éB
-	ˆê”Ê‚ÌƒAƒvƒŠ‚Éİ’è‚·‚×‚«‚Å‚Í‚È‚¢B
-
-	‚Ç‚¤‚â‚Á‚ÄA–ß‚é‚©Bjmp‚É‚µ‚½‚¢‚¯‚ÇA‚»‚¤‚às‚©‚È‚¢B
-	nret‚Æ‚¢‚¤‚Ì‚à‚¢‚Ü‚¢‚¿‚¾BEEEnret‚É‚µ‚æ‚¤B
-	ƒLƒ…[‚Ì“r’†‚Å‚Í‚ÌKeyWorkJmp‚ÍA•Ï‰»‚µ‚È‚¢BEEE‚¾‚©‚çAƒ‰ƒ“ƒjƒ“ƒOƒtƒ‰ƒO‚Æ‚µ‚Äg‚¦‚éB
-
-	fs:ebx‚É“]‘—‚µ‚½‚¢ƒf[ƒ^[‚ğÏ‚ñ‚Å’u‚¢‚ÄAƒR[ƒ‹‚·‚é‚¾‚¯B‚ ‚Æ‚ÍÓ”C‚Á‚ÄƒLƒ…[‚É‘—‚Á‚Ä‚­‚ê‚éB
-		iŒ`®‚ÍAdw”Aƒf[ƒ^[AEEEj
-	ƒ^ƒCƒ€ƒAƒEƒg—p‚Ìƒ^ƒCƒ}[‚ª‚ ‚é‚Æ‚¢‚¢Bƒm[ƒh‚Íˆê‚Â‚Å\•ªB
-
-	”Ä—pƒŒƒWƒXƒ^‚Í‚·‚×‚Ä”j‰ó‚³‚ê‚é
-*/
-{
-	keyboarddata *work == DS:0;
-	SS0_struct *ss0 == /* SS:(- sizeof (SS0_struct)) */ SS:0xffffffc0;
-	asmout("#KeyIntDrv_Ret EQU KeyIntDrv_Ret");
-
-	PUSHFD();
-	CLI();
-	unsigned int *wp == DS:ESI, free == EDX, *commands == FS:EBX;
-	(offset) wp = work->queue_write_ptr;
-	free = work->queue_free_dw;
-	unsigned int cmds_length == ECX;
-	cmds_length = *commands;
-	(offset) commands += 4;
-	do {
-		free -= cmds_length;
-		/* (false) */ if ((unsigned) < 0) { // I—¹ƒRƒ}ƒ“ƒh‚Ì•ª‚ÍA‚ ‚ç‚©‚¶‚ßˆø‚¢‚Ä‚ ‚é‚Ì‚ÅA“™‚µ‚­‚Ä‚à‚¢‚¢
-			// ‘S‚Ä‚ğŒä”jZ‚É‚·‚é
-buf_full_err:
-			(offset) wp = work->queue_write_ptr;
-			/* *wp = quecmd_tonormal */ asmout("MOV DWORD PTR DS:[ESI],OFFSET #quecmd_tonormal");
-				// ‚±‚ÌƒRƒ}ƒ“ƒh‚ğó—‚µ‚½‚çAqueue_write_ptr‚ğ‰Šú‰»‚·‚é
-			POPFD();
-			STC();
-			return;
-		}
-		/* EAX = (offset) wp + cmds_length * 4 */ asmout("LEA EAX,[ESI+ECX*4]");
-		/* (false) */ if ((unsigned) EAX >= /* (offset) work->queue_buf + sizeof (work->queue_buf) */ 0x100) {
-			// “™‚µ‚­‚Ä‚àƒ_ƒ‚È‚Ì‚ÍAƒwƒbƒh‚Ö–ß‚·ƒRƒ}ƒ“ƒh‚ªg‚¦‚È‚¢‚©‚ç
-			// free -= (work->queue_buf + sizeof (work->queue_buf) - (offset) wp) / 4;
-			// free += (- work->queue_buf - sizeof (work->queue_buf) + (offset) wp) / 4;
-			/* EAX = (offset) wp - ((offset) work->queue_buf + sizeof (work->queue)); */
-			asmout("LEA EAX,[ESI-0100H]");
-			/* *wp = (offset) quecmd_restore */ asmout("MOV DWORD PTR DS:[ESI],OFFSET #quecmd_restore");
-			EAX /= 4;
-			free += EAX; // ‚à‚µA‚±‚ê‚Åfree‚ª0‚à‚µ‚­‚Í•‰‚É‚È‚Á‚½‚çA‚â‚Í‚è‘«‚è‚È‚¢‚±‚Æ‚É‚È‚é
-			if ((signed) < 0)
-				goto buf_full_err;
-			(offset) wp = /* work->queue_buf */ 0x080;
-		}
-		do {
-			EAX = *commands;
-			(offset) commands += 4;
-			*wp = EAX;
-			(offset) wp += 4;
-			cmds_length--;
-		} while (!= 0);
-		cmds_length = *commands;
-		(offset) commands += 4;
-	} while (cmds_length > 0);
-	/* EAX = (offset) KeyQueIntDrv */ asmout("MOV EAX,OFFSET #KeyQueIntDrv");
-	/* *wp = quecmd_tonormal */ asmout("MOV DWORD PTR DS:[ESI],OFFSET #quecmd_tonormal");
-	work->queue_write_ptr = (offset) wp;
-	work->queue_free_dw = free;
-	/* (false) */ if (EAX == work->keyjmp) {
-		POPFD();
-		CLC();
-		return;
-	}
-	work->keyjmp = EAX;
-	ss0->cli_count++;
-	EBX = /* work->queue_exec_ptr */ /* (offset) work->queue_buf */ 0x80;
-	EBP = free;
-	/* [(void near *) DS:EBX](); */ asmout("CALL DWORD PTR DS:[080H]");
-	work->queue_exec_ptr = EBX;
-	work->queue_free_dw = EBP;
-	ss0->cli_count--;
-	if (!= 0) {
-		POPFD();
-		CLC();
-		return;
-	}
-	PUSH(DS);
-	/* (ss0->cli_call)() */ asmout("CALL FAR DWORD SS:[0FFFFFFC0H+038H]");
-	POP(DS);
-	POPFD();
-	CLC();
-	return;
-
-//	ALIGN(16);
-KeyQueIntDrv:
-	PUSHAD();
-	EBX = work->queue_exec_ptr;
-	EBP = work->queue_free_dw;
-	/* ((void near *) work->exec_wait_int)(); */ asmout("CALL DWORD PTR DS:[019CH]");
-	work->queue_exec_ptr = EBX;
-	work->queue_free_dw = EBP;
-	POPAD();
-	goto KeyIntDrv_Ret;
-
-/*
-	“ü—Íƒf[ƒ^[‘Ò‚¿‚È‚çAexec_wait_int‚ğƒZƒbƒg‚·‚é‚±‚Æ
-	ƒ^ƒCƒ}[‚È‚Ç‚ğ‘Ò‚Âê‡‚ÍA‚±‚ÌŒÀ‚è‚Å‚Í‚È‚¢B
-	ƒ^ƒCƒ€ƒAƒEƒg—pƒ^ƒCƒ}[‚ğg‚¤‚È‚çAg—pŒã‚ÍƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½ó‘Ô‚É‚µ‚Ä‚¨‚­‚±‚ÆB
-	EEE‚Á‚Ä‚±‚Æ‚ÍAƒLƒƒƒ“ƒZƒ‹ƒ}ƒCƒNƒƒR[ƒh‚ğg‚¤‚Æ‚¢‚¤‚±‚ÆB
-	iƒ^ƒCƒ}[g—pƒRƒ}ƒ“ƒh‚ÍAŒ»İ‚©‚ç‚ÌŠÔ‚ğ‘‚¯‚Î‚¢‚¢j
-
-*/
-
-quecmd_tonormal:
-	/* work->keyjmp = KeyIntDrv_Normal; */ asmout("MOV DWORD PTR DS:[0188h],OFFSET KeyIntDrv_Normal");
-	work->queue_write_ptr = /* (offset) work->queue_buf */ 0x80;
-	EBP = /* sizeof (work->queue_buf) */ 128 / 4 - 1 /* qurcmd_tonormal‚Ì•ª */;
-	EBX = /* (offset) work->queue_buf */ 0x80;
-	/* (near) */ return;
-
-quecmd_restore:
-	// EBP += (work->queue_buf + sizeof (work->queue) - EBX) / 4
-	//     -= (EBX - (work->queue_buf + sizeof (work->queue)) / 4
-	asmout("LEA EAX,[EBX-0100H]");
-	/* EBX = work->queue_buf */ asmout("MOV EBX,work_queue_buf");
-	/* (signed int) */ EAX /= 4;
-	EBP -= EAX;
-	/* goto [(void near *) work->queue_buf] */ asmout("JMP DWORD PTR DS:[0080H]");
-}
-
-void near KeyQueCmd_SendData()
-// ’Pƒ‘—M
-{
-	AL = [DS:EBX+4];
-	EBX += 8;
-	EBP += 2;
-	OUT(0x60, AL);
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-}
-
-void near KeyQueCmd_AckSendData()
-// ACK§Œä•t‚«‘—M
-{
-	/* work->exec_wait_int = intack; */ asmout("MOV DWORD PTR DS:[019CH],OFFSET #intack");
-retry:
-	AL = [DS:EBX + 4];
-	OUT(0x60, AL);
-	return; // EBX‚ÆEBP‚Í‚»‚Ì‚Ü‚Ü‚É‚µ‚Ä‚¨‚­iÀs’†‚Ì–½—ß‚ª‚í‚©‚ç‚È‚­‚È‚é‚©‚çj
-
-intack:
-	if (AL == 0xfa /* ACK */) {
-		EBX += 8;
-		EBP += 2;
-		/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-	}
-	if (AL == 0xfe /* NACK */)
-		goto retry;
-
-	// ˆÈ‰º‚ÍSOLO2150‘Îô
-	EBX += 8;
-	EBP += 2;
-	asmout("CMP DWORD PTR DS:[EBX],OFFSET KeyQueCmd_RecieveCheck");
-	if (==) {
-		/* 2002.11.12 ‚Æ‚«‚Ì‚Ğ‚Æ‚³‚ñ‘Îô(ƒ}ƒVƒ“–¼•s–¾)‚Æ‚µ‚ÄAif•¶‚ğ–³Œø‚É */
-	//	if (AL == [DS:EBX+4]) {
-			EBX += 8;
-			EBP += 2;
-			/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-	//	}
-	}
-	/* 2002.11.25 ‚Æ‚«‚Ì‚Ğ‚Æ‚³‚ñ‘Îô */
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-
-#if 0
-	EBX -= 8;
-	EBP -= 2;
-	INT(0x03); // ƒGƒ‰[ƒVƒOƒiƒ‹‚ğ”­¶‚³‚¹‚é
-#endif
-}
-
-/*
-
-KeyQueCmd_RecieveBytes	proc	near	; nƒoƒCƒgóM
-
-			mov	dword ptr ds:[KeyWorkQueIP],offset #intres
-			mov	dword ptr ds:[KeyWorkQuePtr],ebx
-			mov	dword ptr ds:[KeyWorkQueFreDw],ebp
-			ret
-#intres:
-			mov	esi,dword ptr ds:[KeyWorkBufPtr]
-			mov	 byte ptr ds:[esi], al
-			inc	esi
-			mov	dword ptr ds:[KeyWorkBufPtr],esi
-			dec	dword ptr ds:[ebx][4]
-			jz	short #fin
-			ret
-#fin:
-			add	ebx,8
-			add	ebp,2
-			jmp	dword ptr ds:[ebx]
-
-KeyQueCmd_RecieveBytes	endp
-
-*/
-
-void near KeyQueCmd_RecieveCheck()
-// 1ƒoƒCƒgóM•ƒ`ƒFƒbƒN
-{
-	/* work->exec_wait_int = intres; */ asmout("MOV DWORD PTR DS:[019CH],OFFSET #intres");
-	return; // EBX‚ÆEBP‚Í‚»‚Ì‚Ü‚Ü‚É‚µ‚Ä‚¨‚­iÀs’†‚Ì–½—ß‚ª‚í‚©‚ç‚È‚­‚È‚é‚©‚çj
-
-intres:
-	if (AL == [DS:EBX+4]) {
-		EBX += 8;
-		EBP += 2;
-		/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-	}
-	INT(0x03); // –{—ˆ‚È‚ç‚±‚±‚ÅƒGƒ‰[ƒVƒOƒiƒ‹
-}
-
-void near KeyQueCmd_WriteCmdReg()
-// ƒL[ƒ{[ƒhƒCƒ“ƒ^[ƒtƒFƒCƒX‚Ö‘—M
-{
-	AL = [DS:EBX + 4];
-	EBX += 8;
-	EBP += 2;
-	OUT(0x64, AL);
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-}
-
-/*
-
-KeyQueCmd_SetBufPtr	proc	near
-
-			mov	eax,dword ptr ds:[ebx][4]
-			add	ebx,8
-			add	ebp,2
-			mov	dword ptr ds:[KeyWorkBufPtr],eax
-			jmp	dword ptr ds:[ebx]
-
-KeyQueCmd_SetBufPtr	endp
-
-KeyQueCmd_SetTimer	proc	near
-
-#exec			equ	TimerConstNodeExec
-#time			equ	TimerConstNodeTime
-
-			push	 es
-			push	 fs
-			pushad
-			mov	 ax, ds
-			mov	 fs, ax
-			mov	eax,TimerWorkSel
-			mov	 es, ax
-			mov	ebx,KeyWorkTimerCmd2	; æ“¾
-			fcall	TimerSel,TimerSysCmd	; ƒVƒXƒeƒ€ƒR[ƒ‹
-
-;	–{—ˆ‚ÍA‚±‚±‚ÅƒGƒ‰[ƒ`ƒFƒbƒN‚·‚×‚µ
-
-			mov	ebx,dword ptr ss:[esp][16]	; ebx•œ‹A
-			mov	edi,dword ptr ds:[KeyWorkTimerCmd1][04]	; node
-			mov	eax,dword ptr ds:[KeyWorkTimerCmd2][04]
-			mov	edx,dword ptr ds:[KeyWorkTimerCmd2][08]
-			add	eax,dword ptr ds:[ebx][04]
-			mov	ecx,dword ptr ds:[KeyWorkTimerCmd2][12]
-			adc	edx,dword ptr ds:[ebx][08]
-			mov	dword ptr es:[edi][#time][0],eax
-			adc	ecx,dword ptr ds:[ebx][12]
-			mov	eax,dword ptr ds:[ebx][16]
-			add	ebx,20
-			mov	dword ptr es:[edi][#time][4],edx
-			mov	dword ptr es:[edi][#time][8],ecx
-			mov	dword ptr es:[edi][#exec][0],eax
-			mov	 word ptr es:[edi][#exec][4], cs
-			mov	dword ptr ss:[esp][16],ebx
-			mov	ebx,KeyWorkTimerCmd1
-			mov	dword ptr ds:[KeyWorkTimerCmd1],04*4	; set timer
-			fcall	TimerSel,TimerSysCmd	; ƒVƒXƒeƒ€ƒR[ƒ‹
-
-;	–{—ˆ‚ÍA‚±‚±‚ÅƒGƒ‰[ƒ`ƒFƒbƒN‚·‚×‚µ
-
-			popad
-			pop	 fs
-			pop	 es
-			add	ebp,5
-			jmp	dword ptr ds:[ebx]
-
-KeyQueCmd_SetTimer	endp
-
-KeyQueCmd_CancelTimer	proc	near
-
-			push	 fs
-			pushad
-			mov	 ax, cs
-			add	 ax,8
-			mov	 fs, ax
-			mov	ebx,KeyWorkTimerCmd1	; Š„‚è‚İæ‚èÁ‚µ
-			mov	dword ptr ds:[KeyWorkTimerCmd1],05*4	; cancel timer
-			fcall	TimerSel,TimerSysCmd	; ƒVƒXƒeƒ€ƒR[ƒ‹
-
-;	–{—ˆ‚ÍA‚±‚±‚ÅƒGƒ‰[ƒ`ƒFƒbƒN‚·‚×‚µ
-
-			popad
-			add	ebx,4
-			inc	ebp
-			pop	 fs
-			jmp	dword ptr ds:[ebx]
-
-KeyQueCmd_CancelTimer	endp
-
-*/
-
-void near KeyQueCmd_WaitBufEnpty()
-// o—Íƒoƒbƒtƒ@‚ª‹ó‚­‚Ì‚ğ‘Ò‚Â
-{
-	EBX += 4;
-	EBP++;
-	do {
-		IN(AL, 0x64);
-		TEST(AL, 0x02);
-	} while (!= 0);
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-}
-
-void near KeyQueCmd_CancelErrSignal()
-{
-	EBX += 4;
-	EBP++;
-	/* work->keyerr_signal[0] = (offset) dummy_fret */ asmout("MOV DWORD PTR DS:[work_keyerr_signal+0],OFFSET dummy_fret");
-	/* work->keyerr_signal[4] = CS */ asmout("MOV WORD PTR DS:[work_keyerr_signal+4],CS");
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-}
-
-void near KeyQueCmd_SetErrSignal()
-{
-	EAX = [DS:EBX +  4];
-	ECX = [DS:EBX +  8];
-	/* work->keyerr_signal[0] = EAX */ asmout("MOV DWORD PTR DS:[work_keyerr_signal+0],EAX");
-	/* work->keyerr_signal[4] = ECX */ asmout("MOV DWORD PTR DS:[work_keyerr_signal+4],ECX");
-	EAX = [DS:EBX + 12];
-	ECX = [DS:EBX + 16];
-	EBX += 20;
-	EBP += 5;
-	/* work->err_send_buf[0] = EAX */ asmout("MOV DWORD PTR DS:[work_err_send_buf+0],EAX");
-	/* work->err_send_buf[4] = ECX */ asmout("MOV DWORD PTR DS:[work_err_send_buf+4],ECX");
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-}
-
-void near KeyQueCmd_MakeFinishSignal()
-{
-	PUSH(EBX);
-	PUSH(EBP);
-	/* work->err_send_buf[8] = 0 */ asmout("MOV DWORD PTR DS:[work_err_send_buf+8],0");
-	/* ESI = work->err_send_buf */ asmout("MOV ESI,work_err_send_buf");
-	asmout("CALL FAR DWORD DS:[work_keyerr_signal]");
-	POP(EBP);
-	POP(EBX);
-	EBX += 4;
-	EBP++;
-	/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-}
-
-
-void far MouseIntDrv()
-// ƒL[ƒ{[ƒh‚Æ‚æ‚­—‚½\¬
-{
-	SS0_struct *ss0 == /* SS:(- sizeof (SS0_struct)) */ SS:0xffffffc0;
-
-	PUSH(DS);
-	PUSH(EAX);
-	MOV(EAX, CS); EAX += 8; DS = AX; // “Á’è‚ÌDS‚ÉˆË‘¶‚µ‚È‚¢‚½‚ß‚Ìè‘±‚«
-	ss0->ring0_count++; // Š„‚è‚İƒ‹[ƒ`ƒ“‚ÌŠî–{
-	ss0->cli_count++;
-}
-
-void near MouseIntDrv2()
-{
-	// æ‚ÉŠ„‚è‚İ‚ğI—¹‚³‚¹‚Ä‚µ‚Ü‚¤(2001/02/18 ƒf[ƒ^[‚ğæ‚è‚±‚Ú‚·ƒGƒ‰[‚ª‚ ‚Á‚½‚½‚ß)B
-	// M†‚Ì—§‚¿ã‚ª‚è‚ªŠ„‚è‚İ‚ğ‹N‚±‚·‚©‚çAŠQ‚Í‚È‚¢‚¾‚ë‚¤B
-	AL = 0x64 /* IRQ-12‚ğI—¹ */;
-	OUT(0xa0, AL);
-	// ‚±‚±‚ÅISR‚ğ“Ç‚ñ‚ÅIRQ-02‚ğI—¹‚·‚×‚«‚©”»’f‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢A‚©‚à‚µ‚ê‚È‚¢
-	// Œ»ƒo[ƒWƒ‡ƒ“‚Å‚ÍAƒXƒŒ[ƒu‚ÌŠ„‚è‚İ‚Í‚P‚Â‚µ‚©ó‚¯•t‚¯‚È‚¢
-	AL = 0x62 /* IRQ-02‚ğI—¹ */;
-	OUT(0x20, AL);
-
-	keyboarddata *work == DS:0;
-	IN(AL, 0x60);
-	asmout("JMP DWORD PTR DS:[work_mousejmp]"); // goto work->mousejmp;
-}
-
-// 1ƒoƒCƒg‚¸‚ÂóM‚µA3ƒoƒCƒgW‚Ü‚Á‚½‚çAƒVƒOƒiƒ‹‚ğo‚·
-
-void near MouseIntDrv_Phase0()
-{
-	keyboarddata *work == DS:0;
-	AH = AL;
-	/* work->mouse_send_buf[12] */ [work + 0x1cc] = AL;
-	AL &= 0xc8;
-	/* (false) */ if (AL != 0x08) { // ‘æ1ƒoƒCƒg‚Æ‚µ‚Ä‚Ó‚³‚í‚µ‚­‚È‚¢
-		if (AH == 0xaa) { // hot-plug?
-			// ƒ^ƒCƒ€ƒAƒEƒgƒ`ƒFƒbƒN‚Ì‚½‚ß‚Éƒ^ƒCƒ}[‚ğdŠ|‚¯‚é
-			/* work->mousejmp = (offset) MouseIntDrv_Phase3 */ asmout("MOV DWORD PTR DS:[work_mousejmp], OFFSET MouseIntDrv_Phase3");
-			/* goto MouseIntDrv_Ret */ asmout("JMP MouseIntDrv_Ret");
-		}
-		// INT(0x03); // •s–¾ƒoƒCƒgóMƒVƒOƒiƒ‹‚ğ”­¶
-		/* goto MouseIntDrv_Ret */ asmout("JMP MouseIntDrv_Ret"); // –³‹B
-	}
-	/* work->mousejmp = (offset) MouseIntDrv_Phase1 */ asmout("MOV DWORD PTR DS:[work_mousejmp], OFFSET MouseIntDrv_Phase1");
-}
-
-void near MouseIntDrv_Ret()
-{
-//	IN(AL, 0x64);
-//	AL &= 0x21;
-	// if (AL == 0x21 /* mouse data ‚ ‚è */) goto MouseIntDrv2;
-//	CMP(AL, 0x21);
-//	asmout("JE MouseIntDrv2");
-//	AL = 0x64 /* IRQ-12‚ğI—¹ */;
-//	OUT(0xa0, AL);
-	// ‚±‚±‚ÅISR‚ğ“Ç‚ñ‚ÅIRQ-01‚ğI—¹‚·‚×‚«‚©”»’f‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È‚¢A‚©‚à‚µ‚ê‚È‚¢
-	// Œ»ƒo[ƒWƒ‡ƒ“‚Å‚ÍAƒXƒŒ[ƒu‚ÌŠ„‚è‚İ‚Í‚P‚Â‚µ‚©ó‚¯•t‚¯‚È‚¢
-//	AL = 0x62 /* IRQ-01‚ğI—¹ */;
-//	OUT(0x20, AL);
-	POP(EAX);
-
-	SS0_struct *ss0 == /* SS:(- sizeof (SS0_struct)) */ SS:0xffffffc0;
-
-	ss0->cli_count--; // Š„‚è‚İƒ‹[ƒ`ƒ“‚ÌŠî–{
-	if (== 0) goto call_clicall; // ƒL[‚Ì•û‚Ì‚â‚Â‚Æ‡—¬‚Å‚«‚é
-	POP(DS);
-	ss0->ring0_count--;
-	if (== 0) goto call_ring0call; // ƒL[‚Ì•û‚Ì‚â‚Â‚Æ‡—¬‚Å‚«‚é
-	IRETD();
-
-call_clicall:
-	PUSHAD();
-	/* (ss0->clicall)() */ asmout("CALL FAR DWORD SS:[0FFFFFFC0H+038H]");
-	POPAD();
-	POP(DS);
-	ss0->ring0_count--;
-	if (== 0) goto call_ring0call;
-	IRETD();
-
-call_ring0call:
-	/* (ss0->ring0call)() */ jmp_system_count0();
-//	IRETD();
-}
-
-void near MouseIntDrv_Phase1()
-{
-	keyboarddata *work == DS:0;
-	/* work->mouse_send_buf[16] */ [work + 0x1d0] = AL;
-	/* work->mousejmp = (offset) MouseIntDrv_Phase2 */ asmout("MOV DWORD PTR DS:[work_mousejmp], OFFSET MouseIntDrv_Phase2");
-	/* goto MouseIntDrv_Ret */ asmout("JMP MouseIntDrv_Ret");
-}
-
-void near MouseIntDrv_Phase2()
-{
-	keyboarddata *work == DS:0;
-	/* work->mouse_send_buf[18] */ [work + 0x1d2] = AL;
-	/* work->mousejmp = (offset) MouseIntDrv_Phase0 */ asmout("MOV DWORD PTR DS:[work_mousejmp], OFFSET MouseIntDrv_Phase0");
-
-	AL = (char) work->mouse_send_buf[12];
-	(char) work->mouse_send_buf[15] = 0x00; // ƒm[ƒ}ƒ‹ƒ‚[ƒh
-	AH = AL;
-	AL <<= 3; // ‘æ4bit : x‚Ì‘æ8bit
-	AH <<= 2; // ‘æ5bit : y‚Ì‘æ8bit
-	(signed char) AL >>= 7;
-	(signed char) AH >>= 7;
-	(char) work->mouse_send_buf[17] = AL;
-	AL = (char) work->mouse_send_buf[18];
-	AX =- AX;
-	(short) work->mouse_send_buf[18] = AX;
-send_mousecode:
-	asmout("send_mousecode:");
-	PUSHAD();
-	ESI = /* work->mouse_send_buf */ 0x1c0;
-	/* (work->mousesignal)() */ asmout("CALL FAR DWORD DS:[work_mousesignal]"); 
-	// ESI‚àŠÜ‚ßA”Ä—pƒŒƒWƒXƒ^‚Í‚·‚×‚Ä”j‰ó‚³‚ê‚é
-	POPAD();
-	/* goto MouseIntDrv_Ret */ asmout("JMP MouseIntDrv_Ret");
-}
-
-void near MouseIntDrv_Phase3()
-// 0xaa‚ğóM‚µ‚½Œã‚ÌƒtƒF[ƒY
-{
-	keyboarddata *work == DS:0;
-	(char) work->mouse_send_buf[15] = 0xa0; // Šg’£ƒ‚[ƒh’·‚³2
-	(char) work->mouse_send_buf[13] = AL;
-	/* work->mousejmp = (offset) MouseIntDrv_Phase0 */ asmout("MOV DWORD PTR DS:[work_mousejmp], OFFSET MouseIntDrv_Phase0");
-	/* goto send_mousecode */ asmout("JMP send_mousecode");
-}
-
-void near MouseQueueExecute()
-{
-	keyboarddata *work == DS:0;
-	SS0_struct *ss0 == /* SS:(- sizeof (SS0_struct)) */ SS:0xffffffc0;
-	asmout("#MouseIntDrv_Ret EQU MouseIntDrv_Ret");
-
-	PUSHFD();
-	CLI();
-	unsigned int *wp == DS:ESI, free == EDX, *commands == FS:EBX;
-	(offset) wp = work->mouse_queue_write_ptr;
-	free = work->mouse_queue_free_dw;
-	unsigned int cmds_length == ECX;
-	cmds_length = *commands;
-	(offset) commands += 4;
-	do {
-		free -= cmds_length;
-		/* (false) */ if ((unsigned) < 0) { // I—¹ƒRƒ}ƒ“ƒh‚Ì•ª‚ÍA‚ ‚ç‚©‚¶‚ßˆø‚¢‚Ä‚ ‚é‚Ì‚ÅA“™‚µ‚­‚Ä‚à‚¢‚¢
-			// ‘S‚Ä‚ğŒä”jZ‚É‚·‚é
-buf_full_err:
-			(offset) wp = work->mouse_queue_write_ptr;
-			/* *wp = mouse_quecmd_tonormal */ asmout("MOV DWORD PTR DS:[ESI],OFFSET #mouse_quecmd_tonormal");
-				// ‚±‚ÌƒRƒ}ƒ“ƒh‚ğó—‚µ‚½‚çAmouse_queue_write_ptr‚ğ‰Šú‰»‚·‚é
-			POPFD();
-			STC();
-			return;
-		}
-		/* EAX = (offset) wp + cmds_length * 4 */ asmout("LEA EAX,[ESI+ECX*4]");
-		/* (false) */ if ((unsigned) EAX >= /* (offset) work->mouse_queue_buf + sizeof (work->mouse_queue_buf) */ 0x180) {
-			// “™‚µ‚­‚Ä‚àƒ_ƒ‚È‚Ì‚ÍAƒwƒbƒh‚Ö–ß‚·ƒRƒ}ƒ“ƒh‚ªg‚¦‚È‚¢‚©‚ç
-			// free -= (work->mouse_queue_buf + sizeof (work->mouse_queue_buf) - (offset) wp) / 4;
-			// free += (- work->mouse_queue_buf - sizeof (work->mouse_queue_buf) + (offset) wp) / 4;
-			/* EAX = (offset) wp - ((offset) work->mouse_queue_buf + sizeof (work->mouse_queue_buf)); */
-			asmout("LEA EAX,[ESI-0180H]");
-			/* *wp = (offset) mouse_quecmd_restore */ asmout("MOV DWORD PTR DS:[ESI],OFFSET #mouse_quecmd_restore");
-			EAX /= 4;
-			free += EAX; // ‚à‚µA‚±‚ê‚Åfree‚ª0‚à‚µ‚­‚Í•‰‚É‚È‚Á‚½‚çA‚â‚Í‚è‘«‚è‚È‚¢‚±‚Æ‚É‚È‚é
-			if ((signed) < 0)
-				goto buf_full_err;
-			(offset) wp = /* work->mouse_queue_buf */ 0x100;
-		}
-		do {
-			EAX = *commands;
-			(offset) commands += 4;
-			*wp = EAX;
-			(offset) wp += 4;
-			cmds_length--;
-		} while (!= 0);
-		cmds_length = *commands;
-		(offset) commands += 4;
-	} while (cmds_length > 0);
-	/* EAX = (offset) MouseQueIntDrv */ asmout("MOV EAX,OFFSET #MouseQueIntDrv");
-	/* *wp = mouse_quecmd_tonormal */ asmout("MOV DWORD PTR DS:[ESI],OFFSET #mouse_quecmd_tonormal");
-	work->mouse_queue_write_ptr = (offset) wp;
-	work->mouse_queue_free_dw = free;
-	/* (false) */ if (EAX == work->mousejmp) {
-		POPFD();
-		CLC();
-		return;
-	}
-	work->mousejmp = EAX;
-	ss0->cli_count++;
-	EBX = /* work->mouse_queue_exec_ptr */ /* (offset) work->mouse_queue_buf */ 0x100;
-	EBP = free;
-	/* [(void near *) DS:EBX](); */ asmout("CALL DWORD PTR DS:[100H]");
-	work->mouse_queue_exec_ptr = EBX;
-	work->mouse_queue_free_dw = EBP;
-	ss0->cli_count--;
-	if (!= 0) {
-		POPFD();
-		CLC();
-		return;
-	}
-	PUSH(DS);
-	/* (ss0->cli_call)() */ asmout("CALL FAR DWORD SS:[0FFFFFFC0H+038H]");
-	POP(DS);
-	POPFD();
-	CLC();
-	return;
-
-//	ALIGN(16);
-MouseQueIntDrv:
-	PUSHAD();
-	EBX = work->mouse_queue_exec_ptr;
-	EBP = work->mouse_queue_free_dw;
-	/* ((void near *) work->mouse_exec_wait_int)(); */ asmout("CALL DWORD PTR DS:[work_mouse_exec_wait_int]");
-	work->mouse_queue_exec_ptr = EBX;
-	work->mouse_queue_free_dw = EBP;
-	POPAD();
-	goto MouseIntDrv_Ret;
-
-
-mouse_quecmd_tonormal:
-	/* work->mousejmp = MouseIntDrv_Phase0; */ asmout("MOV DWORD PTR DS:[018CH],OFFSET MouseIntDrv_Phase0");
-	work->mouse_queue_write_ptr = /* (offset) work->mouse_queue_buf */ 0x100;
-	EBP = /* sizeof (work->mouse_queue_buf) */ 128 / 4 - 1 /* mouse_quecmd_tonormal‚Ì•ª */;
-	EBX = /* (offset) work->mouse_queue_buf */ 0x100;
-	/* (near) */ return;
-
-mouse_quecmd_restore:
-	// EBP += (work->mouse_queue_buf + sizeof (work->mouse_queue) - EBX) / 4
-	//     -= (EBX - (work->mouse_queue_buf + sizeof (work->mouse_queue)) / 4
-	asmout("LEA EAX,[EBX-0180H]");
-	/* EBX = work->mouse_queue_buf */ asmout("MOV EBX,work_mouse_queue_buf");
-	/* (signed int) */ EAX /= 4;
-	EBP -= EAX;
-	/* goto [(void near *) work->mouse_queue_buf] */ asmout("JMP DWORD PTR DS:[0100H]");
-}
-
-void near putmouse();
-
-void near MouQueCmd_RecieveCheck()
-// 1ƒoƒCƒgóM•ƒ`ƒFƒbƒN
-{
-	/* work->mouse_exec_wait_int = intres; */ asmout("MOV DWORD PTR DS:[work_mouse_exec_wait_int],OFFSET #intres");
-	return; // EBX‚ÆEBP‚Í‚»‚Ì‚Ü‚Ü‚É‚µ‚Ä‚¨‚­iÀs’†‚Ì–½—ß‚ª‚í‚©‚ç‚È‚­‚È‚é‚©‚çj
-
-intres:
-	if (AL == [DS:EBX+4]) {
-		EBX += 8;
-		EBP += 2;
-		/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-	}
-	INT(0x03); // –{—ˆ‚È‚ç‚±‚±‚ÅƒGƒ‰[ƒVƒOƒiƒ‹
-}
-
-void near MouQueCmd_AckSendData()
-// ACK§Œä•t‚«‘—M
-{
-	/* work->mouse_exec_wait_int = intack; */ asmout("MOV DWORD PTR DS:[work_mouse_exec_wait_int],OFFSET #intack");
-retry:
-	AL = 0xd4; // to mouse prefix
-	OUT(0x64, AL);
-	do {
-		IN(AL, 0x64);
-		TEST(AL, 0x02);
-	} while (!= 0);
-	AL = [DS:EBX + 4];
-	OUT(0x60, AL);
-	return; // EBX‚ÆEBP‚Í‚»‚Ì‚Ü‚Ü‚É‚µ‚Ä‚¨‚­iÀs’†‚Ì–½—ß‚ª‚í‚©‚ç‚È‚­‚È‚é‚©‚çj
-
-intack:
-	if (AL == 0xfa /* ACK */) {
-		EBX += 8;
-		EBP += 2;
-		/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-	}
-	if (AL == 0xfe /* NACK */)
-		goto retry;
-
-	return; // ‚Ç‚¿‚ç‚Å‚à‚È‚¢ƒLƒƒƒ‰ƒNƒ^[‚ª—ˆ‚½‚çA–³‹‚µ‚ÄACK‚©NACK‚ğ‘Ò‚¿‘±‚¯‚é
-}
-
-void near MouQueCmd_ResetCommand()
-// ƒ}ƒEƒXƒŠƒZƒbƒg
-{
-	/* work->mouse_exec_wait_int = intack; */ asmout("MOV DWORD PTR DS:[work_mouse_exec_wait_int],OFFSET #intack");
-retry:
-	AL = 0xd4; // to mouse prefix
-	OUT(0x64, AL);
-	do {
-		IN(AL, 0x64);
-		TEST(AL, 0x02);
-	} while (!= 0);
-	AL = 0xff;
-	OUT(0x60, AL);
-	return; // EBX‚ÆEBP‚Í‚»‚Ì‚Ü‚Ü‚É‚µ‚Ä‚¨‚­iÀs’†‚Ì–½—ß‚ª‚í‚©‚ç‚È‚­‚È‚é‚©‚çj
-
-intack:
-	if (AL == 0x00 /* ACK */) {
-		EBX += 4;
-		EBP++;
-		/* goto [(void near *) DS:EBX] */ asmout("JMP DWORD PTR DS:[EBX]");
-	}
-	if (AL == 0xfe /* NACK */)
-		goto retry;
-
-	return; // ‚Ç‚¿‚ç‚Å‚à‚È‚¢ƒLƒƒƒ‰ƒNƒ^[‚ª—ˆ‚½‚çA–³‹‚µ‚Ä0x00(Š®—¹)‚©NACK‚ğ‘Ò‚¿‘±‚¯‚é
-}
-
-/*
-
-
-KeyGetKeyType		proc	far	; ax:ebx > ecx
-
-			push	 ds
-			push	 fs
-			pushad
-			mov	 ax, cs
-			mov	 fs, ax
-			add	 ax,8
-			mov	ebx,offset #cmdline1
-			mov	 ds, ax
-			mov	 byte ptr ds:[KeyGetKeyTypeWaitFlag],0
-			call	near ptr KeyboardQueueExecute
-			clr	eax
-#loop:
-			cmp	 al, byte ptr ds:[KeyGetKeyTypeWaitFlag]
-			jz	short #loop
-			mov	ebx,offset #cmdline2
-			call	near ptr KeyboardQueueExecute
-			mov	 fs, word ptr ss:[esp][28]
-			mov	ebx,dword ptr ss:[esp][16]
-			mov	esi,KeyWorkBuf
-			mov	ecx,64/4
-#copy:
-			mov	eax,dword ptr ds:[esi]
-			add	esi,4
-			mov	dword ptr fs:[ebx],eax
-			add	ebx,4
-			dec	ecx
-			jnz	short #copy
-			mov	eax,dword ptr ds:[KeyWorkBufPtr]
-			sub	eax,KeyWorkBuf
-			mov	dword ptr ss:[esp][24],eax
-			popad
-			pop	 fs
-			pop	 ds
-			ret
-#buf_full:
-			add	ebx,4
-			mov	 byte ptr ds:[KeyGetKeyTypeWaitFlag],1
-			dec	ebp
-			jmp	dword ptr ds:[ebx]
-#timeout:
-			push	 ds
-			mov	 ax, cs
-			add	 ax,8
-			mov	 ds, ax
-			mov	 byte ptr ds:[KeyGetKeyTypeWaitFlag],2
-			mov	dword ptr ds:[KeyWorkQuePtr],KeyWorkQueue
-			mov	dword ptr ds:[KeyWorkJmp],offset KeyIntDrv_Normal
-			mov	dword ptr ds:[KeyWorkQueFreDw],KeyWorkQueSiz/4
-			pop	 ds
-			clc
-			fret
-
-			align	4
-
-#cmdline1		dd	1,offset KeyQueCmd_WaitBufEnpty
-			dd	2,offset KeyQueCmd_AckSendData,0f5h	; disable scanning
-			dd	5,offset KeyQueCmd_SetTimer,200,0,0,offset #timeout
-			dd	2,offset KeyQueCmd_SetBufPtr,KeyWorkBuf
-			dd	2,offset KeyQueCmd_WriteCmdReg,0a0h
-			dd	2,offset KeyQueCmd_RecieveBytes,64
-			dd	1,offset KeyQueCmd_CancelTimer
-			dd	1,offset #buf_full
-			dd	0
-
-#cmdline2		dd	2,offset KeyQueCmd_AckSendData,0f4h	; enable scanning
-			dd	0
-
-KeyGetKeyType		endp
-
-KeyboardSetTypematic	proc	far	; al
-
-			push	 ds
-			push	 fs
-			pushad
-			sub	esp,9*4
-			mov	 dx, cs
-			mov	 cx, ss
-			add	 dx,8
-			mov	 fs, cx
-			mov	 ds, dx
-			mov	dword ptr ss:[esp][00],1
-			mov	dword ptr ss:[esp][04],offset KeyQueCmd_WaitBufEnpty
-			mov	dword ptr ss:[esp][08],2
-			mov	dword ptr ss:[esp][12],offset KeyQueCmd_AckSendData
-			mov	 byte ptr ss:[esp][16],0f3h
-			mov	dword ptr ss:[esp][20],2
-			mov	dword ptr ss:[esp][24],offset KeyQueCmd_AckSendData
-			mov	 byte ptr ss:[esp][28], al
-			mov	dword ptr ss:[esp][32],0
-			mov	ebx,esp
-			call	near ptr KeyboardQueueExecute
-			add	esp,9*4
-			popad
-			pop	 fs
-			pop	 ds
-			ret
-
-;	–{—ˆ‚È‚çAƒGƒ‰[ˆ—‚È‚Ç‚à‚·‚×‚«
-
-KeyboardSetTypematic	endp
-
-			align	16
-
-
-
-KeyGetA20Mode		proc	far	; > al
-
-			push	 ds
-			push	 fs
-			pushad
-			mov	 ax, cs
-			mov	 fs, ax
-			add	 ax,8
-			mov	ebx,offset #cmdline1
-			mov	 ds, ax
-			mov	 byte ptr ds:[KeyGetKeyTypeWaitFlag],0	; –Ê“|‚È‚Ì‚ÅA‚±‚Ì•Ï”‚ğ‹¤—L‚µ‚Ä‚¢‚é
-			call	near ptr KeyboardQueueExecute
-			clr	eax
-#loop:
-			cmp	 al, byte ptr ds:[KeyGetKeyTypeWaitFlag]
-			jz	short #loop
-			mov	ebx,offset #cmdline2
-			call	near ptr KeyboardQueueExecute
-			mov	 al, byte ptr ds:[KeyWorkBuf]
-			
-		;	mov	eax,dword ptr ds:[KeyWorkBufPtr]
-		;	sub	eax,KeyWorkBuf
-
-			mov	 byte ptr ss:[esp][28], al
-			popad
-			pop	 fs
-			pop	 ds
-			ret
-#buf_full:
-			add	ebx,4
-			mov	 byte ptr ds:[KeyGetKeyTypeWaitFlag],1
-			dec	ebp
-			jmp	dword ptr ds:[ebx]
-#timeout:
-			push	 ds
-			mov	 ax, cs
-			add	 ax,8
-			mov	 ds, ax
-			mov	 byte ptr ds:[KeyGetKeyTypeWaitFlag],2
-			mov	dword ptr ds:[KeyWorkQuePtr],KeyWorkQueue
-			mov	dword ptr ds:[KeyWorkJmp],offset KeyIntDrv_Normal
-			mov	dword ptr ds:[KeyWorkQueFreDw],KeyWorkQueSiz/4
-			pop	 ds
-			clc
-			fret
-
-			align	4
-
-#cmdline1		dd	1,offset KeyQueCmd_WaitBufEnpty
-			dd	2,offset KeyQueCmd_AckSendData,0f5h	; disable scanning
-			dd	5,offset KeyQueCmd_SetTimer,200,0,0,offset #timeout
-			dd	2,offset KeyQueCmd_SetBufPtr,KeyWorkBuf
-			dd	2,offset KeyQueCmd_WriteCmdReg,0d0h
-			dd	2,offset KeyQueCmd_RecieveBytes,64
-			dd	1,offset KeyQueCmd_CancelTimer
-			dd	1,offset #buf_full
-			dd	0
-
-#cmdline2		dd	2,offset KeyQueCmd_AckSendData,0f4h	; enable scanning
-			dd	0
-
-KeyGetA20Mode		endp
-
-*/
-
-
+			/* BTR(*(work-

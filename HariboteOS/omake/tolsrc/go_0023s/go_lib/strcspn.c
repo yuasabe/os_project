@@ -13,8 +13,8 @@ size_t GO_strcspn (char *d, char *s)
 	char *tmp = d;
 	char *bgn = s;
 
-	while ('\0' != *d) {
-		while ('\0' != *s)
+	while ('¥0' != *d) {
+		while ('¥0' != *s)
 			if (*d == *s++)
 				return d - tmp;
 		d++;

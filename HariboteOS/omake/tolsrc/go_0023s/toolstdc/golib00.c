@@ -1,12 +1,12 @@
-/* "golib00.c":golib00w‚ğ•W€ƒ‰ƒCƒuƒ‰ƒŠd—l‚É‚µ‚½‚à‚Ì */
-/* copyright(C) 2003 ì‡GÀ  KL-01 */
+/* "golib00.c":golib00wã‚’æ¨™æº–ãƒ©ã‚¤ãƒ–ãƒ©ãƒªä»•æ§˜ã«ã—ãŸã‚‚ã® */
+/* copyright(C) 2003 å·åˆç§€å®Ÿ  KL-01 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef unsigned char UCHAR;
 
-#define NL			"\n"
+#define NL			"Â¥n"
 
 struct str_obj {
 	UCHAR *name;
@@ -16,7 +16,7 @@ struct str_obj {
 
 struct str_label {
 	UCHAR *s0;
-	UCHAR *s1; /* point to '\0' */
+	UCHAR *s1; /* point to 'Â¥0' */
 	struct str_obj *obj;
 };
 

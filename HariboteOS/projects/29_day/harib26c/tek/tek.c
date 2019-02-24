@@ -12,8 +12,8 @@ static int tek_decode2(int siz, UCHAR *p, UCHAR *q);
 static int tek_decode5(int siz, UCHAR *p, UCHAR *q);
 
 static unsigned int tek_getnum_s7s(UCHAR **pp)
-/* ‚±‚ê‚Í•K‚¸big-endian */
-/* ‰º‘Ê‚ª‚È‚¢‚Ì‚Å’†g‚ğ‚¢‚¶‚è‚â‚·‚¢ */
+/* ã“ã‚Œã¯å¿…ãšbig-endian */
+/* ä¸‹é§„ãŒãªã„ã®ã§ä¸­èº«ã‚’ã„ã˜ã‚Šã‚„ã™ã„ */
 {
 	unsigned int s = 0;
 	UCHAR *p = *pp;
@@ -36,7 +36,7 @@ int tek_getsize(unsigned char *p)
 		size = tek_getnum_s7s(&p);
 	}
 	return size;
-}	  /* i’jmemcmp‚Ístrncmp‚Ì’‡ŠÔ‚ÅA•¶š—ñ’†‚É0‚ª‚ ‚Á‚Ä‚àw’è‚³‚ê‚½15•¶š‚Ü‚Å”äŠr‚·‚éŠÖ” */
+}	  /* ï¼ˆè¨»ï¼‰memcmpã¯strncmpã®ä»²é–“ã§ã€æ–‡å­—åˆ—ä¸­ã«0ãŒã‚ã£ã¦ã‚‚æŒ‡å®šã•ã‚ŒãŸ15æ–‡å­—ã¾ã§æ¯”è¼ƒã™ã‚‹é–¢æ•° */
 
 int tek_decomp(unsigned char *p, char *q, int size)
 {
@@ -49,9 +49,9 @@ int tek_decomp(unsigned char *p, char *q, int size)
 		err = tek_decode5(size, p, q);
 	}
 	if (err != 0) {
-		return -1;	/* ¸”s */
+		return -1;	/* å¤±æ•— */
 	}
-	return 0;	/* ¬Œ÷ */
+	return 0;	/* æˆåŠŸ */
 }
 
 static int tek_lzrestore_stk1(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
@@ -75,13 +75,13 @@ static int tek_lzrestore_stk1(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 					ds = ds << 7 | *s7ptr++;
 				} while ((ds & 1) == 0);
 			}
-			ds = ~(ds >> 1);
+			ds = â€¾(ds >> 1);
 			if ((cp >>= 4) == 0) {
 				do {
 					cp = cp << 7 | *s7ptr++;
 				} while ((cp & 1) == 0);
 				cp >>= 1;
-			} /* 0‚ª‚±‚È‚¢‚±‚Æ‚ğ‚ ‚Ä‚É‚·‚é */
+			} /* 0ãŒã“ãªã„ã“ã¨ã‚’ã‚ã¦ã«ã™ã‚‹ */
 			cp++;
 			if (q + ds < q0)
 				goto err;
@@ -109,16 +109,16 @@ static int tek_decode1(int siz, UCHAR *p, UCHAR *q)
 		if (dsiz > bsiz || (hed & 0x21) != 0x01)
 			return 1;
 		if (hed & 0x40)
-			tek_getnum_s7s(&p); /* ƒIƒvƒVƒ‡ƒ“î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ“Ç‚İ”ò‚Î‚· */
+			tek_getnum_s7s(&p); /* ã‚ªãƒ—ã‚·ãƒ§ãƒ³æƒ…å ±ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’èª­ã¿é£›ã°ã™ */
 		if (tek_getnum_s7s(&p) != 0)
-			return 1; /* •â•ƒoƒbƒtƒ@g—p */
+			return 1; /* è£œåŠ©ãƒãƒƒãƒ•ã‚¡ä½¿ç”¨ */
 		return tek_lzrestore_stk1(p1 - p, p, dsiz, q);
 	}
 	return 0;
 }
 
 static unsigned int tek_getnum_s7(UCHAR **pp)
-/* ‚±‚ê‚Í•K‚¸big-endian */
+/* ã“ã‚Œã¯å¿…ãšbig-endian */
 {
 	unsigned int s = 0, b = 0, a = 1;
 	UCHAR *p = *pp;
@@ -145,7 +145,7 @@ static int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 		if (tek_getnum_s7s(&s7ptr))
 			return 1;
 		do {
-			/* byƒtƒF[ƒY */
+			/* byãƒ•ã‚§ãƒ¼ã‚º */
 			j = 0;
 			do {
 				j++;
@@ -167,7 +167,7 @@ static int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 			if (q >= q1)
 				break;
 
-			/* lzƒtƒF[ƒY */
+			/* lzãƒ•ã‚§ãƒ¼ã‚º */
 			j = 0;
 			do {
 				j++;
@@ -190,7 +190,7 @@ static int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 				if ((i & 1) == 0)
 					i |= (tek_getnum_s7(&s7ptr) + 1) << 4;
 				i >>= 1;
-				ds = ~(i - 6);
+				ds = â€¾(i - 6);
 				if (i < 4)
 					ds = repdis[i];
 				if (i == 4)
@@ -236,7 +236,7 @@ static int tek_decode2(int siz, UCHAR *p, UCHAR *q)
 		if (dsiz > bsiz || (hed & 0x21) != 0x01)
 			return 1;
 		if (hed & 0x40)
-			tek_getnum_s7s(&p); /* ƒIƒvƒVƒ‡ƒ“î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ“Ç‚İ”ò‚Î‚· */
+			tek_getnum_s7s(&p); /* ã‚ªãƒ—ã‚·ãƒ§ãƒ³æƒ…å ±ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’èª­ã¿é£›ã°ã™ */
 		st = tek_lzrestore_stk2(p1 - p, p, dsiz, q);
 	}
 	return st;
@@ -283,7 +283,7 @@ static int tek_lzrestore_tek5(int srcsiz, UCHAR *src, int outsiz, UCHAR *outbuf)
 		lp = pb;
 		pb = wrksiz;
 	}
-	wrksiz = 0x180 * sizeof (UINT32) + (0x840 + (0x300 << (lc + lp))) * sizeof (tek_TPRB); /* Å’á15KB, lc+lp=3‚È‚çA36KB */
+	wrksiz = 0x180 * sizeof (UINT32) + (0x840 + (0x300 << (lc + lp))) * sizeof (tek_TPRB); /* æœ€ä½15KB, lc+lp=3ãªã‚‰ã€36KB */
 	work = (int *) memman_alloc_4k((struct MEMMAN *) MEMMAN_ADDR, wrksiz);
 	if (work == NULL)
 		return -1;
@@ -326,12 +326,12 @@ static void tek_setbm5(struct tek_STR_BITMODEL *bm, int t, int m)
 	bm->t = t;
 	bm->m = m;
 	bm->prb1 = -1 << (m + t);
-	bm->prb0 = ~bm->prb1;
+	bm->prb0 = â€¾bm->prb1;
 	bm->prb1 |= 1 << t;
 	bm->tmsk = (-1 << t) & 0xffff;
 	bm->prb0 &= bm->tmsk;
 	bm->prb1 &= bm->tmsk;
-	bm->ntm = ~bm->tmsk;
+	bm->ntm = â€¾bm->tmsk;
 	return;
 }
 
@@ -349,7 +349,7 @@ static int tek_rdget0(struct tek_STR_RNGDEC *rd, int n, int i)
 			i |= 1;
 		}
 	} while (--n);
-	return ~i;
+	return â€¾i;
 }
 
 static int tek_rdget1(struct tek_STR_RNGDEC *rd, tek_TPRB *prob0, int n, int j, struct tek_STR_BITMODEL *bm)
@@ -361,9 +361,9 @@ static int tek_rdget1(struct tek_STR_RNGDEC *rd, tek_TPRB *prob0, int n, int j, 
 		p = *(prob = prob0 + j);
 		if (bm->lt > 0) {
 			if (--bm->lt == 0) {
-				/* õ–½Ø‚ê */
+				/* å¯¿å‘½åˆ‡ã‚Œ */
 				if (tek_rdget1(rd, &rd->probs.fchglt, 0x71, 0, &rd->bm[3]) == 0) {
-					/* õ–½•ÏX‚Í‚Ü‚¾ƒTƒ|[ƒg‚µ‚Ä‚È‚¢ */
+					/* å¯¿å‘½å¤‰æ›´ã¯ã¾ã ã‚µãƒãƒ¼ãƒˆã—ã¦ãªã„ */
 err:
 					longjmp(rd->errjmp, 1);
 				}
@@ -437,8 +437,8 @@ static int tek_getlen5(struct tek_STR_RNGDEC *rd, int m, int s_pos, int stk)
 			if (i < 6 && stk == 0)
 				i = tek_rdget1(rd, &rd->probs.lenext[(1 << i) - 2], i | 0x70, 1, rd->ptbm[7]) - 1;
 			else
-				i = tek_rdget0(rd, i, ~1) - 1;
-			i = tek_rdget0(rd, i, ~1) - 1;
+				i = tek_rdget0(rd, i, â€¾1) - 1;
+			i = tek_rdget0(rd, i, â€¾1) - 1;
 		}
 		i += 256 - 8 + 16;
 	}
@@ -458,13 +458,13 @@ static int tek_decmain5(int *work, UCHAR *src, int osiz, UCHAR *q, int lc, int p
 	rd->range |= -1;
 	rd->code = src[0] << 24 | src[1] << 16 | src[2] << 8 | src[3];
 	for (i = 0; i < 4; i++)
-		rep[i] = ~i;
+		rep[i] = â€¾i;
 	if (setjmp(rd->errjmp))
 		goto err;
 	for (i = sizeof (struct tek_STR_PRB) / sizeof (tek_TPRB) + (0x300 << (lc + lp)) - 2; i >= 0; i--)
 		((tek_TPRB *) prb)[i] = 1 << 15;
 	for (i = 0; i < 32; i++) {
-		rd->bm[i].lt = (i >= 4); /* 0..3‚Íõ–½‚È‚µ */
+		rd->bm[i].lt = (i >= 4); /* 0..3ã¯å¯¿å‘½ãªã— */
 		rd->bm[i].lt0 = (i < 24) ? 16 * 1024 : 8 * 1024;
 		rd->bm[i].s &= 0;
 		rd->bm[i].t = rd->bm[i].m = 5;
@@ -473,7 +473,7 @@ static int tek_decmain5(int *work, UCHAR *src, int osiz, UCHAR *q, int lc, int p
 	if (stk) {
 		rd->rmsk = -1 << 11;
 		for (i = 0; i < 32; i++)
-			rd->bm[i].lt = 0; /* ‘S‚Äõ–½‚È‚µ */
+			rd->bm[i].lt = 0; /* å…¨ã¦å¯¿å‘½ãªã— */
 		for (i = 0; i < 14; i++)
 			rd->ptbm[i] = &rd->bm[0];
 	} else {
@@ -500,154 +500,10 @@ static int tek_decmain5(int *work, UCHAR *src, int osiz, UCHAR *q, int lc, int p
 		rd->bm[22].t = 0; rd->bm[22].m = 1;
 		prb->repg3 = 0xffff;
 		if (flags == -2) { /* z1 */
-			rd->bm[22].lt = 0; /* repg3‚Ìlt‚ğ0‚É */
+			rd->bm[22].lt = 0; /* repg3ã®ltã‚’0ã« */
 			for (i = 0; i < 14; i++)
 				pt[i] = pt1[i];
 		} else {
 			for (i = 0; i < 14; i++)
 				pt[i] = pt2[i];
-			lit0cntmsk = (7 >> (flags & 3)) << 4 | 8;
-			pt[ 1] =  8 + ((flags & 0x04) != 0); /* mch */
-			pt[ 5] = 12 + ((flags & 0x08) != 0); /* llm */
-			pt[ 9] = 16 + ((flags & 0x10) != 0); /* pst */
-			pt[11] = 18 + ((flags & 0x20) != 0); /* sds */
-		}
-		for (i = 0; i < 14; i++)
-			rd->ptbm[i] = &rd->bm[pt[i]];
-	}
-	for (i = 0; i < 32; i++)
-		tek_setbm5(&rd->bm[i], rd->bm[i].t, rd->bm[i].m);
-
-	if ((tek_rdget1(rd, &prb->pb[0].st[0].mch, 0x71, 0, rd->ptbm[0]) ^ stk) == 0)
-		goto err;
-	*q++ = tek_rdget1(rd, prb->lit, lit0cntmsk, 1, &rd->bm[24]) & 0xff;
-	pmch &= 0; s &= 0; pos = 1;
-	while (pos < osiz) {
-		s_pos = pos & m_pos;
-		if (tek_rdget1(rd, &prb->pb[s_pos].st[s].mch, 0x71, 0, rd->ptbm[s > 0]) ^ stk) { /* ”ñlz */
-			i = (q[-1] >> lcr | (pos & m_lp) << lc) << 8;
-			s = state_table[s];
-			if (pmch == 0)
-				*q = tek_rdget1(rd, &prb->lit[i], lit0cntmsk, 1, &rd->bm[24]) & 0xff;
-			else {
-				struct tek_STR_BITMODEL *bm = &rd->bm[24];
-				j = 1; /* lit1‚ÍÅ‰‚©‚ç2‚ğŒ¸‚¶‚Ä‚ ‚é */
-				k = 8;
-				pmch = q[rep[0]];
-				do {
-					j += j + tek_rdget1(rd, &lit1[(i + j) << 1 | pmch >> 7], 0x71, 0, rd->ptbm[2]);
-					k--;
-					if ((k & (lit0cntmsk >> 4)) == 0)
-						bm++;
-					if ((((pmch >> 7) ^ j) & 1) != 0 && k != 0) {
-						j = tek_rdget1(rd, &prb->lit[i + j - 1], k | (lit0cntmsk & 0x70), j, bm);
-						break;
-					}
-					pmch <<= 1;
-				} while (k);
-				*q = j & 0xff;
-				pmch &= 0;
-			}
-			pos++;
-			q++;
-		} else { /* lz */
-			pmch |= 1;
-			if (tek_rdget1(rd, &prb->st[s].rep, 0x71, 0, rd->ptbm[13]) ^ stk) { /* len/dis */
-				rep[3] = rep[2];
-				rep[2] = rep[1];
-				rep[1] = rep[0];
-				j = i = tek_getlen5(rd, 0, s_pos, stk);
-				s = s < 7 ? 7 : 10;
-				if (j >= 4)
-					j = 3;
-				rep[0] = j = tek_rdget1(rd, prb->pslot[j], 0x76, 1, rd->ptbm[8 + (j == 3)]) & 0x3f;
-				if (j >= 4) {
-					k = (j >> 1) - 1; /* k = [1, 30] */
-					rep[0] = (2 | (j & 1)) << k;
-					if (j < 14) /* k < 6 */
-						rep[0] |= tek_revbit(tek_rdget1(rd, &prb->spdis[j & 1][(1 << k) - 2], k | 0x70, 1, rd->ptbm[10 + (k >= 4)]), k);
-					else {
-						if (stk == 0) {
-							if (k -= 6)
-								rep[0] |= tek_rdget0(rd, k, ~0) << 6;
-							rep[0] |= tek_revbit(tek_rdget1(rd, prb->algn, 0x76, 1, rd->ptbm[12]), 6);
-						} else {
-							rep[0] |= tek_rdget0(rd, k - 4, ~0) << 4;
-							rep[0] |= tek_revbit(tek_rdget1(rd, prb->algn, 0x74, 1, rd->ptbm[12]), 4);
-						}
-					}
-				}
-				rep[0] = ~rep[0];
-			} else { /* repeat-dis */
-				if (tek_rdget1(rd, &prb->st[s].repg0, 0x71, 0, rd->ptbm[13]) ^ stk) { /* rep0 */
-					i |= -1;
-					if (tek_rdget1(rd, &prb->pb[s_pos].st[s].rep0l1, 0x71, 0, rd->ptbm[13]) == 0) {
-						s = s < 7 ? 9 : 11;
-						goto skip;
-					}
-				} else {
-					if (tek_rdget1(rd, &prb->st[s].repg1, 0x71, 0, rd->ptbm[13]) ^ stk) /* rep1 */
-						i = rep[1];
-					else {
-						if (tek_rdget1(rd, &prb->st[s].repg2, 0x71, 0, rd->ptbm[13]) ^ stk) /* rep2 */
-							i = rep[2];
-						else {
-							if (stk == 0) {
-								if  (tek_rdget1(rd, &prb->repg3, 0x71, 0, &rd->bm[22]) == 0)
-									goto err;
-							}
-							i = rep[3]; /* rep3 */
-							rep[3] = rep[2];
-						}
-						rep[2] = rep[1];
-					}
-					rep[1] = rep[0];
-					rep[0] = i;
-				}
-				i = tek_getlen5(rd, 1, s_pos, stk);
-				s = s < 7 ? 8 : 11;
-			}
-skip:
-			i += 2;
-			if (pos + rep[0] < 0)
-				goto err;
-			if (pos + i > osiz)
-				i = osiz - pos;
-			pos += i;
-			do {
-				*q = q[rep[0]];
-				q++;
-			} while (--i);
-		}
-	}
-	return 0;
-err:
-	return 1;
-}
-
-static int tek_decode5(int siz, UCHAR *p, UCHAR *q)
-{
-	UCHAR *p1 = p + siz;
-	int dsiz, hed, bsiz, st = 0;
-	p += 16;
-	if ((dsiz = tek_getnum_s7s(&p)) > 0) {
-		hed = tek_getnum_s7s(&p);
-		if ((hed & 1) == 0)
-			st = tek_lzrestore_tek5(p1 - p + 1, p - 1, dsiz, q);
-		else {
-			bsiz = 1 << (((hed >> 1) & 0x0f) + 8);
-			if (hed & 0x20)
-				return 1;
-			if (bsiz == 256)
-				st = tek_lzrestore_tek5(p1 - p, p, dsiz, q);
-			else {
-				if (dsiz > bsiz)
-					return 1;
-				if (hed & 0x40)
-					tek_getnum_s7s(&p); /* ƒIƒvƒVƒ‡ƒ“î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ“Ç‚İ”ò‚Î‚· */
-				st = tek_lzrestore_tek5(p1 - p, p, dsiz, q);
-			}
-		}
-	}
-	return st;
-}
+			li

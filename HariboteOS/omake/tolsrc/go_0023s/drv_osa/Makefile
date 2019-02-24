@@ -1,7 +1,7 @@
 include ../include/rules.mak
 
 TARGETS = drv_osa.lib
-OBJS = osamain.o cc1main.o cmdline.o gas2nask.o \
+OBJS = osamain.o cc1main.o cmdline.o gas2nask.o ¥
 	naskmain.o obj2bim.o bim2bin.o refresh.o sjisconv.o
 
 ###

@@ -12,13 +12,13 @@ void doscmd(char *cmdlin)
 	for (q = "cmd.exe     /C ", s = cmdlin; (*s++ = *q++) != 0; );
 	for (q = p; *q > ' '; q++);
 	r = q;
-	while ('\0' < *q && *q <= ' ')
+	while ('¥0' < *q && *q <= ' ')
 		q++;
 	s--;
 	if (q[0] == '-' && q[1] == '-') {
 		q += 2;
 	} else {
-		while (r > p && r[-1] != '/' && r[-1] != '\\' && r[-1] != ':')
+		while (r > p && r[-1] != '/' && r[-1] != '¥¥' && r[-1] != ':')
 			r--;
 		for (c = 0, i &= 0; i < 6; i++) {
 			d = r[i];

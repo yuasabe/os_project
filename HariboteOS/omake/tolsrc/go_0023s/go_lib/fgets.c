@@ -11,12 +11,12 @@ char *GO_fgets(char *s, int n, GO_FILE *stream)
 		r = NULL;
 	if (r != NULL) {
 		do {
-			if ((*s++ = *stream->p++) == '\n')
+			if ((*s++ = *stream->p++) == '¥n')
 				break;
 			if (stream->p >= stream->p1)
 				break;
 		} while (--n);
-		*s = '\0';
+		*s = '¥0';
 	}
 	return r;
 }

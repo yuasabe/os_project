@@ -27,59 +27,59 @@ void HariMain(void)
 	int win, i, j, fsize, xsize, info[8];
 	struct RGB picbuf[1024 * 768], *q;
 
-	/* ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‰ğÍ */
+	/* ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³è§£æ */
 	api_cmdline(s, 30);
-	for (p = s; *p > ' '; p++) { }	/* ƒXƒy[ƒX‚ª—ˆ‚é‚Ü‚Å“Ç‚İ”ò‚Î‚· */
-	for (; *p == ' '; p++) { }	/* ƒXƒy[ƒX‚ğ“Ç‚İ”ò‚Î‚· */
+	for (p = s; *p > ' '; p++) { }	/* ã‚¹ãƒšãƒ¼ã‚¹ãŒæ¥ã‚‹ã¾ã§èª­ã¿é£›ã°ã™ */
+	for (; *p == ' '; p++) { }	/* ã‚¹ãƒšãƒ¼ã‚¹ã‚’èª­ã¿é£›ã°ã™ */
 
-	/* ƒtƒ@ƒCƒ‹“Ç‚İ‚İ */
-	i = api_fopen(p); if (i == 0) { error("file not found.\n"); }
+	/* ãƒ•ã‚¡ã‚¤ãƒ«èª­ã¿è¾¼ã¿ */
+	i = api_fopen(p); if (i == 0) { error("file not found.Â¥n"); }
 	fsize = api_fsize(i, 0);
 	if (fsize > 512 * 1024) {
-		error("file too large.\n");
+		error("file too large.Â¥n");
 	}
 	api_fread(filebuf, fsize, i);
 	api_fclose(i);
 
-	/* ƒtƒ@ƒCƒ‹ƒ^ƒCƒvƒ`ƒFƒbƒN */
+	/* ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—ãƒã‚§ãƒƒã‚¯ */
 	if (info_BMP(&env, info, fsize, filebuf) == 0) {
-		/* BMP‚Å‚Í‚È‚©‚Á‚½ */
+		/* BMPã§ã¯ãªã‹ã£ãŸ */
 		if (info_JPEG(&env, info, fsize, filebuf) == 0) {
-			/* JPEG‚Å‚à‚È‚©‚Á‚½ */
-			api_putstr0("file type unknown.\n");
+			/* JPEGã§ã‚‚ãªã‹ã£ãŸ */
+			api_putstr0("file type unknown.Â¥n");
 			api_end();
 		}
 	}
-	/* ‚Ç‚¿‚ç‚©‚ÌinfoŠÖ”‚ª¬Œ÷‚·‚é‚ÆAˆÈ‰º‚Ìî•ñ‚ªinfo‚É“ü‚Á‚Ä‚¢‚é */
-	/*	info[0] : ƒtƒ@ƒCƒ‹ƒ^ƒCƒv (1:BMP, 2:JPEG) */
-	/*	info[1] : ƒJƒ‰[î•ñ */
+	/* ã©ã¡ã‚‰ã‹ã®infoé–¢æ•°ãŒæˆåŠŸã™ã‚‹ã¨ã€ä»¥ä¸‹ã®æƒ…å ±ãŒinfoã«å…¥ã£ã¦ã„ã‚‹ */
+	/*	info[0] : ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ— (1:BMP, 2:JPEG) */
+	/*	info[1] : ã‚«ãƒ©ãƒ¼æƒ…å ± */
 	/*	info[2] : xsize */
 	/*	info[3] : ysize */
 
 	if (info[2] > 1024 || info[3] > 768) {
-		error("picture too large.\n");
+		error("picture too large.Â¥n");
 	}
 
-	/* ƒEƒBƒ“ƒhƒE‚Ì€”õ */
+	/* ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æº–å‚™ */
 	xsize = info[2] + 16;
 	if (xsize < 136) {
 		xsize = 136;
 	}
 	win = api_openwin(winbuf, xsize, info[3] + 37, -1, "gview");
 
-	/* ƒtƒ@ƒCƒ‹“à—e‚ğ‰æ‘œƒf[ƒ^‚É•ÏŠ· */
+	/* ãƒ•ã‚¡ã‚¤ãƒ«å†…å®¹ã‚’ç”»åƒãƒ‡ãƒ¼ã‚¿ã«å¤‰æ› */
 	if (info[0] == 1) {
 		i = decode0_BMP (&env, fsize, filebuf, 4, (char *) picbuf, 0);
 	} else {
 		i = decode0_JPEG(&env, fsize, filebuf, 4, (char *) picbuf, 0);
 	}
-	/* b_type = 4 ‚ÍA struct RGB Œ`®‚ğˆÓ–¡‚·‚é */
-	/* skip‚Í0‚É‚µ‚Ä‚¨‚¯‚Î‚æ‚¢ */
+	/* b_type = 4 ã¯ã€ struct RGB å½¢å¼ã‚’æ„å‘³ã™ã‚‹ */
+	/* skipã¯0ã«ã—ã¦ãŠã‘ã°ã‚ˆã„ */
 	if (i != 0) {
-		error("decode error.\n");
+		error("decode error.Â¥n");
 	}
 
-	/* •\¦ */
+	/* è¡¨ç¤º */
 	for (i = 0; i < info[3]; i++) {
 		p = winbuf + (i + 29) * xsize + (xsize - info[2]) / 2;
 		q = picbuf + i * info[2];
@@ -89,7 +89,7 @@ void HariMain(void)
 	}
 	api_refreshwin(win, (xsize - info[2]) / 2, 29, (xsize - info[2]) / 2 + info[2], 29 + info[3]);
 
-	/* I—¹‘Ò‚¿ */
+	/* çµ‚äº†å¾…ã¡ */
 	for (;;) {
 		i = api_getkey(1);
 		if (i == 'Q' || i == 'q') {
@@ -102,13 +102,13 @@ unsigned char rgb2pal(int r, int g, int b, int x, int y)
 {
 	static int table[4] = { 3, 1, 0, 2 };
 	int i;
-	x &= 1; /* ‹ô”‚©Šï”‚© */
+	x &= 1; /* å¶æ•°ã‹å¥‡æ•°ã‹ */
 	y &= 1;
-	i = table[x + y * 2];	/* ’†ŠÔF‚ğì‚é‚½‚ß‚Ì’è” */
-	r = (r * 21) / 256;	/* ‚±‚ê‚Å 0`20 ‚É‚È‚é */
+	i = table[x + y * 2];	/* ä¸­é–“è‰²ã‚’ä½œã‚‹ãŸã‚ã®å®šæ•° */
+	r = (r * 21) / 256;	/* ã“ã‚Œã§ 0ã€œ20 ã«ãªã‚‹ */
 	g = (g * 21) / 256;
 	b = (b * 21) / 256;
-	r = (r + i) / 4;	/* ‚±‚ê‚Å 0`5 ‚É‚È‚é */
+	r = (r + i) / 4;	/* ã“ã‚Œã§ 0ã€œ5 ã«ãªã‚‹ */
 	g = (g + i) / 4;
 	b = (b + i) / 4;
 	return 16 + r + g * 6 + b * 36;

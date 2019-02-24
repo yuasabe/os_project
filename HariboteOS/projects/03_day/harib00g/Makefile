@@ -6,12 +6,12 @@ IMGTOL   = $(TOOLPATH)imgtol.com
 COPY     = copy
 DEL      = del
 
-# ƒfƒtƒHƒ‹ƒg“®ì
+# ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œ
 
 default :
 	$(MAKE) img
 
-# ƒtƒ@ƒCƒ‹¶¬‹K‘¥
+# ãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆè¦å‰‡
 
 ipl10.bin : ipl10.nas Makefile
 	$(NASK) ipl10.nas ipl10.bin ipl10.lst
@@ -20,19 +20,19 @@ haribote.sys : haribote.nas Makefile
 	$(NASK) haribote.nas haribote.sys haribote.lst
 
 haribote.img : ipl10.bin haribote.sys Makefile
-	$(EDIMG)   imgin:../z_tools/fdimg0at.tek \
-		wbinimg src:ipl10.bin len:512 from:0 to:0 \
-		copy from:haribote.sys to:@: \
+	$(EDIMG)   imgin:../z_tools/fdimg0at.tek Â¥
+		wbinimg src:ipl10.bin len:512 from:0 to:0 Â¥
+		copy from:haribote.sys to:@: Â¥
 		imgout:haribote.img
 
-# ƒRƒ}ƒ“ƒh
+# ã‚³ãƒãƒ³ãƒ‰
 
 img :
 	$(MAKE) haribote.img
 
 run :
 	$(MAKE) img
-	$(COPY) haribote.img ..\z_tools\qemu\fdimage0.bin
+	$(COPY) haribote.img ..Â¥z_toolsÂ¥qemuÂ¥fdimage0.bin
 	$(MAKE) -C ../z_tools/qemu
 
 install :

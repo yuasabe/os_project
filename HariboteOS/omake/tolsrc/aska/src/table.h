@@ -1,5 +1,5 @@
 /*
-	ƒf[ƒ^ƒe[ƒuƒ‹ƒNƒ‰ƒX@`table.h + table.cpp`
+	ãƒ‡ãƒ¼ã‚¿ãƒ†ãƒ¼ãƒ–ãƒ«ã‚¯ãƒ©ã‚¹ã€€ã€œtable.h + table.cppã€œ
 */
 #ifndef	__TABLE_H
 #define	__TABLE_H
@@ -22,22 +22,22 @@ using namespace std;
 #include "scanner.h"
 
 enum RegisterType{
-	R_GENERAL,		// ”Ä—pƒŒƒWƒXƒ^
-	R_SEGREG,		// ƒZƒOƒƒ“ƒgƒŒƒWƒXƒ^
-	R_CTRL,			// ƒRƒ“ƒgƒ[ƒ‹ƒŒƒWƒXƒ^
-	R_DEBUG,		// ƒfƒoƒbƒOƒŒƒWƒXƒ^
-	R_TEST,			// ƒeƒXƒgƒŒƒWƒXƒ^
-	R_FLOAT,		// •‚“®¬”“_ƒŒƒWƒXƒ^
-	R_MMX,			// MMXƒŒƒWƒXƒ^
+	R_GENERAL,		// æ±ç”¨ãƒ¬ã‚¸ã‚¹ã‚¿
+	R_SEGREG,		// ã‚»ã‚°ãƒ¡ãƒ³ãƒˆãƒ¬ã‚¸ã‚¹ã‚¿
+	R_CTRL,			// ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãƒ¬ã‚¸ã‚¹ã‚¿
+	R_DEBUG,		// ãƒ‡ãƒãƒƒã‚°ãƒ¬ã‚¸ã‚¹ã‚¿
+	R_TEST,			// ãƒ†ã‚¹ãƒˆãƒ¬ã‚¸ã‚¹ã‚¿
+	R_FLOAT,		// æµ®å‹•å°æ•°ç‚¹ãƒ¬ã‚¸ã‚¹ã‚¿
+	R_MMX,			// MMXãƒ¬ã‚¸ã‚¹ã‚¿
 };
 
 class RegisterList{
   public:
-	LPSTR			name;	// ƒŒƒWƒXƒ^–¼
-	RegisterType	type;	// ƒŒƒWƒXƒ^ƒ^ƒCƒv
-	int				size;	// ƒŒƒWƒXƒ^ƒTƒCƒY
-	bool			bBase;	// ƒx[ƒXƒŒƒWƒXƒ^‚Å‚ ‚é‚©
-	bool			bIndex;	// ƒCƒ“ƒfƒbƒNƒXƒŒƒWƒXƒ^‚Å‚ ‚é‚©
+	LPSTR			name;	// ãƒ¬ã‚¸ã‚¹ã‚¿å
+	RegisterType	type;	// ãƒ¬ã‚¸ã‚¹ã‚¿ã‚¿ã‚¤ãƒ—
+	int				size;	// ãƒ¬ã‚¸ã‚¹ã‚¿ã‚µã‚¤ã‚º
+	bool			bBase;	// ãƒ™ãƒ¼ã‚¹ãƒ¬ã‚¸ã‚¹ã‚¿ã§ã‚ã‚‹ã‹
+	bool			bIndex;	// ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãƒ¬ã‚¸ã‚¹ã‚¿ã§ã‚ã‚‹ã‹
 
 	RegisterList(LPSTR n, RegisterType t, int s, bool b, bool i)
 			{ name=n; type=t; size=s; bBase=b; bIndex=i; }
@@ -50,7 +50,7 @@ class Register{
 	
   public:
 	Register(void);
-	~Register();
+	â€¾Register();
 	
 	void			Add(LPSTR key, RegisterList* r){ string k=key; mapregister[k]=r; }
 	RegisterList*	Find(LPSTR key){
@@ -75,14 +75,14 @@ class SegmentList{
   public:
 	ListStaticDataList liststatic;
 
-	LPSTR			name;			// ƒZƒOƒƒ“ƒgƒl[ƒ€
-	Token			align;			// ƒAƒ‰ƒCƒ“‘®«
-	Token			combine;		// ƒRƒ“ƒoƒCƒ“‘®«
-	Token			use;			// USE‘®«
-	Token			access;			// ƒAƒNƒZƒX‘®«
-	LPSTR			segmentclass;	// ƒZƒOƒƒ“ƒgƒNƒ‰ƒX
+	LPSTR			name;			// ã‚»ã‚°ãƒ¡ãƒ³ãƒˆãƒãƒ¼ãƒ 
+	Token			align;			// ã‚¢ãƒ©ã‚¤ãƒ³å±æ€§
+	Token			combine;		// ã‚³ãƒ³ãƒã‚¤ãƒ³å±æ€§
+	Token			use;			// USEå±æ€§
+	Token			access;			// ã‚¢ã‚¯ã‚»ã‚¹å±æ€§
+	LPSTR			segmentclass;	// ã‚»ã‚°ãƒ¡ãƒ³ãƒˆã‚¯ãƒ©ã‚¹
 
-	RegisterList*	assume;			// segment CODE == ES;‚ÌES‚ğ•Û‘¶‚·‚é‚½‚ß‚Ég‚¤
+	RegisterList*	assume;			// segment CODE == ES;ã®ESã‚’ä¿å­˜ã™ã‚‹ãŸã‚ã«ä½¿ã†
 
 	SegmentList(void)
 		{ name=NULL; align=TK_BYTE; combine=TK_PRIVATE; use=TK_USE32;
@@ -100,7 +100,7 @@ class Segment{
 	MaplpSegmentList	mapsegment;
 	
 	Segment(void);
-	~Segment();
+	â€¾Segment();
 	
 	void			Add(LPSTR key, SegmentList* s){ string k=key; mapsegment[k]=s; }
 	SegmentList*	Find(LPSTR key){
@@ -114,13 +114,13 @@ class TagList;
 
 class MemberList{
   public:
-	bool			bSigned;	// •„†‚ ‚èŒ^‚©‚Ç‚¤‚©
-	TagList*		type;		// •Ï”‚ÌŒ^
+	bool			bSigned;	// ç¬¦å·ã‚ã‚Šå‹ã‹ã©ã†ã‹
+	TagList*		type;		// å¤‰æ•°ã®å‹
 	Token			ptype;		// near:TK_NEAR, far:TK_FAR
-	int				pdepth;		// ƒ|ƒCƒ“ƒ^‚Ì[‚³B‚±‚ê‚ª0‚È‚çƒ|ƒCƒ“ƒ^‚Å‚È‚¢
-	bool			bArray;		// ”z—ñ‚Å‚ ‚é‚©
-	int				size;		// •Ï”‚ÌƒTƒCƒYi”z—ñAƒ|ƒCƒ“ƒ^A\‘¢‘Ì‚à‰Á–¡j
-	int				offset;		// \‘¢‘Ì‚Å‚Ìƒƒ“ƒo‚ÌƒIƒtƒZƒbƒg
+	int				pdepth;		// ãƒã‚¤ãƒ³ã‚¿ã®æ·±ã•ã€‚ã“ã‚ŒãŒ0ãªã‚‰ãƒã‚¤ãƒ³ã‚¿ã§ãªã„
+	bool			bArray;		// é…åˆ—ã§ã‚ã‚‹ã‹
+	int				size;		// å¤‰æ•°ã®ã‚µã‚¤ã‚ºï¼ˆé…åˆ—ã€ãƒã‚¤ãƒ³ã‚¿ã€æ§‹é€ ä½“ã‚‚åŠ å‘³ï¼‰
+	int				offset;		// æ§‹é€ ä½“ã§ã®ãƒ¡ãƒ³ãƒã®ã‚ªãƒ•ã‚»ãƒƒãƒˆ
 
 	MemberList(void)
 		{ type=NULL; bSigned=true; ptype=TK_FAR; pdepth=0; bArray=false; size=0; offset=0; }
@@ -134,140 +134,18 @@ class MemberList{
 
 typedef map<string, MemberList*> MaplpMemberList;
 
-// typedef‚â‚Í‚¶‚ß‚©‚ç‚ ‚éŒ^‚Í"type"‚Æ‚¢‚¤ƒƒ“ƒo‚ğŒ©‚éBtypedef‚È‚çmember->type!=NULL
+// typedefã‚„ã¯ã˜ã‚ã‹ã‚‰ã‚ã‚‹å‹ã¯"type"ã¨ã„ã†ãƒ¡ãƒ³ãƒã‚’è¦‹ã‚‹ã€‚typedefãªã‚‰member->type!=NULL
 class TagList{
   public:
-	int				size;		// ‚±‚ÌŒ^‚ÌƒTƒCƒY
-	bool			bStruct;	// \‘¢‘Ì‚Å‚ ‚é‚©
-	MaplpMemberList	mapmember;	// \‘¢‘Ì‚Å‚ ‚ê‚Îƒƒ“ƒo‚ÌƒŠƒXƒg
+	int				size;		// ã“ã®å‹ã®ã‚µã‚¤ã‚º
+	bool			bStruct;	// æ§‹é€ ä½“ã§ã‚ã‚‹ã‹
+	MaplpMemberList	mapmember;	// æ§‹é€ ä½“ã§ã‚ã‚Œã°ãƒ¡ãƒ³ãƒã®ãƒªã‚¹ãƒˆ
 	
 	TagList(bool bs){ bStruct=bs; size=0;}
-	~TagList();
+	â€¾TagList();
 
 	void			AddMemberList(LPSTR n, bool bs, TagList* t, Token pt, int pd, bool ba, int s);
 	MemberList*		FindMemberList(LPSTR key){
 		string k = key;
 		MaplpMemberList::iterator it = mapmember.find(k);
-		if(it == mapmember.end()) return NULL; else return it->second;
-	}
-};
-
-typedef map<string, TagList*> MaplpTagList;
-
-class Tag{
-	MaplpTagList	maptag;
-	
-  public:
-	Tag(void);
-	~Tag();
-	
-	void			Add(LPSTR key, TagList* t){ string k=key; maptag[k]=t; }
-	TagList*		Find(LPSTR key){
-		string k = key;
-		MaplpTagList::iterator it = maptag.find(k);
-		if(it == maptag.end()) return NULL; else return it->second;
-	}
-};
-
-
-enum ParameterType{
-	P_ERR,						// –¢‰Šú‰»‚à‚µ‚­‚ÍƒGƒ‰[
-	P_REG,						// ƒpƒ‰ƒ[ƒ^‚Ìƒ^ƒCƒv‚ªƒŒƒWƒXƒ^Bbase‚É“ü‚é
-	P_MEM,						// ƒpƒ‰ƒ[ƒ^‚Ìƒ^ƒCƒv‚ªƒƒ‚ƒŠBbase‚É“ü‚é
-	P_IMM,						// ƒpƒ‰ƒ[ƒ^‚Ìƒ^ƒCƒv‚ªƒŒƒWƒXƒ^Bbase‚É“ü‚é
-};
-
-class Parameter{
-  public:
-	ParameterType	paramtype;	// P_ERR, P_REG, P_MEM, P_IMM
-	RegisterList*	seg;
-	RegisterList*	base;
-	RegisterList*	index;
-	int				scale;		// 1, 2, 4, 8
-	string			disp;
-	int				ndisp;		// ‚±‚±‚Íƒƒ“ƒoŒŸõ‚Ì‚ÌƒIƒtƒZƒbƒg‚Ì‚½‚ß‚É‚ ‚é
-	bool			bLabel;		// P_MEM‚Å‚àLabel‚©‚Ç‚¤‚©
-	bool			bSigned;	// •„†‚ ‚èŒ^‚©‚Ç‚¤‚©
-	TagList*		type;		// •Ï”‚ÌŒ^
-	Token			ptype;		// near:TK_NEAR, far:TK_FAR, offset:TK_OFFSET, segment:TK_SEGMENT
-	int				pdepth;		// ƒ|ƒCƒ“ƒ^‚Ì[‚³B‚±‚ê‚ª0‚È‚çƒ|ƒCƒ“ƒ^‚Å‚È‚¢
-	int				size;		// •Ï”‚ÌƒTƒCƒYi”z—ñAƒ|ƒCƒ“ƒ^A\‘¢‘Ì‚à‰Á–¡j
-	bool			bArray;		// ”z—ñ‚Å‚ ‚é‚©
-
-	void	Initialize()
-		{ paramtype=P_ERR; seg=NULL; base=NULL; index=NULL; scale=1; disp=""; ndisp=0; size=0;
-			bLabel=false; bSigned=true; type=NULL; ptype=TK_FAR; pdepth=0; bArray=false; }
-	
-	Parameter(void){ Initialize(); }
-	Parameter&	operator=(Parameter& param);
-};
-
-//typedef list<TagList*> ListlpTagList;
-
-//label‚Ítype:dword, ptype:normal, bAddress:false, size:4‚Æ‚·‚é
-class LabelList{
-  public:
-	bool			bStatic;
-	bool			bSigned;	// •„†‚ ‚èŒ^‚©‚Ç‚¤‚©
-	TagList*		type;		// •Ï”‚ÌŒ^
-	Token			ptype;		// near:TK_NEAR, far:TK_FAR
-	int				pdepth;		// ƒ|ƒCƒ“ƒ^‚Ì[‚³B‚±‚ê‚ª0‚È‚çƒ|ƒCƒ“ƒ^‚Å‚È‚¢
-	SegmentList*	segment;	// ƒf[ƒ^‚ğ‚Ç‚±‚ÉŠ„‚è•t‚¯‚é‚©
-	int				size;		// •Ï”‚ÌƒTƒCƒYi”z—ñAƒ|ƒCƒ“ƒ^A\‘¢‘Ì‚à‰Á–¡j
-	bool			bArray;		// ”z—ñ‚Å‚ ‚é‚©
-	bool			bAlias;		// ƒGƒCƒŠƒAƒX‚Å‚ ‚é‚©
-	Parameter		alias;		// ƒGƒCƒŠƒAƒX(’è”‚Í‚±‚±‚Ö”š‚ğ“ü‚ê‚é–‚Ås‚¤)
-	int				nLocalAddress;	// ƒ[ƒJƒ‹ƒ‰ƒxƒ‹‚È‚çƒ[ƒJƒ‹ƒAƒhƒŒƒX‚ğ“ü‚ê‚é
-	bool			bFunction;	// ŠÖ”‚Å‚ ‚é‚©
-//	ListlpTagList	listtag;	// ŠÖ”‚È‚çŠÖ”‚Ìˆø”‚ÌŒ^‚ğ“ü‚ê‚é
-
-	LabelList(void)
-		{bSigned=true; type=NULL; ptype=TK_FAR; pdepth=0; segment=NULL; size=0; bArray=false;
-			bAlias=false; nLocalAddress=0; bFunction=false; bStatic=false; }
-	LabelList(bool bs, TagList* t, Token pt, int pd, SegmentList* s
-			, int sz, bool bary, bool balias, Parameter& a, int nla, bool bf)
-		{ bSigned=bs; type=t; ptype=pt; pdepth=pd; bArray=bary; bFunction=bf; nLocalAddress=nla;
-			size=sz; bAlias=balias; alias=a; segment=s; bStatic=false; }
-	LabelList(LabelList* l)
-		{ bSigned=l->bSigned; type=l->type; ptype=l->ptype; pdepth=l->pdepth; bArray=l->bArray;
-			bFunction=l->bFunction; nLocalAddress=l->nLocalAddress; size=l->size; bAlias=l->bAlias;
-			alias=l->alias; segment=l->segment; bStatic=l->bStatic; }
-	LabelList&	operator=(LabelList& label);
-};
-
-typedef map<string, LabelList*> MaplpLabelList;
-
-class Label{
-	MaplpLabelList	maplabel;
-
-  public:
-	Label(void){}
-	~Label(){ Clear(); }
-	
-	void			Clear(void);
-	void			Add(LPSTR key, LabelList* l){ string k=key; maplabel[k]=l; }
-	LabelList*		Find(LPSTR key){
-		string k = key;
-		MaplpLabelList::iterator it = maplabel.find(k);
-		if(it == maplabel.end()) return NULL; else return it->second;
-	}
-};
-
-enum CompareType{
-	C_NOTHING,	// ‚È‚©‚Á‚½
-	C_JA,		// (unsigned)>
-	C_JAE,		// (unsigned)>=
-	C_JB,		// (unsigned)<
-	C_JBE,		// (unsigned)<=
-	C_JG,		//   (signed)>
-	C_JGE,		//   (signed)>=
-	C_JL,		//   (signed)<
-	C_JLE,		//   (signed)<=
-	C_JE,		// ==
-	C_JNE,		// !=
-	C_JC,		// CF == 1
-	C_JNC,		// CF == 0
-	C_JMP,		// 
-};
-
-#endif
+		if(it == 

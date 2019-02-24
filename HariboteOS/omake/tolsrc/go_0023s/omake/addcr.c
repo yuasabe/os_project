@@ -11,7 +11,7 @@ int addcr(unsigned char *p0, unsigned char **pname)
 	unsigned char *s, *t = namebuf0, *p1, *name = *pname, c, flag;
 	FILE *fp;
 	while ((*t++ = *name++) > ' ');
-	t[-1] = '\0';
+	t[-1] = '¥0';
 	fp = fopen(namebuf0, "rb");
 	if (fp == NULL)
 		goto error;
@@ -24,29 +24,29 @@ int addcr(unsigned char *p0, unsigned char **pname)
 	t = p0 + MAXBUFSIZ / 2;
 	while (s < p1) {
 		c = *s++;
-		if (c >= ' ' || c == '\t') {
+		if (c >= ' ' || c == '¥t') {
 			*t++ = c;
 			continue;
 		}
-		if (c == '\r') {
+		if (c == '¥r') {
 			*t++ = c;
-			*t++ = '\n';
-			if (s < p1 && *s == '\n') {
+			*t++ = '¥n';
+			if (s < p1 && *s == '¥n') {
 				s++;
 				continue;
 			}
 			flag = 1;
 			continue;
 		}
-		if (c == '\n') {
-			*t++ = '\r';
-			*t++ = '\n';
+		if (c == '¥n') {
+			*t++ = '¥r';
+			*t++ = '¥n';
 			flag = 1;
 			continue;
 		}
 	}
 	if (flag == 0)
-		fprintf(stdout, "addcr:skip -- \"%s\".\n", namebuf0);
+		fprintf(stdout, "addcr:skip -- ¥"%s¥".¥n", namebuf0);
 	else {
 		fp = fopen(namebuf0, "wb");
 		if (fp == NULL)
@@ -54,7 +54,7 @@ int addcr(unsigned char *p0, unsigned char **pname)
 		if (fwrite(p0 + MAXBUFSIZ / 2, 1, t - (p0 + MAXBUFSIZ / 2), fp) != t - (p0 + MAXBUFSIZ / 2))
 			goto error2;
 		fclose(fp);
-		fprintf(stdout, "addcr:add %6d[bytes] -- \"%s\".\n", t - s - MAXBUFSIZ / 2, namebuf0);
+		fprintf(stdout, "addcr:add %6d[bytes] -- ¥"%s¥".¥n", t - s - MAXBUFSIZ / 2, namebuf0);
 	}
 	*pname = name;
 	return 0;
@@ -62,7 +62,7 @@ int addcr(unsigned char *p0, unsigned char **pname)
 error2:
 	fclose(fp);
 error:
-	fprintf(stderr, "addcr:error -- \"%s\".\n", namebuf0);
+	fprintf(stderr, "addcr:error -- ¥"%s¥".¥n", namebuf0);
 	return 1;
 }
 
@@ -87,7 +87,7 @@ const int main(const int argc, char **argv)
 			fclose(fp);
 			if (list1 - list0 >= MAXLISTSIZ - 1)
 				goto error1;
-			*list1 = '\0';
+			*list1 = '¥0';
 			name = list0;
 			for (;;) {
 				while (name < list1 && *name <= ' ')
@@ -101,7 +101,7 @@ const int main(const int argc, char **argv)
 	}
 	return 0;
 error1:
-	fprintf(stderr, "addcr:error -- \"%s\".\n", lname);
+	fprintf(stderr, "addcr:error -- ¥"%s¥".¥n", lname);
 error:
 	return 1;
 }

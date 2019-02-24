@@ -42,15 +42,15 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 
 #ifdef REAL_ARITHMETIC
 # if MAX_LONG_DOUBLE_TYPE_SIZE == 96
-#  define REAL_WIDTH	\
+#  define REAL_WIDTH	¥
      (11*8 + HOST_BITS_PER_WIDE_INT)/HOST_BITS_PER_WIDE_INT
 # else
 #  if MAX_LONG_DOUBLE_TYPE_SIZE == 128
-#   define REAL_WIDTH	\
+#   define REAL_WIDTH	¥
       (19*8 + HOST_BITS_PER_WIDE_INT)/HOST_BITS_PER_WIDE_INT
 #  else
 #   if HOST_FLOAT_FORMAT != TARGET_FLOAT_FORMAT
-#    define REAL_WIDTH	\
+#    define REAL_WIDTH	¥
        (7*8 + HOST_BITS_PER_WIDE_INT)/HOST_BITS_PER_WIDE_INT
 #   endif
 #  endif
@@ -172,7 +172,7 @@ const unsigned char mode_unit_size[NUM_MACHINE_MODES] = {
    (QI -> HI -> SI -> DI, etc.)  Widening multiply instructions
    use this.  */
 
-#define DEF_MACHMODE(SYM, NAME, CLASS, BITSIZE, SIZE, UNIT, WIDER, INNER)  \
+#define DEF_MACHMODE(SYM, NAME, CLASS, BITSIZE, SIZE, UNIT, WIDER, INNER)  ¥
   (unsigned char) WIDER,
 
 const unsigned char mode_wider_mode[NUM_MACHINE_MODES] = {
@@ -181,8 +181,8 @@ const unsigned char mode_wider_mode[NUM_MACHINE_MODES] = {
 
 #undef DEF_MACHMODE
 
-#define DEF_MACHMODE(SYM, NAME, CLASS, BITSIZE, SIZE, UNIT, WIDER, INNER)  \
-  ((BITSIZE) >= HOST_BITS_PER_WIDE_INT) ? ~(unsigned HOST_WIDE_INT) 0 : ((unsigned HOST_WIDE_INT) 1 << (BITSIZE)) - 1,
+#define DEF_MACHMODE(SYM, NAME, CLASS, BITSIZE, SIZE, UNIT, WIDER, INNER)  ¥
+  ((BITSIZE) >= HOST_BITS_PER_WIDE_INT) ? ‾(unsigned HOST_WIDE_INT) 0 : ((unsigned HOST_WIDE_INT) 1 << (BITSIZE)) - 1,
 
 /* Indexed by machine mode, gives mask of significant bits in mode.  */
 
@@ -397,309 +397,4 @@ copy_rtx (orig)
 
   /* We do not copy the USED flag, which is used as a mark bit during
      walks over the RTL.  */
-  copy->used = 0;
-
-  /* We do not copy FRAME_RELATED for INSNs.  */
-  if (GET_RTX_CLASS (code) == 'i')
-    copy->frame_related = 0;
-  copy->jump = orig->jump;
-  copy->call = orig->call;
-
-  format_ptr = GET_RTX_FORMAT (GET_CODE (copy));
-
-  for (i = 0; i < GET_RTX_LENGTH (GET_CODE (copy)); i++)
-    {
-      copy->fld[i] = orig->fld[i];
-      switch (*format_ptr++)
-	{
-	case 'e':
-	  if (XEXP (orig, i) != NULL)
-	    XEXP (copy, i) = copy_rtx (XEXP (orig, i));
-	  break;
-
-	case 'E':
-	case 'V':
-	  if (XVEC (orig, i) != NULL)
-	    {
-	      XVEC (copy, i) = rtvec_alloc (XVECLEN (orig, i));
-	      for (j = 0; j < XVECLEN (copy, i); j++)
-		XVECEXP (copy, i, j) = copy_rtx (XVECEXP (orig, i, j));
-	    }
-	  break;
-
-	case 't':
-	case 'w':
-	case 'i':
-	case 's':
-	case 'S':
-	case 'T':
-	case 'u':
-	case '0':
-	  /* These are left unchanged.  */
-	  break;
-
-	default:
-	  abort ();
-	}
-    }
-  return copy;
-}
-
-/* Create a new copy of an rtx.  Only copy just one level.  */
-
-rtx
-shallow_copy_rtx (orig)
-     rtx orig;
-{
-  int i;
-  RTX_CODE code = GET_CODE (orig);
-  rtx copy = rtx_alloc (code);
-
-  PUT_MODE (copy, GET_MODE (orig));
-  copy->in_struct = orig->in_struct;
-  copy->volatil = orig->volatil;
-  copy->unchanging = orig->unchanging;
-  copy->integrated = orig->integrated;
-  copy->frame_related = orig->frame_related;
-
-  for (i = 0; i < GET_RTX_LENGTH (code); i++)
-    copy->fld[i] = orig->fld[i];
-
-  return copy;
-}
-
-/* Return the alignment of MODE. This will be bounded by 1 and
-   BIGGEST_ALIGNMENT.  */
-
-unsigned int
-get_mode_alignment (mode)
-     enum machine_mode mode;
-{
-  unsigned int alignment;
-
-  if (GET_MODE_CLASS (mode) == MODE_COMPLEX_FLOAT
-      || GET_MODE_CLASS (mode) == MODE_COMPLEX_INT)
-    alignment = GET_MODE_UNIT_SIZE (mode);
-  else
-    alignment = GET_MODE_SIZE (mode);
-  
-  /* Extract the LSB of the size.  */
-  alignment = alignment & -alignment;
-  alignment *= BITS_PER_UNIT;
-
-  alignment = MIN (BIGGEST_ALIGNMENT, MAX (1, alignment));
-  return alignment;
-}
-
-/* This is 1 until after the rtl generation pass.  */
-int rtx_equal_function_value_matters;
-
-/* Nonzero when we are generating CONCATs.  */
-int generating_concat_p;
-
-/* Return 1 if X and Y are identical-looking rtx's.
-   This is the Lisp function EQUAL for rtx arguments.  */
-
-int
-rtx_equal_p (x, y)
-     rtx x, y;
-{
-  int i;
-  int j;
-  enum rtx_code code;
-  const char *fmt;
-
-  if (x == y)
-    return 1;
-  if (x == 0 || y == 0)
-    return 0;
-
-  code = GET_CODE (x);
-  /* Rtx's of different codes cannot be equal.  */
-  if (code != GET_CODE (y))
-    return 0;
-
-  /* (MULT:SI x y) and (MULT:HI x y) are NOT equivalent.
-     (REG:SI x) and (REG:HI x) are NOT equivalent.  */
-
-  if (GET_MODE (x) != GET_MODE (y))
-    return 0;
-
-  /* Some RTL can be compared nonrecursively.  */
-  switch (code)
-    {
-    case REG:
-      /* Until rtl generation is complete, don't consider a reference
-	 to the return register of the current function the same as
-	 the return from a called function.  This eases the job of
-	 function integration.  Once the distinction is no longer
-	 needed, they can be considered equivalent.  */
-      return (REGNO (x) == REGNO (y)
-	      && (! rtx_equal_function_value_matters
-		  || REG_FUNCTION_VALUE_P (x) == REG_FUNCTION_VALUE_P (y)));
-
-    case LABEL_REF:
-      return XEXP (x, 0) == XEXP (y, 0);
-
-    case SYMBOL_REF:
-      return XSTR (x, 0) == XSTR (y, 0);
-
-    case SCRATCH:
-    case CONST_DOUBLE:
-    case CONST_INT:
-    case CONST_VECTOR:
-      return 0;
-
-    default:
-      break;
-    }
-
-  /* Compare the elements.  If any pair of corresponding elements
-     fail to match, return 0 for the whole things.  */
-
-  fmt = GET_RTX_FORMAT (code);
-  for (i = GET_RTX_LENGTH (code) - 1; i >= 0; i--)
-    {
-      switch (fmt[i])
-	{
-	case 'w':
-	  if (XWINT (x, i) != XWINT (y, i))
-	    return 0;
-	  break;
-
-	case 'n':
-	case 'i':
-	  if (XINT (x, i) != XINT (y, i))
-	    return 0;
-	  break;
-
-	case 'V':
-	case 'E':
-	  /* Two vectors must have the same length.  */
-	  if (XVECLEN (x, i) != XVECLEN (y, i))
-	    return 0;
-
-	  /* And the corresponding elements must match.  */
-	  for (j = 0; j < XVECLEN (x, i); j++)
-	    if (rtx_equal_p (XVECEXP (x, i, j), XVECEXP (y, i, j)) == 0)
-	      return 0;
-	  break;
-
-	case 'e':
-	  if (rtx_equal_p (XEXP (x, i), XEXP (y, i)) == 0)
-	    return 0;
-	  break;
-
-	case 'S':
-	case 's':
-	  if ((XSTR (x, i) || XSTR (y, i))
-	      && (! XSTR (x, i) || ! XSTR (y, i)
-		  || strcmp (XSTR (x, i), XSTR (y, i))))
-	    return 0;
-	  break;
-
-	case 'u':
-	  /* These are just backpointers, so they don't matter.  */
-	  break;
-
-	case '0':
-	case 't':
-	  break;
-
-	  /* It is believed that rtx's at this level will never
-	     contain anything but integers and other rtx's,
-	     except for within LABEL_REFs and SYMBOL_REFs.  */
-	default:
-	  abort ();
-	}
-    }
-  return 1;
-}
-
-#if defined ENABLE_RTL_CHECKING && (GCC_VERSION >= 2007)
-void
-rtl_check_failed_bounds (r, n, file, line, func)
-    rtx r;
-    int n;
-    const char *file;
-    int line;
-    const char *func;
-{
-  internal_error
-    ("RTL check: access of elt %d of `%s' with last elt %d in %s, at %s:%d",
-     n, GET_RTX_NAME (GET_CODE (r)), GET_RTX_LENGTH (GET_CODE (r)) - 1,
-     func, trim_filename (file), line);
-}
-
-void
-rtl_check_failed_type1 (r, n, c1, file, line, func)
-    rtx r;
-    int n;
-    int c1;
-    const char *file;
-    int line;
-    const char *func;
-{
-  internal_error
-    ("RTL check: expected elt %d type '%c', have '%c' (rtx %s) in %s, at %s:%d",
-     n, c1, GET_RTX_FORMAT (GET_CODE (r))[n], GET_RTX_NAME (GET_CODE (r)),
-     func, trim_filename (file), line);
-}
-
-void
-rtl_check_failed_type2 (r, n, c1, c2, file, line, func)
-    rtx r;
-    int n;
-    int c1;
-    int c2;
-    const char *file;
-    int line;
-    const char *func;
-{
-  internal_error
-    ("RTL check: expected elt %d type '%c' or '%c', have '%c' (rtx %s) in %s, at %s:%d",
-     n, c1, c2, GET_RTX_FORMAT (GET_CODE (r))[n], GET_RTX_NAME (GET_CODE (r)),
-     func, trim_filename (file), line);
-}
-
-void
-rtl_check_failed_code1 (r, code, file, line, func)
-    rtx r;
-    enum rtx_code code;
-    const char *file;
-    int line;
-    const char *func;
-{
-  internal_error ("RTL check: expected code `%s', have `%s' in %s, at %s:%d",
-		  GET_RTX_NAME (code), GET_RTX_NAME (GET_CODE (r)), func,
-		  trim_filename (file), line);
-}
-
-void
-rtl_check_failed_code2 (r, code1, code2, file, line, func)
-    rtx r;
-    enum rtx_code code1, code2;
-    const char *file;
-    int line;
-    const char *func;
-{
-  internal_error
-    ("RTL check: expected code `%s' or `%s', have `%s' in %s, at %s:%d",
-     GET_RTX_NAME (code1), GET_RTX_NAME (code2), GET_RTX_NAME (GET_CODE (r)),
-     func, trim_filename (file), line);
-}
-
-/* XXX Maybe print the vector?  */
-void
-rtvec_check_failed_bounds (r, n, file, line, func)
-    rtvec r;
-    int n;
-    const char *file;
-    int line;
-    const char *func;
-{
-  internal_error
-    ("RTL check: access of elt %d of vector with last elt %d in %s, at %s:%d",
-     n, GET_NUM_ELEM (r) - 1, func, trim_filename (file), line);
-}
-#endif /* ENABLE_RTL_CHECKING */
+ 

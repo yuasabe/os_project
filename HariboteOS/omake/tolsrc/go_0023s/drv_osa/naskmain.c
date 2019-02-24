@@ -13,12 +13,12 @@ extern int GOL_abortcode;
 extern jmp_buf setjmp_env;
 
 struct STR_NASKMAIN {
-	UCHAR *cmdlin; /* '\0'‚ÅI‚í‚é */
-	UCHAR *outname; /* '\0'‚ÅI‚í‚é, work‚Ì‚Ç‚±‚©‚Ö‚Ìƒ|ƒCƒ“ƒ^ */
-	UCHAR *listname; /* '\0'‚ÅI‚í‚é, work‚Ì‚Ç‚±‚©‚Ö‚Ìƒ|ƒCƒ“ƒ^ */
-	UCHAR *dest0, *dest1; /* o—Íƒtƒ@ƒCƒ‹(dest0‚Í‘‚«Š·‚¦‚ç‚ê‚é) */
-	UCHAR *list0, *list1; /* o—Íƒtƒ@ƒCƒ‹(list0‚Í‘‚«Š·‚¦‚ç‚ê‚é) */
-	UCHAR *err0, *err1; /* ƒRƒ“ƒ\[ƒ‹ƒƒbƒZ[ƒW(err0‚Í‘‚«Š·‚¦‚ç‚ê‚é) */
+	UCHAR *cmdlin; /* 'Â¥0'ã§çµ‚ã‚ã‚‹ */
+	UCHAR *outname; /* 'Â¥0'ã§çµ‚ã‚ã‚‹, workã®ã©ã“ã‹ã¸ã®ãƒã‚¤ãƒ³ã‚¿ */
+	UCHAR *listname; /* 'Â¥0'ã§çµ‚ã‚ã‚‹, workã®ã©ã“ã‹ã¸ã®ãƒã‚¤ãƒ³ã‚¿ */
+	UCHAR *dest0, *dest1; /* å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«(dest0ã¯æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹) */
+	UCHAR *list0, *list1; /* å‡ºåŠ›ãƒ•ã‚¡ã‚¤ãƒ«(list0ã¯æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹) */
+	UCHAR *err0, *err1; /* ã‚³ãƒ³ã‚½ãƒ¼ãƒ«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸(err0ã¯æ›¸ãæ›ãˆã‚‰ã‚Œã‚‹) */
 	UCHAR *work0, *work1;
 	int errcode;
 };
@@ -41,19 +41,19 @@ int naskmain(struct STR_NASKMAIN *params)
 	UCHAR **argv, *tmp0;
 	UCHAR **argv1, **p;
 	GO_stdout.p0 = GO_stdout.p = params->err0;
-	GO_stdout.p1 = GO_stdout.p0; /* stdout‚Í‚È‚¢ */
-	GO_stdout.dummy = ~0;
+	GO_stdout.p1 = GO_stdout.p0; /* stdoutã¯ãªã„ */
+	GO_stdout.dummy = â€¾0;
 	GO_stderr.p0 = GO_stderr.p = params->err0;
 	GO_stderr.p1 = params->err1;
-	GO_stderr.dummy = ~0;
+	GO_stderr.dummy = â€¾0;
 
-	/* ‘½dÀs‘j~ (static‚ğÄ‰Šú‰»‚·‚ê‚Î‚Å‚«‚é‚ª) */
+	/* å¤šé‡å®Ÿè¡Œé˜»æ­¢ (staticã‚’å†åˆæœŸåŒ–ã™ã‚Œã°ã§ãã‚‹ãŒ) */
 //	if (execflag)
 //		return 7;
 //	execflag = 1;
 
-	nask_LABELBUFSIZ = 64 * 1024; /* ƒ‰ƒxƒ‹•¶š—ñ‚Ì‡Œv */
-	nask_L_LABEL0 = 1024; /* extern‚Í1000ŒÂ‚Ù‚Ç */
+	nask_LABELBUFSIZ = 64 * 1024; /* ãƒ©ãƒ™ãƒ«æ–‡å­—åˆ—ã®åˆè¨ˆ */
+	nask_L_LABEL0 = 1024; /* externã¯1000å€‹ã»ã© */
 	nask_maxlabels = 4 * 1024; /* 88*4k */
 
 	if (setjmp(setjmp_env)) {
@@ -69,7 +69,7 @@ int naskmain(struct STR_NASKMAIN *params)
 	argv = ConvCmdLine1(&argc, params->cmdlin);
 	params->errcode = main0(argc, argv, tmp0, params);
 skip:
-	/* ƒoƒbƒtƒ@‚ğo—Í */
+	/* ãƒãƒƒãƒ•ã‚¡ã‚’å‡ºåŠ› */
 	GOL_sysabort(0);
 }
 
@@ -86,12 +86,12 @@ static int main0(int argc, UCHAR **argv, UCHAR *tmp0, struct STR_NASKMAIN *param
 	int size;
 
 	if (argc < 2 || argc > 4) {
-		fprintf(stderr, "usage : NASK source [object/binary] [list]\n");
+		fprintf(stderr, "usage : NASK source [object/binary] [list]Â¥n");
 		return 16;
 	}
 	src0 = osain(argv[1], &size);
 	if (src0 == NULL) {
-		fprintf(stderr, "NASK : can't open %s\n", argv[1]);
+		fprintf(stderr, "NASK : can't open %sÂ¥n", argv[1]);
 		return 17;
 	}
 	src1 = src0 + size;
@@ -99,25 +99,25 @@ static int main0(int argc, UCHAR **argv, UCHAR *tmp0, struct STR_NASKMAIN *param
 	list1 = nask(src0, src1, params->list0, params->list1);
 	if (list1 == NULL) {
 over_listbuf:
-		fprintf(stderr, "NASK : LSTBUF is not enough\n");
+		fprintf(stderr, "NASK : LSTBUF is not enoughÂ¥n");
 		return 19;
 	}
 
 	tmp1 = LL(params->list0, list1, tmp0, params->work1);
 	if (tmp1 == NULL) {
 over_tmpbuf:
-		fprintf(stderr, "NASK : TMPBUF is not enough\n");
+		fprintf(stderr, "NASK : TMPBUF is not enoughÂ¥n");
 		return 19;
 	}
 
 	dest1 = output(tmp0, tmp1, params->dest0, params->dest1, params->list0, params->list1 - 2);
 	if (dest1 == NULL) {
-		fprintf(stderr, "NASK : BINBUF is not enough\n");
+		fprintf(stderr, "NASK : BINBUF is not enoughÂ¥n");
 		return 19;
 	}
 	if (argc == 4) {
 		params->listname = argv[3];
-		while (params->list0 < params->list1 - 2 && *(params->list0) != '\0')
+		while (params->list0 < params->list1 - 2 && *(params->list0) != 'Â¥0')
 			params->list0++;
 	}
 	if (argc >= 3) {
@@ -125,7 +125,7 @@ over_tmpbuf:
 		params->dest0 = dest1;
 	}
 	if (nask_errors) {
-		fprintf(stderr, "NASK : %d errors.\n", nask_errors);
+		fprintf(stderr, "NASK : %d errors.Â¥n", nask_errors);
 		return 1;
 	}
 

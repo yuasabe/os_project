@@ -17,9 +17,9 @@ MKFL = Makefile ../Makefile ../make_inc.txt ../make_com.txt
 ALL :
 	$(MAKE) OSASK.EXE
 
-OSASK.EXE : $(MKFL) osalink1.opt base.exe boot32.bin ankfont0.tek tapi0.tek \
-			timerdrv.tek keymos0.tek fdcdrv0.tek pioneer0.tek vgadrv0.tek \
-			decode0.tek papi0.tek init.tek winman0.tek pokon0.tek vesa16.tek \
+OSASK.EXE : $(MKFL) osalink1.opt base.exe boot32.bin ankfont0.tek tapi0.tek ¥
+			timerdrv.tek keymos0.tek fdcdrv0.tek pioneer0.tek vgadrv0.tek ¥
+			decode0.tek papi0.tek init.tek winman0.tek pokon0.tek vesa16.tek ¥
 			towns15.tek
 	$(OSALINK)
 
@@ -39,17 +39,17 @@ ankfont0.bin : ../ankfont0/$(FONTSRC) $(MKFL)
 
 winman0.bin : $(MKFL) ../make_wm0.txt winman0.obj
 	$(MAKE) -C ../sgg00lib
-	$(OBJ2BIM) @../linkrule.rul stack:$(STK_WM_TW) map:winman0.map \
+	$(OBJ2BIM) @../linkrule.rul stack:$(STK_WM_TW) map:winman0.map ¥
 		out:winman0.bim winman0.obj ../sgg00lib/sgg00lib.lib
-	$(BIM2BIN) malloc:$(MLC_WM_TW) mmarea:$(MMA_WM_TW) input:winman0.bim \
+	$(BIM2BIN) malloc:$(MLC_WM_TW) mmarea:$(MMA_WM_TW) input:winman0.bim ¥
 		output:winman0.bin $(BIM_WM_TW)
 	$(DELE) winman0.bim
 
 pokon0.bin : $(MKFL) ../make_pk0.txt pokon0.obj
 	$(MAKE) -C ../sgg00lib
-	$(OBJ2BIM) @../linkrule.rul stack:$(STK_PK_TW) map:pokon0.map \
+	$(OBJ2BIM) @../linkrule.rul stack:$(STK_PK_TW) map:pokon0.map ¥
 		out:pokon0.bim pokon0.obj ../sgg00lib/sgg00lib.lib
-	$(BIM2BIN) malloc:$(MLC_PK_TW) mmarea:$(MMA_PK_TW) input:pokon0.bim \
+	$(BIM2BIN) malloc:$(MLC_PK_TW) mmarea:$(MMA_PK_TW) input:pokon0.bim ¥
 		output:pokon0.bin $(BIM_PK_TW)
 	$(DELE) pokon0.bim
 

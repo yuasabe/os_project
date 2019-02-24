@@ -110,22 +110,4 @@ extern struct hash_entry *hash_newfunc
 extern PTR hash_allocate PARAMS ((struct hash_table *,
 				  unsigned int));
 
-/* Traverse a hash table in a random order, calling a function on each
-   element.  If the function returns false, the traversal stops.  The
-   INFO argument is passed to the function.  */
-extern void hash_traverse PARAMS ((struct hash_table *,
-				   bool (*) (struct hash_entry *,
-						hash_table_key),
-				   hash_table_key info));
-
-/* Hash a string K, which is really of type `char*'.  */
-extern unsigned long string_hash PARAMS ((hash_table_key k));
-
-/* Compare two strings K1, K2 which are really of type `char*'.  */
-extern bool string_compare PARAMS ((hash_table_key k1, 
-				       hash_table_key k2));
-
-/* Copy a string K, which is really of type `char*'.  */
-extern hash_table_key string_copy PARAMS ((struct obstack* memory,
-					   hash_table_key k));
-
+/* Traverse a 

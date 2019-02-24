@@ -12,20 +12,20 @@ static UCHAR **ConvCmdLine0(int *pargc)
 	q = q0 = malloc(strlen((char *) p) + 1);
 	do {
 		if (*p == 0x22) {
-			p++; /* 0x22��ǂݔ�΂� */
+			p++; /* 0x22を読み飛ばす */
 			do {
 				*q++ = *p++;
 				if (p[-1] == 0x22 && *p <= ' ') {
 					p++;
 					break;
 				}
-			} while (p[-1] != '\0');
+			} while (p[-1] != '¥0');
 		} else
 			while ((*q++ = *p++) > ' ');
 		argc++;
 		p--;
-		*(q - 1) = '\0';
-		while ('\0' < *p && *p <= ' ')
+		*(q - 1) = '¥0';
+		while ('¥0' < *p && *p <= ' ')
 			p++;
 	} while (*p);
 	argv = malloc((argc + 1) * sizeof (char *));

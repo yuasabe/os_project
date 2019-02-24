@@ -6,7 +6,7 @@ namespace NC {
 namespace NFile {
 namespace NIO {
 
-CFileBase::~CFileBase() { Close(); }
+CFileBase::‾CFileBase() { Close(); }
 
 bool CFileBase::Open(const char *name, const char *access)
 {

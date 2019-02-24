@@ -14,7 +14,7 @@
 #define	WINSTR_Y0			28 / 4
 
 void sgg_wm0s_movewindow(struct SGG_WINDOW *window, const int x, const int y)
-// wm0s‚ÍA"winman0signal"‚Ì—ª
+// wm0sã¯ã€"winman0signal"ã®ç•¥
 {
 	static struct {
 		int cmd1, opt1, data[5];
@@ -72,7 +72,7 @@ void sgg_wm0s_accessenable(const struct SGG_WINDOW *window)
 }
 
 void sgg_wm0s_accessdisable(const struct SGG_WINDOW *window)
-// Š®—¹ƒVƒOƒiƒ‹‚ª‹A‚Á‚Ä‚­‚é‚Ì‚Å’ˆÓ
+// å®Œäº†ã‚·ã‚°ãƒŠãƒ«ãŒå¸°ã£ã¦ãã‚‹ã®ã§æ³¨æ„
 {
 	static struct {
 		int cmd, opt;
@@ -89,7 +89,7 @@ void sgg_wm0s_accessdisable(const struct SGG_WINDOW *window)
 }
 
 void sgg_wm0s_redraw(const struct SGG_WINDOW *window)
-// Š®—¹ƒVƒOƒiƒ‹‚ª‹A‚Á‚Ä‚­‚é‚Ì‚Å’ˆÓ
+// å®Œäº†ã‚·ã‚°ãƒŠãƒ«ãŒå¸°ã£ã¦ãã‚‹ã®ã§æ³¨æ„
 {
 	static struct {
 		int cmd, opt;
@@ -184,7 +184,7 @@ const int sgg_wm0_winsizey(const struct SGG_WINDOW *window)
 }
 
 void sgg_wm0s_close(const struct SGG_WINDOW *window)
-// ƒNƒ[ƒY‚Ì—v¿‚ğƒ^ƒXƒN‚É“`‚¦‚é
+// ã‚¯ãƒ­ãƒ¼ã‚ºã®è¦è«‹ã‚’ã‚¿ã‚¹ã‚¯ã«ä¼ãˆã‚‹
 {
 	static struct {
 		int cmd, opt;
@@ -385,11 +385,4 @@ void sgg_wm0s_sendto2_pokon0(const int signal, const int param)
 		int cmd, opt;
 		int data[4];
 		int eoc;
-	} command = { 0x0020, 0x80000000 + 4, { 0x4240 /* pokon0 */ + 3, 0x7f000002, 0, 0 }, 0x0000 };
-	command.data[1] = signal;
-	command.data[2] = param;
-
-	sgg_execcmd(&command);
-	return;
-}
-#endif
+	} command = { 0x0020, 0x80000

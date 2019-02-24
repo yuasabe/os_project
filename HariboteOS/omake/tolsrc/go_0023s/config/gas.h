@@ -67,7 +67,7 @@ Boston, MA 02111-1307, USA.  */
 
 /* Output #ident as a .ident.  */
 
-#define ASM_OUTPUT_IDENT(FILE, NAME) fprintf (FILE, "\t.ident \"%s\"\n", NAME);
+#define ASM_OUTPUT_IDENT(FILE, NAME) fprintf (FILE, "¥t.ident ¥"%s¥"¥n", NAME);
 
 /* Implicit library calls should use memcpy, not bcopy, etc.  */
 
@@ -84,8 +84,8 @@ Boston, MA 02111-1307, USA.  */
 
 #ifdef HAVE_GAS_BALIGN_AND_P2ALIGN 
 #undef ASM_OUTPUT_ALIGN
-#define ASM_OUTPUT_ALIGN(FILE,LOG) \
-  if ((LOG)!=0 && (LOG) != 5) fprintf ((FILE), "\t.balign %d\n", 1<<(LOG))
+#define ASM_OUTPUT_ALIGN(FILE,LOG) ¥
+  if ((LOG)!=0 && (LOG) != 5) fprintf ((FILE), "¥t.balign %d¥n", 1<<(LOG))
 #endif
 
 /* A C statement to output to the stdio stream FILE an assembler
@@ -95,10 +95,10 @@ Boston, MA 02111-1307, USA.  */
    This is used to align code labels according to Intel recommendations.  */
 
 #ifdef HAVE_GAS_MAX_SKIP_P2ALIGN
-#  define ASM_OUTPUT_MAX_SKIP_ALIGN(FILE,LOG,MAX_SKIP) \
-     if ((LOG) != 0) {\
-       if ((MAX_SKIP) == 0) fprintf ((FILE), "\t.p2align %d\n", (LOG)); \
-       else fprintf ((FILE), "\t.p2align %d,,%d\n", (LOG), (MAX_SKIP)); \
+#  define ASM_OUTPUT_MAX_SKIP_ALIGN(FILE,LOG,MAX_SKIP) ¥
+     if ((LOG) != 0) {¥
+       if ((MAX_SKIP) == 0) fprintf ((FILE), "¥t.p2align %d¥n", (LOG)); ¥
+       else fprintf ((FILE), "¥t.p2align %d,,%d¥n", (LOG), (MAX_SKIP)); ¥
      }
 #endif
 
@@ -110,65 +110,7 @@ Boston, MA 02111-1307, USA.  */
    GAS version 1.38.1 doesn't understand the `repz' opcode mnemonic.
    So use `repe' instead.  */
 
-#define ASM_OUTPUT_OPCODE(STREAM, PTR)	\
-{									\
-  if ((PTR)[0] == 'r'							\
-      && (PTR)[1] == 'e'						\
-      && (PTR)[2] == 'p')						\
-    {									\
-      if ((PTR)[3] == 'z')						\
-	{								\
-	  fprintf (STREAM, "repe");					\
-	  (PTR) += 4;							\
-	}								\
-      else if ((PTR)[3] == 'n' && (PTR)[4] == 'z')			\
-	{								\
-	  fprintf (STREAM, "repne");					\
-	  (PTR) += 5;							\
-	}								\
-    }									\
-}
-
-/* Define macro used to output shift-double opcodes when the shift
-   count is in %cl.  Some assemblers require %cl as an argument;
-   some don't.
-
-   GAS requires the %cl argument, so override i386/unix.h.  */
-
-#undef SHIFT_DOUBLE_OMITS_COUNT
-#define SHIFT_DOUBLE_OMITS_COUNT 0
-
-/* Print opcodes the way that GAS expects them.  */
-#define GAS_MNEMONICS 1
-
-#ifdef NO_UNDERSCORES /* If user-symbols don't have underscores,
-			 then it must take more than `L' to identify
-			 a label that should be ignored.  */
-
-/* This is how to store into the string BUF
-   the symbol_ref name of an internal numbered label where
-   PREFIX is the class of label and NUM is the number within the class.
-   This is suitable for output with `assemble_name'.  */
-
-#undef ASM_GENERATE_INTERNAL_LABEL
-#define ASM_GENERATE_INTERNAL_LABEL(BUF,PREFIX,NUMBER)	\
-    sprintf ((BUF), ".%s%ld", (PREFIX), (long)(NUMBER))
-
-/* This is how to output an internal numbered label where
-   PREFIX is the class of label and NUM is the number within the class.  */
-
-#undef ASM_OUTPUT_INTERNAL_LABEL
-#define ASM_OUTPUT_INTERNAL_LABEL(FILE,PREFIX,NUM)	\
-  fprintf (FILE, ".%s%d:\n", PREFIX, NUM)
-
-#endif /* NO_UNDERSCORES */
-
-/* Output at beginning of assembler file.  */
-/* The .file command should always begin the output.  */
-#undef ASM_FILE_START
-#define ASM_FILE_START(FILE)						\
-  do {									\
-	if (ix86_asm_dialect == ASM_INTEL)				\
-	  fputs ("\t.intel_syntax\n", FILE);				\
-        output_file_directive (FILE, main_input_filename);		\
-  } while (0)
+#define ASM_OUTPUT_OPCODE(STREAM, PTR)	¥
+{									¥
+  if ((PTR)[0] == 'r'							¥
+      && 

@@ -122,7 +122,7 @@ choose_tmpdir ()
   tmpdir = xmalloc (len + 2);
   strcpy (tmpdir, base);
   tmpdir[len] = DIR_SEPARATOR;
-  tmpdir[len+1] = '\0';
+  tmpdir[len+1] = '¥0';
 
   memoized_tmpdir = tmpdir;
   return tmpdir;
@@ -159,16 +159,4 @@ make_temp_file (suffix)
 			   + TEMP_FILE_LEN
 			   + suffix_len + 1);
   strcpy (temp_filename, base);
-  strcpy (temp_filename + base_len, TEMP_FILE);
-  strcpy (temp_filename + base_len + TEMP_FILE_LEN, suffix);
-
-  fd = mkstemps (temp_filename, suffix_len);
-  /* If mkstemps failed, then something bad is happening.  Maybe we should
-     issue a message about a possible security attack in progress?  */
-  if (fd == -1)
-    abort ();
-  /* Similarly if we can not close the file.  */
-  if (close (fd))
-    abort ();
-  return temp_filename;
-}
+  strcpy (temp_filename +

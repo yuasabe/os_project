@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* “Ç‚ñ‚¾•¶Žš‚µ‚©“Ç‚Ý–ß‚¹‚È‚¢ƒo[ƒWƒ‡ƒ“ */
-/* –{—ˆ‚Ìungetc‚Æ‚ÍŽd—l‚ªˆÙ‚È‚é */
+/* èª­ã‚“ã æ–‡å­—ã—ã‹èª­ã¿æˆ»ã›ãªã„ãƒãƒ¼ã‚¸ãƒ§ãƒ³ */
+/* æœ¬æ¥ã®ungetcã¨ã¯ä»•æ§˜ãŒç•°ãªã‚‹ */
 
 int GO_ungetc(int c, GO_FILE *stream)
 {
@@ -12,6 +12,6 @@ int GO_ungetc(int c, GO_FILE *stream)
 		stream->p--;
 		return c;
 	}
-	fputs("GO_ungetc:error!\n", stderr);
+	fputs("GO_ungetc:error!Â¥n", stderr);
 	abort();
 }

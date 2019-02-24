@@ -1,200 +1,95 @@
-"go_0020s"‚É‚Â‚¢‚Ä                              ì‡GŽÀ  kawai@imasy.org
+"go_0020s"ã«ã¤ã„ã¦                              å·åˆç§€å®Ÿ  kawai@imasy.org
 
-E‚±‚ê‚Í‰½‚©H
+ãƒ»ã“ã‚Œã¯ä½•ã‹ï¼Ÿ
 
-  ‚±‚ê‚ÍAgo_0020w/go_0020o‚Ìƒ\[ƒX‚Å‚·Bgo_0020w‚Æ‚¢‚¤‚Ì‚ÍAgcc-3.2‚ð‰ü‘¢‚µ‚Ä
-ì‚Á‚½ƒRƒ“ƒpƒCƒ‰‚Ìwin32”ÅƒoƒCƒiƒŠ‚Å‚·Bgo_0020o‚Í‚»‚ÌOSASK”Å‚Å‚·B
+  ã“ã‚Œã¯ã€go_0020w/go_0020oã®ã‚½ãƒ¼ã‚¹ã§ã™ã€‚go_0020wã¨ã„ã†ã®ã¯ã€gcc-3.2ã‚’æ”¹é€ ã—ã¦
+ä½œã£ãŸã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ã®win32ç‰ˆãƒã‚¤ãƒŠãƒªã§ã™ã€‚go_0020oã¯ãã®OSASKç‰ˆã§ã™ã€‚
 
-  ×‚©‚¢‚±‚Æ‚ð‚¢‚¤‚ÆA‚±‚Ìgo_0020s‚ÍAgcc-3.2‚Ìƒ\[ƒX‚Égo_0020p‚Ìƒpƒbƒ`‚ð‚ ‚Ä‚½
-Œã‚Ìƒ\[ƒX‚Å‚·Bgo_0020s‚¾‚¯‚Å‘S‚Ä‚Ìƒ\[ƒX‚ªŠÜ‚Ü‚ê‚Ä‚¢‚Ü‚·‚Ì‚ÅAgo_0020s‚ðŽ‚Á
-‚Ä‚¢‚ê‚Îgo_0020p‚Í•s—v‚Å‚·B
+  ç´°ã‹ã„ã“ã¨ã‚’ã„ã†ã¨ã€ã“ã®go_0020sã¯ã€gcc-3.2ã®ã‚½ãƒ¼ã‚¹ã«go_0020pã®ãƒ‘ãƒƒãƒã‚’ã‚ã¦ãŸ
+å¾Œã®ã‚½ãƒ¼ã‚¹ã§ã™ã€‚go_0020sã ã‘ã§å…¨ã¦ã®ã‚½ãƒ¼ã‚¹ãŒå«ã¾ã‚Œã¦ã„ã¾ã™ã®ã§ã€go_0020sã‚’æŒã£
+ã¦ã„ã‚Œã°go_0020pã¯ä¸è¦ã§ã™ã€‚
 
-  iŽo–…•i‚Ì‚Ü‚Æ‚ßj
-    go_0020w : win32”ÅƒoƒCƒiƒŠ               (GPL)
-    go_0020o : OSASK”ÅƒoƒCƒiƒŠ               (GPL)
-    go_0020s : go_0020w, o‚Ìƒ\[ƒX           (GPL)
-    go_0020p : go_0020s‚Ægcc-3.2ƒ\[ƒX‚Ì·•ª (KL-01)
+  ï¼ˆå§‰å¦¹å“ã®ã¾ã¨ã‚ï¼‰
+    go_0020w : win32ç‰ˆãƒã‚¤ãƒŠãƒª               (GPL)
+    go_0020o : OSASKç‰ˆãƒã‚¤ãƒŠãƒª               (GPL)
+    go_0020s : go_0020w, oã®ã‚½ãƒ¼ã‚¹           (GPL)
+    go_0020p : go_0020sã¨gcc-3.2ã‚½ãƒ¼ã‚¹ã®å·®åˆ† (KL-01)
 
-E‚Ç‚¤‚â‚Á‚ÄAŽÀsƒoƒCƒiƒŠ‚ðì‚é‚Ì‚©H
+ãƒ»ã©ã†ã‚„ã£ã¦ã€å®Ÿè¡Œãƒã‚¤ãƒŠãƒªã‚’ä½œã‚‹ã®ã‹ï¼Ÿ
 
-  make‚Éæ—§‚¿Ainclude/rule.mak‚ðÝ’è‚µ‚Ü‚·B‚Ü‚¸ƒfƒBƒŒƒNƒgƒŠgo_0020s‚Ì’†‚Å
-setmode go‚Æ‚·‚ê‚ÎAwin32ã‚ÌGO‚Åmake‚Å‚«‚éó‘Ô‚É‚È‚è‚Ü‚·B‚Ü‚½setmode gcc‚Æ‚·
-‚ê‚ÎAwin32‚ÌAPI‚ð’¼ÚŒÄ‚Ño‚·‚±‚Æ‚Í‚µ‚È‚¢‚ÅANSI-C‚Ì•W€ƒ‰ƒCƒuƒ‰ƒŠ‚¾‚¯‚ðŽg‚¤‚æ
-‚¤‚É‚È‚è‚Ü‚·B‚±‚Ìó‘Ô‚È‚çMinGW‚âGO+w32clibc‚Åmake‚Å‚«‚éó‘Ô‚É‚È‚è‚Ü‚·B‚¢‚¸‚ê
-‚É‚µ‚Ä‚à‚±‚Ìrule.mak‚Í—Œ`‚Å‚µ‚©‚È‚¢‚Ì‚ÅAŠeŽ©‚ÌŠÂ‹«‚É‡‚í‚¹‚ÄƒpƒX‚ð‘‚«ž‚ñ‚Å
-‚­‚¾‚³‚¢iw32clibc‚ðŽg‚¤‚È‚çAinclude/rule.mak‚ð‚³‚ç‚ÉŽáŠ±‘‚«Š·‚¦‚é•K—v‚ª‚ ‚é
-‚Å‚µ‚å‚¤jB
+  makeã«å…ˆç«‹ã¡ã€include/rule.makã‚’è¨­å®šã—ã¾ã™ã€‚ã¾ãšãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªgo_0020sã®ä¸­ã§
+setmode goã¨ã™ã‚Œã°ã€win32ä¸Šã®GOã§makeã§ãã‚‹çŠ¶æ…‹ã«ãªã‚Šã¾ã™ã€‚ã¾ãŸsetmode gccã¨ã™
+ã‚Œã°ã€win32ã®APIã‚’ç›´æŽ¥å‘¼ã³å‡ºã™ã“ã¨ã¯ã—ãªã„ã§ANSI-Cã®æ¨™æº–ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã ã‘ã‚’ä½¿ã†ã‚ˆ
+ã†ã«ãªã‚Šã¾ã™ã€‚ã“ã®çŠ¶æ…‹ãªã‚‰MinGWã‚„GO+w32clibcã§makeã§ãã‚‹çŠ¶æ…‹ã«ãªã‚Šã¾ã™ã€‚ã„ãšã‚Œ
+ã«ã—ã¦ã‚‚ã“ã®rule.makã¯é››å½¢ã§ã—ã‹ãªã„ã®ã§ã€å„è‡ªã®ç’°å¢ƒã«åˆã‚ã›ã¦ãƒ‘ã‚¹ã‚’æ›¸ãè¾¼ã‚“ã§
+ãã ã•ã„ï¼ˆw32clibcã‚’ä½¿ã†ãªã‚‰ã€include/rule.makã‚’ã•ã‚‰ã«è‹¥å¹²æ›¸ãæ›ãˆã‚‹å¿…è¦ãŒã‚ã‚‹
+ã§ã—ã‚‡ã†ï¼‰ã€‚
 
-  go”Å‚Ìê‡Ago_0009w‚©‚»‚êˆÈ~‚Åmake‚µ‚Ü‚·BŠî–{“I‚É‚ÍƒfƒBƒŒƒNƒgƒŠgcc‚Ì’†‚Å
-"make"‚Æ‚·‚ê‚ÎAcpp0.exeAcc1.exeAcc1plus.exe‚Ì3‚Â‚ª‚Å‚«‚Ü‚·BÚ‚µ‚¢‚±‚Æ‚Í
-Makefile‚ð‰ðÍ‚µ‚Ä‚­‚¾‚³‚¢BŠÈ’P‚È\‘¢‚Å‚·‚©‚çA“Ç‚ß‚é‚ÆŽv‚¢‚Ü‚·B3‚Â‚ª‚Å‚«‚½Œã
-‚Éupx -9 *.exe‚Æ‚·‚ê‚ÎA‚»‚ê‚¼‚ê‚Ó‚³‚í‚µ‚¢ƒTƒCƒY‚É‚È‚è‚Ü‚·B
+  goç‰ˆã®å ´åˆã€go_0009wã‹ãã‚Œä»¥é™ã§makeã—ã¾ã™ã€‚åŸºæœ¬çš„ã«ã¯ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªgccã®ä¸­ã§
+"make"ã¨ã™ã‚Œã°ã€cpp0.exeã€cc1.exeã€cc1plus.exeã®3ã¤ãŒã§ãã¾ã™ã€‚è©³ã—ã„ã“ã¨ã¯
+Makefileã‚’è§£æžã—ã¦ãã ã•ã„ã€‚ç°¡å˜ãªæ§‹é€ ã§ã™ã‹ã‚‰ã€èª­ã‚ã‚‹ã¨æ€ã„ã¾ã™ã€‚3ã¤ãŒã§ããŸå¾Œ
+ã«upx -9 *.exeã¨ã™ã‚Œã°ã€ãã‚Œãžã‚Œãµã•ã‚ã—ã„ã‚µã‚¤ã‚ºã«ãªã‚Šã¾ã™ã€‚
 
-  gcc”Å‚Ìê‡‚ÍA‚Ü‚¸‰º‹L‚Ì’Ê‚è‚ÉAgolib00Agas2naskAnaskcnv0Asjisconv‚Ìstdc
-”Å‚ðì‚è‚Ü‚·i‚±‚ê‚ç‚Ìƒc[ƒ‹‚Ícpp0Acc1Acc1plus‚Ì¶¬‚É•K—vjB‚»‚µ‚ÄƒfƒBƒŒƒN
-ƒgƒŠgcc‚Ì’†‚Å"make"‚Æ‚·‚ê‚ÎAcpp0.exeAcc1.exeAcc1plus.exe‚Ì3‚Â‚ª‚Å‚«‚Ü‚·B
+  gccç‰ˆã®å ´åˆã¯ã€ã¾ãšä¸‹è¨˜ã®é€šã‚Šã«ã€golib00ã€gas2naskã€naskcnv0ã€sjisconvã®stdc
+ç‰ˆã‚’ä½œã‚Šã¾ã™ï¼ˆã“ã‚Œã‚‰ã®ãƒ„ãƒ¼ãƒ«ã¯cpp0ã€cc1ã€cc1plusã®ç”Ÿæˆã«å¿…è¦ï¼‰ã€‚ãã—ã¦ãƒ‡ã‚£ãƒ¬ã‚¯
+ãƒˆãƒªgccã®ä¸­ã§"make"ã¨ã™ã‚Œã°ã€cpp0.exeã€cc1.exeã€cc1plus.exeã®3ã¤ãŒã§ãã¾ã™ã€‚
 
-  ‚Ü‚½AƒfƒBƒŒƒNƒgƒŠgcc‚Ì’†‚Å"make -r osaskgo.bin"‚Æ‚·‚ê‚ÎAOSASK”Å‚ÌƒoƒCƒiƒŠ‚à
-‚Å‚«‚Ü‚·B
+  ã¾ãŸã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªgccã®ä¸­ã§"make -r osaskgo.bin"ã¨ã™ã‚Œã°ã€OSASKç‰ˆã®ãƒã‚¤ãƒŠãƒªã‚‚
+ã§ãã¾ã™ã€‚
 
-  golib00wAgas2naskAnaskAsjisconvAnaskcnv0‚É‚Â‚¢‚Ä‚ÍAtoolw32‚Ætoolstdc‚Ì—¼
-•û‚É“ü‚Á‚Ä‚¢‚Ü‚·Bsetmode go‚Ìê‡‚ÍAtoolw32‚Ì’†‚Åmake‚Æ‚·‚ê‚ÎA‚»‚ê‚¼‚ê¶¬‚³
-‚ê‚Ü‚·Bsetmode gcc‚Ìê‡‚ÍAtoolstdc‚Ì’†‚Åmake‚µ‚Ü‚·B‚»‚ê‚¼‚êupx‚·‚é‚ÆA”z•z
-”ÅƒoƒCƒiƒŠ‚É‚È‚è‚Ü‚·B
+  golib00wã€gas2naskã€naskã€sjisconvã€naskcnv0ã«ã¤ã„ã¦ã¯ã€toolw32ã¨toolstdcã®ä¸¡
+æ–¹ã«å…¥ã£ã¦ã„ã¾ã™ã€‚setmode goã®å ´åˆã¯ã€toolw32ã®ä¸­ã§makeã¨ã™ã‚Œã°ã€ãã‚Œãžã‚Œç”Ÿæˆã•
+ã‚Œã¾ã™ã€‚setmode gccã®å ´åˆã¯ã€toolstdcã®ä¸­ã§makeã—ã¾ã™ã€‚ãã‚Œãžã‚Œupxã™ã‚‹ã¨ã€é…å¸ƒ
+ç‰ˆãƒã‚¤ãƒŠãƒªã«ãªã‚Šã¾ã™ã€‚
 
-Eƒ‰ƒCƒZƒ“ƒX‚É‚Â‚¢‚Ä
+ãƒ»ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã«ã¤ã„ã¦
 
-  ‚±‚Ìƒ\[ƒXƒZƒbƒg‚ÍGPL‚Åƒ‰ƒCƒZƒ“ƒX‚µ‚Ü‚·B‚à‚µAGPL‚Å‚Í‚È‚­KL-01‚Åƒ‰ƒCƒZƒ“ƒX‚³
-‚ê‚½ƒ\[ƒX‚ª‚Ù‚µ‚¢l‚ÍAgo_0020p‚Ì‚Ù‚¤‚ð“–‚½‚Á‚Ä‚­‚¾‚³‚¢B
+  ã“ã®ã‚½ãƒ¼ã‚¹ã‚»ãƒƒãƒˆã¯GPLã§ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã—ã¾ã™ã€‚ã‚‚ã—ã€GPLã§ã¯ãªãKL-01ã§ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã•
+ã‚ŒãŸã‚½ãƒ¼ã‚¹ãŒã»ã—ã„äººã¯ã€go_0020pã®ã»ã†ã‚’å½“ãŸã£ã¦ãã ã•ã„ã€‚
 
-  ‚È‚¨ˆÈ‰º‚ÌƒfƒBƒŒƒNƒgƒŠ‚ÉŠÖ‚µ‚Ä‚ÍA—áŠO“I‚ÉKL-01(ì‡“°ƒ‰ƒCƒZƒ“ƒX-01)‚Å‚·B
+  ãªãŠä»¥ä¸‹ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«é–¢ã—ã¦ã¯ã€ä¾‹å¤–çš„ã«KL-01(å·åˆå ‚ãƒ©ã‚¤ã‚»ãƒ³ã‚¹-01)ã§ã™ã€‚
     drv_osa, drv_stdc, drv_w32, funcs, go_lib, nasklib, omake, toolstdc,
     toolw32, w32clibc
 
-  GPL‚Ìƒ‰ƒCƒZƒ“ƒX•¶‚ÍCopying‚ÉAKL-01‚Ìƒ‰ƒCƒZƒ“ƒX•¶‚ÍˆÈ‰º‚ÌURL‚É‚ ‚è‚Ü‚·B
-        http://www.imasy.org/~mone/kawaido/license01-1.0.html
+  GPLã®ãƒ©ã‚¤ã‚»ãƒ³ã‚¹æ–‡ã¯Copyingã«ã€KL-01ã®ãƒ©ã‚¤ã‚»ãƒ³ã‚¹æ–‡ã¯ä»¥ä¸‹ã®URLã«ã‚ã‚Šã¾ã™ã€‚
+        http://www.imasy.org/â€¾mone/kawaido/license01-1.0.html
 
-  GPL•”•ª‚Ì’˜ìŒ ‚É‚Â‚¢‚Ä‚ÍA‚»‚ê‚¼‚ê‚ÌŒ³’˜ìŽÒ‚É‹A‚µ‚Ü‚·BKL-01•”•ª‚Ì’˜ìŒ ‚É
-‚Â‚¢‚Ä‚ÍAgo_lib“à‚ÌstringŒnŠÖ”ŒQ‚Ì’˜ìŒ ‚ÍGaku‚³‚ñ‚ÉA‚»‚êˆÈŠO‚Íì‡‚É‹A‚µ‚Ü
-‚·B
+  GPLéƒ¨åˆ†ã®è‘—ä½œæ¨©ã«ã¤ã„ã¦ã¯ã€ãã‚Œãžã‚Œã®å…ƒè‘—ä½œè€…ã«å¸°ã—ã¾ã™ã€‚KL-01éƒ¨åˆ†ã®è‘—ä½œæ¨©ã«
+ã¤ã„ã¦ã¯ã€go_libå†…ã®stringç³»é–¢æ•°ç¾¤ã®è‘—ä½œæ¨©ã¯Gakuã•ã‚“ã«ã€ãã‚Œä»¥å¤–ã¯å·åˆã«å¸°ã—ã¾
+ã™ã€‚
 
-Elibmingw.lib‚É‚Â‚¢‚Ä
+ãƒ»libmingw.libã«ã¤ã„ã¦
 
-  libmingw‚ÍAMinGW‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚©‚çŽÀsƒoƒCƒiƒŠ¶¬‚É‚Ç‚¤‚µ‚Ä‚à•K—v‚È‚à‚Ì‚¾‚¯‚ð
-W‚ß‚½ŠÈˆÕƒ‰ƒCƒuƒ‰ƒŠ‚Å‚·B‚±‚Ìƒ‰ƒCƒZƒ“ƒX‚Í“–‘RGPL‚Å‚·B
+  libmingwã¯ã€MinGWã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‹ã‚‰å®Ÿè¡Œãƒã‚¤ãƒŠãƒªç”Ÿæˆã«ã©ã†ã—ã¦ã‚‚å¿…è¦ãªã‚‚ã®ã ã‘ã‚’
+é›†ã‚ãŸç°¡æ˜“ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã™ã€‚ã“ã®ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã¯å½“ç„¶GPLã§ã™ã€‚
 
-EŽÓŽ«
+ãƒ»è¬è¾ž
 
-  gcc‚ÌŠJ”­ŽÒ‚Ì‚Ý‚È‚³‚Ü‚ÉS‚©‚ç‚ÌŽÓŽ«‚ð‚³‚³‚°‚Ü‚·B‚à‚µ‚±‚Ìgo‚Ìˆê•”‚ªgcc‚ÌŠJ”­
-ŽÒ‚Ì•ûX‚É”F‚ß‚Ä‚¢‚½‚¾‚¯‚½‚çA‚±‚ñ‚È‚ÉŠð‚µ‚¢‚±‚Æ‚Í‚ ‚è‚Ü‚¹‚ñB
+  gccã®é–‹ç™ºè€…ã®ã¿ãªã•ã¾ã«å¿ƒã‹ã‚‰ã®è¬è¾žã‚’ã•ã•ã’ã¾ã™ã€‚ã‚‚ã—ã“ã®goã®ä¸€éƒ¨ãŒgccã®é–‹ç™º
+è€…ã®æ–¹ã€…ã«èªã‚ã¦ã„ãŸã ã‘ãŸã‚‰ã€ã“ã‚“ãªã«å¬‰ã—ã„ã“ã¨ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
 
-  Gaku‚³‚ñ‚Ìstringƒ‰ƒCƒuƒ‰ƒŠ‚ðŽg‚í‚¹‚Ä‚¢‚½‚¾‚«‚Ü‚µ‚½BGaku‚³‚ñA‚ ‚è‚ª‚Æ‚¤‚²‚´
-‚¢‚Ü‚·B
+  Gakuã•ã‚“ã®stringãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’ä½¿ã‚ã›ã¦ã„ãŸã ãã¾ã—ãŸã€‚Gakuã•ã‚“ã€ã‚ã‚ŠãŒã¨ã†ã”ã–
+ã„ã¾ã™ã€‚
 
-  ‚Ü‚½ŠJ”­‚ð’¼Ú•‚¯‚Ä‚­‚ê‚½A‚­[‚Ý‚ñ‚³‚ñAhenoheno‚³‚ñA‚»‚µ‚ÄOSASKƒRƒ~ƒ…ƒjƒe
-ƒB[‚Ì‚Ý‚È‚³‚ÜA‚ ‚è‚ª‚Æ‚¤‚²‚´‚¢‚Ü‚µ‚½B
+  ã¾ãŸé–‹ç™ºã‚’ç›´æŽ¥åŠ©ã‘ã¦ãã‚ŒãŸã€ããƒ¼ã¿ã‚“ã•ã‚“ã€henohenoã•ã‚“ã€ãã—ã¦OSASKã‚³ãƒŸãƒ¥ãƒ‹ãƒ†
+ã‚£ãƒ¼ã®ã¿ãªã•ã¾ã€ã‚ã‚ŠãŒã¨ã†ã”ã–ã„ã¾ã—ãŸã€‚
 
-  ‚È‚¨Aì‡‚Ì2002.10.03`2003.02.28‚ÌŠúŠÔ‚Ì‚¨‚¯‚éŠJ”­¬‰Ê‚ÍA“Á•Ê”F‰Â–@l î•ñ
-ˆ—U‹»Ž–‹Æ‹¦‰ï (IPA) ‚Ìu–¢“¥ƒ\ƒtƒgƒEƒFƒA‘n‘¢Ž–‹Æ–¢“¥ƒ†[ƒXv‚Å‚ÌˆÏ‘õ‹Æ–±‚É‚æ
-‚é‚à‚Ì‚Å‚·B‚±‚Ìê‚ðŽØ‚è‚ÄŽx‰‡‚ð‚¢‚½‚¾‚¯‚½‚±‚Æ‚É‚½‚¢‚µ‚Ä‚¨—ç\‚µã‚°‚Ü‚·B
+  ãªãŠã€å·åˆã®2002.10.03ã€œ2003.02.28ã®æœŸé–“ã®ãŠã‘ã‚‹é–‹ç™ºæˆæžœã¯ã€ç‰¹åˆ¥èªå¯æ³•äºº æƒ…å ±
+å‡¦ç†æŒ¯èˆˆäº‹æ¥­å”ä¼š (IPA) ã®ã€Œæœªè¸ã‚½ãƒ•ãƒˆã‚¦ã‚§ã‚¢å‰µé€ äº‹æ¥­æœªè¸ãƒ¦ãƒ¼ã‚¹ã€ã§ã®å§”è¨—æ¥­å‹™ã«ã‚ˆ
+ã‚‹ã‚‚ã®ã§ã™ã€‚ã“ã®å ´ã‚’å€Ÿã‚Šã¦æ”¯æ´ã‚’ã„ãŸã ã‘ãŸã“ã¨ã«ãŸã„ã—ã¦ãŠç¤¼ç”³ã—ä¸Šã’ã¾ã™ã€‚
 
-E‚Ç‚±‚ª•Ï‚í‚Á‚½‚©H
+ãƒ»ã©ã“ãŒå¤‰ã‚ã£ãŸã‹ï¼Ÿ
 
-  ‹@”\“I‚Èˆá‚¢‚É‚Â‚¢‚Ä‚ÍAƒoƒCƒiƒŠ”Å‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B‚±‚±‚Å‚ÍAƒ\[ƒXƒŒƒxƒ‹
-‚Å‚Ìˆá‚¢‚¾‚¯‚ÉŒ¾‹y‚µ‚Ä‚¢‚Ü‚·B
+  æ©Ÿèƒ½çš„ãªé•ã„ã«ã¤ã„ã¦ã¯ã€ãƒã‚¤ãƒŠãƒªç‰ˆã‚’å‚ç…§ã—ã¦ãã ã•ã„ã€‚ã“ã“ã§ã¯ã€ã‚½ãƒ¼ã‚¹ãƒ¬ãƒ™ãƒ«
+ã§ã®é•ã„ã ã‘ã«è¨€åŠã—ã¦ã„ã¾ã™ã€‚
 
-< go_0000s ¨ go_0001s >
+< go_0000s â†’ go_0001s >
 
-  includeƒfƒBƒŒƒNƒgƒŠ“à‚Ì2‚Â‚Ìƒtƒ@ƒCƒ‹‚ðíœ‚µ‚Ü‚µ‚½B‚±‚ê‚Ímake‚É•s—v‚Èƒtƒ@ƒC
-ƒ‹‚Å‚µ‚½Bƒ\[ƒX“à‚Ì‰üsƒR[ƒh‚ªACRLF‚ÆLF‚Ì‚Ý‚Ì‚à‚Ì‚ª¬Ý‚µ‚Ä‚¢‚Ü‚µ‚½BLF‚Ì‚Ý
-‚É“ˆê‚µ‚Ü‚µ‚½Bdelaln32‚ÌƒoƒCƒiƒŠ‚Æƒ\[ƒX‚àˆê‰ž“ü‚ê‚Ä‚¨‚­‚±‚Æ‚É‚µ‚Ü‚µ‚½B
+  includeãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå†…ã®2ã¤ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å‰Šé™¤ã—ã¾ã—ãŸã€‚ã“ã‚Œã¯makeã«ä¸è¦ãªãƒ•ã‚¡ã‚¤
+ãƒ«ã§ã—ãŸã€‚ã‚½ãƒ¼ã‚¹å†…ã®æ”¹è¡Œã‚³ãƒ¼ãƒ‰ãŒã€CRLFã¨LFã®ã¿ã®ã‚‚ã®ãŒæ··åœ¨ã—ã¦ã„ã¾ã—ãŸã€‚LFã®ã¿
+ã«çµ±ä¸€ã—ã¾ã—ãŸã€‚delaln32ã®ãƒã‚¤ãƒŠãƒªã¨ã‚½ãƒ¼ã‚¹ã‚‚ä¸€å¿œå…¥ã‚Œã¦ãŠãã“ã¨ã«ã—ã¾ã—ãŸã€‚
 
-< go_0001s ¨ go_0002s >
+< go_0001s â†’ go_0002s >
 
-  ƒhƒ‰ƒCƒo(drv_stdc)“à‚Ìƒtƒ@ƒCƒ‹ˆÈŠO‚Ì‘S‚Ä‚ÍAŠO•”‚ÌƒCƒ“ƒNƒ‹[ƒhƒtƒ@ƒCƒ‹‚ð•K—v
-‚Æ‚µ‚Ü‚¹‚ñBŽ©•ª‚ªŽ‚Á‚Ä‚¢‚éƒ‰ƒCƒuƒ‰ƒŠ‚¾‚¯‚Å“®‚¢‚Ä‚¢‚Ü‚·B•K—v‚È‚Ì‚ÍˆÈ‰º‚Ì5ŠÖ”
-main0, GOL_open, GOL_close, GOL_stepdir, GOL_sysabort
-‚¾‚¯‚Å‚·B‚±‚ê‚ç‚ÍŠÂ‹«‚ÉˆË‘¶‚µ‚Ä‘‚©‚ê‚é‚à‚Ì‚Å‚·B‚±‚ê‚ç‚ÍA‚à‚¿‚ë‚ñA•W€ƒ‰ƒC
-ƒuƒ‰ƒŠ‚Ì‚Ý‚Å‹Lq‚·‚é‚±‚Æ‚ª‚Å‚«A‚»‚ê‚Ídrv_stdc‚É“ü‚Á‚Ä‚¢‚Ü‚·B‚±‚ê‚ÍA
-malloc, fopen, fseek, ftell, fread, fclose, fwrite, fputs
-‚¾‚¯‚Å‘‚©‚ê‚Ä‚¢‚Ü‚·B
-  ƒhƒ‰ƒCƒo‚Æcallmain.c‚ðœ‚­‘S‚Ä‚Ìƒtƒ@ƒCƒ‹‚ÍAgo_0002w‚ÅƒRƒ“ƒpƒCƒ‹‚Å‚«‚Ü‚·B
-ŠÂ‹«‚ÉˆË‘¶‚·‚éƒhƒ‰ƒCƒo‚Æcallmain.c‚ÍMinGW‚ÅƒRƒ“ƒpƒCƒ‹‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-  ‚­‚í‚µ‚­‚ÍMakefile‚ðŽQÆ‚µ‚Ä‚­‚¾‚³‚¢B
-
-< go_0002s ¨ go_0004s >
-
-  stdcƒhƒ‰ƒCƒo‚Ì‚Ù‚©‚ÉAw32ƒhƒ‰ƒCƒo‚ð—pˆÓ‚µ‚Ü‚µ‚½B‚±‚ê‚ÍMinGW‚ðŽ‚Á‚Ä‚¢‚È‚­‚Ä
-‚àƒRƒ“ƒpƒCƒ‹‚Å‚«‚Ü‚·B‚Ü‚½stdc”Å‚æ‚è‚àƒRƒ“ƒpƒNƒg‚Å‚·B
-  golib00w‚ðì‚Á‚½‚Ì‚Åƒ\[ƒX‚ð“ü‚ê‚Ü‚µ‚½B
-  Makefile‚ðgo_0004w‚µ‚©Žg‚í‚È‚¢‚æ‚¤‚É‘‚«Š·‚¦‚Ü‚µ‚½B
-  libmingw‚ª•K—v‚É‚È‚Á‚½‚Ì‚Å‰Á‚¦‚Ü‚µ‚½B
-
-< go_0004s ¨ go_0005s >
-
-  ˆê”ÊŒöŠJ‚ÉŒü‚¯AƒhƒLƒ…ƒƒ“ƒg‚ð­‚µ’¼‚µ‚Ü‚µ‚½B‚»‚ê‚¾‚¯‚Å‚·B
-
-< go_0005s ¨ go_0006s >
-
-  gas2nask‚Ænask‚ð’Ç‰Á‚µ‚ÄMakefile‚ð‘‚«Š·‚¦Acc1‚Æcc1plus‚ð‚í‚¸‚©‚É‰ü—Ç‚µ‚Ü‚µ
-‚½(•K—v‚ÈƒAƒ‰ƒCƒ“–½—ß‚ð–¾Ž¦“I‚Éo—Í‚µ‚Ü‚·)B
-
-< go_0006s ¨ go_0007s >
-
-  sjisconv‚Ænaskcnv0‚ð’Ç‰Á‚µAdrv_osa‚ð‰Á‚¦Anask‚ðOSASK”Å‚Æƒ\[ƒX‹¤—p‚Å‚«‚éŒ`
-Ž®‚É‚ ‚ç‚½‚ßAcc1‚Æcc1plus‚ÌƒZƒNƒVƒ‡ƒ“‚Ü‚í‚è‚ÌƒoƒO‚ðC³‚µAgolib00w‚Å’·‚¢ƒtƒ@
-ƒCƒ‹–¼‚Å‚ÌƒoƒO‚ð’¼‚µ‚Ü‚µ‚½B
-
-< go_0007s ¨ go_0008p >
-
-  [OSASK 5584]‚Ågo_0007‚ÌNASK‚ÉƒoƒCƒiƒŠ[ƒ‚[ƒhŽž‚ÌƒoƒO‚ªŒ©•t‚©‚Á‚½‚Ì‚ÅC³‚µ‚Ü
-‚µ‚½B
-
-< go_0008p ¨ go_0009s >
-
-  osaskgo.bin‚ðì‚éê‡‚ÉŒÀ‚Á‚ÄAASKA‚ª•K—v‚É‚È‚è‚Ü‚µ‚½B‚Ü‚½drv_osa‚Ì’†‚Ìosama
-in.c‚Ì’†‚ÌŠÖ”refresh_static()‚Íosaskgo.map‚Ì‹Lq‚É‚ ‚í‚¹‚ÄC³‚µ‚È‚¯‚ê‚Î‚¢‚¯‚È
-‚¢•”•ª‚ª‚ ‚é‚Ì‚Å’ˆÓ‚ª•K—v‚Å‚·B
-
-< go_0009s ¨ go_0011s >
-
-  go_0010p‚Å‚Ìnaskcnv0‚ÌC³‚ðŽæ‚èž‚ñ‚ÅAsjisconv‚ðosaskgo‚É‚à“ü‚ê‚½’ö“x‚Å‚·B
-
-< go_0011s ¨ go_0012s >
-
-  golib00‚Ìstdc”Å(golib00s)‚ð’Ç‰Á‚µ‚Ü‚µ‚½B‚»‚µ‚Ädrv_stdc‚ð‚Ü‚Æ‚à‚É‚µ‚ÄAcc1‚È
-‚Ç‚ðLinuxã‚È‚Ç‚Å‚àmake‚Å‚«‚é‚æ‚¤‚É‚µ‚Ü‚µ‚½B
-
-< go_0012s ¨ go_0013s >
-
-  naskcnv0‚Ìstdc”Å(nskcn0bs)‚ð’Ç‰Á‚µ‚Ü‚µ‚½Bgo_0012‚ÌƒoƒO‚àC³‚µ‚Ü‚µ‚½B
-
-< go_0013s ¨ go_0014s >
-
-  gas2nask‚Ìstdc”Åigas2nsksj‚ð’Ç‰Á‚µ‚Ü‚µ‚½B
-
-< go_0014s ¨ go_0015s >
-
-  nask‚Ìstdc”Å‚ð’Ç‰Á‚µ‚Ü‚µ‚½B
-
-< go_0015s ¨ go_0017s >
-
-  gas2nask‚ÌfsubrsƒoƒO‚ðC³‚µ‚Ü‚µ‚½B
-
-< go_0017s ¨ go_0018s >
-
-  gas2nask‚ÌƒoƒO‚ðC³‚µ‚Ü‚µ‚½ifistpsAfistsAfildsAstoslAfabsAfucompA
-fistpsAfdivsjBwin32-console—p‚ÌŠÈˆÕƒ‰ƒCƒuƒ‰ƒŠ‚ð’Ç‰Á‚µ‚Ü‚µ‚½B
-
-< go_0018s ¨ go_0019s >
-
-  ƒoƒ“ƒhƒ‹‚µ‚Ä‚¢‚½ƒ‰ƒCƒuƒ‰ƒŠ‚Ìƒwƒbƒ_ƒtƒ@ƒCƒ‹‚ðŠÔˆá‚¦‚½‚¾‚¯‚È‚Ì‚ÅAgo_0018s‚Æ
-go_0019s‚Ìˆá‚¢‚Í‚±‚ÌƒhƒLƒ…ƒƒ“ƒg‚¾‚¯‚Å‚·B
-
-< go_0019 ¨ go_0020 >
-
-  ƒ\[ƒXƒŒƒxƒ‹‚Å‚Ì‰ü’ù‚ð‚µ‚ÄAgo”Å‚Ægcc(stdc)”Å‚Ìˆá‚¢‚ðAinclude/rule.mak‚¾‚¯‚É
-‚µ‚Ü‚µ‚½B
-  stdc”Å‚Å‚ÍA—˜—p‚µ‚Ä‚¢‚éŠÖ”‚ðˆÈ‘O‚Ì12ŒÂ‚©‚ç8ŒÂ‚Ö‚Æ‚³‚ç‚ÉŒ¸­‚³‚¹‚Ü‚µ‚½B
-    fopen, fclose, fread, fwrite, fseek, ftell, malloc, exit
-‚à‚µ‚­‚ÍAˆÈ‰º‚Ì6ŠÖ”‚ðì‚é‚¾‚¯‚Å‚à‚¢‚¢‚Å‚·B
-  GOLD_getsize(ƒtƒ@ƒCƒ‹ƒTƒCƒYŽæ“¾),
-  GOLD_read(ƒtƒ@ƒCƒ‹‚ÌƒoƒCƒiƒŠƒ‚[ƒhƒŠ[ƒh -- ˆêŠ‡‚Åƒtƒ@ƒCƒ‹‘S‘Ì‚ð“Ç‚Þ‚¾‚¯),
-  GOLD_write_b(ƒtƒ@ƒCƒ‹‚ÌƒoƒCƒiƒŠƒ‚[ƒhƒ‰ƒCƒg -- ˆêŠ‡‚Åƒtƒ@ƒCƒ‹‘S‘Ì‚ð‘‚­‚¾‚¯),
-  GOLD_write_t(ƒtƒ@ƒCƒ‹‚ÌƒeƒLƒXƒgƒ‚[ƒhƒ‰ƒCƒg -- ƒtƒ@ƒCƒ‹‚ð‘‚­‚Æ‚«‚ÍˆêŠ‡A
-                  ƒRƒ“ƒ\[ƒ‹‚Ö‚ÌƒƒbƒZ[ƒWo—Í‚Ìê‡‚Í‰½“x‚©ŒÄ‚Î‚ê‚¤‚é),
-  GOLD_exit(exit‚Æ‚¨‚È‚¶),
-  malloc(malloc‚Æ“¯‚¶)
-malloc‚É‚Â‚¢‚Ä‚Í‚»‚ê‚¼‚ê‚Ìmain()‚Ì’†‚ÅÅ‰‚É1‰ñŒÄ‚ñ‚Å‚¢‚é‚¾‚¯‚Å‚·‚Ì‚ÅAmallocŠÖ
-”‚Æ‚µ‚Äì‚ç‚È‚­‚Ä‚à‘ã‘Ö‰Â”\‚Å‚·B
-  OSˆË‘¶ƒhƒ‰ƒCƒo‚ðAŠ®‘S‹¤’Ê‰»‚µ‚Ü‚µ‚½Bnask‚âgas2nask‚âsjisconv‚È‚Ç‚ÌƒfƒBƒŒƒN
-ƒgƒŠ‚ð®—‚µ‚ÄA‰ü•Ï‚µ‚â‚·‚­‚µ‚Ü‚µ‚½B‚±‚Ì2“_‚É‚æ‚Á‚ÄA‹@”\‚ª‘‚¦‚½‚É‚à‚©‚©‚í‚ç
-‚¸Aƒ\[ƒX‚Í25KBˆÈã¬‚³‚­‚È‚èAƒtƒ@ƒCƒ‹”‚Í3‚ÂŒ¸‚èAƒfƒBƒŒƒNƒgƒŠ‚à7‚ÂŒ¸‚Á‚Ä‚¢
-‚Ü‚·B
-
-
-E‚¨–â‚¢‡‚í‚¹‚ÍH
-
-  OSASK-ML‚©AOSASK“`Œ¾”Â‚Ö‚Ç‚¤‚¼B
-
-               2003.11.12  ì‡GŽÀ  kawai@imasy.org
+  ãƒ‰ãƒ©ã‚¤ãƒ(drv_stdc)å†…ã®ãƒ•ã‚¡ã‚¤ãƒ«ä»¥å¤–ã®å…¨ã¦ã¯ã€å¤–éƒ¨ã®ã‚¤ãƒ³ã‚¯ãƒ«ãƒ¼ãƒ‰ãƒ•ã‚¡ã‚¤ãƒ«ã‚’å¿…è¦
+ã¨ã—ã¾ã›ã‚“ã€‚è‡ªåˆ†ãŒæŒã£ã¦ã„ã‚‹ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã 

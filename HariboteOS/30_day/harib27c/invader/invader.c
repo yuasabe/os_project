@@ -81,7 +81,7 @@ next_group:
 	keyflag[1] = 0;
 	keyflag[2] = 0;
 
-	ly = 0; /* ”ñ•\Ž¦ */
+	ly = 0; /* éžè¡¨ç¤º */
 	laserwait = 0;
 	movewait = movewait0;
 	idir = +1;
@@ -95,7 +95,7 @@ next_group:
 
 		wait(4, timer, keyflag);
 
-		/* Ž©‹@‚Ìˆ— */
+		/* è‡ªæ©Ÿã®å‡¦ç† */
 		if (keyflag[0 /* left */]  != 0 && fx > 0) {
 			fx--;
 			putstr(win, winbuf, fx, 13, 6, "efg ");
@@ -112,7 +112,7 @@ next_group:
 			ly = 13;
 		}
 
-		/* ƒCƒ“ƒx[ƒ_ˆÚ“® */
+		/* ã‚¤ãƒ³ãƒ™ãƒ¼ãƒ€ç§»å‹• */
 		if (movewait != 0) {
 			movewait--;
 		} else {
@@ -132,7 +132,7 @@ next_group:
 			}
 		}
 
-		/* ƒŒ[ƒU[ˆ— */
+		/* ãƒ¬ãƒ¼ã‚¶ãƒ¼å‡¦ç† */
 		if (ly > 0) {
 			if (ly < 13) {
 				if (ix < lx && lx < ix + 25 && iy <= ly && ly < iy + invline) {
@@ -160,107 +160,4 @@ next_group:
 					putstr(win, winbuf, 10, 0, 7, s);
 					if (high < score) {
 						high = score;
-						putstr(win, winbuf, 27, 0, 7, s);
-					}
-					for (p--; *p != ' '; p--) { }
-					for (i = 1; i < 5; i++) {
-						p[i] = ' ';
-					}
-					putstr(win, winbuf, ix, ly, 2, invstr + (ly - iy) * 32);
-					for (; invline > 0; invline--) {
-						for (p = invstr + (invline - 1) * 32; *p != 0; p++) {
-							if (*p != ' ') {
-								goto alive;
-							}
-						}
-					}
-					/* ‘S•”‚â‚Á‚Â‚¯‚ç‚ê‚½ */
-					movewait0 -= movewait0 / 3;
-					goto next_group;
-	alive:
-					ly = 0;
-				}
-			}
-		}
-	}
-
-	/* GAME OVER */
-	putstr(win, winbuf, 15, 6, 1, "GAME OVER");
-	wait(0, timer, keyflag);
-	for (i = 1; i < 14; i++) {
-		putstr(win, winbuf, 0, i, 0, "                                        ");
-	}
-	goto restart;
-}
-
-void putstr(int win, char *winbuf, int x, int y, int col, unsigned char *s)
-{
-	int c, x0, i;
-	char *p, *q, t[2];
-	x = x * 8 + 8;
-	y = y * 16 + 29;
-	x0 = x;
-	i = strlen(s);	/* s‚Ì•¶Žš”‚ð”‚¦‚é */
-	api_boxfilwin(win + 1, x, y, x + i * 8 - 1, y + 15, 0);
-	q = winbuf + y * 336;
-	t[1] = 0;
-	for (;;) {
-		c = *s;
-		if (c == 0) {
-			break;
-		}
-		if (c != ' ') {
-			if ('a' <= c && c <= 'h') {
-				p = charset + 16 * (c - 'a');
-				q += x;
-				for (i = 0; i < 16; i++) {
-					if ((p[i] & 0x80) != 0) { q[0] = col; }
-					if ((p[i] & 0x40) != 0) { q[1] = col; }
-					if ((p[i] & 0x20) != 0) { q[2] = col; }
-					if ((p[i] & 0x10) != 0) { q[3] = col; }
-					if ((p[i] & 0x08) != 0) { q[4] = col; }
-					if ((p[i] & 0x04) != 0) { q[5] = col; }
-					if ((p[i] & 0x02) != 0) { q[6] = col; }
-					if ((p[i] & 0x01) != 0) { q[7] = col; }
-					q += 336;
-				}
-				q -= 336 * 16 + x;
-			} else {
-				t[0] = *s;
-				api_putstrwin(win + 1, x, y, col, 1, t);
-			}
-		}
-		s++;
-		x += 8;
-	}
-	api_refreshwin(win, x0, y, x, y + 16);
-	return;
-}
-
-void wait(int i, int timer, char *keyflag)
-{
-	int j;
-	if (i > 0) {
-		/* ˆê’èŽžŠÔ‘Ò‚Â */
-		api_settimer(timer, i);
-		i = 128;
-	} else {
-		i = 0x0a; /* Enter */
-	}
-	for (;;) {
-		j = api_getkey(1);
-		if (i == j) {
-			break;
-		}
-		if (j == '4') {
-			keyflag[0 /* left */]  = 1;
-		}
-		if (j == '6') {
-			keyflag[1 /* right */] = 1;
-		}
-		if (j == ' ') {
-			keyflag[2 /* space */] = 1;
-		}
-	}
-	return;
-}
+						putstr(win, w

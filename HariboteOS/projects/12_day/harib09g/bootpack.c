@@ -1,4 +1,4 @@
-/* bootpackÇÃÉÅÉCÉì */
+/* bootpack„ÅÆ„É°„Ç§„É≥ */
 
 #include "bootpack.h"
 #include <stdio.h>
@@ -21,12 +21,12 @@ void HariMain(void)
 
 	init_gdtidt();
 	init_pic();
-	io_sti(); /* IDT/PICÇÃèâä˙âªÇ™èIÇÌÇ¡ÇΩÇÃÇ≈CPUÇÃäÑÇËçûÇ›ã÷é~Çâèú */
+	io_sti(); /* IDT/PIC„ÅÆÂàùÊúüÂåñ„ÅåÁµÇ„Çè„Å£„Åü„ÅÆ„ÅßCPU„ÅÆÂâ≤„ÇäËæº„ÅøÁ¶ÅÊ≠¢„ÇíËß£Èô§ */
 	fifo8_init(&keyfifo, 32, keybuf);
 	fifo8_init(&mousefifo, 128, mousebuf);
 	init_pit();
-	io_out8(PIC0_IMR, 0xf8); /* PITÇ∆PIC1Ç∆ÉLÅ[É{Å[ÉhÇãñâ¬(11111000) */
-	io_out8(PIC1_IMR, 0xef); /* É}ÉEÉXÇãñâ¬(11101111) */
+	io_out8(PIC0_IMR, 0xf8); /* PIT„Å®PIC1„Å®„Ç≠„Éº„Éú„Éº„Éâ„ÇíË®±ÂèØ(11111000) */
+	io_out8(PIC1_IMR, 0xef); /* „Éû„Ç¶„Çπ„ÇíË®±ÂèØ(11101111) */
 
 	fifo8_init(&timerfifo, 8, timerbuf);
 	timer = timer_alloc();
@@ -55,14 +55,14 @@ void HariMain(void)
 	sht_win   = sheet_alloc(shtctl);
 	buf_back  = (unsigned char *) memman_alloc_4k(memman, binfo->scrnx * binfo->scrny);
 	buf_win   = (unsigned char *) memman_alloc_4k(memman, 160 * 52);
-	sheet_setbuf(sht_back, buf_back, binfo->scrnx, binfo->scrny, -1); /* ìßñæêFÇ»Çµ */
+	sheet_setbuf(sht_back, buf_back, binfo->scrnx, binfo->scrny, -1); /* ÈÄèÊòéËâ≤„Å™„Åó */
 	sheet_setbuf(sht_mouse, buf_mouse, 16, 16, 99);
-	sheet_setbuf(sht_win, buf_win, 160, 52, -1); /* ìßñæêFÇ»Çµ */
+	sheet_setbuf(sht_win, buf_win, 160, 52, -1); /* ÈÄèÊòéËâ≤„Å™„Åó */
 	init_screen8(buf_back, binfo->scrnx, binfo->scrny);
 	init_mouse_cursor8(buf_mouse, 99);
 	make_window8(buf_win, 160, 52, "counter");
 	sheet_slide(sht_back, 0, 0);
-	mx = (binfo->scrnx - 16) / 2; /* âÊñ íÜâõÇ…Ç»ÇÈÇÊÇ§Ç…ç¿ïWåvéZ */
+	mx = (binfo->scrnx - 16) / 2; /* ÁîªÈù¢‰∏≠Â§Æ„Å´„Å™„Çã„Çà„ÅÜ„Å´Â∫ßÊ®ôË®àÁÆó */
 	my = (binfo->scrny - 28 - 16) / 2;
 	sheet_slide(sht_mouse, mx, my);
 	sheet_slide(sht_win, 80, 72);
@@ -98,7 +98,7 @@ void HariMain(void)
 				i = fifo8_get(&mousefifo);
 				io_sti();
 				if (mouse_decode(&mdec, i) != 0) {
-					/* ÉfÅ[É^Ç™3ÉoÉCÉgëµÇ¡ÇΩÇÃÇ≈ï\é¶ */
+					/* „Éá„Éº„Çø„Åå3„Éê„Ç§„ÉàÊèÉ„Å£„Åü„ÅÆ„ÅßË°®Á§∫ */
 					sprintf(s, "[lcr %4d %4d]", mdec.x, mdec.y);
 					if ((mdec.btn & 0x01) != 0) {
 						s[1] = 'L';
@@ -109,102 +109,4 @@ void HariMain(void)
 					if ((mdec.btn & 0x04) != 0) {
 						s[2] = 'C';
 					}
-					boxfill8(buf_back, binfo->scrnx, COL8_008484, 32, 16, 32 + 15 * 8 - 1, 31);
-					putfonts8_asc(buf_back, binfo->scrnx, 32, 16, COL8_FFFFFF, s);
-					sheet_refresh(sht_back, 32, 16, 32 + 15 * 8, 32);
-					/* É}ÉEÉXÉJÅ[É\ÉãÇÃà⁄ìÆ */
-					mx += mdec.x;
-					my += mdec.y;
-					if (mx < 0) {
-						mx = 0;
-					}
-					if (my < 0) {
-						my = 0;
-					}
-					if (mx > binfo->scrnx - 1) {
-						mx = binfo->scrnx - 1;
-					}
-					if (my > binfo->scrny - 1) {
-						my = binfo->scrny - 1;
-					}
-					sprintf(s, "(%3d, %3d)", mx, my);
-					boxfill8(buf_back, binfo->scrnx, COL8_008484, 0, 0, 79, 15); /* ç¿ïWè¡Ç∑ */
-					putfonts8_asc(buf_back, binfo->scrnx, 0, 0, COL8_FFFFFF, s); /* ç¿ïWèëÇ≠ */
-					sheet_refresh(sht_back, 0, 0, 80, 16);
-					sheet_slide(sht_mouse, mx, my);
-				}
-			} else if (fifo8_status(&timerfifo) != 0) {
-				i = fifo8_get(&timerfifo); /* Ç∆ÇËÇ†Ç¶Ç∏ì«Ç›çûÇﬁÅiÇ©ÇÁÇ…Ç∑ÇÈÇΩÇﬂÇ…Åj */
-				io_sti();
-				putfonts8_asc(buf_back, binfo->scrnx, 0, 64, COL8_FFFFFF, "10[sec]");
-				sheet_refresh(sht_back, 0, 64, 56, 80);
-			} else if (fifo8_status(&timerfifo2) != 0) {
-				i = fifo8_get(&timerfifo2); /* Ç∆ÇËÇ†Ç¶Ç∏ì«Ç›çûÇﬁÅiÇ©ÇÁÇ…Ç∑ÇÈÇΩÇﬂÇ…Åj */
-				io_sti();
-				putfonts8_asc(buf_back, binfo->scrnx, 0, 80, COL8_FFFFFF, "3[sec]");
-				sheet_refresh(sht_back, 0, 80, 48, 96);
-			} else if (fifo8_status(&timerfifo3) != 0) {
-				i = fifo8_get(&timerfifo3);
-				io_sti();
-				if (i != 0) {
-					timer_init(timer3, &timerfifo3, 0); /* éüÇÕ0Ç */
-					boxfill8(buf_back, binfo->scrnx, COL8_FFFFFF, 8, 96, 15, 111);
-				} else {
-					timer_init(timer3, &timerfifo3, 1); /* éüÇÕ1Ç */
-					boxfill8(buf_back, binfo->scrnx, COL8_008484, 8, 96, 15, 111);
-				}
-				timer_settime(timer3, 50);
-				sheet_refresh(sht_back, 8, 96, 16, 112);
-			}
-		}
-	}
-}
-
-void make_window8(unsigned char *buf, int xsize, int ysize, char *title)
-{
-	static char closebtn[14][16] = {
-		"OOOOOOOOOOOOOOO@",
-		"OQQQQQQQQQQQQQ$@",
-		"OQQQQQQQQQQQQQ$@",
-		"OQQQ@@QQQQ@@QQ$@",
-		"OQQQQ@@QQ@@QQQ$@",
-		"OQQQQQ@@@@QQQQ$@",
-		"OQQQQQQ@@QQQQQ$@",
-		"OQQQQQ@@@@QQQQ$@",
-		"OQQQQ@@QQ@@QQQ$@",
-		"OQQQ@@QQQQ@@QQ$@",
-		"OQQQQQQQQQQQQQ$@",
-		"OQQQQQQQQQQQQQ$@",
-		"O$$$$$$$$$$$$$$@",
-		"@@@@@@@@@@@@@@@@"
-	};
-	int x, y;
-	char c;
-	boxfill8(buf, xsize, COL8_C6C6C6, 0,         0,         xsize - 1, 0        );
-	boxfill8(buf, xsize, COL8_FFFFFF, 1,         1,         xsize - 2, 1        );
-	boxfill8(buf, xsize, COL8_C6C6C6, 0,         0,         0,         ysize - 1);
-	boxfill8(buf, xsize, COL8_FFFFFF, 1,         1,         1,         ysize - 2);
-	boxfill8(buf, xsize, COL8_848484, xsize - 2, 1,         xsize - 2, ysize - 2);
-	boxfill8(buf, xsize, COL8_000000, xsize - 1, 0,         xsize - 1, ysize - 1);
-	boxfill8(buf, xsize, COL8_C6C6C6, 2,         2,         xsize - 3, ysize - 3);
-	boxfill8(buf, xsize, COL8_000084, 3,         3,         xsize - 4, 20       );
-	boxfill8(buf, xsize, COL8_848484, 1,         ysize - 2, xsize - 2, ysize - 2);
-	boxfill8(buf, xsize, COL8_000000, 0,         ysize - 1, xsize - 1, ysize - 1);
-	putfonts8_asc(buf, xsize, 24, 4, COL8_FFFFFF, title);
-	for (y = 0; y < 14; y++) {
-		for (x = 0; x < 16; x++) {
-			c = closebtn[y][x];
-			if (c == '@') {
-				c = COL8_000000;
-			} else if (c == '$') {
-				c = COL8_848484;
-			} else if (c == 'Q') {
-				c = COL8_C6C6C6;
-			} else {
-				c = COL8_FFFFFF;
-			}
-			buf[(5 + y) * xsize + (xsize - 21 + x)] = c;
-		}
-	}
-	return;
-}
+					boxfill8(buf_back, binfo->scrnx, COL8_008484, 32, 16, 32

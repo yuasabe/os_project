@@ -28,7 +28,7 @@ COPY     = copy
 LIBPATH  = $(INCPATH)
 LIBS     = $(LIBPATH)libmingw.lib
 
-# �ȏ�̍��ڂ͂��Ȃ��̃f�B���N�g���\���ɂ��킹�ď���������
+# 以上の項目はあなたのディレクトリ構成にあわせて書き換える
 
 ALL:
 	$(MAKE) $(TARGET).$(MODE)
@@ -61,9 +61,9 @@ $(TARGET).exe : $(OBJS) Makefile
 	$(LINK) -o $(TARGET).exe -Map $(TARGET).map $(OBJS) $(LIBS)
 
 #$(TARGET).exe : $(OBJS) Makefile
-#	link32.exe /opt:nowin98 /merge:.data=.text /merge:.rdata=.text \
-#		/section:.text,erw /SUBSYSTEM:CONSOLE \
-#		/DEFAULTLIB:$(TOOLPATH)\lnk32lib\kernel32.lib \
+#	link32.exe /opt:nowin98 /merge:.data=.text /merge:.rdata=.text ¥
+#		/section:.text,erw /SUBSYSTEM:CONSOLE ¥
+#		/DEFAULTLIB:$(TOOLPATH)¥lnk32lib¥kernel32.lib ¥
 #		/MAP:$(TARGET).map $(OBJS)
 
 clean :

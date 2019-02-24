@@ -76,8 +76,8 @@ void _tek_decode()
 		goto err1;
 	TEST(AL, 0x40);
 	if (!= 0)
-		getnum_s7s(); /* ÉIÉvÉVÉáÉìèÓïÒÇ÷ÇÃÉ|ÉCÉìÉ^Çì«Ç›îÚÇŒÇ∑ */
-	getnum_s7s(); /* ï‚èïÉoÉbÉtÉ@égópÅH */
+		getnum_s7s(); /* „Ç™„Éó„Ç∑„Éß„É≥ÊÉÖÂ†±„Å∏„ÅÆ„Éù„Ç§„É≥„Çø„ÇíË™≠„ÅøÈ£õ„Å∞„Åô */
+	getnum_s7s(); /* Ë£úÂä©„Éê„ÉÉ„Éï„Ç°‰ΩøÁî®Ôºü */
 	if (EAX != 0) {
 err1:
 		POPAD();
@@ -88,7 +88,7 @@ err1:
 	if (EBP == 0)
 		goto fin1;
 
-	/* stk2ÇÃÉfÉRÅ[Éhñ{ëÃ */
+	/* stk2„ÅÆ„Éá„Ç≥„Éº„ÉâÊú¨‰Ωì */
 
 	PUSH(ES);
 	PUSHFD();
@@ -105,8 +105,8 @@ err1:
 	PUSH(0);
 	EBP = ESP;
 	do {
-		/* byÇÃí∑Ç≥ÇÃéÊìæ */
-		/* Ç±ÇÍÇÕí∑Ç≠Ç»ÇËÇ‚Ç∑Ç¢ */
+		/* by„ÅÆÈï∑„Åï„ÅÆÂèñÂæó */
+		/* „Åì„Çå„ÅØÈï∑„Åè„Å™„Çä„ÇÑ„Åô„ÅÑ */
 		ECX = 0;
 		do {
 			ECX++;
@@ -125,7 +125,7 @@ long_by1:
 		if ((unsigned) EDI >= [SS:EBP + 16])
 			break;
 
-		/* lzÇÃí∑Ç≥ÇÃéÊìæ */
+		/* lz„ÅÆÈï∑„Åï„ÅÆÂèñÂæó */
 		ECX = 0;
 		do {
 			ECX++;
@@ -238,91 +238,4 @@ long_cp0:
 repdis_hit:
 	if (DL == -6)
 		goto repdis0_hit;
-	if (DL == -5)
-		goto repdis1_hit;
-	if (DL == -4)
-		goto repdis2_hit;
-	if (DL == -2)
-		goto rel0;
-	if (DL == -1)
-		goto rel1;
-	EDX = [SS:EBP + 12];
-	goto repdis_hit3;
-repdis0_hit:
-	EDX = [SS:EBP + 0];
-	goto repdis_hit0;
-repdis1_hit:
-	EDX = [SS:EBP + 4];
-	goto repdis_hit1;
-repdis2_hit:
-	EDX = [SS:EBP + 8];
-	goto repdis_hit2;
-
-rel0:
-	[SS:EBP + 12] = ECX;
-	[SS:EBP +  8] = EAX;
-	getnum_s7();
-	LEA(EDX, [EDI + EAX + 1]);
-	goto repdis_hit1;
-
-rel1:
-	[SS:EBP + 12] = ECX;
-	[SS:EBP +  8] = EAX;
-	getnum_s7();
-	NEG(EAX);
-	LEA(EDX, [EDI + EAX - 1]);
-	goto repdis_hit1;
-
-fix_ECX:
-	ECX = [SS:EBP + 16];
-	ECX -= EDI;
-	goto fix_ECX1;
-
-err:
-	ESP += 28;
-	POPFD();
-	POP(ES);
-	POPAD();
-	EAX = 0;
-	EAX++;
-	return;
-}
-
-void getnum_s7s()
-/* DS:ESIÇ©ÇÁÉäÅ[Éh */
-{
-	EAX = 0;
-	do {
-		EAX <<= 7;
-		LODSB();
-		TEST(AL, 0x01);
-	} while (== 0);
-	(unsigned int) EAX >>= 1;
-	return; /* CF = 1, TEST(EAX, EAX); */
-}
-
-void getnum_s7()
-/* DS:ESIÇ©ÇÁÉäÅ[Éh */
-/* ECX, EDX îjâÛ */
-{
-	int tmp0 == ECX, tmp1 == EDX;
-	EAX = 0;
-	AL = [DS:ESI];
-	ESI++;
-	(unsigned int) EAX >>= 1;
-	if (CF == 0) {
-		tmp1 = 0;
-		tmp0 = 0;
-		tmp1++;
-		do {
-			tmp1 <<= 7;
-			EAX <<= 8;
-			tmp0 += tmp1;
-			AL = [DS:ESI];
-			ESI++;
-			(unsigned int) EAX >>= 1;
-		} while (CF == 0);
-		EAX += tmp0;
-	}
-	return;
-}
+	if (DL == -5)

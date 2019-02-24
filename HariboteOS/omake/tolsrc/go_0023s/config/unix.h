@@ -39,30 +39,30 @@ Boston, MA 02111-1307, USA.  */
 /* Output to assembler file text saying following lines
    may contain character constants, extra white space, comments, etc.  */
 
-#define ASM_APP_ON "/APP\n"
+#define ASM_APP_ON "/APP¥n"
 
 /* Output to assembler file text saying following lines
    no longer contain unusual constructs.  */
 
-#define ASM_APP_OFF "/NO_APP\n"
+#define ASM_APP_OFF "/NO_APP¥n"
 
 /* Output before read-only data.  */
 
-#define TEXT_SECTION_ASM_OP "\t.text"
+#define TEXT_SECTION_ASM_OP "¥t.text"
 
 /* Output before writable (initialized) data.  */
 
-#define DATA_SECTION_ASM_OP "\t.data"
+#define DATA_SECTION_ASM_OP "¥t.data"
 
 /* Output before writable (uninitialized) data.  */
 
-#define BSS_SECTION_ASM_OP "\t.bss"
+#define BSS_SECTION_ASM_OP "¥t.bss"
 
 /* This is how to output a command to make the user-level label named NAME
    defined for reference from other files.  */
 
-#define ASM_GLOBALIZE_LABEL(FILE,NAME)	\
-  (fputs (".globl ", FILE), assemble_name (FILE, NAME), fputs ("\n", FILE))
+#define ASM_GLOBALIZE_LABEL(FILE,NAME)	¥
+  (fputs (".globl ", FILE), assemble_name (FILE, NAME), fputs ("¥n", FILE))
 
 /* By default, target has a 80387, uses IEEE compatible arithmetic,
    and returns float values in the 387.  */
@@ -71,13 +71,13 @@ Boston, MA 02111-1307, USA.  */
 
 /* Floating-point return values come in the FP register.  */
 
-#define VALUE_REGNO(MODE) \
-  (GET_MODE_CLASS (MODE) == MODE_FLOAT				\
-   && TARGET_FLOAT_RETURNS_IN_80387 ? FIRST_FLOAT_REG		\
-   : (MODE) == TImode || VECTOR_MODE_P (MODE) ? FIRST_SSE_REG	\
+#define VALUE_REGNO(MODE) ¥
+  (GET_MODE_CLASS (MODE) == MODE_FLOAT				¥
+   && TARGET_FLOAT_RETURNS_IN_80387 ? FIRST_FLOAT_REG		¥
+   : (MODE) == TImode || VECTOR_MODE_P (MODE) ? FIRST_SSE_REG	¥
    : 0)
 
 /* Output code to add DELTA to the first argument, and then jump to FUNCTION.
    Used for C++ multiple inheritance.  */
-#define ASM_OUTPUT_MI_THUNK(FILE, THUNK_FNDECL, DELTA, FUNCTION) \
+#define ASM_OUTPUT_MI_THUNK(FILE, THUNK_FNDECL, DELTA, FUNCTION) ¥
     x86_output_mi_thunk (FILE, DELTA, FUNCTION);

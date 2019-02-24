@@ -114,7 +114,7 @@ cxx_print_type (file, node, indent)
   if (TYPE_HAS_NONTRIVIAL_DESTRUCTOR (node))
     fputs (" needs-destructor", file);
   if (TYPE_HAS_DESTRUCTOR (node))
-    fputs (" ~X()", file);
+    fputs (" ‾X()", file);
   if (TYPE_HAS_DEFAULT_CONSTRUCTOR (node))
     fputs (" X()", file);
   if (TYPE_HAS_CONVERSION (node))
@@ -136,71 +136,4 @@ cxx_print_type (file, node, indent)
     fputs (" delete[]", file);
   if (TYPE_HAS_ASSIGN_REF (node))
     fputs (" this=(X&)", file);
-  if (TYPE_OVERLOADS_CALL_EXPR (node))
-    fputs (" op()", file);
-  if (TYPE_OVERLOADS_ARRAY_REF (node))
-    fputs (" op[]", file);
-  if (TYPE_OVERLOADS_ARROW (node))
-    fputs (" op->", file);
-  if (TYPE_USES_MULTIPLE_INHERITANCE (node))
-    fputs (" uses-multiple-inheritance", file);
-
-  if (TREE_CODE (node) == RECORD_TYPE)
-    {
-      fprintf (file, " n_parents %d", CLASSTYPE_N_BASECLASSES (node));
-      fprintf (file, " use_template=%d", CLASSTYPE_USE_TEMPLATE (node));
-      if (CLASSTYPE_INTERFACE_ONLY (node))
-	fprintf (file, " interface-only");
-      if (CLASSTYPE_INTERFACE_UNKNOWN (node))
-	fprintf (file, " interface-unknown");
-      print_node (file, "member-functions", CLASSTYPE_METHOD_VEC (node),
-		  indent + 4);
-    }
-}
-
-void
-cxx_print_identifier (file, node, indent)
-     FILE *file;
-     tree node;
-     int indent;
-{
-  print_node (file, "bindings", IDENTIFIER_NAMESPACE_BINDINGS (node), indent + 4);
-  print_node (file, "class", IDENTIFIER_CLASS_VALUE (node), indent + 4);
-  print_node (file, "local bindings", IDENTIFIER_BINDING (node), indent + 4);
-  print_node (file, "label", IDENTIFIER_LABEL_VALUE (node), indent + 4);
-  print_node (file, "template", IDENTIFIER_TEMPLATE (node), indent + 4);
-  print_node (file, "implicit", IDENTIFIER_IMPLICIT_DECL (node), indent + 4);
-  print_node (file, "error locus", IDENTIFIER_ERROR_LOCUS (node), indent + 4);
-}
-
-void
-cxx_print_xnode (file, node, indent)
-     FILE *file;
-     tree node;
-     int indent;
-{
-  switch (TREE_CODE (node))
-    {
-    case CPLUS_BINDING:
-      fprintf (file, " scope ");
-      fprintf (file, HOST_PTR_PRINTF, BINDING_SCOPE (node));
-      print_node (file, "value", BINDING_VALUE (node), indent+4);
-      print_node (file, "chain", TREE_CHAIN (node), indent+4);
-      break;
-    case OVERLOAD:
-      print_node (file, "function", OVL_FUNCTION (node), indent+4);
-      print_node (file, "chain", TREE_CHAIN (node), indent+4);
-      break;
-    case TEMPLATE_PARM_INDEX:
-      indent_to (file, indent + 3);
-      fputs ("index ", file);
-      fprintf (file, HOST_WIDE_INT_PRINT_DEC, TEMPLATE_PARM_IDX (node));
-      fputs (" level ", file);
-      fprintf (file, HOST_WIDE_INT_PRINT_DEC, TEMPLATE_PARM_LEVEL (node));
-      fputs (" orig_level ", file);
-      fprintf (file, HOST_WIDE_INT_PRINT_DEC, TEMPLATE_PARM_ORIG_LEVEL (node));
-      break;
-    default:
-      break;
-    }
-}
+  if (TYPE_OVERLOADS_CALL_EXPR (node

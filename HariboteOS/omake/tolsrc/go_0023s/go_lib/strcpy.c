@@ -13,10 +13,10 @@ char* GO_strcpy (char *d, char *s)
 	char *tmp = d;
 
 #if 0
-	while ('\0' != *s)
+	while ('¥0' != *s)
 		*d++ = *s++;
 
-	*d = '\0';
+	*d = '¥0';
 #endif
 	while (*d++ = *s++);
 

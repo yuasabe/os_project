@@ -12,13 +12,13 @@ char* strcat (char *d, const char *s)
 {
 	char *tmp = d;
 
-	while ('\0' != *d)
+	while ('¥0' != *d)
 		d++;
 
-	while ('\0' != *s)
+	while ('¥0' != *s)
 		*d++ = *s++;
 
-	*d = '\0';
+	*d = '¥0';
 
 	return tmp;
 }

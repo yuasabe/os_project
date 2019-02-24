@@ -96,22 +96,4 @@ extern const struct function_unit_desc
 #define FUNCTION_UNITS_SIZE 26
 #define MIN_MULTIPLICITY 1
 #define MAX_MULTIPLICITY 3
-#define MIN_SIMULTANEITY 0
-#define MAX_SIMULTANEITY 1
-#define MIN_READY_COST 1
-#define MAX_READY_COST 100
-#define MIN_ISSUE_DELAY 1
-#define MAX_ISSUE_DELAY 70
-#define MIN_BLOCKAGE 1
-#define MAX_BLOCKAGE 99
-#define BLOCKAGE_BITS 8
-#define INSN_QUEUE_SIZE 128
-
-#define ATTR_FLAG_forward	0x1
-#define ATTR_FLAG_backward	0x2
-#define ATTR_FLAG_likely	0x4
-#define ATTR_FLAG_very_likely	0x8
-#define ATTR_FLAG_unlikely	0x10
-#define ATTR_FLAG_very_unlikely	0x20
-
-#endif /* GCC_INSN_ATTR_H */
+#defi

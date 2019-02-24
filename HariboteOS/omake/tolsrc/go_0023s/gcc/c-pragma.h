@@ -23,7 +23,7 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 #define GCC_C_PRAGMA_H
 
 #ifdef HANDLE_SYSV_PRAGMA
-#if ((defined (ASM_WEAKEN_LABEL) && defined (ASM_OUTPUT_WEAK_ALIAS)) \
+#if ((defined (ASM_WEAKEN_LABEL) && defined (ASM_OUTPUT_WEAK_ALIAS)) ¥
      || defined (ASM_WEAKEN_DECL))
 #define HANDLE_PRAGMA_WEAK SUPPORTS_WEAK
 #endif

@@ -1,5 +1,5 @@
-OBJS_BOOTPACK = bootpack.obj naskfunc.obj hankaku.obj graphic.obj dsctbl.obj \
-		int.obj fifo.obj keyboard.obj mouse.obj memory.obj sheet.obj timer.obj \
+OBJS_BOOTPACK = bootpack.obj naskfunc.obj hankaku.obj graphic.obj dsctbl.obj Â¥
+		int.obj fifo.obj keyboard.obj mouse.obj memory.obj sheet.obj timer.obj Â¥
 		mtask.obj window.obj console.obj file.obj
 
 TOOLPATH = ../../z_tools/
@@ -19,12 +19,12 @@ IMGTOL   = $(TOOLPATH)imgtol
 COPY     = cp
 DEL      = rm -f
 
-# ƒfƒtƒHƒ‹ƒg“®ì
+# ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå‹•ä½œ
 
 default :
 	$(MAKE) img
 
-# ƒtƒ@ƒCƒ‹¶¬‹K‘¥
+# ãƒ•ã‚¡ã‚¤ãƒ«ç”Ÿæˆè¦å‰‡
 
 ipl10.bin : ipl10.nas Makefile
 	$(NASK) ipl10.nas ipl10.bin ipl10.lst
@@ -39,7 +39,7 @@ hankaku.obj : hankaku.bin Makefile
 	$(BIN2OBJ) hankaku.bin hankaku.obj _hankaku
 
 bootpack.bim : $(OBJS_BOOTPACK) Makefile
-	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map \
+	$(OBJ2BIM) @$(RULEFILE) out:bootpack.bim stack:3136k map:bootpack.map Â¥
 		$(OBJS_BOOTPACK)
 # 3MB+64KB=3136KB
 
@@ -85,23 +85,23 @@ bug3.bim : bug3.obj Makefile
 bug3.hrb : bug3.bim Makefile
 	$(BIM2HRB) bug3.bim bug3.hrb 0
 
-haribote.img : ipl10.bin haribote.sys Makefile \
+haribote.img : ipl10.bin haribote.sys Makefile Â¥
 		hello.hrb hello2.hrb a.hrb hello3.hrb bug1.hrb bug2.hrb bug3.hrb
-	$(EDIMG)   imgin:../../z_tools/fdimg0at.tek \
-		wbinimg src:ipl10.bin len:512 from:0 to:0 \
-		copy from:haribote.sys to:@: \
-		copy from:ipl10.nas to:@: \
-		copy from:make.bat to:@: \
-		copy from:hello.hrb to:@: \
-		copy from:hello2.hrb to:@: \
-		copy from:a.hrb to:@: \
-		copy from:hello3.hrb to:@: \
-		copy from:bug1.hrb to:@: \
-		copy from:bug2.hrb to:@: \
-		copy from:bug3.hrb to:@: \
+	$(EDIMG)   imgin:../../z_tools/fdimg0at.tek Â¥
+		wbinimg src:ipl10.bin len:512 from:0 to:0 Â¥
+		copy from:haribote.sys to:@: Â¥
+		copy from:ipl10.nas to:@: Â¥
+		copy from:make.bat to:@: Â¥
+		copy from:hello.hrb to:@: Â¥
+		copy from:hello2.hrb to:@: Â¥
+		copy from:a.hrb to:@: Â¥
+		copy from:hello3.hrb to:@: Â¥
+		copy from:bug1.hrb to:@: Â¥
+		copy from:bug2.hrb to:@: Â¥
+		copy from:bug3.hrb to:@: Â¥
 		imgout:haribote.img
 
-# ˆê”Ê‹K‘¥
+# ä¸€èˆ¬è¦å‰‡
 
 %.gas : %.c bootpack.h Makefile
 	$(CC1) -o $*.gas $*.c
@@ -112,7 +112,7 @@ haribote.img : ipl10.bin haribote.sys Makefile \
 %.obj : %.nas Makefile
 	$(NASK) $*.nas $*.obj $*.lst
 
-# ƒRƒ}ƒ“ƒh
+# ã‚³ãƒãƒ³ãƒ‰
 
 img :
 	$(MAKE) haribote.img

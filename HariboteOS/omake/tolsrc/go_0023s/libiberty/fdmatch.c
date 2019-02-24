@@ -53,7 +53,7 @@ int fdmatch (fd1, fd2)
 	int fd1;
 	int fd2;
 {
-	GO_fputs("libiberty/fdmatch.c:mikan-error!\n", stderr);
+	GO_fputs("libiberty/fdmatch.c:mikan-error!¥n", stderr);
 	return fd1 == fd2;
 
 #if 0

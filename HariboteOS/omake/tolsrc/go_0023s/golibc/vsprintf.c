@@ -21,8 +21,8 @@ static UCHAR *setdec(UCHAR *s, UINT ui)
 int vsprintf(char *s, const char *format, va_list arg)
 {
 	UCHAR c, *t = s, *p, flag_left, flag_zero /* , flag_sign, flag_space */;
-	UCHAR temp[32] /* ”š—p */, *q;
-	temp[31] = '\0';
+	UCHAR temp[32] /* æ•°å­—ç”¨ */, *q;
+	temp[31] = 'Â¥0';
 	int field_min, field_max, i;
 	long l;
 	static char hextable_X[16] = "0123456789ABCDEF";

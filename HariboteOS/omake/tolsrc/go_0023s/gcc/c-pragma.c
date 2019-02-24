@@ -57,7 +57,7 @@ static struct align_stack * alignment_stack = NULL;
    happens, we restore the value to this, not to a value of 0 for
    maximum_field_alignment.  Value is in bits.  */
 static int default_alignment;
-#define SET_GLOBAL_ALIGNMENT(ALIGN) \
+#define SET_GLOBAL_ALIGNMENT(ALIGN) ¥
   (default_alignment = maximum_field_alignment = (ALIGN))
 
 static void push_alignment PARAMS ((int, tree));
@@ -106,7 +106,7 @@ pop_alignment (id)
       
   if (alignment_stack == NULL)
     {
-      warning ("\
+      warning ("¥
 #pragma pack (pop) encountered without matching #pragma pack (push, <n>)"
 	       );
       return;
@@ -124,7 +124,7 @@ pop_alignment (id)
 	    break;
 	  }
       if (entry == NULL)
-	warning ("\
+	warning ("¥
 #pragma pack(pop, %s) encountered without matching #pragma pack(push, %s, <n>)"
 		 , IDENTIFIER_POINTER (id), IDENTIFIER_POINTER (id));
     }
@@ -158,9 +158,9 @@ mark_align_stack (p)
 }
 #else  /* not HANDLE_PRAGMA_PACK_PUSH_POP */
 #define SET_GLOBAL_ALIGNMENT(ALIGN) (maximum_field_alignment = (ALIGN))
-#define push_alignment(ID, N) \
+#define push_alignment(ID, N) ¥
     GCC_BAD("#pragma pack(push[, id], <n>) is not supported on this target")
-#define pop_alignment(ID) \
+#define pop_alignment(ID) ¥
     GCC_BAD("#pragma pack(pop[, id], <n>) is not supported on this target")
 #endif /* HANDLE_PRAGMA_PACK_PUSH_POP */
 
@@ -198,10 +198,10 @@ handle_pragma_pack (dummy)
     }
   else if (token == CPP_NAME)
     {
-#define GCC_BAD_ACTION do { if (action == push) \
-	  GCC_BAD ("malformed '#pragma pack(push[, id], <n>)' - ignored"); \
-	else \
-	  GCC_BAD ("malformed '#pragma pack(pop[, id])' - ignored"); \
+#define GCC_BAD_ACTION do { if (action == push) ¥
+	  GCC_BAD ("malformed '#pragma pack(push[, id], <n>)' - ignored"); ¥
+	else ¥
+	  GCC_BAD ("malformed '#pragma pack(pop[, id])' - ignored"); ¥
 	} while (0)
 
       const char *op = IDENTIFIER_POINTER (x);
@@ -456,70 +456,4 @@ maybe_apply_renaming_pragma (decl, asmname)
   if (IDENTIFIER_POINTER (oldname)[0] == '*')
     {
       const char *oldasmname = IDENTIFIER_POINTER (oldname) + 1;
-      if (asmname && strcmp (TREE_STRING_POINTER (asmname), oldasmname) != 0)
-	warning ("asm declaration conficts with previous rename");
-      asmname = build_string (strlen (oldasmname), oldasmname);
-    }
-
-#ifdef HANDLE_PRAGMA_REDEFINE_EXTNAME
-  {
-    tree *p, t;
-
-    for (p = &pending_redefine_extname; (t = *p) ; p = &TREE_CHAIN (t))
-      if (oldname == TREE_PURPOSE (t))
-	{
-	  const char *newname = IDENTIFIER_POINTER (TREE_VALUE (t));
-
-	  if (asmname && strcmp (TREE_STRING_POINTER (asmname), newname) != 0)
-            warning ("#pragma redefine_extname conflicts with declaration");
-	  *p = TREE_CHAIN (t);
-
-	  return build_string (strlen (newname), newname);
-	}
-  }
-#endif
-
-#ifdef HANDLE_PRAGMA_EXTERN_PREFIX
-  if (pragma_extern_prefix && !asmname)
-    {
-      char *x = concat (TREE_STRING_POINTER (pragma_extern_prefix),
-			IDENTIFIER_POINTER (oldname), NULL);
-      asmname = build_string (strlen (x), x);
-      free (x);
-      return asmname;
-    }
-#endif
-
-  return asmname;
-}
-
-void
-init_pragma ()
-{
-#ifdef HANDLE_PRAGMA_PACK
-  cpp_register_pragma (parse_in, 0, "pack", handle_pragma_pack);
-#endif
-#ifdef HANDLE_PRAGMA_WEAK
-  cpp_register_pragma (parse_in, 0, "weak", handle_pragma_weak);
-  ggc_add_tree_root (&pending_weaks, 1);
-#endif
-#ifdef HANDLE_PRAGMA_REDEFINE_EXTNAME
-  cpp_register_pragma (parse_in, 0, "redefine_extname",
-		       handle_pragma_redefine_extname);
-  ggc_add_tree_root (&pending_redefine_extname, 1);
-#endif
-#ifdef HANDLE_PRAGMA_EXTERN_PREFIX
-  cpp_register_pragma (parse_in, 0, "extern_prefix",
-		       handle_pragma_extern_prefix);
-  ggc_add_tree_root (&pragma_extern_prefix, 1);
-#endif
-
-#ifdef REGISTER_TARGET_PRAGMAS
-  REGISTER_TARGET_PRAGMAS (parse_in);
-#endif
-
-#ifdef HANDLE_PRAGMA_PACK_PUSH_POP
-  ggc_add_root (&alignment_stack, 1, sizeof(alignment_stack),
-		mark_align_stack);
-#endif
-}
+      if (asmname && strcmp (TREE_STRING_POINTER (asmn

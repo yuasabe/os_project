@@ -1,5 +1,5 @@
-/* ƒRƒ“ƒpƒNƒg‚¾‚ª’x‚¢”Å */
-/* ƒoƒbƒtƒ@ƒŠƒ“ƒO‚È‚µ */
+/* ã‚³ãƒ³ãƒ‘ã‚¯ãƒˆã ãŒé…ã„ç‰ˆ */
+/* ãƒãƒƒãƒ•ã‚¡ãƒªãƒ³ã‚°ãªã— */
 
 #include "windows.h"
 #include <stdio.h>	/* NULL */
@@ -17,7 +17,7 @@ unsigned int fwrite(const void *ptr, unsigned int size, unsigned int nmemb, FILE
 		p = (char *) ptr;
 		do {
 			do {
-				if (*p == '\n')
+				if (*p == 'Â¥n')
 					break;
 				p++;
 			} while (p < p1);
@@ -30,8 +30,8 @@ unsigned int fwrite(const void *ptr, unsigned int size, unsigned int nmemb, FILE
 			}
 			if (p >= p1)
 				break;
-			if (*p == '\n') {
-				static char crlf[2] = "\r\n";
+			if (*p == 'Â¥n') {
+				static char crlf[2] = "Â¥rÂ¥n";
 				if (WriteFile(stream->handle, crlf, 2, &ll, NULL) == 0) {
 					l += ll;
 					goto err;
@@ -43,5 +43,5 @@ unsigned int fwrite(const void *ptr, unsigned int size, unsigned int nmemb, FILE
 		} while (p < p1);
 	}
 err:
-	return l / size; /* size‚ª1ˆÈŠO‚ÌA‚±‚ê‚¾‚Æ–{“–‚Í‚Ü‚¸‚¢ */
+	return l / size; /* sizeãŒ1ä»¥å¤–ã®æ™‚ã€ã“ã‚Œã ã¨æœ¬å½“ã¯ã¾ãšã„ */
 }

@@ -1,170 +1,117 @@
-[–ÚŽŸ]
+[ç›®æ¬¡]
 
-1.dsar•Ò
-2.esart5•Ò
-3.‚»‚Ì‚Ù‚©•Ò
+1.dsarç·¨
+2.esart5ç·¨
+3.ãã®ã»ã‹ç·¨
 
-[1.dsar•Ò]
+[1.dsarç·¨]
 
-  dsar‚Ísarƒtƒ@ƒCƒ‹‚Ì“WŠJ‚ðŠÈ’P‚É‚·‚é‚½‚ß‚Ìƒoƒbƒ`ƒtƒ@ƒCƒ‹‚Å‚·Bu‚Å‚³[v
-‚©u‚Ç‚³[v‚Æ‚Å‚àŒÄ‚ñ‚Å‚­‚¾‚³‚¢B
+  dsarã¯sarãƒ•ã‚¡ã‚¤ãƒ«ã®å±•é–‹ã‚’ç°¡å˜ã«ã™ã‚‹ãŸã‚ã®ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ã€‚ã€Œã§ã•ãƒ¼ã€
+ã‹ã€Œã©ã•ãƒ¼ã€ã¨ã§ã‚‚å‘¼ã‚“ã§ãã ã•ã„ã€‚
 
-  dsar‚Ísartol‚ðŒÄ‚Ño‚·ƒoƒbƒ`ƒtƒ@ƒCƒ‹‚ÅA‚ ‚Á‚«‚¡‚³‚ñ‚Ìu‚¦‚ñ‚â‚±‚çsarv
-‚Ìƒoƒbƒ`ƒtƒ@ƒCƒ‹”Å‚Æ‚Å‚à‚¢‚¤‚×‚«‚à‚Ì‚Å‚·B‚µ‚©‚µ‚µ‚å‚¹‚ñ‚Íƒoƒbƒ`ƒtƒ@ƒCƒ‹
-‚È‚Ì‚ÅAu‚¦‚ñ‚â‚±‚çsarv‚É‚Í‘½‚­‚Ì“_‚Å—ò‚Á‚Ä‚¢‚Ü‚·B‚Æ‚¢‚¤‚±‚Æ‚ÅAŠî–{“I
-‚É‚Íu‚¦‚ñ‚â‚±‚çsarv‚Ì‚Ù‚¤‚ð‹­‚­‚¨Š©‚ß‚µ‚Ü‚·Bu‚¦‚ñ‚â‚±‚çsarv‚ð‚È‚­‚µ‚Ä
-‚µ‚Ü‚Á‚½‚Æ‚«‚âACUI‚ªD‚«‚Å‚½‚Ü‚ç‚È‚¢‚Æ‚¢‚¤l‚¾‚¯Adsar‚ðŽg‚Á‚Ä‚­‚¾‚³‚¢B
-u‚¦‚ñ‚â‚±‚çsarv‚ÍGUI‚ÅÝ’è‚Å‚«‚é‚Ì‚Å‚¸‚Á‚Æ•Ö—˜‚Å‚·B
+  dsarã¯sartolã‚’å‘¼ã³å‡ºã™ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã§ã€ã‚ã£ããƒã•ã‚“ã®ã€Œãˆã‚“ã‚„ã“ã‚‰sarã€
+ã®ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ç‰ˆã¨ã§ã‚‚ã„ã†ã¹ãã‚‚ã®ã§ã™ã€‚ã—ã‹ã—ã—ã‚‡ã›ã‚“ã¯ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«
+ãªã®ã§ã€ã€Œãˆã‚“ã‚„ã“ã‚‰sarã€ã«ã¯å¤šãã®ç‚¹ã§åŠ£ã£ã¦ã„ã¾ã™ã€‚ã¨ã„ã†ã“ã¨ã§ã€åŸºæœ¬çš„
+ã«ã¯ã€Œãˆã‚“ã‚„ã“ã‚‰sarã€ã®ã»ã†ã‚’å¼·ããŠå‹§ã‚ã—ã¾ã™ã€‚ã€Œãˆã‚“ã‚„ã“ã‚‰sarã€ã‚’ãªãã—ã¦
+ã—ã¾ã£ãŸã¨ãã‚„ã€CUIãŒå¥½ãã§ãŸã¾ã‚‰ãªã„ã¨ã„ã†äººã ã‘ã€dsarã‚’ä½¿ã£ã¦ãã ã•ã„ã€‚
+ã€Œãˆã‚“ã‚„ã“ã‚‰sarã€ã¯GUIã§è¨­å®šã§ãã‚‹ã®ã§ãšã£ã¨ä¾¿åˆ©ã§ã™ã€‚
 
         http://koya.marokun.net/osask/download.html
 
 ---
 
-  ƒfƒtƒHƒ‹ƒg‚Å‚ÍAsartol.exe‚ÉƒpƒX‚ª’Ê‚Á‚Ä‚¢‚ÄA‚©‚ÂAWindows2000ã‚Å
-—˜—p‚µA“WŠJæ‚ÍƒfƒXƒNƒgƒbƒvã‚Éì‚Á‚½ƒtƒHƒ‹ƒ_A‚³‚ç‚É“WŠJI—¹Œã‚ÍA
-‚»‚ÌƒtƒHƒ‹ƒ_‚ðexplorer‚ÅŽ©“®“I‚ÉŠJ‚­A‚Æ‚¢‚¤Ý’è“à—e‚É‚È‚Á‚Ä‚¢‚Ü‚·B
+  ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€sartol.exeã«ãƒ‘ã‚¹ãŒé€šã£ã¦ã„ã¦ã€ã‹ã¤ã€Windows2000ä¸Šã§
+åˆ©ç”¨ã—ã€å±•é–‹å…ˆã¯ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ä¸Šã«ä½œã£ãŸãƒ•ã‚©ãƒ«ãƒ€ã€ã•ã‚‰ã«å±•é–‹çµ‚äº†å¾Œã¯ã€
+ãã®ãƒ•ã‚©ãƒ«ãƒ€ã‚’explorerã§è‡ªå‹•çš„ã«é–‹ãã€ã¨ã„ã†è¨­å®šå†…å®¹ã«ãªã£ã¦ã„ã¾ã™ã€‚
 
-  Win95/98‚ÅŽg‚¤ê‡‚âsartol.exe‚Ì’u‚«êŠ‚ªˆá‚¤‚Æ‚«‚ÍAƒoƒbƒ`ƒtƒ@ƒCƒ‹
-‚ÌÅ‰‚Ìset‚Ì‚Æ‚±‚ë‚ð“K“–‚É‘‚«Š·‚¦‚Ä‚­‚¾‚³‚¢B
+  Win95/98ã§ä½¿ã†å ´åˆã‚„sartol.exeã®ç½®ãå ´æ‰€ãŒé•ã†ã¨ãã¯ã€ãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«
+ã®æœ€åˆã®setã®ã¨ã“ã‚ã‚’é©å½“ã«æ›¸ãæ›ãˆã¦ãã ã•ã„ã€‚
 
-  dsar_bpath‚Ì––”ö‚É/‚ª‚ ‚é‚ÆAƒA[ƒJƒCƒu‚Æ“¯‚¶–¼‘O‚ÌƒfƒBƒŒƒNƒgƒŠ‚ð
-Ž©“®¶¬‚µ‚Ü‚·B/‚ª‚È‚¯‚ê‚ÎAƒfƒBƒŒƒNƒgƒŠ‚ðì‚ç‚¸‚ÉAŽw’è‚³‚ê‚½ƒfƒBƒŒƒN
-ƒgƒŠ‚ÉA‚¶‚©‚ÉƒA[ƒJƒCƒu‚Ì’†g‚ð“WŠJ‚µ‚Ü‚·Bdsar_bpath‚ð ..@arcpath
-‚à‚µ‚­‚Í ..@arcpath/ ‚Æ‚·‚é‚ÆA ..@arcpath ‚Ì•”•ª‚Ésarƒtƒ@ƒCƒ‹‚Ì‚ ‚é
-ƒpƒX‚ª’u‚«Š·‚¦‚ç‚ê‚Äˆ—‚³‚ê‚Ü‚·B
+  dsar_bpathã®æœ«å°¾ã«/ãŒã‚ã‚‹ã¨ã€ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã¨åŒã˜åå‰ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’
+è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚/ãŒãªã‘ã‚Œã°ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä½œã‚‰ãšã«ã€æŒ‡å®šã•ã‚ŒãŸãƒ‡ã‚£ãƒ¬ã‚¯
+ãƒˆãƒªã«ã€ã˜ã‹ã«ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã®ä¸­èº«ã‚’å±•é–‹ã—ã¾ã™ã€‚dsar_bpathã‚’ ..@arcpath
+ã‚‚ã—ãã¯ ..@arcpath/ ã¨ã™ã‚‹ã¨ã€ ..@arcpath ã®éƒ¨åˆ†ã«sarãƒ•ã‚¡ã‚¤ãƒ«ã®ã‚ã‚‹
+ãƒ‘ã‚¹ãŒç½®ãæ›ãˆã‚‰ã‚Œã¦å‡¦ç†ã•ã‚Œã¾ã™ã€‚
 
-  dsar_bpath‚Ì‹Lq‚É‚ÍA¡‚Í‘¶Ý‚µ‚Ä‚¢‚È‚¢ƒfƒBƒŒƒNƒgƒŠ‚ª•¡”ŠÜ‚Ü‚ê‚Ä‚¢
-‚Ä‚à‚©‚Ü‚¢‚Ü‚¹‚ñB‚¿‚á‚ñ‚ÆÝ’è‚Ç‚¨‚è‚ÌƒpƒX‚É‚È‚é‚æ‚¤‚ÉAsartol‘¤‚Å‘«‚è
-‚È‚¢ƒfƒBƒŒƒNƒgƒŠ‚ðŽ©“®¶¬‚µ‚Ü‚·B
+  dsar_bpathã®è¨˜è¿°ã«ã¯ã€ä»Šã¯å­˜åœ¨ã—ã¦ã„ãªã„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒè¤‡æ•°å«ã¾ã‚Œã¦ã„
+ã¦ã‚‚ã‹ã¾ã„ã¾ã›ã‚“ã€‚ã¡ã‚ƒã‚“ã¨è¨­å®šã©ãŠã‚Šã®ãƒ‘ã‚¹ã«ãªã‚‹ã‚ˆã†ã«ã€sartolå´ã§è¶³ã‚Š
+ãªã„ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
 
-  dsar_autorun‚Í=‚ÌŒã‚ë‚É‰½‚à‘‚©‚È‚¢‚ÆAƒfƒBƒŒƒNƒgƒŠ‚ÌŽ©“®ƒI[ƒvƒ“‚ð
-‚µ‚È‚­‚È‚è‚Ü‚·Bdsar_autorun‚Í‚¨‚à‚Éexplorer‚ðŽw’è‚·‚é‚½‚ß‚É—pˆÓ‚³‚ê‚Ä
-‚¢‚Ü‚·‚ªA“WŠJ‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚ð‚»‚Ì‚Ü‚Ü•Ê‚ÌƒA[ƒJƒCƒo‚É“n‚·‚Æ‚©‚à‚Å‚«
-‚é‚Å‚µ‚å‚¤B‚±‚ê‚É‚æ‚èAsar¨zip•ÏŠ·‚Æ‚©A‚»‚¤‚¢‚¤‚±‚Æ‚à‚Å‚«‚é‚ñ‚¶‚á‚È
-‚¢‚©‚ÆŽv‚Á‚Ä‚¢‚Ü‚·B
+  dsar_autorunã¯=ã®å¾Œã‚ã«ä½•ã‚‚æ›¸ã‹ãªã„ã¨ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®è‡ªå‹•ã‚ªãƒ¼ãƒ—ãƒ³ã‚’
+ã—ãªããªã‚Šã¾ã™ã€‚dsar_autorunã¯ãŠã‚‚ã«explorerã‚’æŒ‡å®šã™ã‚‹ãŸã‚ã«ç”¨æ„ã•ã‚Œã¦
+ã„ã¾ã™ãŒã€å±•é–‹ã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ãã®ã¾ã¾åˆ¥ã®ã‚¢ãƒ¼ã‚«ã‚¤ãƒã«æ¸¡ã™ã¨ã‹ã‚‚ã§ã
+ã‚‹ã§ã—ã‚‡ã†ã€‚ã“ã‚Œã«ã‚ˆã‚Šã€sarâ†’zipå¤‰æ›ã¨ã‹ã€ãã†ã„ã†ã“ã¨ã‚‚ã§ãã‚‹ã‚“ã˜ã‚ƒãª
+ã„ã‹ã¨æ€ã£ã¦ã„ã¾ã™ã€‚
 
 ---
 
-  Žg‚¢•û‚Í
+  ä½¿ã„æ–¹ã¯
 
 prompt>dsar osat46i.sar
 
-‚È‚Ç‚Æ‚µ‚Ü‚·B
+ãªã©ã¨ã—ã¾ã™ã€‚
 
-  ‚à‚µ‚­‚ÍAƒGƒNƒXƒvƒ[ƒ‰‚Åosat46i.sar‚ð‚Â‚©‚ñ‚ÅAdsar.bat‚Ìã‚É—Ž‚Æ‚µ
-‚Ä‚à‚¢‚¢‚Å‚·B
+  ã‚‚ã—ãã¯ã€ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ã§osat46i.sarã‚’ã¤ã‹ã‚“ã§ã€dsar.batã®ä¸Šã«è½ã¨ã—
+ã¦ã‚‚ã„ã„ã§ã™ã€‚
 
-  ‚à‚µ‚­‚ÍA‚¢‚«‚È‚èosat46i.sar‚ðƒ_ƒuƒ‹ƒNƒŠƒbƒN‚µ‚Äuƒtƒ@ƒCƒ‹‚ðŠJ‚­
-ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚Ì‘I‘ðvƒEƒBƒ“ƒhƒE‚ðo‚³‚¹‚ÄAu‚»‚Ì‘¼vƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä
-dsar.bat‚ð‘I‚ÑAu‚±‚ê‚ç‚Ìƒtƒ@ƒCƒ‹‚ðŠJ‚­‚Æ‚«‚ÍA‚¢‚Â‚à‚±‚ÌƒAƒvƒŠƒP[
-ƒVƒ‡ƒ“‚ðŽg‚¤v‚Éƒ`ƒFƒbƒN‚ð‚Â‚¯‚½‚Ü‚Ü‚ÅOK‚ð‰Ÿ‚·•û–@‚à‚ ‚è‚Ü‚·B‚±‚ê‚È‚ç
-ˆÈŒã‚Íƒ_ƒuƒ‹ƒNƒŠƒbƒN‚¾‚¯‚Å‚Ç‚ñ‚Ç‚ñ“WŠJ‚Å‚«‚Ü‚·BLHASA‹C•ª‚Å‚·B
+  ã‚‚ã—ãã¯ã€ã„ããªã‚Šosat46i.sarã‚’ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã—ã¦ã€Œãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã
+ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã®é¸æŠžã€ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã‚’å‡ºã•ã›ã¦ã€ã€Œãã®ä»–ã€ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ã¦
+dsar.batã‚’é¸ã³ã€ã€Œã“ã‚Œã‚‰ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãã¨ãã¯ã€ã„ã¤ã‚‚ã“ã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼
+ã‚·ãƒ§ãƒ³ã‚’ä½¿ã†ã€ã«ãƒã‚§ãƒƒã‚¯ã‚’ã¤ã‘ãŸã¾ã¾ã§OKã‚’æŠ¼ã™æ–¹æ³•ã‚‚ã‚ã‚Šã¾ã™ã€‚ã“ã‚Œãªã‚‰
+ä»¥å¾Œã¯ãƒ€ãƒ–ãƒ«ã‚¯ãƒªãƒƒã‚¯ã ã‘ã§ã©ã‚“ã©ã‚“å±•é–‹ã§ãã¾ã™ã€‚LHASAæ°—åˆ†ã§ã™ã€‚
 
-  ˆÈã‚Ì3‚Â‚Ì‚¢‚¸‚ê‚Å‚àA•¡”‚Ìƒtƒ@ƒCƒ‹‚ÌŽw’è‚ª‰Â”\‚Å‚·B
+  ä»¥ä¸Šã®3ã¤ã®ã„ãšã‚Œã§ã‚‚ã€è¤‡æ•°ã®ãƒ•ã‚¡ã‚¤ãƒ«ã®æŒ‡å®šãŒå¯èƒ½ã§ã™ã€‚
 
-[2.esart5•Ò]
+[2.esart5ç·¨]
 
-  esart5‚Ísar‚ÌƒA[ƒJƒCƒuì¬ƒIƒvƒVƒ‡ƒ“‚ª’·‚­‚Ä–Ê“|‚È‚Ì‚ÅA‚Æ‚è‚ ‚¦‚¸
-ŽèŒy‚ÉƒA[ƒJƒCƒu‚ðì‚ê‚é‚æ‚¤‚É‚µ‚½ƒoƒbƒ`ƒtƒ@ƒCƒ‹‚Å‚·BŽ©“®‚Åtek5ˆ³k‚à
-‚©‚¯‚Ü‚·B
+  esart5ã¯sarã®ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ä½œæˆã‚ªãƒ—ã‚·ãƒ§ãƒ³ãŒé•·ãã¦é¢å€’ãªã®ã§ã€ã¨ã‚Šã‚ãˆãš
+æ‰‹è»½ã«ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã‚’ä½œã‚Œã‚‹ã‚ˆã†ã«ã—ãŸãƒãƒƒãƒãƒ•ã‚¡ã‚¤ãƒ«ã§ã™ã€‚è‡ªå‹•ã§tek5åœ§ç¸®ã‚‚
+ã‹ã‘ã¾ã™ã€‚
 
-EŠÈ’P‚ÈŽg‚¢•û
+ãƒ»ç°¡å˜ãªä½¿ã„æ–¹
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå
 
-‚È‚Ç‚Æ‚µ‚Ü‚·B
+ãªã©ã¨ã—ã¾ã™ã€‚
 
-  ‚à‚µ‚­‚ÍAƒGƒNƒXƒvƒ[ƒ‰‚Å“K“–‚ÈƒfƒBƒŒƒNƒgƒŠ‚ð‚Â‚©‚ñ‚ÅAesart5.bat‚Ì
-ã‚É—Ž‚Æ‚µ‚Ä‚à‚¢‚¢‚Å‚·B
+  ã‚‚ã—ãã¯ã€ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ã§é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ã¤ã‹ã‚“ã§ã€esart5.batã®
+ä¸Šã«è½ã¨ã—ã¦ã‚‚ã„ã„ã§ã™ã€‚
 
-  ‚±‚ê‚ÅAƒfƒBƒŒƒNƒgƒŠ‚Ì“à—e‚Æ“¯‚¶‚à‚Ì‚ªsarƒtƒ@ƒCƒ‹‚Æ‚È‚Á‚Ä¶¬‚³‚ê‚Ü
-‚·B‚Ç‚±‚É¶¬‚³‚ê‚é‚Ì‚©‚Æ‚¢‚¤‚ÆA‚Æ‚è‚ ‚¦‚¸‚»‚ÌƒfƒBƒŒƒNƒgƒŠ‚Æ“¯‚¶êŠ
-‚É‚Å‚«‚Ü‚·B‚à‚¿‚ë‚ñAƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚ÉƒfƒBƒŒƒNƒgƒŠ‚ª‚ ‚ê‚ÎA‚»‚ê‚à‘S
-•”sar‚É‚µ‚Ü‚¢‚±‚Ü‚ê‚Ü‚·B
+  ã“ã‚Œã§ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å†…å®¹ã¨åŒã˜ã‚‚ã®ãŒsarãƒ•ã‚¡ã‚¤ãƒ«ã¨ãªã£ã¦ç”Ÿæˆã•ã‚Œã¾
+ã™ã€‚ã©ã“ã«ç”Ÿæˆã•ã‚Œã‚‹ã®ã‹ã¨ã„ã†ã¨ã€ã¨ã‚Šã‚ãˆãšãã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã¨åŒã˜å ´æ‰€
+ã«ã§ãã¾ã™ã€‚ã‚‚ã¡ã‚ã‚“ã€ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒã‚ã‚Œã°ã€ãã‚Œã‚‚å…¨
+éƒ¨sarã«ã—ã¾ã„ã“ã¾ã‚Œã¾ã™ã€‚
 
-  ‚Ç‚¿‚ç‚É‚Â‚¢‚Ä‚àA•¡”‚ÌƒfƒBƒŒƒNƒgƒŠ‚ðˆê“x‚ÉŽw’è‚µ‚Ä‚Í‚¢‚¯‚Ü‚¹‚ñB
+  ã©ã¡ã‚‰ã«ã¤ã„ã¦ã‚‚ã€è¤‡æ•°ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚’ä¸€åº¦ã«æŒ‡å®šã—ã¦ã¯ã„ã‘ã¾ã›ã‚“ã€‚
 
-E‚¿‚å‚Á‚Æ‚¾‚¯‚“x‚ÈŽg‚¢•û
+ãƒ»ã¡ã‚‡ã£ã¨ã ã‘é«˜åº¦ãªä½¿ã„æ–¹
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ **
-¨‚±‚¤‚·‚é‚ÆA‰ºˆÊƒfƒBƒŒƒNƒgƒŠ‚Ìƒtƒ@ƒCƒ‹‚ÍƒA[ƒJƒCƒu‚µ‚È‚­‚Å‚«‚Ü‚·B
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå **
+â†’ã“ã†ã™ã‚‹ã¨ã€ä¸‹ä½ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ãƒ•ã‚¡ã‚¤ãƒ«ã¯ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã—ãªãã§ãã¾ã™ã€‚
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ *.txt
-¨‚±‚¤‚·‚é‚ÆA‘S‚Ä‚ÌƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚©‚çŠg’£Žq‚ª.txt‚Ì‚à‚Ì‚¾‚¯‚ðƒA[ƒJ
-  ƒCƒu‘ÎÛ‚É‚µ‚Ü‚·B
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå *.txt
+â†’ã“ã†ã™ã‚‹ã¨ã€å…¨ã¦ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã‹ã‚‰æ‹¡å¼µå­ãŒ.txtã®ã‚‚ã®ã ã‘ã‚’ã‚¢ãƒ¼ã‚«
+  ã‚¤ãƒ–å¯¾è±¡ã«ã—ã¾ã™ã€‚
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ **.txt
-¨‚±‚¤‚·‚é‚ÆAŽw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚©‚çŠg’£Žq‚ª.txt‚Ì‚à‚Ì‚¾‚¯‚ðƒA[
-  ƒJƒCƒu‘ÎÛ‚É‚µ‚Ü‚·B‰ºˆÊƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚Í‘{‚µ‚Ü‚¹‚ñB
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå **.txt
+â†’ã“ã†ã™ã‚‹ã¨ã€æŒ‡å®šã—ãŸãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã‹ã‚‰æ‹¡å¼µå­ãŒ.txtã®ã‚‚ã®ã ã‘ã‚’ã‚¢ãƒ¼
+  ã‚«ã‚¤ãƒ–å¯¾è±¡ã«ã—ã¾ã™ã€‚ä¸‹ä½ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã¯æœã—ã¾ã›ã‚“ã€‚
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ abc*
-¨‚±‚¤‚·‚é‚ÆAƒA[ƒJƒCƒu‘ÎÛƒpƒX‚ªabc‚ÅŽn‚Ü‚é‚à‚Ì‚¾‚¯‚ðsar‚É“ü‚ê‚Ü‚·B
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå abc*
+â†’ã“ã†ã™ã‚‹ã¨ã€ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–å¯¾è±¡ãƒ‘ã‚¹ãŒabcã§å§‹ã¾ã‚‹ã‚‚ã®ã ã‘ã‚’sarã«å…¥ã‚Œã¾ã™ã€‚
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ *.txt *.doc
-¨‚±‚¤‚·‚é‚ÆA.txt‚Æ.doc‚ªƒA[ƒJƒCƒu‘ÎÛ‚Å‚·B
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå *.txt *.doc
+â†’ã“ã†ã™ã‚‹ã¨ã€.txtã¨.docãŒã‚¢ãƒ¼ã‚«ã‚¤ãƒ–å¯¾è±¡ã§ã™ã€‚
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ sartol.c sartol.exe
-¨‚±‚¤‚·‚é‚ÆAsartol.c‚Æsartol.exe‚¾‚¯‚ªƒA[ƒJƒCƒu‘ÎÛ‚Å‚·B
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå sartol.c sartol.exe
+â†’ã“ã†ã™ã‚‹ã¨ã€sartol.cã¨sartol.exeã ã‘ãŒã‚¢ãƒ¼ã‚«ã‚¤ãƒ–å¯¾è±¡ã§ã™ã€‚
 
-prompt>esart5 “K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ src/*
-¨‚±‚¤‚·‚é‚ÆAsrcƒfƒBƒŒƒNƒgƒŠ‚Ì’†‚¾‚¯ƒA[ƒJƒCƒu‚µ‚Ü‚·B
+prompt>esart5 é©å½“ãªãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªå src/*
+â†’ã“ã†ã™ã‚‹ã¨ã€srcãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®ä¸­ã ã‘ã‚¢ãƒ¼ã‚«ã‚¤ãƒ–ã—ã¾ã™ã€‚
 
-  ‚È‚¨Aesart5‚È‚Ç‚ðŽg‚í‚¸‚Ésartol‚âwce‚ð’¼Ú—˜—p‚·‚ê‚ÎA‚à‚Á‚Æ•¡ŽG‚È
-Žw’è‚à‰Â”\‚Å‚·B
+  ãªãŠã€esart5ãªã©ã‚’ä½¿ã‚ãšã«sartolã‚„wceã‚’ç›´æŽ¥åˆ©ç”¨ã™ã‚Œã°ã€ã‚‚ã£ã¨è¤‡é›‘ãª
+æŒ‡å®šã‚‚å¯èƒ½ã§ã™ã€‚
 
-[3.‚»‚Ì‚Ù‚©•Ò]
+[3.ãã®ã»ã‹ç·¨]
 
-  wce.exe‚ÍAƒƒCƒ‹ƒhƒJ[ƒh“WŠJŽx‰‡ƒAƒvƒŠ‚Å‚·B‚Æ‚è‚ ‚¦‚¸Windows—p‚ÅA
-Linux‚È‚Ç‚Å—˜—p‚·‚é‚É‚Ísetnames()‚ ‚½‚è‚ð‘å•‚É‚¢‚¶‚é•K—v‚ª‚ ‚é‚Å‚µ‚å
-‚¤B‚Æ‚¢‚¤‚©ALinux‚Å‚ÍƒVƒFƒ‹‚ªƒƒCƒ‹ƒhƒJ[ƒh“WŠJ‚ð‚µ‚Ä‚­‚ê‚Ä‚¢‚é‚Ì‚Å
-‚±‚ñ‚È¬×HƒAƒvƒŠ‚Í•s—v‚Å‚à‚ ‚è‚Ü‚·B
-
-  Žè”²‚«‚Åì‚Á‚Ä‚¢‚é‚½‚ß‚ÉA‚½‚­‚³‚ñ‚ÌƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ð‚à‚ÂƒfƒBƒŒƒNƒg
-ƒŠ‚ÅŽÀs‚·‚é‚ÆA‰º‚ÌŠK‘w‚ðŽQÆ‚·‚é‚æ‚¤‚ÈƒƒCƒ‹ƒhƒJ[ƒh‚ðŽg‚Á‚Ä‚¢‚È‚­‚Ä
-‚àAŒ€“I‚ÉŽÀs‘¬“x‚ª—Ž‚¿‚Ü‚·B
-
-  ‚Æ‚¢‚¤‚±‚Æ‚ÅA‚»‚Ì•Ó‚É’ˆÓ‚µ‚Ä–â‘è‚È‚³‚»‚¤‚ÈƒfƒBƒŒƒNƒgƒŠ‚ÅA‚Æ‚è‚ ‚¦
-‚¸A
-
-prompt>wce echo *
-
-‚È‚Ç‚Æ‚¢‚ê‚Ä‚Ý‚Ä‚­‚¾‚³‚¢BƒƒCƒ‹ƒhƒJ[ƒh‚Éƒ}ƒbƒ`‚µ‚½ƒtƒ@ƒCƒ‹–¼‚ªecho‚³
-‚ê‚é‚Í‚¸‚Å‚·B
-
-  ¶¬‚µ‚Ä‚¢‚éƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚ðŠm”F‚µ‚½‚¢‚Æ‚«‚ÍA
-
-prompt>wce echo * #p=1
-
-‚Æ‚¢‚¤‚Ó‚¤‚ÉA––”ö‚Éu#p=1v‚ð•t‚¯‚Ä‚­‚¾‚³‚¢Bsystem()‚ðŒÄ‚Î‚·‚Éputs()
-‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-prompt>wce echo #b=“K“–‚ÈƒfƒBƒŒƒNƒgƒŠ–¼ *.txt
-
-‚Æ‚·‚é‚ÆAƒJƒŒƒ“ƒgƒfƒBƒŒƒNƒgƒŠ‚Å‚Í‚È‚­Žw’è‚µ‚½ƒfƒBƒŒƒNƒgƒŠ“à‚É‘Î‚µ‚ÄA
-ƒƒCƒ‹ƒhƒJ[ƒh‚ð“K—p‚µ‚Ü‚·B
-
-prompt>wce echo ( *.txt *.doc )
-
-‚ÆŠ‡ŒÊ‚ð‚Â‚¯‚é‚ÆiŠ‡ŒÊ‚Ì‘OŒã‚É‚ÍƒXƒy[ƒX‚ª•K—vjAŠ‡ŒÊ‚ð‚Â‚¯‚È‚¢ê‡‚Í
-ƒtƒ@ƒCƒ‹–¼‚Ìƒ\[ƒg‚ªƒƒCƒ‹ƒhƒJ[ƒh’PˆÊ‚É‚È‚Á‚Ä‚¢‚½‚Æ‚±‚ë‚ªAŠ‡ŒÊ“à‘S‘Ì
-‚Åƒ\[ƒg‚·‚é‚æ‚¤‚É‚È‚è‚Ü‚·B
-
-prompt>wce echo ( *.txt #!=readme.txt )
-
-‚±‚Ì‚æ‚¤‚Éu#!=ƒtƒ@ƒCƒ‹–¼v‚Æ‚·‚é‚ÆA‚»‚Ìƒtƒ@ƒCƒ‹–¼‚Ío—Í‚³‚ê‚Ü‚¹‚ñB
-Š‡ŒÊ‚ª‚È‚¢‚Æ*.txt‚Ì’iŠK‚Åo—Í‚³‚ê‚Ä‚µ‚Ü‚¤‚½‚ßAŠ‡ŒÊ‚Í•K—v‚Å‚·B
-
-  ‚È‚¨Š®¬“x‚ª’á‚¢‚Ì‚ÅA?‚Í‘S‚­Žg‚¦‚Ü‚¹‚ñB
-
-  wce‚Å‚ÍƒƒCƒ‹ƒhƒJ[ƒh‚ðŠÜ‚Ü‚È‚¢•¶Žš—ñ‚Í‚»‚Ì‚Ü‚Üo—Í‚³‚ê‚Ü‚·BŠ‡ŒÊ‚ª
-‚ ‚éê‡‚Í‚¢‚Á‚½‚ñƒoƒbƒtƒ@ƒŠƒ“ƒO‚µ‚ÄAƒ\[ƒg‚µ‚Ä‚©‚ço—Í‚Å‚·B
-
-—á>wce echo abc def 0123
-—á>wce echo ( abc def 0123 )
-
-  wce‚ÍƒAƒ‹ƒtƒ@ƒxƒbƒg‚Ì‘å•¶Žš¬•¶Žš‚ð‹æ•Ê‚µ‚Ü‚·Bmemo.txt‚Í*.TXT‚Å‚Í
-ƒqƒbƒg‚µ‚Ü‚¹‚ñB‚»‚ê‚ª¢‚é‚Æ‚«‚Í ( *.txt *.TXT ) ‚Æ‚Å‚à‚µ‚Ä‚­‚¾‚³‚¢B
-
-[‚³‚¢‚²‚É]
-
-  dsar‚âsartol‚âwce‚Ì’˜ìŒ ‚Íì‡GŽÀ‚É‚ ‚èAƒ‰ƒCƒZƒ“ƒX‚ÍKL-01‚Å‚·B
+  wce.exeã¯ã€ãƒ¯ã‚¤ãƒ«ãƒ‰ã‚«ãƒ¼ãƒ‰å±•é–‹æ”¯æ´ã‚¢ãƒ—ãƒªã§ã™ã€‚ã¨

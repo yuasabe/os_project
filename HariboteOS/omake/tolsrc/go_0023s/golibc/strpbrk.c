@@ -13,8 +13,8 @@ char* strpbrk (char *d, const char *s)
 {
 	const char *bgn = s;
 
-	while ('\0' != *d) {
-		while ('\0' != *s)
+	while ('¥0' != *d) {
+		while ('¥0' != *s)
 			if (*d == *s++)
 				return d;
 		d++;

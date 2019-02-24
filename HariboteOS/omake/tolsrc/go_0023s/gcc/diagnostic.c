@@ -38,10 +38,10 @@ Software Foundation, 59 Temple Place - Suite 330, Boston, MA
 #define obstack_chunk_alloc xmalloc
 #define obstack_chunk_free  free
 
-#define output_formatted_integer(BUFFER, FORMAT, INTEGER) \
-  do {                                                    \
-    sprintf ((BUFFER)->digit_buffer, FORMAT, INTEGER);    \
-    output_add_string (BUFFER, (BUFFER)->digit_buffer);   \
+#define output_formatted_integer(BUFFER, FORMAT, INTEGER) ¥
+  do {                                                    ¥
+    sprintf ((BUFFER)->digit_buffer, FORMAT, INTEGER);    ¥
+    output_add_string (BUFFER, (BUFFER)->digit_buffer);   ¥
   } while (0)
 
 #define output_text_length(BUFFER) (BUFFER)->line_length
@@ -329,7 +329,7 @@ const char *
 output_finalize_message (buffer)
      output_buffer *buffer;
 {
-  obstack_1grow (&buffer->obstack, '\0');
+  obstack_1grow (&buffer->obstack, '¥0');
   return output_message_text (buffer);
 }
 
@@ -390,7 +390,7 @@ void
 output_add_newline (buffer)
      output_buffer *buffer;
 {
-  obstack_1grow (&buffer->obstack, '\n');
+  obstack_1grow (&buffer->obstack, '¥n');
   output_text_length (buffer) = 0;
 }
 
@@ -550,7 +550,7 @@ wrap_text (buffer, start, end)
       /* Dump anything bordered by whitespaces.  */ 
       {
         const char *p = start;
-        while (p != end && *p != ' ' && *p != '\n')
+        while (p != end && *p != ' ' && *p != '¥n')
           ++p;
         if (is_wrapping && p - start >= output_space_left (buffer))
           output_add_newline (buffer);
@@ -563,7 +563,7 @@ wrap_text (buffer, start, end)
           output_add_space (buffer);
           ++start;
         }
-      if (start != end && *start == '\n')
+      if (start != end && *start == '¥n')
         {
           output_add_newline (buffer);
           ++start;
@@ -938,7 +938,7 @@ count_error (warningp)
 
       if (warningp && !warning_message)
 	{
-	  verbatim ("%s: warnings being treated as errors\n", progname);
+	  verbatim ("%s: warnings being treated as errors¥n", progname);
 	  warning_message = 1;
 	}
       errorcount++;
@@ -1192,7 +1192,7 @@ fatal_error VPARAMS ((const char *msgid, ...))
   report_diagnostic (&dc);
   VA_CLOSE (ap);
 
-  fnotice (stderr, "compilation terminated.\n");
+  fnotice (stderr, "compilation terminated.¥n");
   exit (FATAL_EXIT_CODE);
 }
 
@@ -1224,7 +1224,7 @@ internal_error VPARAMS ((const char *msgid, ...))
 #ifndef ENABLE_CHECKING
   if (errorcount > 0 || sorrycount > 0)
     {
-      fnotice (stderr, "%s:%d: confused by earlier errors, bailing out\n",
+      fnotice (stderr, "%s:%d: confused by earlier errors, bailing out¥n",
 	       input_filename, lineno);
       exit (FATAL_EXIT_CODE);
     }
@@ -1239,9 +1239,9 @@ internal_error VPARAMS ((const char *msgid, ...))
   VA_CLOSE (ap);
 
   fnotice (stderr,
-"Please submit a full bug report,\n\
-with preprocessed source if appropriate.\n\
-See %s for instructions.\n", GCCBUGURL);
+"Please submit a full bug report,¥n¥
+with preprocessed source if appropriate.¥n¥
+See %s for instructions.¥n", GCCBUGURL);
   exit (FATAL_EXIT_CODE);
 }
 
@@ -1294,7 +1294,7 @@ diagnostic_finish (buffer)
 {
   output_buffer_to_stream (buffer);
   clear_diagnostic_info (buffer);
-  fputc ('\n', output_buffer_attached_stream (buffer));
+  fputc ('¥n', output_buffer_attached_stream (buffer));
   fflush (output_buffer_attached_stream (buffer));
 }
 
@@ -1387,11 +1387,11 @@ error_recursion ()
     diagnostic_finish ((output_buffer *) global_dc);
 
   fnotice (stderr,
-	   "Internal compiler error: Error reporting routines re-entered.\n");
+	   "Internal compiler error: Error reporting routines re-entered.¥n");
   fnotice (stderr,
-"Please submit a full bug report,\n\
-with preprocessed source if appropriate.\n\
-See %s for instructions.\n", GCCBUGURL);
+"Please submit a full bug report,¥n¥
+with preprocessed source if appropriate.¥n¥
+See %s for instructions.¥n", GCCBUGURL);
   exit (FATAL_EXIT_CODE);
 }
 
@@ -1497,8 +1497,8 @@ report_problematic_module (buffer)
             (buffer, "In file included from %s:%d", p->name, p->line);
 	else
 	  output_verbatim
-            (buffer, ",\n                 from %s:%d", p->name, p->line);
-      output_verbatim (buffer, ":\n");
+            (buffer, ",¥n                 from %s:%d", p->name, p->line);
+      output_verbatim (buffer, ":¥n");
       record_last_error_module ();
     }
 }

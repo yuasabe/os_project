@@ -80,7 +80,7 @@
 #endif
 /* Pointer to the contents of the charset.alias file, if it has already been
    read, else NULL.  Its format is:
-   ALIAS_1 '\0' CANONICAL_1 '\0' ... ALIAS_n '\0' CANONICAL_n '\0' '\0'  */
+   ALIAS_1 '¥0' CANONICAL_1 '¥0' ... ALIAS_n '¥0' CANONICAL_n '¥0' '¥0'  */
 static const char * volatile charset_aliases;
 
 /* GCC LOCAL: Static function prototypes.  */
@@ -134,14 +134,14 @@ get_charset_aliases ()
 	      c = getc (fp);
 	      if (c == EOF)
 		break;
-	      if (c == '\n' || c == ' ' || c == '\t')
+	      if (c == '¥n' || c == ' ' || c == '¥t')
 		continue;
 	      if (c == '#')
 		{
 		  /* Skip comment, to end of line.  */
 		  do
 		    c = getc (fp);
-		  while (!(c == EOF || c == '\n'));
+		  while (!(c == EOF || c == '¥n'));
 		  if (c == EOF)
 		    break;
 		  continue;
@@ -175,7 +175,7 @@ get_charset_aliases ()
 	    cp = "";
 	  else
 	    {
-	      *(res_ptr + res_size) = '\0';
+	      *(res_ptr + res_size) = '¥0';
 	      cp = res_ptr;
 	    }
 	}
@@ -189,8 +189,8 @@ get_charset_aliases ()
 	 directory as the DLL and of retrieving the DLL's directory at
 	 runtime, simply inline the aliases here.  */
 
-      cp = "CP936" "\0" "GBK" "\0"
-	   "CP1361" "\0" "JOHAB" "\0";
+      cp = "CP936" "¥0" "GBK" "¥0"
+	   "CP1361" "¥0" "JOHAB" "¥0";
 #endif
 
       charset_aliases = cp;
@@ -231,13 +231,13 @@ locale_charset ()
 #  if HAVE_SETLOCALE && 0
   locale = setlocale (LC_CTYPE, NULL);
 #  endif
-  if (locale == NULL || locale[0] == '\0')
+  if (locale == NULL || locale[0] == '¥0')
     {
       locale = getenv ("LC_ALL");
-      if (locale == NULL || locale[0] == '\0')
+      if (locale == NULL || locale[0] == '¥0')
 	{
 	  locale = getenv ("LC_CTYPE");
-	  if (locale == NULL || locale[0] == '\0')
+	  if (locale == NULL || locale[0] == '¥0')
 	    locale = getenv ("LANG");
 	}
     }
@@ -265,10 +265,10 @@ locale_charset ()
 
   /* Resolve alias. */
   for (aliases = get_charset_aliases ();
-       *aliases != '\0';
+       *aliases != '¥0';
        aliases += strlen (aliases) + 1, aliases += strlen (aliases) + 1)
     if (strcmp (codeset, aliases) == 0
-	|| (aliases[0] == '*' && aliases[1] == '\0'))
+	|| (aliases[0] == '*' && aliases[1] == '¥0'))
       {
 	codeset = aliases + strlen (aliases) + 1;
 	break;

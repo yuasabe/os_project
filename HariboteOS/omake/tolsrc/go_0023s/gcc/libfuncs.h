@@ -177,7 +177,7 @@ extern rtx libfunc_table[LTI_MAX];
 #define setjmp_libfunc	(libfunc_table[LTI_setjmp])
 #define longjmp_libfunc	(libfunc_table[LTI_longjmp])
 #define unwind_sjlj_register_libfunc (libfunc_table[LTI_unwind_sjlj_register])
-#define unwind_sjlj_unregister_libfunc \
+#define unwind_sjlj_unregister_libfunc ¥
   (libfunc_table[LTI_unwind_sjlj_unregister])
 
 #define eqhf2_libfunc	(libfunc_table[LTI_eqhf2])
@@ -268,7 +268,4 @@ extern rtx libfunc_table[LTI_MAX];
 #define fixunstfdi_libfunc	(libfunc_table[LTI_fixunstfdi])
 #define fixunstfti_libfunc	(libfunc_table[LTI_fixunstfti])
 
-#define profile_function_entry_libfunc	(libfunc_table[LTI_profile_function_entry])
-#define profile_function_exit_libfunc	(libfunc_table[LTI_profile_function_exit])
-
-#endif /* GCC_LIBFUNCS_H */
+#define profile_function_entry_libfunc	(libfunc

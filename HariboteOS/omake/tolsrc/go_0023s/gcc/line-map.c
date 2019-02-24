@@ -56,7 +56,7 @@ free_line_maps (set)
 	 not, this can be a user error or an ICE.  */
       for (map = CURRENT_LINE_MAP (set); ! MAIN_FILE_P (map);
 	   map = INCLUDED_FROM (set, map))
-	fprintf (stderr, "line-map.c: file \"%s\" entered but not left\n",
+	fprintf (stderr, "line-map.c: file ¥"%s¥" entered but not left¥n",
 		 map->to_file);
 
       free (set->maps);
@@ -117,7 +117,7 @@ add_line_map (set, reason, sysp, from_line, to_file, to_line)
       /* Depending upon whether we are handling preprocessed input or
 	 not, this can be a user error or an ICE.  */
       if (error)
-	fprintf (stderr, "line-map.c: file \"%s\" left but not entered\n",
+	fprintf (stderr, "line-map.c: file ¥"%s¥" left but not entered¥n",
 		 to_file);
 
       /* A TO_FILE of NULL is special - we use the natural values.  */
@@ -143,93 +143,4 @@ add_line_map (set, reason, sysp, from_line, to_file, to_line)
 	trace_include (set, map);
     }
   else if (reason == LC_RENAME)
-    map->included_from = map[-1].included_from;
-  else if (reason == LC_LEAVE)
-    {
-      set->depth--;
-      map->included_from = INCLUDED_FROM (set, map - 1)->included_from;
-    }
-
-  return map;
-}
-
-/* Given a logical line, returns the map from which the corresponding
-   (source file, line) pair can be deduced.  Since the set is built
-   chronologically, the logical lines are monotonic increasing, and so
-   the list is sorted and we can use a binary search.  */
-
-const struct line_map *
-lookup_line (set, line)
-     struct line_maps *set;
-     unsigned int line;
-{
-  unsigned int md, mn = 0, mx = set->used;
-
-  if (mx == 0)
-    abort ();
-
-  while (mx - mn > 1)
-    {
-      md = (mn + mx) / 2;
-      if (set->maps[md].from_line > line)
-	mx = md;
-      else
-	mn = md;
-    }
-
-  return &set->maps[mn];
-}
-
-/* Print the file names and line numbers of the #include commands
-   which led to the map MAP, if any, to stderr.  Nothing is output if
-   the most recently listed stack is the same as the current one.  */
-
-void
-print_containing_files (set, map)
-     struct line_maps *set;
-     const struct line_map *map;
-{
-  if (MAIN_FILE_P (map) || set->last_listed == map->included_from)
-    return;
-
-  set->last_listed = map->included_from;
-  map = INCLUDED_FROM (set, map);
-
-  fprintf (stderr,  _("In file included from %s:%u"),
-	   map->to_file, LAST_SOURCE_LINE (map));
-
-  while (! MAIN_FILE_P (map))
-    {
-      map = INCLUDED_FROM (set, map);
-      /* Translators note: this message is used in conjunction
-	 with "In file included from %s:%ld" and some other
-	 tricks.  We want something like this:
-
-	 | In file included from sys/select.h:123,
-	 |                  from sys/types.h:234,
-	 |                  from userfile.c:31:
-	 | bits/select.h:45: <error message here>
-
-	 with all the "from"s lined up.
-	 The trailing comma is at the beginning of this message,
-	 and the trailing colon is not translated.  */
-      fprintf (stderr, _(",\n                 from %s:%u"),
-	       map->to_file, LAST_SOURCE_LINE (map));
-    }
-
-  fputs (":\n", stderr);
-}
-
-/* Print an include trace, for e.g. the -H option of the preprocessor.  */
-
-static void
-trace_include (set, map)
-     const struct line_maps *set;
-     const struct line_map *map;
-{
-  unsigned int i = set->depth;
-
-  while (--i)
-    putc ('.', stderr);
-  fprintf (stderr, " %s\n", map->to_file);
-}
+    map->included_fr

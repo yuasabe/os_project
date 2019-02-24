@@ -65,7 +65,7 @@ spaces (count)
 	  *--t = ' ';
 	}
       maxsize = count;
-      buf[count] = '\0';
+      buf[count] = '¥0';
     }
   return (const char *) (buf + maxsize - count);
 }

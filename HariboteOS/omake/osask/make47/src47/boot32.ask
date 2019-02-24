@@ -1,4 +1,4 @@
-/* "boot32.ask" ver.0.3 copyright(C) 2004 H.Kawai(êÏçáèGé¿) */
+/* "boot32.ask" ver.0.3 copyright(C) 2004 H.Kawai(Â∑ùÂêàÁßÄÂÆü) */
 
 #include "osaskinc.ask"
 
@@ -14,27 +14,27 @@ void putstr();
 void dumpreg();
 void decode_tek0();
 
-/* êiì¸èåèÅF
+/* ÈÄ≤ÂÖ•Êù°‰ª∂Ôºö
 	SS.base = 0xff000 (ff00)
 	DS.base = SysWork
-    IDTGDT = 1MB+0KB (Ç±ÇÃÉyÅ[ÉWÇÕébíËÉXÉ^ÉbÉNÇ∆ÇµÇƒÇ‡égóp)
-	CR3 = 1MB+4KB (8K, 12KÇÕPTE)
+    IDTGDT = 1MB+0KB („Åì„ÅÆ„Éö„Éº„Ç∏„ÅØÊö´ÂÆö„Çπ„Çø„ÉÉ„ÇØ„Å®„Åó„Å¶„ÇÇ‰ΩøÁî®)
+	CR3 = 1MB+4KB (8K, 12K„ÅØPTE)
 
-	Ç»Ç®ÉäÉAÉãÇÃç≈å„ÇÃ4KB(636KB)ÇÕV86ópÇÃÉXÉ^ÉbÉNÇ…Ç»ÇÈ
-	Ç≥ÇÁÇ…12KBÇ™BIOSÇ∆ÇÃåêMóp
+	„Å™„Åä„É™„Ç¢„É´„ÅÆÊúÄÂæå„ÅÆ4KB(636KB)„ÅØV86Áî®„ÅÆ„Çπ„Çø„ÉÉ„ÇØ„Å´„Å™„Çã
+	„Åï„Çâ„Å´12KB„ÅåBIOS„Å®„ÅÆ‰∫§‰ø°Áî®
 
-	ÉäÉAÉãÇÃ640KB(+128KB)Ç∆éüÇÃ1MBÇ…Ç¬Ç¢ÇƒÇÕàÍêÿÉ`ÉFÉbÉNÇµÇ»Ç¢ÅB
-	ÇªÇ±Ç™ã^ÇÌÇµÇ¢ÇÊÇ§Ç≈ÇÕÅAOSASKÇãNìÆÇ∑ÇÈÇÃÇÕê‚ñ]ìIÇæÇ©ÇÁÅB
+	„É™„Ç¢„É´„ÅÆ640KB(+128KB)„Å®Ê¨°„ÅÆ1MB„Å´„Å§„ÅÑ„Å¶„ÅØ‰∏ÄÂàá„ÉÅ„Çß„ÉÉ„ÇØ„Åó„Å™„ÅÑ„ÄÇ
+	„Åù„Åì„ÅåÁñë„Çè„Åó„ÅÑ„Çà„ÅÜ„Åß„ÅØ„ÄÅOSASK„ÇíËµ∑Âãï„Åô„Çã„ÅÆ„ÅØÁµ∂ÊúõÁöÑ„Å†„Åã„Çâ„ÄÇ
 
 */
 
-/* Ç¢Ç¬Ç©ÅAinitÇ∆base32Çï™ÇØÇÊÇ§ÅI */
+/* „ÅÑ„Å§„Åã„ÄÅinit„Å®base32„ÇíÂàÜ„Åë„Çà„ÅÜÔºÅ */
 
 void far boot32()
 {
 	STR_SYSWORK *swork == DS:0;
 
-	ESP = 0x2000; /* ébíËÉXÉ^ÉbÉNÇ÷ */
+	ESP = 0x2000; /* Êö´ÂÆö„Çπ„Çø„ÉÉ„ÇØ„Å∏ */
 
 	PUSHFD();
 	POP(EAX);
@@ -54,25 +54,25 @@ void far boot32()
 		CR0 = EAX;
 	}
 
-	/* all_selÇÃçÏê¨(for dummy GDT) */
+	/* all_sel„ÅÆ‰ΩúÊàê(for dummy GDT) */
 	EBP = 0x1180 + 8;
 	(int) [SS:EBP + 0] = 0x0000ffff;
 	(int) [SS:EBP + 4] = 0x00cf9200;
 	PUSH(8);
 	POP(ES); /* ES = all_sel */
 
-	/* ÉvÉçÉeÉNÉgÉÅÉÇÉäÉeÉXÉg */
+	/* „Éó„É≠„ÉÜ„ÇØ„Éà„É°„É¢„É™„ÉÜ„Çπ„Éà */
 	EBX = 16 * 1024 * 1024; /* i386DX, i486, Pentium */
 	EAX =  2 * 1024 * 1024;
 	testmemory();
 	ECX += 1024 * 1024;
 	swork->bootmalloc_fre2 = ECX;
-	/* A24-31Ç™ê∂Ç´ÇƒÇ¢ÇÈÇ©Ç«Ç§Ç©ÇÃÉ`ÉFÉbÉN */	
+	/* A24-31„ÅåÁîü„Åç„Å¶„ÅÑ„Çã„Åã„Å©„ÅÜ„Åã„ÅÆ„ÉÅ„Çß„ÉÉ„ÇØ */	
 	EDI = 0x102c00; /* PTE 3MB */
 	EAX = 0x01000007;
 	TEST(DL, 0x04);
 	if (!= 0 /* 486 */)
-		AL= 0x1f /* ÉLÉÉÉbÉVÉÖã÷é~(PCD = 1, PWT = 1) */;
+		AL= 0x1f /* „Ç≠„É£„ÉÉ„Ç∑„É•Á¶ÅÊ≠¢(PCD = 1, PWT = 1) */;
 	STOSD();
 	EAX = CR3;
 	CR3 = EAX;
@@ -103,7 +103,7 @@ void far boot32()
 //	if ((unsigned) <= 0)
 //		INT(0x03);
 
-	/* ÉÇÉWÉÖÅ[Éãì]ëóêÊämï€ */
+	/* „É¢„Ç∏„É•„Éº„É´Ëª¢ÈÄÅÂÖàÁ¢∫‰øù */
 	AL = 16;
 	ECX = 0;
 	ESI = (offset) swork->modulelist;
@@ -121,7 +121,7 @@ void far boot32()
 	bmalloc();
 	swork->bmodule_paddr = EAX;
 
-	/* äeéÌÉèÅ[ÉNÉGÉäÉAÇÃämï€ */
+	/* ÂêÑÁ®Æ„ÉØ„Éº„ÇØ„Ç®„É™„Ç¢„ÅÆÁ¢∫‰øù */
 
 	ESI = (offset) swork->modulelist;
 	do {
@@ -136,9 +136,9 @@ void far boot32()
 		ESI += 16;
 	} while ((unsigned) (int) [DS:ESI + 0] != 0);
 
-	/* PDEPTEÇçÏÇËíºÇ∑(çÏÇËíºÇ≥Ç»Ç¢Ç∆óéÇøíÖÇ¢ÇƒÉ}ÉbÉsÉìÉOÇ™Ç≈Ç´Ç»Ç¢) */
-	/* PDEPTEÇÕç≈ëÂÇ≈1MB(=1GB) */
-	/* Ç‡Ç¡Ç∆Ç‡ÅAÇ±ÇÃå„Ç≈0ÉNÉäÉAÉãÅ[É`ÉìÇí«â¡ÇµÇƒÇ¢ÇØÇŒÇ‡Ç¡Ç∆ëùÇ‚ÇπÇÈÇ™ */
+	/* PDEPTE„Çí‰Ωú„ÇäÁõ¥„Åô(‰Ωú„ÇäÁõ¥„Åï„Å™„ÅÑ„Å®ËêΩ„Å°ÁùÄ„ÅÑ„Å¶„Éû„ÉÉ„Éî„É≥„Ç∞„Åå„Åß„Åç„Å™„ÅÑ) */
+	/* PDEPTE„ÅØÊúÄÂ§ß„Åß1MB(=1GB) */
+	/* „ÇÇ„Å£„Å®„ÇÇ„ÄÅ„Åì„ÅÆÂæå„Åß0„ÇØ„É™„Ç¢„É´„Éº„ÉÅ„É≥„ÇíËøΩÂä†„Åó„Å¶„ÅÑ„Åë„Å∞„ÇÇ„Å£„Å®Â¢ó„ÇÑ„Åõ„Çã„Åå */
 
 	EDI = 0x102c00; /* PTE 3MB-4MB */
 	EAX = swork->alloclist[ENT_PDEPTE + 12];
@@ -159,7 +159,7 @@ void far boot32()
 	PUSH(EDI);
 	PUSH(ECX);
 	ECX /= 4;
-	asmout("REP STOSD"); /* PDEPTEÇÃ0ÉNÉäÉA */
+	asmout("REP STOSD"); /* PDEPTE„ÅÆ0„ÇØ„É™„Ç¢ */
 	POP(ECX);
 	POP(EDI);
 
@@ -171,13 +171,13 @@ void far boot32()
 	if (!= 0)
 		BL = 0x1f;
 	#if (!defined(PCAT))
-		/* VRAMÇÃç≈ëÂÇÕ4MB */
+		/* VRAM„ÅÆÊúÄÂ§ß„ÅØ4MB */
 		[ES:EDI + 0x1e00] = EBX;
 		[ES:EDI + 0x0e00] = EAX;
 		EAX += 4096;
 		EBX += 4096;
 	#else
-		/* VRAMÇÃç≈ëÂÇÕ16MB */
+		/* VRAM„ÅÆÊúÄÂ§ß„ÅØ16MB */
 		[ES:EDI + 0x1e00] = EBX;
 		[ES:EDI + 0x0e00] = EAX;
 		EAX += 4096;
@@ -194,7 +194,7 @@ void far boot32()
 		[ES:EDI + 0x0e0c] = EAX;
 		EAX += 4096;
 		EBX += 4096;
-		/* PCIÉfÉoÉCÉXópãÛä‘ (0xac00_0000) */
+		/* PCI„Éá„Éê„Ç§„ÇπÁî®Á©∫Èñì (0xac00_0000) */
 		[ES:EDI + 0x1ac0] = EBX;
 		[ES:EDI + 0x0ac0] = EAX;
 		EAX += 4096;
@@ -222,8 +222,8 @@ fillpte:
 	asmout("LOOP .fillpte");
 	POP(ECX);
 
-	/* ptepdeÇÃÉ}ÉbÉsÉìÉO */
-	/* +0xxx:link, +1xxx:pde, +2xxx:VRAM, +3xxx:PTE(0-4) : îÒPCAT */
+	/* ptepde„ÅÆ„Éû„ÉÉ„Éî„É≥„Ç∞ */
+	/* +0xxx:link, +1xxx:pde, +2xxx:VRAM, +3xxx:PTE(0-4) : ÈùûPCAT */
 	/* +0xxx:link, +1xxx:pde, +2xxx:VRAM, +6xxx:c0000000 +7xxx:PTE(0-4) : PCAT */
 	#if (!defined(PCAT))
 		EDI = 0x303000 + 0x1200; /* 4.5MB */
@@ -251,7 +251,7 @@ fillpte:
 	swork->bootlinear_EDI = EDI;
 	swork->bootlinear += ECX;
 
-	/* idtgdtÇÃÉ}ÉbÉsÉìÉO */
+	/* idtgdt„ÅÆ„Éû„ÉÉ„Éî„É≥„Ç∞ */
 	ECX = swork->alloclist[ENT_IDTGDT +  8];
 	EAX = swork->alloclist[ENT_IDTGDT + 12];
 	bmap();
@@ -259,7 +259,7 @@ fillpte:
 	EDI = EDX;
 	ECX /= 4;
 	EAX = 0;
-	asmout("REP STOSD"); /* 0ÉNÉäÉA */
+	asmout("REP STOSD"); /* 0„ÇØ„É™„Ç¢ */
 	POP(ECX);
 	(int) [ES:EDX + 384 +   8 + 0] = 0x0000ffff; /* all_sel */
 	(int) [ES:EDX + 384 +   8 + 4] = 0x00cf9200;
@@ -294,7 +294,7 @@ fillpte:
 /* pdepte = 0x480000 - 4c2ffff */
 /* GDTR.base = 0x4c3180 */
 
-	/* Ç±ÇÍÇ≈ÅASEL_ALL, SEL_IDTGDT, SEL_PDEPTEÇÕégÇ¶ÇÈ */
+	/* „Åì„Çå„Åß„ÄÅSEL_ALL, SEL_IDTGDT, SEL_PDEPTE„ÅØ‰Ωø„Åà„Çã */
 	PUSH(SEL_IDTGDT);
 	POP(GS); /* = SEL_IDTGDT */
 	PUSH(SEL_PDEPTE);
@@ -306,8 +306,8 @@ fillpte:
 	bmap();
 	swork->bmodule_laddr = EDX; /* 0x4c4000 */
 
-	/* à»â∫ÇÕinitÇ™Ç‚ÇÈÇ◊Ç´Ç±Ç∆Ç©Ç‡ */
-	/* Ç¢Ç‚ÅAbmapÇégÇ¢ÇΩÇ¢Ç©ÇÁÅAboot32Ç≈Ç‚ÇÈÇÃÇ™ê≥ÇµÇ¢ */
+	/* ‰ª•‰∏ã„ÅØinit„Åå„ÇÑ„Çã„Åπ„Åç„Åì„Å®„Åã„ÇÇ */
+	/* „ÅÑ„ÇÑ„ÄÅbmap„Çí‰Ωø„ÅÑ„Åü„ÅÑ„Åã„Çâ„ÄÅboot32„Åß„ÇÑ„Çã„ÅÆ„ÅåÊ≠£„Åó„ÅÑ */
 
 	asmout("MOV EDI,.initsel0");
 	do {
@@ -352,8 +352,8 @@ fillpte:
 				PUSH(EBP);
 				EBP = [DS:EBX +  8];
 				PUSH(EBX);
-				/* tek0ìWäJ */
-				/* FS:ESIÇ©ÇÁFS:EDIÇ÷, EBPÉoÉCÉg */
+				/* tek0Â±ïÈñã */
+				/* FS:ESI„Åã„ÇâFS:EDI„Å∏, EBP„Éê„Ç§„Éà */
 				decode_tek0();
 				POP(EBX);
 				POP(EBP);
@@ -378,586 +378,4 @@ fillpte:
 
 	PUSH(3*8);
 	POP(DS);
-	EAX = 6 * 8 /* stack_sel */;
-	SS = EAX;
-	ESP = /* (offset) stack_ESP0 */ 0xffffd000; /* ÉXÉ^ÉbÉNÇÃèâä˙âª */
-
-	EBP = swork->modulelist[ENT_FDIMAGE +  8];
-	PUSH(8);
-	EDI = 1024 * 1024;
-	POP(ES);
-	if (EBP != 0) {
-		ESI = (unsigned short) swork->modulelist[ENT_FDIMAGE + 12];
-		ESI *= 16;
-		decode_tek0();
-		(char) swork->DiskCacheLength = 160; /* 0-159ÉgÉâÉbÉN */
-	} else {
-		TEST(swork->DiskCacheReady, 0x02);
-		if (!= 0) {
-			ESI = 0x1000;
-			#if (defined(PCAT))
-				ECX = 18 * 1024 / 4;
-			#elif (defined(TOWNS))
-				ECX = 16 * 1024 / 4;
-			#elif (defined(NEC98))
-				ECX = 16 * 1024 / 4;
-			#endif
-			asmout("ES REP MOVSD");
-			(char) swork->DiskCacheLength = 2; /* 0-1ÉgÉâÉbÉN */
-		}
-	}
-
-	JMP(16,0); /* init_sel:0 */
-
-	ALIGN(2);
-initsel0:
-	DW(0xc096, SYSWORK_ALIST + ENT_STACK,     6 * 8 + 384); /* stack_ent, stack_sel */
-	DW(0x4092, SYSWORK_ALIST + ENT_KEYDATA,   9 * 8 + 384); /* keydata_ent, keydata_sel */
-	DW(0x4092, SYSWORK_ALIST + ENT_GAPIDATA,  5 * 8 + 384); /* gapidata_ent, gapidata_sel */
-	DW(0x4092, SYSWORK_ALIST + ENT_TIMERDAT, 11 * 8 + 384); /* timerdata_ent, timerdata_sel */
-	DW(0x4092, SYSWORK_ALIST + ENT_DECODATA, 23 * 8 + 384); /* decowork_ent, decowork_sel */
-	DW(0x4092, SYSWORK_ALIST + ENT_FDCWORK,  29 * 8 + 384); /* fdcwork_ent, fdcwork_sel */
-	DW(0x4092, SYSWORK_ALIST + ENT_PAPIWORK, 19 * 8 + 384); /* papiwork_ent, papiwork_sel */
-	DW(0);
-
-initsel1:
-	DW(0x4092, 0x020,  3 * 8 + 384); /* syswork_sel */
-	DW(0x409a, 0x040,  4 * 8 + 384); /* vgadrv0 */
-	DW(0x409a, 0x050,  8 * 8 + 384); /* keymos0 */
-	DW(0x409a, 0x060, 10 * 8 + 384); /* timerdrv */
-	DW(0x409a, 0x070, 12 * 8 + 384); /* tapi0 */
-	DW(0x409a, 0x080, 22 * 8 + 384); /* decode0 */
-	DW(0x409a, 0x090, 28 * 8 + 384); /* fdcdrv0 */
-	DW(0x4092, 0x0e0,  7 * 8 + 384); /* ankfont */
-	DW(0x409a, 0x0f0, 18 * 8 + 384); /* papi0 */
-	DW(0x409a, 0x030,  2 * 8 + 384); /* init */
-	DW(0);
-
-	/* Ç±Ç±Ç≈ÇÌÇ¥Ç∆ÉäÉAÉãÇ©ÇÁÉÅÉÇÉäÇämï€ÇµÇƒÇ›ÇπÇÈ(IDTGDTÇ∆PDEPTE) */
-
-	/* DS == syswork_seg, GS == IDT&GDT_seg (Ç«ÇøÇÁÇ‡ÉZÉåÉNÉ^Ç≈ÇÕÇ»Ç¢Ç±Ç∆Ç…íçà”Ç™ïKóv) */
-}
-
-void testmemory()
-/* EAXÇ©ÇÁ1MBíPà Ç≈ÉeÉXÉg */
-/* ç≈ëÂÉAÉhÉåÉXÇEBXÇ…éwíË */
-/* DLÇ…ÇÕelfagsÇ */
-/* ES = all_sel */
-/* ESI, EDI, EBPÇîjâÛ */
-{
-	PUSH(EAX);
-	do {
-		EDI = 0x102c00; /* PTE 3MB-4MB */
-		PUSH(EAX);
-		AL = 7;
-		TEST(DL, 0x04);
-		if (!= 0 /* 486 */)
-			AL= 0x1f /* ÉLÉÉÉbÉVÉÖã÷é~(PCD = 1, PWT = 1) */;
-		do {
-			STOSD();
-			EAX += 4096;
-		} while ((unsigned) EDI < 0x103000);
-		EDI = CR3;
-		CR3 = EDI;
-		POP(EAX);
-		EBP = 0xaa55aa55;
-		ESI = 0x55aa55aa;
-		EDI = 3 * 1024 * 1024;
-		do {
-			int *adr0 == ES:EDI, *adr1 == ES:EDI + 0xffc;
-			*adr0 = EBP;
-			NOT(*adr0);
-			if (ESI != *adr0)
-				goto skip;
-			NOT(*adr0);
-			if (EBP != *adr0)
-				goto skip;
-			*adr1 = EBP;
-			NOT(*adr1);
-			if (ESI != *adr1)
-				goto skip;
-			NOT(*adr1);
-			if (EBP != *adr1)
-				goto skip;
-			EDI += 0x1000;
-		} while ((unsigned) EDI < 0x00400000);
-		EAX += 1024 * 1024;
-	} while ((unsigned) EAX < EBX);
-skip:
-	ECX = EAX;
-	POP(EAX);
-	ECX -= EAX;
-	return;
-}
-
-void bmalloc()
-/* ECXÇ…ÉTÉCÉY > EAXÇ…ï®óùÉAÉhÉåÉX */
-{
-	STR_SYSWORK *swork == DS:0;
-
-	if ((unsigned) ECX <= swork->bootmalloc_fre3) {
-		swork->bootmalloc_fre3 -= ECX;
-		EAX = swork->bootmalloc_adr3;
-		swork->bootmalloc_adr3 += ECX;
-		return;
-	}
-	if ((unsigned) ECX <= swork->bootmalloc_fre2) {
-		swork->bootmalloc_fre2 -= ECX;
-		EAX = swork->bootmalloc_adr2;
-		swork->bootmalloc_adr2 += ECX;
-		return;
-	}
-//	if ((unsigned) ECX <= swork->bootmalloc_fre1) {
-//		swork->bootmalloc_fre1 -= ECX;
-//		EAX = swork->bootmalloc_adr1;
-//		swork->bootmalloc_adr1 += ECX;
-//		return;
-//	}
-}
-
-void error()
-{
-	for (;;);
-}
-
-void bmap()
-/* ä»à’É}ÉbÉsÉìÉOÉvÉçÉOÉâÉÄ */
-/* EDXÇï‘Ç∑ */
-{
-	STR_SYSWORK *swork == DS:0;
-
-	PUSH(EDI);
-	PUSH(ECX);
-	PUSH(EAX);
-	EDX = swork->bootlinear;
-	EDI = swork->bootlinear_EDI;
-	AL = 7;
-	do {
-		STOSD();
-		EAX += 4096;
-		swork->bootlinear += 4096;
-		ECX -= 4096;
-	} while ((unsigned) > 0);
-	swork->bootlinear_EDI = EDI;
-	POP(EAX);
-	POP(ECX);
-	POP(EDI);
-	return;
-}
-
-void set_modulesegment()
-/* AL, AH = access_right
-   ECX = size, EDX = base
-   GS:EBX = DT-entry */
-/* sizeÇÕ0xfffff000à»â∫Ç≈Ç†ÇÈ */
-{
-	struct DescriptTbl {
-		unsigned short limit1;
-		unsigned short base1;
-		unsigned char base2;
-		unsigned char access_right1;
-		unsigned char limit2_access_right2;
-		unsigned char base3;
-	};
-
-	DescriptTbl *DT == GS:EBX;
-	unsigned int size == ECX, base == EDX;
-
-	size--;
-	DT->access_right1 = AL;
-	TEST(AL, 0x10);
-	if (!= 0) { /* S = 1 */
-		if (size > 0xfffff) {
-			AH |= 0x80; /* pageíPà Ç…ï‚ê≥ */
-		//	size &= 0xfffff000;
-		}
-		AL &= 0x1e;
-		TEST(AH, 0x80);
-		if (!= 0) {
-			size /= 4096; /* ÉyÅ[ÉWíPà Ç…ï‚ê≥(0Å`0xffffe) */
-			if (AL == 0x16) {
-				size ^= 0x000fffff; /* 0Å®0xfffff, 1Å®0xffffe */
-				size--; /* 0Å®0xffffe, 1Å®0xffffd */
-			}
-		}
-	}
-
-	DT->base1 = DX /* base */;
-	base >>= 16;
-	DT->limit1 = CX /* size */;
-	size >>= 16;
-	DT->base2 = DL /* base */;
-	CL |= AH;
-	DT->limit2_access_right2 = CL /* size */;
-	DT->base3 = DH /* base */;
-	return;
-}
-
-void getb()
-{
-	char *src == FS:ESI;
-
-	BL--;
-	if ((signed) < 0) {
-		BL = 7;
-		BH = *src;
-		(offset) src++;
-	}
-	BH <<= 1;
-	return;
-}
-
-void getbECX()
-{
-	char *src == FS:ESI;
-
-	do {
-		BL--;
-		if ((signed) < 0) {
-			BL = 7;
-			BH = *src;
-			(offset) src++;
-		}
-		BH <<= 1;
-		RCL(EAX, 1);
-		ECX--;
-	} while (!= 0);
-	TEST(EAX, EAX);
-	return;
-}
-
-void getl1a()
-/* ECXÇ…ï‘Ç∑ */
-/* ECX = 1Ç≈åƒÇ‘Ç±Ç∆ */
-{
-//	ECX = 1;
-	getb();
-	if (CF == 0) {
-		do {
-			getb();
-			RCL(ECX, 1);
-			getb();
-		} while (CF == 0);
-	}
-	return;
-}
-
-void getl1b()
-/* ECXÇ…ï‘Ç∑ */
-/* ECX = 1Ç≈åƒÇ‘Ç±Ç∆ */
-{
-//	ECX = 1;
-	getb();
-	if (CF == 0) {
-		do {
-			getb();
-			RCL(ECX, 1);
-			getb();
-		} while (CF == 0);
-		ECX++;
-		return;
-	}
-	getb();
-	ADC(ECX, 0);
-	return;
-}
-
-void getl0a()
-/* EBPÇ…ï‘Ç∑ */
-/* êiì¸èåèÅFEBP = 0, ECX = 0 */
-{
-	do {
-		EBP++;
-		getb();
-		if (CF != 0)
-			goto fin;
-		EDX--;
-	} while (!= 0);
-	ECX++; /* ECX = 1; */
-	getl1b();
-	EBP += ECX;
-	ECX = 0;	
-fin:
-	return;
-}
-
-void decode_tek0()
-{
-	char *dst == FS:EDI;
-	unsigned int *z1 == SS:ESP, *z0 == SS:ESP + 4, *mode == SS:ESP + 8;
-	unsigned int *l_ofs == SS:ESP + 12, *dis_s == SS:ESP + 16;
-	unsigned int *bytes == SS:ESP + 20;
-	EBX = 0;
-	ECX = 0;
-	EAX = 0;
-	PUSH(EBP); /* bytes */
-	do {
-		CL = 9;
-		getbECX(); /* 9bitì¸óÕ */
-		(unsigned int) EAX >>= 1;
-	} while (CF == 0);
-	PUSH(EAX); /* dis_s */
-	EAX = 0;
-	CL = 2;
-	getbECX(); /* 2bitì¸óÕ */
-	PUSH(EAX); /* l_ofs */
-	EAX = (offset) &getl1a;
-	getb();
-	if (CF != 0) {
-	//	EAX = (offset) &getl1b;
-		asmout("ADD EAX,getl1b-getl1a");
-	//	DB(0x83, 0xc0); asmout("DB getl1b-getl1a");
-	}
-	PUSH(EAX); /* mode */
-	LEA(EDX, [ECX + 2]); /* EDX = 2; */
-	do {
-		EAX = 0;
-		CL = 2;
-		getbECX(); /* 2bitì¸óÕ */
-		asmout("MOVSX EAX,BYTE PTR CS:[.table+EAX]");
-		PUSH(EAX); /* z0, z1 */
-		EDX--;
-	} while (!= 0);
-
-	EBP = 0;
-	do {
-		/* "0"-phase (îÒà≥èkÉtÉFÅ[ÉY) */
-		EDX = *z0;
-		getl0a(); /* EBPÇ…ï‘Ç∑ */
-		*bytes -= EBP;
-		do {
-			CL = 8;
-			getbECX();
-			*dst = AL;
-			(offset) dst++;
-			EBP--;
-		} while (!= 0);
-		if (ECX == *bytes)
-			break;
-
-		/* "1"-phase (à≥èkÉtÉFÅ[ÉY) */
-		EDX = *z1;
-		getl0a(); /* EBPÇ…ï‘Ç∑ */
-		do {
-			/* getdf */
-			unsigned int stopbits == EAX, distance == EDX;
-		//	distance = 0xffffffff;
-			LEA(EDX, [ECX - 1]);
-			ECX++; /* l1aÇ‚l1bÇÃÇΩÇﬂ */
-			stopbits = *dis_s;
-			do {
-				do {
-					getb();
-					RCL(distance, 1);
-					stopbits >>= 1;
-				} while (CF == 0);
-				if (/* stopbits */ == 0)
-					break;
-				getb();
-			} while (CF == 0);
-
-			CALL(*mode); /* l1a or l1b */
-			ECX += *l_ofs;
-			*bytes -= ECX;
-			do {
-				AL = dst[EDX];
-				*dst = AL;
-				(offset) dst++;
-				ECX--;
-			} while (!= 0);
-			EBP--;
-		} while (!= 0);
-	} while (ECX != *bytes);
-
-	ESP += 24;
-	return;
-
-table:
-	DB(0xff, 4, 8, 16);
-}
-
-#if 0
-
-/* TOWNSópÉfÉoÉbÉOÉãÅ[É`Éì */
-
-void putstr()
-/* ES:EDIÇ÷èoóÕ, FS:EBXÇ…ï∂éöóÒ, ECXÇ™ï∂éöí∑, ES:ESIÇ…ÉtÉHÉìÉg */
-{
-	PUSH(EDI);
-	PUSH(EBX);
-	PUSH(ECX);
-	PUSH(EAX);
-	AL = 0x0f;
-	[ES:0xcff83] = AL; /* all plain write */
-	do {
-	//	EAX = (unsigned char) [FS:EBX];
-		EAX = (unsigned char) [SS:EBX];
-		PUSH(ESI);
-		EAX *= 16;
-		EBX++;
-		ESI += EAX;
-		EAX = [ES:ESI +  0];
-		[ES:EDI + 80 *  0] = AL;
-		[ES:EDI + 80 *  1] = AH;
-		(unsigned int) EAX >>= 16;
-		[ES:EDI + 80 *  2] = AL;
-		[ES:EDI + 80 *  3] = AH;
-		EAX = [ES:ESI +  4];
-		[ES:EDI + 80 *  4] = AL;
-		[ES:EDI + 80 *  5] = AH;
-		(unsigned int) EAX >>= 16;
-		[ES:EDI + 80 *  6] = AL;
-		[ES:EDI + 80 *  7] = AH;
-		EAX = [ES:ESI +  8];
-		[ES:EDI + 80 *  8] = AL;
-		[ES:EDI + 80 *  9] = AH;
-		(unsigned int) EAX >>= 16;
-		[ES:EDI + 80 * 10] = AL;
-		[ES:EDI + 80 * 11] = AH;
-		EAX = [ES:ESI + 12];
-		POP(ESI);
-		[ES:EDI + 80 * 12] = AL;
-		[ES:EDI + 80 * 13] = AH;
-		(unsigned int) EAX >>= 16;
-		[ES:EDI + 80 * 14] = AL;
-		[ES:EDI + 80 * 15] = AH;
-		EDI++;
-		ECX--;
-	} while (!= 0);
-	POP(EAX);
-	POP(ECX);
-	POP(EBX);
-	POP(EDI);
-	return;
-}
-
-void itoa1()
-/* AL -> CL */
-{
-	CL = AL;
-	CL &= 0x0f;
-	CL += 0x30; /* '0' */
-	if (CL > 0x39)
-		CL += 0x41 - 10 - 0x30;
-	return;
-}
-
-void itoa2()
-/* AL -> CX */
-{
-	itoa1();
-	CH = CL;
-	ROL(AL, 4);
-	itoa1();
-	ROL(AL, 4);
-	return;
-}
-
-void itoa4()
-/* AX -> ECX */
-{
-	itoa2();
-	ECX <<= 16;
-	XCHG(AL, AH);
-	itoa2();
-	XCHG(AL, AH);
-	return;
-}
-
-void itoa8()
-/* EAX -> EDX:ECX */
-{
-	itoa4();
-	EDX = ECX;
-	ROL(EAX, 16);
-	itoa4();
-	ROL(EAX, 16);
-	return;
-}
-
-void dumpreg()
-/* êiì¸èåèÅFES = all_sel */
-{
-	int *bmodule_paddr == DS:0x228, *bmodule_laddr == DS:0x22c;
-
-	PUSHAD();
-	EBP = ESP;
-//	PUSH(SS);
-	ESI = [DS:0x0e0 + 12];
-//	ESI *= 16;
-	ESI -= *bmodule_paddr;
-	ESI += *bmodule_laddr;
-	EDI = 0xc0000 + 80 * 16 * 10;
-	ESI -= 16 * 32;
-//	POP(FS);
-
-	EAX = EBX;
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'EBX:'");
-
-	PUSH(0x20202020);
-	EAX = [SS:EBP + 20];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'EDX:'");
-
-	PUSH(0x20202020);
-	EAX = [SS:EBP + 24];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'ECX:'");
-
-	PUSH(0x20202020);
-	EAX = [SS:EBP + 28];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'EAX:'");
-
-	EBX = ESP;
-	ECX = 60;
-	putstr();
-	ESP = EBP;
-	EDI += 80 * 16;
-
-	EAX = [SS:EBP +  0];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'EDI:'");
-
-	PUSH(0x20202020);
-	EAX = [SS:EBP +  4];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'ESI:'");
-
-	PUSH(0x20202020);
-	EAX = [SS:EBP +  8];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'EBP:'");
-
-	PUSH(0x20202020);
-	EAX = [SS:EBP + 12];
-	itoa8();
-	PUSH(EDX);
-	PUSH(ECX);
-	asmout("PUSH 'ESP:'");
-
-	EBX = ESP;
-	ECX = 60;
-	putstr();
-	ESP = EBP;
-
-	for (;;);
-}
-
-#endif
-
+	EAX = 6 * 

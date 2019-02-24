@@ -32,18 +32,18 @@ Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 /* Assembler output.  */
 #define TARGET_ASM_OPEN_PAREN "("
 #define TARGET_ASM_CLOSE_PAREN ")"
-#define TARGET_ASM_BYTE_OP "\t.byte\t"
+#define TARGET_ASM_BYTE_OP "¥t.byte¥t"
 
-#define TARGET_ASM_ALIGNED_HI_OP "\t.short\t"
-#define TARGET_ASM_ALIGNED_SI_OP "\t.long\t"
+#define TARGET_ASM_ALIGNED_HI_OP "¥t.short¥t"
+#define TARGET_ASM_ALIGNED_SI_OP "¥t.long¥t"
 #define TARGET_ASM_ALIGNED_DI_OP NULL
 #define TARGET_ASM_ALIGNED_TI_OP NULL
 
 /* GAS and SYSV4 assemblers accept these.  */
 #if defined (OBJECT_FORMAT_ELF) || defined (OBJECT_FORMAT_ROSE)
-#define TARGET_ASM_UNALIGNED_HI_OP "\t.2byte\t"
-#define TARGET_ASM_UNALIGNED_SI_OP "\t.4byte\t"
-#define TARGET_ASM_UNALIGNED_DI_OP "\t.8byte\t"
+#define TARGET_ASM_UNALIGNED_HI_OP "¥t.2byte¥t"
+#define TARGET_ASM_UNALIGNED_SI_OP "¥t.4byte¥t"
+#define TARGET_ASM_UNALIGNED_DI_OP "¥t.8byte¥t"
 #define TARGET_ASM_UNALIGNED_TI_OP NULL
 #else
 #define TARGET_ASM_UNALIGNED_HI_OP NULL
@@ -106,97 +106,7 @@ Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 #define TARGET_ASM_EH_FRAME_SECTION default_eh_frame_section
 #endif
 
-#define TARGET_ASM_ALIGNED_INT_OP				\
-		       {TARGET_ASM_ALIGNED_HI_OP,		\
-			TARGET_ASM_ALIGNED_SI_OP,		\
-			TARGET_ASM_ALIGNED_DI_OP,		\
-			TARGET_ASM_ALIGNED_TI_OP}
-
-#define TARGET_ASM_UNALIGNED_INT_OP				\
-		       {TARGET_ASM_UNALIGNED_HI_OP,		\
-			TARGET_ASM_UNALIGNED_SI_OP,		\
-			TARGET_ASM_UNALIGNED_DI_OP,		\
-			TARGET_ASM_UNALIGNED_TI_OP}
-
-#define TARGET_ASM_OUT {TARGET_ASM_OPEN_PAREN,			\
-			TARGET_ASM_CLOSE_PAREN,			\
-			TARGET_ASM_BYTE_OP,			\
-			TARGET_ASM_ALIGNED_INT_OP,		\
-			TARGET_ASM_UNALIGNED_INT_OP,		\
-			TARGET_ASM_INTEGER,			\
-			TARGET_ASM_FUNCTION_PROLOGUE,		\
-			TARGET_ASM_FUNCTION_END_PROLOGUE,	\
-			TARGET_ASM_FUNCTION_BEGIN_EPILOGUE,	\
-			TARGET_ASM_FUNCTION_EPILOGUE,		\
-			TARGET_ASM_NAMED_SECTION,		\
-			TARGET_ASM_EXCEPTION_SECTION,		\
-			TARGET_ASM_EH_FRAME_SECTION,		\
-			TARGET_ASM_CONSTRUCTOR,			\
-			TARGET_ASM_DESTRUCTOR}
-
-/* Scheduler hooks.  All of these default to null pointers, which
-   haifa-sched.c looks for and handles.  */
-#define TARGET_SCHED_ADJUST_COST 0
-#define TARGET_SCHED_ADJUST_PRIORITY 0
-#define TARGET_SCHED_ISSUE_RATE 0
-#define TARGET_SCHED_VARIABLE_ISSUE 0
-#define TARGET_SCHED_INIT 0
-#define TARGET_SCHED_FINISH 0
-#define TARGET_SCHED_REORDER 0
-#define TARGET_SCHED_REORDER2 0
-#define TARGET_SCHED_CYCLE_DISPLAY 0
-
-#define TARGET_SCHED	{TARGET_SCHED_ADJUST_COST,	\
-			 TARGET_SCHED_ADJUST_PRIORITY,	\
-			 TARGET_SCHED_ISSUE_RATE,	\
-			 TARGET_SCHED_VARIABLE_ISSUE,	\
-			 TARGET_SCHED_INIT,		\
-			 TARGET_SCHED_FINISH,		\
-			 TARGET_SCHED_REORDER,		\
-			 TARGET_SCHED_REORDER2,		\
-			 TARGET_SCHED_CYCLE_DISPLAY}
-
-/* All in tree.c.  */
-#define TARGET_MERGE_DECL_ATTRIBUTES merge_decl_attributes
-#define TARGET_MERGE_TYPE_ATTRIBUTES merge_type_attributes
-#define TARGET_ATTRIBUTE_TABLE default_target_attribute_table
-#define TARGET_COMP_TYPE_ATTRIBUTES default_comp_type_attributes
-#define TARGET_SET_DEFAULT_TYPE_ATTRIBUTES default_set_default_type_attributes
-#define TARGET_INSERT_ATTRIBUTES default_insert_attributes
-#define TARGET_FUNCTION_ATTRIBUTE_INLINABLE_P default_function_attribute_inlinable_p
-#define TARGET_MS_BITFIELD_LAYOUT_P default_ms_bitfield_layout_p
-
-/* In builtins.c.  */
-#define TARGET_INIT_BUILTINS default_init_builtins
-#define TARGET_EXPAND_BUILTIN default_expand_builtin
-
-/* In varasm.c.  */
-#ifndef TARGET_SECTION_TYPE_FLAGS
-#define TARGET_SECTION_TYPE_FLAGS default_section_type_flags
-#endif
-
-/* In hook.c.  */
-#define TARGET_CANNOT_MODIFY_JUMPS_P hook_void_bool_false
-
-/* The whole shebang.  */
-#define TARGET_INITIALIZER			\
-{						\
-  TARGET_ASM_OUT,				\
-  TARGET_SCHED,					\
-  TARGET_MERGE_DECL_ATTRIBUTES,			\
-  TARGET_MERGE_TYPE_ATTRIBUTES,			\
-  TARGET_ATTRIBUTE_TABLE,			\
-  TARGET_COMP_TYPE_ATTRIBUTES,			\
-  TARGET_SET_DEFAULT_TYPE_ATTRIBUTES,		\
-  TARGET_INSERT_ATTRIBUTES,			\
-  TARGET_FUNCTION_ATTRIBUTE_INLINABLE_P,	\
-  TARGET_MS_BITFIELD_LAYOUT_P,			\
-  TARGET_INIT_BUILTINS,				\
-  TARGET_EXPAND_BUILTIN,			\
-  TARGET_SECTION_TYPE_FLAGS,			\
-  TARGET_HAVE_NAMED_SECTIONS,			\
-  TARGET_HAVE_CTORS_DTORS,			\
-  TARGET_CANNOT_MODIFY_JUMPS_P			\
-}
-
-#include "hooks.h"
+#define TARGET_ASM_ALIGNED_INT_OP				¥
+		       {TARGET_ASM_ALIGNED_HI_OP,		¥
+			TARGET_ASM_ALIGNED_SI_OP,		¥
+		

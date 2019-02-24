@@ -28,23 +28,23 @@ extern int insn_current_address;
 
 #define INSN_ADDRESSES_DEFN() varray_type insn_addresses_
 #define INSN_ADDRESSES(id) VARRAY_INT (insn_addresses_, (id))
-#define INSN_ADDRESSES_ALLOC(size) \
+#define INSN_ADDRESSES_ALLOC(size) ¥
   VARRAY_INT_INIT (insn_addresses_, (size), "insn_addresses")
 #define INSN_ADDRESSES_FREE() VARRAY_FREE (insn_addresses_)
 #define INSN_ADDRESSES_SET_P() (insn_addresses_ != 0)
 #define INSN_ADDRESSES_SIZE() VARRAY_SIZE (insn_addresses_)
-#define INSN_ADDRESSES_NEW(insn, addr) do \
-  {									\
-    unsigned insn_uid__ = INSN_UID ((insn));				\
-    int insn_addr__ = (addr);						\
-									\
-    if (INSN_ADDRESSES_SET_P ())					\
-      {									\
-	if (INSN_ADDRESSES_SIZE () <= insn_uid__)			\
-	  VARRAY_GROW (insn_addresses_, insn_uid__ + 1);		\
-	INSN_ADDRESSES (insn_uid__) = insn_addr__;			\
-      }									\
-  }									\
+#define INSN_ADDRESSES_NEW(insn, addr) do ¥
+  {									¥
+    unsigned insn_uid__ = INSN_UID ((insn));				¥
+    int insn_addr__ = (addr);						¥
+									¥
+    if (INSN_ADDRESSES_SET_P ())					¥
+      {									¥
+	if (INSN_ADDRESSES_SIZE () <= insn_uid__)			¥
+	  VARRAY_GROW (insn_addresses_, insn_uid__ + 1);		¥
+	INSN_ADDRESSES (insn_uid__) = insn_addr__;			¥
+      }									¥
+  }									¥
 while (0)
 
 #endif /* ! GCC_INSN_ADDR_H */

@@ -83,42 +83,42 @@ extern void ggc_mark_rtvec_children	PARAMS ((struct rtvec_def *));
 
 /* If EXPR is not NULL and previously unmarked, mark it and evaluate
    to true.  Otherwise evaluate to false.  */
-#define ggc_test_and_set_mark(EXPR) \
+#define ggc_test_and_set_mark(EXPR) ¥
   ((EXPR) != NULL && ! ggc_set_mark (EXPR))
 
-#define ggc_mark_rtx(EXPR)                      \
-  do {                                          \
-    rtx r__ = (EXPR);                           \
-    if (ggc_test_and_set_mark (r__))            \
-      ggc_mark_rtx_children (r__);              \
+#define ggc_mark_rtx(EXPR)                      ¥
+  do {                                          ¥
+    rtx r__ = (EXPR);                           ¥
+    if (ggc_test_and_set_mark (r__))            ¥
+      ggc_mark_rtx_children (r__);              ¥
   } while (0)
 
-#define ggc_mark_tree(EXPR)				\
-  do {							\
-    tree t__ = (EXPR);					\
-    if (ggc_test_and_set_mark (t__))			\
-      VARRAY_PUSH_TREE (ggc_pending_trees, t__);	\
+#define ggc_mark_tree(EXPR)				¥
+  do {							¥
+    tree t__ = (EXPR);					¥
+    if (ggc_test_and_set_mark (t__))			¥
+      VARRAY_PUSH_TREE (ggc_pending_trees, t__);	¥
   } while (0)
 
-#define ggc_mark_nonnull_tree(EXPR)			\
-  do {							\
-    tree t__ = (EXPR);					\
-    if (! ggc_set_mark (t__))				\
-      VARRAY_PUSH_TREE (ggc_pending_trees, t__);	\
+#define ggc_mark_nonnull_tree(EXPR)			¥
+  do {							¥
+    tree t__ = (EXPR);					¥
+    if (! ggc_set_mark (t__))				¥
+      VARRAY_PUSH_TREE (ggc_pending_trees, t__);	¥
   } while (0)
 
-#define ggc_mark_rtvec(EXPR)                    \
-  do {                                          \
-    rtvec v__ = (EXPR);                         \
-    if (ggc_test_and_set_mark (v__))            \
-      ggc_mark_rtvec_children (v__);            \
+#define ggc_mark_rtvec(EXPR)                    ¥
+  do {                                          ¥
+    rtvec v__ = (EXPR);                         ¥
+    if (ggc_test_and_set_mark (v__))            ¥
+      ggc_mark_rtvec_children (v__);            ¥
   } while (0)
 
-#define ggc_mark(EXPR)				\
-  do {						\
-    const void *a__ = (EXPR);			\
-    if (a__ != NULL)				\
-      ggc_set_mark (a__);			\
+#define ggc_mark(EXPR)				¥
+  do {						¥
+    const void *a__ = (EXPR);			¥
+    if (a__ != NULL)				¥
+      ggc_set_mark (a__);			¥
   } while (0)
 
 /* A GC implementation must provide these functions.  */
@@ -142,12 +142,12 @@ extern void *ggc_alloc		PARAMS ((size_t));
 /* Like ggc_alloc, but allocates cleared memory.  */
 extern void *ggc_alloc_cleared	PARAMS ((size_t));
 
-#define ggc_alloc_rtx(NSLOTS)						  \
-  ((struct rtx_def *) ggc_alloc (sizeof (struct rtx_def)		  \
+#define ggc_alloc_rtx(NSLOTS)						  ¥
+  ((struct rtx_def *) ggc_alloc (sizeof (struct rtx_def)		  ¥
 				 + ((NSLOTS) - 1) * sizeof (rtunion)))
 
-#define ggc_alloc_rtvec(NELT)						  \
-  ((struct rtvec_def *) ggc_alloc (sizeof (struct rtvec_def)		  \
+#define ggc_alloc_rtvec(NELT)						  ¥
+  ((struct rtvec_def *) ggc_alloc (sizeof (struct rtvec_def)		  ¥
 				   + ((NELT) - 1) * sizeof (rtx)))
 
 #define ggc_alloc_tree(LENGTH) ((union tree_node *) ggc_alloc (LENGTH))
@@ -206,31 +206,4 @@ typedef struct ggc_statistics
 {
   /* The Ith element is the number of nodes allocated with code I.  */
   unsigned num_trees[256];
-  /* The Ith element is the number of bytes allocated by nodes with 
-     code I.  */
-  size_t size_trees[256];
-  /* The Ith element is the number of nodes allocated with code I.  */
-  unsigned num_rtxs[256];
-  /* The Ith element is the number of bytes allocated by nodes with 
-     code I.  */
-  size_t size_rtxs[256];
-  /* The total size of the tree nodes allocated.  */
-  size_t total_size_trees;
-  /* The total size of the RTL nodes allocated.  */
-  size_t total_size_rtxs;
-  /* The total number of tree nodes allocated.  */
-  unsigned total_num_trees;
-  /* The total number of RTL nodes allocated.  */
-  unsigned total_num_rtxs;
-} ggc_statistics;
-
-/* Return the number of bytes allocated at the indicated address.  */
-extern size_t ggc_get_size		PARAMS ((const void *));
-
-/* Used by the various collectors to gather and print statistics that
-   do not depend on the collector in use.  */
-extern void ggc_print_common_statistics PARAMS ((FILE *, ggc_statistics *));
-
-/* Print allocation statistics.  */
-extern void ggc_print_statistics	PARAMS ((void));
-extern void stringpool_statistics	PARAMS ((void));
+  /* The Ith element is the number of 

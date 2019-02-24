@@ -1,0 +1,4 @@
+     1 00000000                                 ; haribote-os boot asm
+     2 00000000                                 ; TAB=4
+     3 00000000                                 
+     4  = 00280000                              BOTPAK	EQU		0x00280000		; bootpack鬩搾ｽｵ

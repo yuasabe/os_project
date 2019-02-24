@@ -64,7 +64,7 @@ int_vasprintf (result, format, args)
 
   memcpy ((PTR) &ap, (PTR) args, sizeof (va_list));
 
-  while (*p != '\0')
+  while (*p != '¥0')
     {
       if (*p++ == '%')
 	{
@@ -161,7 +161,7 @@ checkit VPARAMS ((const char *format, ...))
     printf ("PASS: ");
   else
     printf ("FAIL: ");
-  printf ("%d %s\n", global_total_width, result);
+  printf ("%d %s¥n", global_total_width, result);
 
   free (result);
 }
@@ -175,7 +175,7 @@ main ()
   checkit ("%200d", 5);
   checkit ("%.300d", 6);
   checkit ("%100.150d", 7);
-  checkit ("%s", "jjjjjjjjjiiiiiiiiiiiiiiioooooooooooooooooppppppppppppaa\n\
+  checkit ("%s", "jjjjjjjjjiiiiiiiiiiiiiiioooooooooooooooooppppppppppppaa¥n¥
 777777777777777777333333333333366666666666622222222222777777777777733333");
   checkit ("%f%s%d%s", 1.0, "foo", 77, "asdjffffffffffffffiiiiiiiiiiixxxxx");
 

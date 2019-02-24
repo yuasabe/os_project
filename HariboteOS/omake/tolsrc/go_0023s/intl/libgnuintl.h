@@ -106,16 +106,16 @@ extern char *bind_textdomain_codeset PARAMS ((const char *__domainname,
 #if defined __OPTIMIZED
 /* These are macros, but could also be inline functions.  */
 
-# define gettext(msgid)							      \
+# define gettext(msgid)							      ¥
   dgettext (NULL, msgid)
 
-# define dgettext(domainname, msgid)					      \
+# define dgettext(domainname, msgid)					      ¥
   dcgettext (domainname, msgid, LC_MESSAGES)
 
-# define ngettext(msgid1, msgid2, n)					      \
+# define ngettext(msgid1, msgid2, n)					      ¥
   dngettext (NULL, msgid1, msgid2, n)
 
-# define dngettext(domainname, msgid1, msgid2, n)			      \
+# define dngettext(domainname, msgid1, msgid2, n)			      ¥
   dcngettext (domainname, msgid1, msgid2, n, LC_MESSAGES)
 
 #endif /* Optimizing. */

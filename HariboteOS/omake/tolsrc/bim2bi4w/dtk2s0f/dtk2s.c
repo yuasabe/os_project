@@ -1,11 +1,11 @@
 typedef unsigned char UCHAR;
 
-int tek_checkformat(int siz, UCHAR *p); /* “WŠJŒã‚ÌƒTƒCƒY‚ğ•Ô‚· */
-	/* -1:”ñosacmp */
-	/* -2:osacmp‚¾‚ª‘Î‰‚Å‚«‚È‚¢ */
+int tek_checkformat(int siz, UCHAR *p); /* å±•é–‹å¾Œã®ã‚µã‚¤ã‚ºã‚’è¿”ã™ */
+	/* -1:éosacmp */
+	/* -2:osacmpã ãŒå¯¾å¿œã§ããªã„ */
 
-int tek_decode(int siz, UCHAR *p, UCHAR *q); /* ¬Œ÷‚µ‚½‚ç0 */
-	/* ³‚Ì’l‚ÍƒtƒH[ƒ}ƒbƒg‚ÌˆÙíE–¢‘Î‰A•‰‚Ì’l‚Íƒƒ‚ƒŠ•s‘« */
+int tek_decode(int siz, UCHAR *p, UCHAR *q); /* æˆåŠŸã—ãŸã‚‰0 */
+	/* æ­£ã®å€¤ã¯ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ç•°å¸¸ãƒ»æœªå¯¾å¿œã€è² ã®å€¤ã¯ãƒ¡ãƒ¢ãƒªä¸è¶³ */
 
 static unsigned int tek_getnum_s7s(UCHAR **pp);
 static unsigned int tek_getnum_s7(UCHAR **pp);
@@ -13,7 +13,7 @@ int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *outbuf);
 
 int tek_checkformat(int siz, UCHAR *p)
 {
-	static UCHAR header[] = "\xff\xff\xff\x01\x00\x00\x00" "OSASKCMP";
+	static UCHAR header[] = "Â¥xffÂ¥xffÂ¥xffÂ¥x01Â¥x00Â¥x00Â¥x00" "OSASKCMP";
 	int i;
 	if (siz < 17)
 		return -1;
@@ -38,15 +38,15 @@ int tek_decode(int siz, UCHAR *p, UCHAR *q)
 		if (dsiz > bsiz || (hed & 0x21) != 0x01)
 			return 1;
 		if (hed & 0x40)
-			tek_getnum_s7s(&p); /* ƒIƒvƒVƒ‡ƒ“î•ñ‚Ö‚Ìƒ|ƒCƒ“ƒ^‚ğ“Ç‚İ”ò‚Î‚· */
+			tek_getnum_s7s(&p); /* ã‚ªãƒ—ã‚·ãƒ§ãƒ³æƒ…å ±ã¸ã®ãƒã‚¤ãƒ³ã‚¿ã‚’èª­ã¿é£›ã°ã™ */
 		st = tek_lzrestore_stk2(p1 - p, p, dsiz, q);
 	}
 	return st;
 }
 
 static unsigned int tek_getnum_s7s(UCHAR **pp)
-/* ‚±‚ê‚Í•K‚¸big-endian */
-/* ‰º‘Ê‚ª‚È‚¢‚Ì‚Å’†g‚ğ‚¢‚¶‚è‚â‚·‚¢ */
+/* ã“ã‚Œã¯å¿…ãšbig-endian */
+/* ä¸‹é§„ãŒãªã„ã®ã§ä¸­èº«ã‚’ã„ã˜ã‚Šã‚„ã™ã„ */
 {
 	unsigned int s = 0;
 	UCHAR *p = *pp;
@@ -59,7 +59,7 @@ static unsigned int tek_getnum_s7s(UCHAR **pp)
 }
 
 static unsigned int tek_getnum_s7(UCHAR **pp)
-/* ‚±‚ê‚Í•K‚¸big-endian */
+/* ã“ã‚Œã¯å¿…ãšbig-endian */
 {
 	unsigned int s = 0, b = 0, a = 1;
 	UCHAR *p = *pp;
@@ -86,7 +86,7 @@ int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 		if (tek_getnum_s7s(&s7ptr))
 			return 1;
 		do {
-			/* byƒtƒF[ƒY */
+			/* byãƒ•ã‚§ãƒ¼ã‚º */
 			j = 0;
 			do {
 				j++;
@@ -108,7 +108,7 @@ int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 			if (q >= q1)
 				break;
 
-			/* lzƒtƒF[ƒY */
+			/* lzãƒ•ã‚§ãƒ¼ã‚º */
 			j = 0;
 			do {
 				j++;
@@ -131,7 +131,7 @@ int tek_lzrestore_stk2(int srcsiz, UCHAR *src, int outsiz, UCHAR *q)
 				if ((i & 1) == 0)
 					i |= (tek_getnum_s7(&s7ptr) + 1) << 4;
 				i >>= 1;
-				ds = ~(i - 6);
+				ds = â€¾(i - 6);
 				if (i < 4)
 					ds = repdis[i];
 				if (i == 4)

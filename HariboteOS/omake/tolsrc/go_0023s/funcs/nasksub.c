@@ -82,7 +82,7 @@ over_tmpbuf:
 		tmp1 = list0;
 		if (list0[MAX_LSTSIZ - 1])
 			goto over_listbuf;
-		while (*tmp1 != '\0' && tmp1 < list0 + MAX_LSTSIZ)
+		while (*tmp1 != 'Â¥0' && tmp1 < list0 + MAX_LSTSIZ)
 			tmp1++;
 		if (GOLD_write_t(argv[3], tmp1 - list0, list0)) {
 			errmsgout("NASK : list output error" NL);
@@ -105,7 +105,7 @@ over_tmpbuf:
 		len = nask_errors;
 		errmsgout("NASK : ");
 		src1 = &strbuf[15];
-		*src1 = '\0';
+		*src1 = 'Â¥0';
 		do {
 			*--src1 = (len % 10) + '0';
 		} while (len /= 10);
@@ -121,16 +121,16 @@ void GOL_sysabort(unsigned char termcode)
 {
 	static char *termmsg[] = {
 		"",
-		"[TERM_WORKOVER]\n",
-		"[TERM_OUTOVER]\n",
-		"[TERM_ERROVER]\n",
-		"[TERM_BUGTRAP]\n",
-		"[TERM_SYSRESOVER]\n",
-		"[TERM_ABORT]\n"
+		"[TERM_WORKOVER]Â¥n",
+		"[TERM_OUTOVER]Â¥n",
+		"[TERM_ERROVER]Â¥n",
+		"[TERM_BUGTRAP]Â¥n",
+		"[TERM_SYSRESOVER]Â¥n",
+		"[TERM_ABORT]Â¥n"
 	};
 
-	GO_stderr.p1 += 128; /* —\”õ‚ÉŽæ‚Á‚Ä‚¨‚¢‚½•ª‚ð•œŠˆ */
-	/* ƒoƒbƒtƒ@‚ðo—Í */
+	GO_stderr.p1 += 128; /* äºˆå‚™ã«å–ã£ã¦ãŠã„ãŸåˆ†ã‚’å¾©æ´» */
+	/* ãƒãƒƒãƒ•ã‚¡ã‚’å‡ºåŠ› */
 	if (termcode <= 6)
 		errmsgout(termmsg[termcode]);
 	if (GO_stderr.p - GO_stderr.p0)

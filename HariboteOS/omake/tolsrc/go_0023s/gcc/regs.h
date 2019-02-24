@@ -82,12 +82,12 @@ extern varray_type reg_n_info;
    or profile driven feedback is available and the function is never executed,
    frequency is always equivalent.  Otherwise rescale the basic block
    frequency.  */
-#define REG_FREQ_FROM_BB(bb) (optimize_size				      \
-			      || (flag_branch_probabilities		      \
-				  && !ENTRY_BLOCK_PTR->count)		      \
-			      ? REG_FREQ_MAX				      \
-			      : ((bb)->frequency * REG_FREQ_MAX / BB_FREQ_MAX)\
-			      ? ((bb)->frequency * REG_FREQ_MAX / BB_FREQ_MAX)\
+#define REG_FREQ_FROM_BB(bb) (optimize_size				      ¥
+			      || (flag_branch_probabilities		      ¥
+				  && !ENTRY_BLOCK_PTR->count)		      ¥
+			      ? REG_FREQ_MAX				      ¥
+			      : ((bb)->frequency * REG_FREQ_MAX / BB_FREQ_MAX)¥
+			      ? ((bb)->frequency * REG_FREQ_MAX / BB_FREQ_MAX)¥
 			      : 1)
 
 /* Indexed by n, gives number of times (REG n) is set.
@@ -104,127 +104,4 @@ extern varray_type reg_n_info;
 
 #define REG_N_DEATHS(N) (VARRAY_REG (reg_n_info, N)->deaths)
 
-/* Indexed by N; says whether a pseudo register N was ever used
-   within a SUBREG that changes the mode of the reg in some way
-   that is illegal for a given class (usually floating-point)
-   of registers.  */
-
-#define REG_CHANGES_MODE(N) (VARRAY_REG (reg_n_info, N)->changes_mode)
-
-/* Get the number of consecutive words required to hold pseudo-reg N.  */
-
-#define PSEUDO_REGNO_SIZE(N) \
-  ((GET_MODE_SIZE (PSEUDO_REGNO_MODE (N)) + UNITS_PER_WORD - 1)		\
-   / UNITS_PER_WORD)
-
-/* Get the number of bytes required to hold pseudo-reg N.  */
-
-#define PSEUDO_REGNO_BYTES(N) \
-  GET_MODE_SIZE (PSEUDO_REGNO_MODE (N))
-
-/* Get the machine mode of pseudo-reg N.  */
-
-#define PSEUDO_REGNO_MODE(N) GET_MODE (regno_reg_rtx[N])
-
-/* Indexed by N, gives number of CALL_INSNS across which (REG n) is live.  */
-
-#define REG_N_CALLS_CROSSED(N) (VARRAY_REG (reg_n_info, N)->calls_crossed)
-
-/* Total number of instructions at which (REG n) is live.
-   The larger this is, the less priority (REG n) gets for
-   allocation in a hard register (in global-alloc).
-   This is set in flow.c and remains valid for the rest of the compilation
-   of the function; it is used to control register allocation.
-
-   local-alloc.c may alter this number to change the priority.
-
-   Negative values are special.
-   -1 is used to mark a pseudo reg which has a constant or memory equivalent
-   and is used infrequently enough that it should not get a hard register.
-   -2 is used to mark a pseudo reg for a parameter, when a frame pointer
-   is not required.  global.c makes an allocno for this but does
-   not try to assign a hard register to it.  */
-
-#define REG_LIVE_LENGTH(N) (VARRAY_REG (reg_n_info, N)->live_length)
-
-/* Vector of substitutions of register numbers,
-   used to map pseudo regs into hardware regs.
-
-   This can't be folded into reg_n_info without changing all of the
-   machine dependent directories, since the reload functions
-   in the machine dependent files access it.  */
-
-extern short *reg_renumber;
-
-/* Vector indexed by hardware reg
-   saying whether that reg is ever used.  */
-
-extern char regs_ever_live[FIRST_PSEUDO_REGISTER];
-
-/* Vector indexed by hardware reg giving its name.  */
-
-extern const char * reg_names[FIRST_PSEUDO_REGISTER];
-
-/* For each hard register, the widest mode object that it can contain.
-   This will be a MODE_INT mode if the register can hold integers.  Otherwise
-   it will be a MODE_FLOAT or a MODE_CC mode, whichever is valid for the
-   register.  */
-
-extern enum machine_mode reg_raw_mode[FIRST_PSEUDO_REGISTER];
-
-/* Vector indexed by regno; gives uid of first insn using that reg.
-   This is computed by reg_scan for use by cse and loop.
-   It is sometimes adjusted for subsequent changes during loop,
-   but not adjusted by cse even if cse invalidates it.  */
-
-#define REGNO_FIRST_UID(N) (VARRAY_REG (reg_n_info, N)->first_uid)
-
-/* Vector indexed by regno; gives uid of last insn using that reg.
-   This is computed by reg_scan for use by cse and loop.
-   It is sometimes adjusted for subsequent changes during loop,
-   but not adjusted by cse even if cse invalidates it.
-   This is harmless since cse won't scan through a loop end.  */
-
-#define REGNO_LAST_UID(N) (VARRAY_REG (reg_n_info, N)->last_uid)
-
-/* Similar, but includes insns that mention the reg in their notes.  */
-
-#define REGNO_LAST_NOTE_UID(N) (VARRAY_REG (reg_n_info, N)->last_note_uid)
-
-/* List made of EXPR_LIST rtx's which gives pairs of pseudo registers
-   that have to go in the same hard reg.  */
-extern rtx regs_may_share;
-
-/* Flag set by local-alloc or global-alloc if they decide to allocate
-   something in a call-clobbered register.  */
-
-extern int caller_save_needed;
-
-/* Predicate to decide whether to give a hard reg to a pseudo which
-   is referenced REFS times and would need to be saved and restored
-   around a call CALLS times.  */
-
-#ifndef CALLER_SAVE_PROFITABLE
-#define CALLER_SAVE_PROFITABLE(REFS, CALLS)  (4 * (CALLS) < (REFS))
-#endif
-
-/* On most machines a register class is likely to be spilled if it
-   only has one register.  */
-#ifndef CLASS_LIKELY_SPILLED_P
-#define CLASS_LIKELY_SPILLED_P(CLASS) (reg_class_size[(int) (CLASS)] == 1)
-#endif
-
-/* Select a register mode required for caller save of hard regno REGNO.  */
-#ifndef HARD_REGNO_CALLER_SAVE_MODE
-#define HARD_REGNO_CALLER_SAVE_MODE(REGNO, NREGS, MODE) \
-  choose_hard_reg_mode (REGNO, NREGS)
-#endif
-
-/* Registers that get partially clobbered by a call in a given mode. 
-   These must not be call used registers.  */
-#ifndef HARD_REGNO_CALL_PART_CLOBBERED
-#define HARD_REGNO_CALL_PART_CLOBBERED(REGNO, MODE) 0
-#endif
-
-/* Allocate reg_n_info tables */
-extern void allocate_reg_info PARAMS ((size_t, int, int));
+/* Inde

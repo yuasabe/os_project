@@ -75,7 +75,7 @@ extern void partition_print             PARAMS((partition,
 /* Returns the canonical element corresponding to the class containing
    ELEMENT__ in PARTITION__.  */
 
-#define partition_find(partition__, element__) \
+#define partition_find(partition__, element__) ¥
     ((partition__)->elements[(element__)].class_element)
 
 #endif /* _PARTITION_H */

@@ -2,14 +2,14 @@ TARGET     = golibc
 STACKSIZE  =
 MALLOCSIZE =
 MMAREA     =
-OBJS       = abs.obj atof.obj atoi.obj errno.obj frexp.obj ldexp.obj \
-	memchr.obj memcmp.obj memmove.obj memset.obj qsort.obj rand.obj \
-	sprintf.obj strcat.obj strcmp.obj strcpy.obj strcspn.obj strdup.obj \
-	strlen.obj strncat.obj strncmp.obj strncpy.obj strpbrk.obj strrchr.obj \
+OBJS       = abs.obj atof.obj atoi.obj errno.obj frexp.obj ldexp.obj Â¥
+	memchr.obj memcmp.obj memmove.obj memset.obj qsort.obj rand.obj Â¥
+	sprintf.obj strcat.obj strcmp.obj strcpy.obj strcspn.obj strdup.obj Â¥
+	strlen.obj strncat.obj strncmp.obj strncpy.obj strpbrk.obj strrchr.obj Â¥
 	strspn.obj strstr.obj strtol.obj strtoul.obj strtoul0.obj vsprintf.obj
  
-# ˆÈã5‚Â‚Íƒ\[ƒX‚²‚Æ‚É‘‚«Š·‚¦‚é
-# OBJS‚ğ‘‚«Š·‚¦‚é‚Æ•ªŠ„ƒRƒ“ƒpƒCƒ‹‘Î‰
+# ä»¥ä¸Š5ã¤ã¯ã‚½ãƒ¼ã‚¹ã”ã¨ã«æ›¸ãæ›ãˆã‚‹
+# OBJSã‚’æ›¸ãæ›ãˆã‚‹ã¨åˆ†å‰²ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«å¯¾å¿œ
  
 TOOLPATH =
 INCPATH  = .
@@ -27,7 +27,7 @@ NASKCNV  = $(TOOLPATH)naskcnv0 -l -s -w
 GOLIB    = $(TOOLPATH)golib00w
 DELE     = del
 
-# ˆÈã‚Ì€–Ú‚Í‚ ‚È‚½‚ÌƒfƒBƒŒƒNƒgƒŠ\¬‚É‚ ‚í‚¹‚Ä‘‚«Š·‚¦‚é
+# ä»¥ä¸Šã®é …ç›®ã¯ã‚ãªãŸã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹æˆã«ã‚ã‚ã›ã¦æ›¸ãæ›ãˆã‚‹
 
 ALL :
 	$(MAKE) $(TARGET).lib

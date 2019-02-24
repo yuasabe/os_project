@@ -107,6 +107,4 @@ convert (type, expr)
   if (code == VECTOR_TYPE)
     return fold (convert_to_vector (type, e));
 
-  error ("conversion to non-scalar type requested");
-  return error_mark_node;
-}
+  error ("conversion to non-sca

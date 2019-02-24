@@ -9,13 +9,13 @@ unsigned long strtoul(const char *s, const char **endp, int base)
 	const char *s0 = s, *s1;
 	char sign = 0, errflag;
 	unsigned long val;
-	while (*s != '\0' && *s <= ' ')
+	while (*s != '¥0' && *s <= ' ')
 		s++;
 	if (*s == '-') {
 		sign = 1;
 		s++;
 	}
-	while (*s != '\0' && *s <= ' ')
+	while (*s != '¥0' && *s <= ' ')
 		s++;
 	s1 = s;
 	val = strtoul0(&s, base, &errflag);

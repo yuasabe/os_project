@@ -36,10 +36,10 @@
 /* Use long long on the host if the target has a wider long type than
    the host.  */
 
-#if ! defined HOST_BITS_PER_WIDE_INT \
-    && defined HOST_BITS_PER_LONGLONG \
-    && (HOST_BITS_PER_LONGLONG > HOST_BITS_PER_LONG) \
-    && (defined (LONG_LONG_MAX) || defined (LONGLONG_MAX) \
+#if ! defined HOST_BITS_PER_WIDE_INT ¥
+    && defined HOST_BITS_PER_LONGLONG ¥
+    && (HOST_BITS_PER_LONGLONG > HOST_BITS_PER_LONG) ¥
+    && (defined (LONG_LONG_MAX) || defined (LONGLONG_MAX) ¥
         || defined (LLONG_MAX) || defined (__GNUC__))
 
 # ifdef MAX_LONG_TYPE_SIZE
@@ -131,25 +131,4 @@
 # endif
 #endif /* ! HOST_WIDE_INT_PRINT_DOUBLE_HEX */
 
-/* Find HOST_WIDEST_INT and set its bit size, type and print macros.
-   It will be the largest integer mode supported by the host which may
-   (or may not) be larger than HOST_WIDE_INT.  */
-
-#ifndef HOST_WIDEST_INT
-#if defined HOST_BITS_PER_LONGLONG \
-    && HOST_BITS_PER_LONGLONG > HOST_BITS_PER_LONG
-#   define HOST_BITS_PER_WIDEST_INT HOST_BITS_PER_LONGLONG
-#   define HOST_WIDEST_INT long long
-#   define HOST_WIDEST_INT_PRINT_DEC "%lld"
-#   define HOST_WIDEST_INT_PRINT_UNSIGNED "%llu"
-#   define HOST_WIDEST_INT_PRINT_HEX "0x%llx"
-#  else
-#   define HOST_BITS_PER_WIDEST_INT HOST_BITS_PER_LONG
-#   define HOST_WIDEST_INT long
-#   define HOST_WIDEST_INT_PRINT_DEC "%ld"
-#   define HOST_WIDEST_INT_PRINT_UNSIGNED "%lu"
-#   define HOST_WIDEST_INT_PRINT_HEX "0x%lx"
-# endif /* long long wider than long */
-#endif /* ! HOST_WIDEST_INT */
-
-#endif /* ! GCC_HWINT_H */
+/* Find HOST_WIDEST_INT and set its bit size, type and print macr

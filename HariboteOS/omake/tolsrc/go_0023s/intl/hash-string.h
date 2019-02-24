@@ -44,7 +44,7 @@ hash_string (str_param)
 
   /* Compute the hash value for the given string.  */
   hval = 0;
-  while (*str != '\0')
+  while (*str != '¥0')
     {
       hval <<= 4;
       hval += (unsigned long int) *str++;

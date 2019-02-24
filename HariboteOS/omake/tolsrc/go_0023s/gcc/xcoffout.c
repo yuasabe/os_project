@@ -71,43 +71,43 @@ const char *xcoff_lastfile;
 
 /* Macro definitions used below.  */
 
-#define ABS_OR_RELATIVE_LINENO(LINENO)		\
+#define ABS_OR_RELATIVE_LINENO(LINENO)		¥
 ((xcoff_inlining) ? (LINENO) : (LINENO) - xcoff_begin_function_line)
 
 /* Output source line numbers via ".line" rather than ".stabd".  */
-#define ASM_OUTPUT_SOURCE_LINE(FILE,LINENUM) 				   \
-  do									   \
-    {									   \
-      if (xcoff_begin_function_line >= 0)				   \
-	fprintf (FILE, "\t.line\t%d\n", ABS_OR_RELATIVE_LINENO (LINENUM)); \
-    }									   \
+#define ASM_OUTPUT_SOURCE_LINE(FILE,LINENUM) 				   ¥
+  do									   ¥
+    {									   ¥
+      if (xcoff_begin_function_line >= 0)				   ¥
+	fprintf (FILE, "¥t.line¥t%d¥n", ABS_OR_RELATIVE_LINENO (LINENUM)); ¥
+    }									   ¥
   while (0)
 
-#define ASM_OUTPUT_LFB(FILE,LINENUM) \
-{						\
-  if (xcoff_begin_function_line == -1)		\
-    {						\
-      xcoff_begin_function_line = (LINENUM) - 1;\
-      fprintf (FILE, "\t.bf\t%d\n", (LINENUM));	\
-    }						\
-  xcoff_current_function_file			\
-    = (xcoff_current_include_file		\
-       ? xcoff_current_include_file : main_input_filename); \
+#define ASM_OUTPUT_LFB(FILE,LINENUM) ¥
+{						¥
+  if (xcoff_begin_function_line == -1)		¥
+    {						¥
+      xcoff_begin_function_line = (LINENUM) - 1;¥
+      fprintf (FILE, "¥t.bf¥t%d¥n", (LINENUM));	¥
+    }						¥
+  xcoff_current_function_file			¥
+    = (xcoff_current_include_file		¥
+       ? xcoff_current_include_file : main_input_filename); ¥
 }
 
-#define ASM_OUTPUT_LFE(FILE,LINENUM) 		\
-  do						\
-    {						\
-      fprintf (FILE, "\t.ef\t%d\n", (LINENUM));	\
-      xcoff_begin_function_line = -1;		\
-    }						\
+#define ASM_OUTPUT_LFE(FILE,LINENUM) 		¥
+  do						¥
+    {						¥
+      fprintf (FILE, "¥t.ef¥t%d¥n", (LINENUM));	¥
+      xcoff_begin_function_line = -1;		¥
+    }						¥
   while (0)
 
-#define ASM_OUTPUT_LBB(FILE,LINENUM,BLOCKNUM) \
-  fprintf (FILE, "\t.bb\t%d\n", ABS_OR_RELATIVE_LINENO (LINENUM))
+#define ASM_OUTPUT_LBB(FILE,LINENUM,BLOCKNUM) ¥
+  fprintf (FILE, "¥t.bb¥t%d¥n", ABS_OR_RELATIVE_LINENO (LINENUM))
 
-#define ASM_OUTPUT_LBE(FILE,LINENUM,BLOCKNUM) \
-  fprintf (FILE, "\t.eb\t%d\n", ABS_OR_RELATIVE_LINENO (LINENUM))
+#define ASM_OUTPUT_LBE(FILE,LINENUM,BLOCKNUM) ¥
+  fprintf (FILE, "¥t.eb¥t%d¥n", ABS_OR_RELATIVE_LINENO (LINENUM))
 
 static void assign_type_number		PARAMS ((tree, const char *, int));
 static void xcoffout_block		PARAMS ((tree, int, tree));
@@ -170,8 +170,8 @@ xcoff_output_standard_types (syms)
 
 /* Print an error message for unrecognized stab codes.  */
 
-#define UNKNOWN_STAB(STR)	\
-  internal_error ("no sclass for %s stab (0x%x)\n", STR, stab)
+#define UNKNOWN_STAB(STR)	¥
+  internal_error ("no sclass for %s stab (0x%x)¥n", STR, stab)
 
 /* Conversion routine from BSD stabs to AIX storage classes.  */
 
@@ -291,201 +291,9 @@ xcoffout_source_file (file, filename, inline_p)
     {
       if (xcoff_current_include_file)
 	{
-	  fprintf (file, "\t.ei\t");
+	  fprintf (file, "¥t.ei¥t");
 	  output_quoted_string (file, xcoff_current_include_file);
-	  fprintf (file, "\n");
+	  fprintf (file, "¥n");
 	  xcoff_current_include_file = NULL;
 	}
-      xcoff_inlining = inline_p;
-      if (strcmp (main_input_filename, filename) || inline_p)
-	{
-	  fprintf (file, "\t.bi\t");
-	  output_quoted_string (file, filename);
-	  fprintf (file, "\n");
-	  xcoff_current_include_file = filename;
-	}
-      xcoff_lastfile = filename;
-    }
-}
-
-/* Output a line number symbol entry for location (FILENAME, LINE).  */
-
-void
-xcoffout_source_line (line, filename)
-     unsigned int line;
-     const char *filename;
-{
-  bool inline_p = (strcmp (xcoff_current_function_file, filename) != 0
-		   || (int) line < xcoff_begin_function_line);
-
-  xcoffout_source_file (asm_out_file, filename, inline_p);
-
-  ASM_OUTPUT_SOURCE_LINE (asm_out_file, line);
-}
-
-/* Output the symbols defined in block number DO_BLOCK.
-
-   This function works by walking the tree structure of blocks,
-   counting blocks until it finds the desired block.  */
-
-static int do_block = 0;
-
-static void
-xcoffout_block (block, depth, args)
-     tree block;
-     int depth;
-     tree args;
-{
-  while (block)
-    {
-      /* Ignore blocks never expanded or otherwise marked as real.  */
-      if (TREE_USED (block))
-	{
-	  /* When we reach the specified block, output its symbols.  */
-	  if (BLOCK_NUMBER (block) == do_block)
-	    {
-	      /* Output the syms of the block.  */
-	      if (debug_info_level != DINFO_LEVEL_TERSE || depth == 0)
-		dbxout_syms (BLOCK_VARS (block));
-	      if (args)
-		dbxout_reg_parms (args);
-
-	      /* We are now done with the block.  Don't go to inner blocks.  */
-	      return;
-	    }
-	  /* If we are past the specified block, stop the scan.  */
-	  else if (BLOCK_NUMBER (block) >= do_block)
-	    return;
-
-	  /* Output the subblocks.  */
-	  xcoffout_block (BLOCK_SUBBLOCKS (block), depth + 1, NULL_TREE);
-	}
-      block = BLOCK_CHAIN (block);
-    }
-}
-
-/* Describe the beginning of an internal block within a function.
-   Also output descriptions of variables defined in this block.
-
-   N is the number of the block, by order of beginning, counting from 1,
-   and not counting the outermost (function top-level) block.
-   The blocks match the BLOCKs in DECL_INITIAL (current_function_decl),
-   if the count starts at 0 for the outermost one.  */
-
-void
-xcoffout_begin_block (line, n)
-     unsigned int line;
-     unsigned int n;
-{
-  tree decl = current_function_decl;
-
-  /* The IBM AIX compiler does not emit a .bb for the function level scope,
-     so we avoid it here also.  */
-  if (n != 1)
-    ASM_OUTPUT_LBB (asm_out_file, line, n);
-
-  do_block = n;
-  xcoffout_block (DECL_INITIAL (decl), 0, DECL_ARGUMENTS (decl));
-}
-
-/* Describe the end line-number of an internal block within a function.  */
-
-void
-xcoffout_end_block (line, n)
-     unsigned int line;
-     unsigned int n;
-{
-  if (n != 1)
-    ASM_OUTPUT_LBE (asm_out_file, line, n);
-}
-
-/* Called at beginning of function (before prologue).
-   Declare function as needed for debugging.  */
-
-void
-xcoffout_declare_function (file, decl, name)
-     FILE *file;
-     tree decl;
-     const char *name;
-{
-  int i;
-
-  if (*name == '*')
-    name++;
-  else
-    for (i = 0; name[i]; ++i)
-      {
-	if (name[i] == '[')
-	  {
-	    char *n = (char *) alloca (i + 1);
-	    strncpy (n, name, i);
-	    n[i] = '\0';
-	    name = n;
-	    break;
-	  }
-      }
-
-  /* Any pending .bi or .ei must occur before the .function pseudo op.
-     Otherwise debuggers will think that the function is in the previous
-     file and/or at the wrong line number.  */
-  xcoffout_source_file (file, DECL_SOURCE_FILE (decl), 0);
-  dbxout_symbol (decl, 0);
-
-  /* .function NAME, TOP, MAPPING, TYPE, SIZE
-     16 and 044 are placeholders for backwards compatibility */
-  fprintf (file, "\t.function .%s,.%s,16,044,FE..%s-.%s\n",
-	   name, name, name, name);
-}
-
-/* Called at beginning of function body (at start of prologue).
-   Record the function's starting line number, so we can output
-   relative line numbers for the other lines.
-   Record the file name that this function is contained in.  */
-
-void
-xcoffout_begin_prologue (line, file)
-     unsigned int line;
-     const char *file ATTRIBUTE_UNUSED;
-{
-  ASM_OUTPUT_LFB (asm_out_file, line);
-  dbxout_parms (DECL_ARGUMENTS (current_function_decl));
-
-  /* Emit the symbols for the outermost BLOCK's variables.  sdbout.c does this
-     in sdbout_begin_block, but there is no guarantee that there will be any
-     inner block 1, so we must do it here.  This gives a result similar to
-     dbxout, so it does make some sense.  */
-  do_block = BLOCK_NUMBER (DECL_INITIAL (current_function_decl));
-  xcoffout_block (DECL_INITIAL (current_function_decl), 0,
-		  DECL_ARGUMENTS (current_function_decl));
-
-  ASM_OUTPUT_SOURCE_LINE (asm_out_file, line);
-}
-
-/* Called at end of function (before epilogue).
-   Describe end of outermost block.  */
-
-void
-xcoffout_end_function (last_linenum)
-     unsigned int last_linenum;
-{
-  ASM_OUTPUT_LFE (asm_out_file, last_linenum);
-}
-
-/* Output xcoff info for the absolute end of a function.
-   Called after the epilogue is output.  */
-
-void
-xcoffout_end_epilogue ()
-{
-  /* We need to pass the correct function size to .function, otherwise,
-     the xas assembler can't figure out the correct size for the function
-     aux entry.  So, we emit a label after the last instruction which can
-     be used by the .function pseudo op to calculate the function size.  */
-
-  const char *fname = XSTR (XEXP (DECL_RTL (current_function_decl), 0), 0);
-  if (*fname == '*')
-    ++fname;
-  fprintf (asm_out_file, "FE..");
-  ASM_OUTPUT_LABEL (asm_out_file, fname);
-}
-#endif /* XCOFF_DEBUGGING_INFO */
+      xcoff_inlining = inline

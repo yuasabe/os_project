@@ -13,13 +13,13 @@ size_t GO_strspn (char *d, char *s)
 	char *tmp = d;
 	char *bgn = s;
 
-	while ('\0' != *d) {
-		while ('\0' != *s) {
+	while ('¥0' != *d) {
+		while ('¥0' != *s) {
 			if (*d == *s)
 				break;
 			s++;
 		}
-		if ('\0' == *s)
+		if ('¥0' == *s)
 			return d - tmp;
 		d++;
 		s = bgn;

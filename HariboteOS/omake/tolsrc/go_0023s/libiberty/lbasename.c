@@ -47,11 +47,11 @@ and a path ending in @code{/} returns the empty string after it.
 #  define DIR_SEPARATOR '/'
 #endif
 
-#if defined (_WIN32) || defined (__MSDOS__) \
+#if defined (_WIN32) || defined (__MSDOS__) ¥
     || defined (__DJGPP__) || defined (__OS2__)
 #  define HAVE_DOS_BASED_FILE_SYSTEM
 #  ifndef DIR_SEPARATOR_2 
-#    define DIR_SEPARATOR_2 '\\'
+#    define DIR_SEPARATOR_2 '¥¥'
 #  endif
 #endif
 
@@ -65,7 +65,7 @@ and a path ending in @code{/} returns the empty string after it.
 #  ifndef DIR_SEPARATOR_2
 #    define IS_DIR_SEPARATOR(ch) ((ch) == DIR_SEPARATOR)
 #  else
-#    define IS_DIR_SEPARATOR(ch) \
+#    define IS_DIR_SEPARATOR(ch) ¥
 	(((ch) == DIR_SEPARATOR) || ((ch) == DIR_SEPARATOR_2))
 #  endif
 #endif

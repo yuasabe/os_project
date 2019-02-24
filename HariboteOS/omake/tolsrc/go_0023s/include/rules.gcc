@@ -1,4 +1,4 @@
-GCC = e:\mingw\bin\gcc.exe
+GCC = e:¥mingw¥bin¥gcc.exe
 MAKE = make.exe
 LIBRARIAN = golib00.exe
 DEL = del

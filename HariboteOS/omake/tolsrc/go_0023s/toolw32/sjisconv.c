@@ -3,14 +3,14 @@
 
 	usage : >sjisconv [-e] [-s] input-file output-file
 
-	-s:ShiftJISƒ‚[ƒh
+	-s:ShiftJISãƒ¢ãƒ¼ãƒ‰
 */
 
 #include "../drv_w32/windows.h"
 
 typedef unsigned char UCHAR;
 
-#define	NL			"\r\n"
+#define	NL			"Â¥rÂ¥n"
 
 #define FLAG_E		0
 #define FLAG_S		1
@@ -40,7 +40,7 @@ void mainCRTStartup(void)
 	UCHAR *p0, *f, *src1, i = 0;
 	struct STR_FLAGS flags;
 
-	pwork = (struct stack_alloc *) ((((int) &work_image) + 0x0f) & ~0x0f);
+	pwork = (struct stack_alloc *) ((((int) &work_image) + 0x0f) & â€¾0x0f);
 
 	flags.opt[FLAG_E] = flags.opt[FLAG_S] = 0;
 
@@ -48,9 +48,9 @@ void mainCRTStartup(void)
 	while (*p0 > ' ')
 		p0++;
 	for (;;) {
-		while (*p0 != '\0' && *p0 <= ' ')
+		while (*p0 != 'Â¥0' && *p0 <= ' ')
 			p0++;
-		if (*p0 == '\0')
+		if (*p0 == 'Â¥0')
 			break;
 		if (*p0 == '-') {
 			do {
@@ -66,13 +66,13 @@ void mainCRTStartup(void)
 		do {
 			*f++ = *p0++;
 		} while (*p0 > ' ');
-		*f = '\0';
+		*f = 'Â¥0';
 		if (i == 0)
 			src1 = readfile(pwork->filename, pwork->ibuf, pwork->ibuf + sizeof (pwork->ibuf));
 		i++;
 	}
 	if (i != 2) {
-		errout("\"sjisconv\"  Copyright(C) 2003 H.Kawai" NL
+		errout("Â¥"sjisconvÂ¥"  Copyright(C) 2003 H.Kawai" NL
 			"usage : >sjisconv [-e] [-s] input-file output-file" NL
 		);
 	}
@@ -86,6 +86,6 @@ void mainCRTStartup(void)
 }
 
 #include "../drv_w32/msgout_c.c"
-#include "../drv_w32/wfile_b.c" /* write_t‚Íwrite_b‚ğ‚Â‚©‚¤‚©‚ç */
+#include "../drv_w32/wfile_b.c" /* write_tã¯write_bã‚’ã¤ã‹ã†ã‹ã‚‰ */
 #include "../funcs/gostrlen.c"
 #include "../funcs/m_sjiscv.c"

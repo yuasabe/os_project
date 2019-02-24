@@ -19,18 +19,18 @@ void GOL_sysabort(UCHAR termcode)
 {
 	static const UCHAR *termmsg[] = {
 		"",
-		"[TERM_WORKOVER]\n",
-		"[TERM_OUTOVER]\n",
-		"[TERM_ERROVER]\n",
-		"[TERM_BUGTRAP]\n",
-		"[TERM_SYSRESOVER]\n",
-		"[TERM_ABORT]\n"
+		"[TERM_WORKOVER]Â¥n",
+		"[TERM_OUTOVER]Â¥n",
+		"[TERM_ERROVER]Â¥n",
+		"[TERM_BUGTRAP]Â¥n",
+		"[TERM_SYSRESOVER]Â¥n",
+		"[TERM_ABORT]Â¥n"
 	};
-	GO_stderr.p1 += 128; /* —\”õ‚Éæ‚Á‚Ä‚¨‚¢‚½•ª‚ğ•œŠˆ */
-	/* ƒoƒbƒtƒ@‚ğo—Í */
+	GO_stderr.p1 += 128; /* äºˆå‚™ã«å–ã£ã¦ãŠã„ãŸåˆ†ã‚’å¾©æ´» */
+	/* ãƒãƒƒãƒ•ã‚¡ã‚’å‡ºåŠ› */
 	if (GO_stdout.p - GO_stdout.p0) {
 		if (GOLD_write_t(GOL_outname, GO_stdout.p - GO_stdout.p0, GO_stdout.p0)) {
-			GO_fputs("GOL_sysabort:output error!\n", &GO_stderr);
+			GO_fputs("GOL_sysabort:output error!Â¥n", &GO_stderr);
 			termcode = 6;
 		}
 	}

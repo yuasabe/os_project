@@ -1,10 +1,10 @@
-/* "gas2nask" (stdc”Å)
+/* "gas2nask" (stdcç‰ˆ)
 	Copyright(C) 2004 H.Kawai
 
 	usage : >gas2nask [-a] [-e] input-file output-file
 
-	-a:.text‚Ìbalign2‚ğíœ
-	-e:execcmdŒn‚ÌƒCƒ“ƒ‰ƒCƒ““WŠJ
+	-a:.textã®balign2ã‚’å‰Šé™¤
+	-e:execcmdç³»ã®ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³å±•é–‹
 */
 
 #include <stdlib.h>
@@ -24,7 +24,7 @@ static UCHAR *dest0_, *dest1_;
 #define FLAG_a		6
 #define FLAG_e		7
 
-#define	NL			"\n"
+#define	NL			"Â¥n"
 #define	LEN_NL		1
 
 struct STR_FLAGS {
@@ -73,8 +73,8 @@ int main(int argc, char **argv)
 	getparam:
 					do {
 						p0++;
-					} while (*p0 != '\0' && *p0 <= ' ');
-					if (*p0 == '\0') {
+					} while (*p0 != 'Â¥0' && *p0 <= ' ');
+					if (*p0 == 'Â¥0') {
 						p0 = *++argv;
 						argc--;
 						if (argc > 1)
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 					while ('0' <= *p0 && *p0 <= '9')
 						p0++;
 					flags.opt[j] = p0 - param_p[j];
-					p0--; /* Ÿ‚Ìƒ‹[ƒv‚Ì‚½‚ß */
+					p0--; /* æ¬¡ã®ãƒ«ãƒ¼ãƒ—ã®ãŸã‚ */
 					continue;
 				}
 				if (*p0 == 'b') {
@@ -119,7 +119,7 @@ int main(int argc, char **argv)
 	}
 skip:
 	if (i != 2) {
-		errout("\"gas2nask\"  Copyright(C) 2004 H.Kawai" NL
+		errout("Â¥"gas2naskÂ¥"  Copyright(C) 2004 H.Kawai" NL
 			"usage : >gas2nask [-a] [-e] input-file output-file" NL);
 	}
 	src1 = convmain(pwork->ibuf, src1, pwork->obuf, pwork->obuf + sizeof (pwork->obuf), flags);

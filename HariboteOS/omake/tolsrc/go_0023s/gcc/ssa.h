@@ -66,6 +66,6 @@ extern varray_type ssa_uses;
 /* Given a register number REG_NO, return nonzero if and only if the
    register should be converted to SSA.  */
 
-#define CONVERT_REGISTER_TO_SSA_P(REG_NO)	\
-	((!HARD_REGISTER_NUM_P (REG_NO)) || \
+#define CONVERT_REGISTER_TO_SSA_P(REG_NO)	¥
+	((!HARD_REGISTER_NUM_P (REG_NO)) || ¥
 	 (CONVERT_HARD_REGISTER_TO_SSA_P (REG_NO)))

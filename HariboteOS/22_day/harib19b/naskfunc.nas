@@ -1,10 +1,10 @@
 ; naskfunc
 ; TAB=4
 
-[FORMAT "WCOFF"]				; ƒIƒuƒWƒFƒNƒgƒtƒ@ƒCƒ‹‚ğì‚éƒ‚[ƒh	
-[INSTRSET "i486p"]				; 486‚Ì–½—ß‚Ü‚Åg‚¢‚½‚¢‚Æ‚¢‚¤‹Lq
-[BITS 32]						; 32ƒrƒbƒgƒ‚[ƒh—p‚Ì‹@ŠBŒê‚ğì‚ç‚¹‚é
-[FILE "naskfunc.nas"]			; ƒ\[ƒXƒtƒ@ƒCƒ‹–¼î•ñ
+[FORMAT "WCOFF"]				; ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œã‚‹ãƒ¢ãƒ¼ãƒ‰	
+[INSTRSET "i486p"]				; 486ã®å‘½ä»¤ã¾ã§ä½¿ã„ãŸã„ã¨ã„ã†è¨˜è¿°
+[BITS 32]						; 32ãƒ“ãƒƒãƒˆãƒ¢ãƒ¼ãƒ‰ç”¨ã®æ©Ÿæ¢°èªã‚’ä½œã‚‰ã›ã‚‹
+[FILE "naskfunc.nas"]			; ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«åæƒ…å ±
 
 		GLOBAL	_io_hlt, _io_cli, _io_sti, _io_stihlt
 		GLOBAL	_io_in8,  _io_in16,  _io_in32
@@ -79,14 +79,14 @@ _io_out32:	; void io_out32(int port, int data);
 		RET
 
 _io_load_eflags:	; int io_load_eflags(void);
-		PUSHFD		; PUSH EFLAGS ‚Æ‚¢‚¤ˆÓ–¡
+		PUSHFD		; PUSH EFLAGS ã¨ã„ã†æ„å‘³
 		POP		EAX
 		RET
 
 _io_store_eflags:	; void io_store_eflags(int eflags);
 		MOV		EAX,[ESP+4]
 		PUSH	EAX
-		POPFD		; POP EFLAGS ‚Æ‚¢‚¤ˆÓ–¡
+		POPFD		; POP EFLAGS ã¨ã„ã†æ„å‘³
 		RET
 
 _load_gdtr:		; void load_gdtr(int limit, int addr);
@@ -195,7 +195,7 @@ _asm_inthandler0c:
 		POPAD
 		POP		DS
 		POP		ES
-		ADD		ESP,4			; INT 0x0c ‚Å‚àA‚±‚ê‚ª•K—v
+		ADD		ESP,4			; INT 0x0c ã§ã‚‚ã€ã“ã‚ŒãŒå¿…è¦
 		IRETD
 
 _asm_inthandler0d:
@@ -209,98 +209,19 @@ _asm_inthandler0d:
 		MOV		DS,AX
 		MOV		ES,AX
 		CALL	_inthandler0d
-		CMP		EAX,0		; ‚±‚±‚¾‚¯ˆá‚¤
-		JNE		end_app		; ‚±‚±‚¾‚¯ˆá‚¤
+		CMP		EAX,0		; ã“ã“ã ã‘é•ã†
+		JNE		end_app		; ã“ã“ã ã‘é•ã†
 		POP		EAX
 		POPAD
 		POP		DS
 		POP		ES
-		ADD		ESP,4			; INT 0x0d ‚Å‚ÍA‚±‚ê‚ª•K—v
+		ADD		ESP,4			; INT 0x0d ã§ã¯ã€ã“ã‚ŒãŒå¿…è¦
 		IRETD
 
 _memtest_sub:	; unsigned int memtest_sub(unsigned int start, unsigned int end)
-		PUSH	EDI						; iEBX, ESI, EDI ‚àg‚¢‚½‚¢‚Ì‚Åj
+		PUSH	EDI						; ï¼ˆEBX, ESI, EDI ã‚‚ä½¿ã„ãŸã„ã®ã§ï¼‰
 		PUSH	ESI
 		PUSH	EBX
 		MOV		ESI,0xaa55aa55			; pat0 = 0xaa55aa55;
 		MOV		EDI,0x55aa55aa			; pat1 = 0x55aa55aa;
-		MOV		EAX,[ESP+12+4]			; i = start;
-mts_loop:
-		MOV		EBX,EAX
-		ADD		EBX,0xffc				; p = i + 0xffc;
-		MOV		EDX,[EBX]				; old = *p;
-		MOV		[EBX],ESI				; *p = pat0;
-		XOR		DWORD [EBX],0xffffffff	; *p ^= 0xffffffff;
-		CMP		EDI,[EBX]				; if (*p != pat1) goto fin;
-		JNE		mts_fin
-		XOR		DWORD [EBX],0xffffffff	; *p ^= 0xffffffff;
-		CMP		ESI,[EBX]				; if (*p != pat0) goto fin;
-		JNE		mts_fin
-		MOV		[EBX],EDX				; *p = old;
-		ADD		EAX,0x1000				; i += 0x1000;
-		CMP		EAX,[ESP+12+8]			; if (i <= end) goto mts_loop;
-		JBE		mts_loop
-		POP		EBX
-		POP		ESI
-		POP		EDI
-		RET
-mts_fin:
-		MOV		[EBX],EDX				; *p = old;
-		POP		EBX
-		POP		ESI
-		POP		EDI
-		RET
-
-_farjmp:		; void farjmp(int eip, int cs);
-		JMP		FAR	[ESP+4]				; eip, cs
-		RET
-
-_farcall:		; void farcall(int eip, int cs);
-		CALL	FAR	[ESP+4]				; eip, cs
-		RET
-
-_asm_hrb_api:
-		STI
-		PUSH	DS
-		PUSH	ES
-		PUSHAD		; •Û‘¶‚Ì‚½‚ß‚ÌPUSH
-		PUSHAD		; hrb_api‚É‚í‚½‚·‚½‚ß‚ÌPUSH
-		MOV		AX,SS
-		MOV		DS,AX		; OS—p‚ÌƒZƒOƒƒ“ƒg‚ğDS‚ÆES‚É‚à“ü‚ê‚é
-		MOV		ES,AX
-		CALL	_hrb_api
-		CMP		EAX,0		; EAX‚ª0‚Å‚È‚¯‚ê‚ÎƒAƒvƒŠI—¹ˆ—
-		JNE		end_app
-		ADD		ESP,32
-		POPAD
-		POP		ES
-		POP		DS
-		IRETD
-end_app:
-;	EAX‚Ítss.esp0‚Ì”Ô’n
-		MOV		ESP,[EAX]
-		POPAD
-		RET					; cmd_app‚Ö‹A‚é
-
-_start_app:		; void start_app(int eip, int cs, int esp, int ds, int *tss_esp0);
-		PUSHAD		; 32ƒrƒbƒgƒŒƒWƒXƒ^‚ğ‘S•”•Û‘¶‚µ‚Ä‚¨‚­
-		MOV		EAX,[ESP+36]	; ƒAƒvƒŠ—p‚ÌEIP
-		MOV		ECX,[ESP+40]	; ƒAƒvƒŠ—p‚ÌCS
-		MOV		EDX,[ESP+44]	; ƒAƒvƒŠ—p‚ÌESP
-		MOV		EBX,[ESP+48]	; ƒAƒvƒŠ—p‚ÌDS/SS
-		MOV		EBP,[ESP+52]	; tss.esp0‚Ì”Ô’n
-		MOV		[EBP  ],ESP		; OS—p‚ÌESP‚ğ•Û‘¶
-		MOV		[EBP+4],SS		; OS—p‚ÌSS‚ğ•Û‘¶
-		MOV		ES,BX
-		MOV		DS,BX
-		MOV		FS,BX
-		MOV		GS,BX
-;	ˆÈ‰º‚ÍRETF‚ÅƒAƒvƒŠ‚És‚©‚¹‚é‚½‚ß‚ÌƒXƒ^ƒbƒN’²®
-		OR		ECX,3			; ƒAƒvƒŠ—p‚ÌƒZƒOƒƒ“ƒg”Ô†‚É3‚ğOR‚·‚é
-		OR		EBX,3			; ƒAƒvƒŠ—p‚ÌƒZƒOƒƒ“ƒg”Ô†‚É3‚ğOR‚·‚é
-		PUSH	EBX				; ƒAƒvƒŠ‚ÌSS
-		PUSH	EDX				; ƒAƒvƒŠ‚ÌESP
-		PUSH	ECX				; ƒAƒvƒŠ‚ÌCS
-		PUSH	EAX				; ƒAƒvƒŠ‚ÌEIP
-		RETF
-;	ƒAƒvƒŠ‚ªI—¹‚µ‚Ä‚à‚±‚±‚É‚Í—ˆ‚È‚¢
+		MOV		EAX,[ESP+12+4

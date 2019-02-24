@@ -89,10 +89,10 @@ typedef struct {
 #endif
 
 #ifdef INITGUID
-  #define DEFINE_GUID(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \
+  #define DEFINE_GUID(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) ¥
       MY_EXTERN_C const GUID name = { l, w1, w2, { b1, b2,  b3,  b4,  b5,  b6,  b7,  b8 } }
 #else
-  #define DEFINE_GUID(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) \
+  #define DEFINE_GUID(name, l, w1, w2, b1, b2, b3, b4, b5, b6, b7, b8) ¥
       MY_EXTERN_C const GUID name
 #endif
 
@@ -189,29 +189,4 @@ typedef struct tagPROPVARIANT
 } PROPVARIANT;
 
 typedef tagPROPVARIANT tagVARIANT;
-typedef tagVARIANT VARIANT;
-typedef VARIANT VARIANTARG;
-
-BSTR SysAllocStringByteLen(LPCSTR psz, unsigned int len);
-BSTR SysAllocString(const OLECHAR *sz);
-void SysFreeString(BSTR bstr);
-UINT SysStringByteLen(BSTR bstr);
-UINT SysStringLen(BSTR bstr);
-
-DWORD GetLastError();
-HRESULT VariantClear(VARIANTARG *prop);
-HRESULT VariantCopy(VARIANTARG *dest, VARIANTARG *src);
-LONG CompareFileTime(const FILETIME* ft1, const FILETIME* ft2);
-
-#define CP_ACP    0
-#define CP_OEMCP  1
-
-typedef enum tagSTREAM_SEEK
-{	
-  STREAM_SEEK_SET	= 0,
-  STREAM_SEEK_CUR	= 1,
-  STREAM_SEEK_END	= 2
-} STREAM_SEEK;
-
-#endif
-#endif
+typedef tagVARIANT 
