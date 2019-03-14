@@ -8,6 +8,7 @@ void init_palette(void);
 void set_palette(int start, int end, unsigned char *rgb);
 void init_screen(char *vram, int x, int y);
 void boxfill8(unsigned char *vram, int xsize, unsigned char c, int x0, int y0, int x1, int y1);
+void putfont8(char *vram, int xsize, int x, int y, char c, char *font);
 
 // 画素座標(x,y)に対応するVRAMの番地は、
 // 0xa0000 + x + y * 320
@@ -36,20 +37,15 @@ struct BOOTINFO {
 };
 
 void HariMain(void) {
-	char *vram;
-	int xsize, ysize;
-	short *binfo_scrnx, *binfo_scrny;
-	int *binfo_vram;
+	struct BOOTINFO *binfo = (struct BOOTINFO *) 0x0ff0;
+	static char font_A[16] = {
+		0x00, 0x18, 0x18, 0x18, 0x18, 0x24, 0x24, 0x24,
+		0x24, 0x7e, 0x42, 0x42, 0x42, 0xe7, 0x00, 0x00
+	};
 	init_palette();
-	binfo_scrnx = (short*) 0x0ff4;
-	binfo_scrny = (short*) 0x0ff6;
-	binfo_vram = (int*) 0x0ff8;
-	vram = (char *) *binfo_vram;
-	xsize = *binfo_scrnx;
-	ysize = *binfo_scrny;
+	init_screen(binfo->vram, binfo->scrnx, binfo->scrny);
 
-	init_screen(vram, xsize, ysize);
-
+	putfont8(binfo->vram, binfo->scrnx, 10, 10, COL8_FFFFFF, font_A);
 	// 0xa0000 - 0xbffff ビデオアクセス用アドレス空間
 	// p = (char *) 0xa0000;
 
@@ -62,6 +58,24 @@ void HariMain(void) {
 	for (;;) {
 		io_hlt();
 	}
+}
+
+void putfont8(char *vram, int xsize, int x, int y, char c, char *font) {
+	char d, *p;
+	int i;
+	for (i = 0; i < 16; i++) {
+		d = font[i];
+		p = vram + (y + i) * xsize + x;
+		if ((d & 0x80) != 0) { p[0] = c; }
+		if ((d & 0x40) != 0) { p[1] = c; }
+		if ((d & 0x20) != 0) { p[2] = c; }
+		if ((d & 0x10) != 0) { p[3] = c; }
+		if ((d & 0x08) != 0) { p[4] = c; }
+		if ((d & 0x04) != 0) { p[5] = c; }
+		if ((d & 0x02) != 0) { p[6] = c; }
+		if ((d & 0x01) != 0) { p[7] = c; }
+	}
+	return;
 }
 
 void init_screen(char *vram, int x, int y) {
