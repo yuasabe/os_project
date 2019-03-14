@@ -1,1 +1,10 @@
-HariboteOS/z_tools/qemu/fdimage0.bin
+*.bim
+*.gas
+*.hrb
+*.lst
+*.map
+*.nas
+*.obj
+*.img
+*.sys
+*.bin
